@@ -1,0 +1,115 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Cloud Toolbox</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link">
+                <span aria-hidden="true"></span> Toolbox
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-1">
+            <input class="form-control rounded-0" placeholder="Search..." type="text" @bind-value="FilterText" @bind-value:event="oninput" @onkeyup="FilterMenuItems" />
+        </div>
+
+        @foreach (var item in FilteredMenuItems)
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="@item.Href">
+                    @item.Name
+                </NavLink>
+            </div>
+        }
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link">
+                <span aria-hidden="true"></span> Developer Toolbox
+            </NavLink>
+        </div>
+    </nav>
+
+</div>
+
+@code {
+    public struct NavMenuItem
+    {
+        public string Name { get; }
+        public string Href { get; }
+
+        public NavMenuItem(string name, string href)
+        {
+            Name = name;
+            Href = href;
+        }
+    }
+
+    public List<NavMenuItem> FilteredMenuItems { get; set; }
+    public string FilterText { get; set; }
+
+    private List<NavMenuItem> MenuItems { get; }
+    private bool collapseNavMenu = true;
+    private bool hasSearched = false;
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    public NavMenu()
+    {
+        MenuItems = new List<NavMenuItem>();
+        CreateToFromItem("Base64");
+        CreateToFromItem("Hex");
+        CreateToFromItem("Binary");
+
+        FilteredMenuItems = MenuItems;
+    }
+
+    private void CreateToFromItem(string name)
+    {
+        MenuItems.Add(new NavMenuItem($"To {name}", $"toolbox/to-{name.ToLower()}"));
+        MenuItems.Add(new NavMenuItem($"From {name}", $"toolbox/from-{name.ToLower()}"));
+    }
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+
+    private void FilterMenuItems()
+    {
+        if (FilterText != null && FilterText.Length > 0)
+        {
+            hasSearched = true;
+            FilteredMenuItems = MenuItems.Where(x => x.Name.ToLower().Contains(FilterText.ToLower())).ToList();
+        } else
+        {
+            if (hasSearched)
+            {
+                FilteredMenuItems = MenuItems;
+                InvokeAsync(() =>
+                   {
+
+                       StateHasChanged();
+                   });
+            }
+
+        }
+    }
+}

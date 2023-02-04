@@ -1,0 +1,51 @@
+﻿@page "/Toolbox/From-Binary"
+@using System.Text;
+
+<PageTitle>From Binary</PageTitle>
+
+<h1>From Binary</h1>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <textarea @bind-value="Input" @onchange="OnChange" @bind-value:event="oninput" class="form-control" name="input" rows="3"></textarea>
+</div>
+
+<div class="mb-3">
+    <label for="output" class="form-label">Ouput</label>
+    <textarea class="form-control" name="output" rows="3" readonly>@Output</textarea>
+</div>
+
+@code {
+    private string? Input { get; set; }
+    private string? Output { get; set; }
+
+    private void OnChange()
+    {
+        if (Input != null)
+        {
+            try
+            {
+                var input = Input.Replace(" ", "");
+
+                StringBuilder sb = new StringBuilder();
+                while (input.Length > 0)
+                {
+                    string block = input.Substring(0, 8);
+                    input = input.Substring(8);
+                    int value = 0;
+                    foreach (int x in block)
+                    {
+                        int temp = x - 48;
+                        value = (value << 1) | temp;
+                    }
+                    sb.Append(Convert.ToChar(value));
+                }
+
+                Output = sb.ToString();
+            } catch (Exception _)
+            {
+                Output = "Invalid input";
+            }
+        }
+    }
+}

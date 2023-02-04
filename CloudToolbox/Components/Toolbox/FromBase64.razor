@@ -1,0 +1,35 @@
+﻿@page "/Toolbox/From-Base64"
+@using System.Text;
+
+<PageTitle>From Base64</PageTitle>
+
+<h1>From Base64</h1>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <textarea @bind-value="Input" @onchange="OnChange" @bind-value:event="oninput" class="form-control" name="input" rows="3"></textarea>
+</div>
+
+<div class="mb-3">
+    <label for="output" class="form-label">Ouput</label>
+    <textarea class="form-control" name="output" rows="3" readonly>@Output</textarea>
+</div>
+
+@code {
+    private string? Input { get; set; }
+    private string? Output { get; set; }
+
+    private void OnChange()
+    {
+        if (Input != null)
+        {
+            try
+            {
+                Output = Encoding.UTF8.GetString(Convert.FromBase64String(Input));
+            } catch (Exception _)
+            {
+                Output = "Invalid input";
+            }
+        }
+    }
+}
