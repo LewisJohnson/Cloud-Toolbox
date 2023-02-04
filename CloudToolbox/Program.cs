@@ -1,6 +1,4 @@
 using CloudToolbox.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 
 namespace CloudToolbox
 {
@@ -25,14 +23,6 @@ namespace CloudToolbox
 
 
             app.UseStaticFiles();
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllerRoute(
-            //      name: "areas",
-            //      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-            //    );
-            //});
 
             app.UseRouting();
 
