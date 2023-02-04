@@ -1,35 +1,29 @@
-﻿@page "/Toolbox/From-Base64"
+﻿@namespace CloudToolbox.Toolbox
+
+@page "/Toolbox/From-Base64"
 @using System.Text;
+@using CloudToolbox.Toolbox.Shared;
+@using CloudToolbox.Data;
 
-<PageTitle>From Base64</PageTitle>
-
+<PageTitle>@Constants.TITLE_PREFIX From Base64</PageTitle>
 <h1>From Base64</h1>
 
-<div class="mb-3">
-    <label for="input" class="form-label">Input</label>
-    <textarea @bind-value="Input" @onchange="OnChange" @bind-value:event="oninput" class="form-control" name="input" rows="3"></textarea>
-</div>
-
-<div class="mb-3">
-    <label for="output" class="form-label">Ouput</label>
-    <textarea class="form-control" name="output" rows="3" readonly>@Output</textarea>
-</div>
+<InputOutput onChangeEvent="@OnChange" />
 
 @code {
-    private string? Input { get; set; }
-    private string? Output { get; set; }
-
-    private void OnChange()
+    public async Task<string> OnChange(string input)
     {
-        if (Input != null)
+        if (input != null)
         {
             try
             {
-                Output = Encoding.UTF8.GetString(Convert.FromBase64String(Input));
+                return Encoding.UTF8.GetString(Convert.FromBase64String(input));
             } catch (Exception _)
             {
-                Output = "Invalid input";
+                return  "Invalid input";
             }
         }
+
+        return string.Empty;
     }
 }

@@ -1,29 +1,22 @@
 ﻿@page "/Toolbox/To-Base64"
 @using System.Text;
+@using CloudToolbox.Toolbox.Shared;
+@using CloudToolbox.Data;
 
-<PageTitle>To Base64</PageTitle>
+<PageTitle>@Constants.TITLE_PREFIX To Base64</PageTitle>
 
 <h1>To Base64</h1>
 
-<div class="mb-3">
-    <label for="input" class="form-label">Input</label>
-    <textarea @bind-value="Input" @onchange="OnChange" @bind-value:event="oninput" class="form-control" name="input" rows="3"></textarea>
-</div>
-
-<div class="mb-3">
-    <label for="output" class="form-label">Ouput</label>
-    <textarea class="form-control" name="output" rows="3" readonly>@Output</textarea>
-</div>
+<InputOutput onChangeEvent="@OnChange" />
 
 @code {
-    private string? Input { get; set; }
-    private string? Output { get; set; }
-
-    private void OnChange()
+    public async Task<string> OnChange(string input)
     {
-        if (Input != null)
+        if (input != null)
         {
-            Output = Convert.ToBase64String(Encoding.UTF8.GetBytes(Input ?? string.Empty));
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(input ?? string.Empty));
         }
+
+        return string.Empty;
     }
 }
