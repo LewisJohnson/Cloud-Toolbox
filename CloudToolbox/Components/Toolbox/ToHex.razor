@@ -1,11 +1,12 @@
-﻿@page "/Toolbox/To-Hex"
+﻿@namespace CloudToolbox.Toolbox
+@page "/Toolbox/To-Hex"
+
 @using System.Text;
 @using CloudToolbox.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<PageTitle>@Constants.TITLE_PREFIX To Hex</PageTitle>
-
-<h1>To Hex</h1>
+<ToolboxHeader Title="To Hex"
+               Description="Converts the input string to hexadecimal bytes" />
 
 <InputOutput onChangeEvent="@OnChange" />
 

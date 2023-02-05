@@ -1,11 +1,13 @@
-﻿@page "/Toolbox/To-Binary"
+﻿@namespace CloudToolbox.Toolbox
+@page "/Toolbox/To-Binary"
+
 @using System.Text;
 @using CloudToolbox.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<PageTitle>@Constants.TITLE_PREFIX To Binary</PageTitle>
-
-<h1>To Binary</h1>
+<ToolboxHeader Title="To Binary"
+               Description="Converts the input string to hexadecimal bytes" 
+/>
 
 <InputOutput onChangeEvent="@OnChange" />
 

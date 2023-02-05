@@ -1,13 +1,13 @@
 ﻿@namespace CloudToolbox.Toolbox
-
 @page "/Toolbox/From-Base64"
+
 @using System.Text;
 @using CloudToolbox.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<PageTitle>@Constants.TITLE_PREFIX From Base64</PageTitle>
-<h1>From Base64</h1>
-
+<ToolboxHeader Title="From Base64"
+               Description="Converts a UTF-8 Base64 string back into its raw value" 
+/>
 <InputOutput onChangeEvent="@OnChange" />
 
 @code {

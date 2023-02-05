@@ -1,11 +1,13 @@
-﻿@page "/Toolbox/From-Binary"
+﻿@namespace CloudToolbox.Toolbox
+@page "/Toolbox/From-Binary"
+
 @using System.Text;
 @using CloudToolbox.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<PageTitle>@Constants.TITLE_PREFIX From Binary</PageTitle>
-
-<h1>From Binary</h1>
+<ToolboxHeader Title="From Binary"
+               Description="Converts a hexadecimal byte string back into its raw value" 
+/>
 
 <InputOutput onChangeEvent="@OnChange" />
 

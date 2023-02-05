@@ -1,11 +1,13 @@
-﻿@page "/Toolbox/between-times"
+﻿@namespace CloudToolbox.Toolbox
+@page "/Toolbox/between-times"
+
 @using System.Text;
 @using CloudToolbox.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<PageTitle>@Constants.TITLE_PREFIX Days Between Two Times</PageTitle>
+<ToolboxHeader Title="Duration Between Two Times"
+               Description="How many hours, minutes, and seconds are there between two moments in time?" />
 
-<h1>Duration Between Two Times</h1>
 <div class="row">
     <div class="col-6 mb-3">
         <label for="startDate" class="form-label">Start Time</label>
