@@ -1,19 +1,44 @@
 ﻿@namespace CloudToolbox.Components.Toolbox.Shared
 
 <div class="mb-3">
-    <label for="input" class="form-label">Input</label>
+    <div class="w-100 bg-light p-2">
+        <div class="row">
+            <div class="col-10">
+                <label for="input" class="form-label fw-bold">Input</label>
+            </div>
+            <div class="col-2">
+                <p class="fw-light text-muted m-0 text-end" style="font-size: 10px; line-height:10px;">Length: @InputLength</p>
+                <p class="fw-light text-muted m-0 pt-1 text-end" style="font-size: 10px; line-height:10px;">Lines: @InputLineCount</p>
+            </div>
+        </div>
+    </div>
+
     <textarea @bind-value="Input" @onchange="OnChange" @bind-value:event="oninput" class="form-control" name="input" rows="3"></textarea>
 </div>
 
 <div class="mb-3">
-    <label for="output" class="form-label">Ouput</label>
+    <div class="w-100 bg-light p-2">
+        <div class="row">
+            <div class="col-10">
+                <label for="output" class="form-label fw-bold">Result</label>
+            </div>
+            <div class="col-2">
+                <p class="fw-light text-muted m-0 text-end" style="font-size: 10px; line-height:10px;">Length: @OutputLength</p>
+                <p class="fw-light text-muted m-0 pt-1 text-end" style="font-size: 10px; line-height:10px;">Lines: @OutputLineCount</p>
+            </div>
+        </div>
+    </div>
     <textarea class="form-control" name="output" rows="3" readonly>@Output</textarea>
 </div>
 
 @code {
     public string? Input { get; set; }
-
     public string Output { get; set; }
+
+    public int InputLength { get; set; }
+    public int InputLineCount { get; set; }
+    public int OutputLength { get; set; }
+    public int OutputLineCount { get; set; }
 
     public InputOutput()
     {
@@ -25,6 +50,23 @@
 
     protected async Task OnChange()
     {
-        Output = await onChangeEvent(Input);
+        if (Input != null)
+        {
+            Output = await onChangeEvent(Input);
+            InputLength = Input.Length;
+            InputLineCount = LineCount(Input);
+
+            OutputLength = Output.Length;
+            OutputLineCount = LineCount(Output);
+        }
+    }
+
+    private static int LineCount(string str)
+    {
+        int index = -1;
+        int count = 0;
+        while (-1 != (index = str.IndexOf('\n', index + 1)))
+            count++;
+        return count + 1;
     }
 }
