@@ -5,19 +5,88 @@
 @using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<ToolboxHeader Title="To Lower Case"
-               Description="Converts the input string to lower case" />
+<ToolboxHeader Title="Times/Multiplication Tables" Description="This free colorful and printable addition maths table is a great educational tool for children to upgrade their mathematic skills at school and home!" />
 
-<InputOutput onChangeEvent="@OnChange" />
+<form class="row">
+    <div class="mb-3 col-3">
+        <label for="tableSize" class="form-label">Table size</label>
+        <input id="tableSize" class="form-control" type="number" min="3" max="24" @bind-value="TableSize" @onchange="OnChange" @bind-value:event="oninput" />
+    </div>
+
+    <div class="mb-3 col-3">
+        <label for="upToSize" class="form-label">Up to</label>
+        <input id="upToSize" class="form-control" type="number" min="3" max="24" @bind-value="UpToSize" @onchange="OnChange" @bind-value:event="oninput" />
+    </div>
+</form>
+
+<div class="row">
+    @for (var i = 1; i <= TableSize; i++)
+    {
+        <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="card" style="background-color: @GetColour(i)">
+                <div class="card-body">
+                    <h5 class="card-title text-capitalize">@GetTitle(i)</h5>
+                    @for (var j = 1; j <= UpToSize; j++)
+                    {
+                        <p>@i x @j = <b>@(i * j)</b></p>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
 
 @code {
-    public async Task<string> OnChange(string input)
-    {
-        if (input != null)
-        {
-            return input.ToLower();
-        }
+    private int TableSize { get; set; }
+    private int UpToSize { get; set; }
 
-        return string.Empty;
+    public TimesTables()
+    {
+        TableSize = 12;
+        UpToSize = 12;
+    }
+
+    private void OnChange()
+    {
+        TableSize = Math.Clamp(TableSize, 3, 24);
+        UpToSize = Math.Clamp(UpToSize, 3, 24);
+    }
+
+    public string GetColour(int idx)
+    {
+        switch (idx)
+        {
+            case 1:
+                return "#fec5bb";
+            case 2:
+                return "#fcd5ce";
+            case 3:
+                return "#fae1dd";
+            case 4:
+                return "#f8edeb";
+            case 5:
+                return "#e8e8e4";
+            case 6:
+                return "#d8e2dc";
+            case 7:
+                return "#ece4db";
+            case 8:
+                return "#ffe5d9";
+            case 9:
+                return "#ffd7ba";
+            case 10:
+                return "#fcd5ce";
+            case 11:
+                return "#f8edeb";
+            case 12:
+                return "#d8e2dc";
+            default:
+                return "#ffdfba";
+        }
+    }
+
+    public string GetTitle(int idx)
+    {
+        return Constants.ENGLISH_NUMBERS.GetValueOrDefault(idx) ?? "";
     }
 }
