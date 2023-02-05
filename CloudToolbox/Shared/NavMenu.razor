@@ -15,12 +15,6 @@
             </NavLink>
         </div>
 
-@*        <div class="nav-item px-3">
-            <NavLink class="nav-link">
-                <span aria-hidden="true"></span> Developer Toolbox
-            </NavLink>
-        </div>*@
-
         <div class="nav-item px-3">
             <NavLink class="nav-link">
                 <span aria-hidden="true"></span> Toolbox
@@ -33,11 +27,19 @@
 
         @foreach (var item in FilteredMenuItems)
         {
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="@item.Href">
-                    @item.Name
-                </NavLink>
-            </div>
+            if (item.Type == MenuItemType.Link)
+            {
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="@item.Href">
+                        @item.Name
+                    </NavLink>
+                </div>
+            } else
+            {
+                <div class="nav-item px-3">
+                    <h6>@item.Name</h6>
+                </div>
+            }
         }
 
         <div class="nav-item px-3">
@@ -45,21 +47,33 @@
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
             </NavLink>
         </div>
-
     </nav>
-
 </div>
 
 @code {
+    public enum MenuItemType
+    {
+        Link = 0,
+        Header = 1
+    }
+
     public struct NavMenuItem
     {
         public string Name { get; }
         public string Href { get; }
+        public MenuItemType Type { get; }
 
         public NavMenuItem(string name, string href)
         {
             Name = name;
             Href = href;
+        }
+
+        public NavMenuItem(string name, MenuItemType type)
+        {
+            Name = name;
+            Href = string.Empty;
+            Type = type;
         }
     }
 
@@ -74,12 +88,26 @@
     public NavMenu()
     {
         MenuItems = new List<NavMenuItem>();
+
+        CreateHeaderItem("Date & Time");
+        MenuItems.Add(new NavMenuItem($"Duration Between Days", $"toolbox/datetime/between-days"));
+        MenuItems.Add(new NavMenuItem($"Duration Between Times", $"toolbox/datetime/between-times"));
+
+        CreateHeaderItem("Text");
+        MenuItems.Add(new NavMenuItem($"To Lower Case", $"toolbox/text/to-lower-case"));
+        MenuItems.Add(new NavMenuItem($"To Upper Case", $"toolbox/text/to-upper-case"));
+        MenuItems.Add(new NavMenuItem($"To Sentence/Title Case", $"toolbox/text/to-sentence-case"));
+
+        CreateHeaderItem("Units");
+
+        CreateHeaderItem("Maths");
+        MenuItems.Add(new NavMenuItem($"Percentage", $"toolbox/maths/percentage-calculator"));
+        MenuItems.Add(new NavMenuItem($"Percentage", $"toolbox/maths/times-tables"));
+
+        CreateHeaderItem("Developer");
         CreateToFromItem("Base64");
         CreateToFromItem("Hex");
         CreateToFromItem("Binary");
-
-        MenuItems.Add(new NavMenuItem($"Duration Between Days", $"toolbox/between-days"));
-        MenuItems.Add(new NavMenuItem($"Duration Between Times", $"toolbox/between-times"));
 
         FilteredMenuItems = MenuItems;
     }
@@ -88,6 +116,11 @@
     {
         MenuItems.Add(new NavMenuItem($"To {name}", $"toolbox/to-{name.ToLower()}"));
         MenuItems.Add(new NavMenuItem($"From {name}", $"toolbox/from-{name.ToLower()}"));
+    }
+
+    private void CreateHeaderItem(string name)
+    {
+        MenuItems.Add(new NavMenuItem(name, MenuItemType.Header));
     }
 
     private void ToggleNavMenu()
