@@ -1,4 +1,4 @@
-﻿@namespace CloudToolbox.Toolbox.Shared
+﻿@namespace CloudToolbox.Components.Toolbox.Shared
 
 <div class="mb-3">
     <label for="input" class="form-label">Input</label>
@@ -14,6 +14,11 @@
     public string? Input { get; set; }
 
     public string Output { get; set; }
+
+    public InputOutput()
+    {
+        Output = string.Empty;
+    }
 
     [Parameter]
     public Func<string, Task<string>> onChangeEvent { get; set; }
