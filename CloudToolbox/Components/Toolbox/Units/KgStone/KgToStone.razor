@@ -1,0 +1,29 @@
+﻿@namespace CloudToolbox.Components.Toolbox
+@page "/Toolbox/Units/kg-to-stone"
+
+@using System.Text;
+@using CloudToolbox.Components.Toolbox.Shared;
+@using CloudToolbox.Data;
+
+<ToolboxHeader Title="kg to stone"
+               Description="Converts kg to stone (st)" />
+
+<InputOutput onChangeEvent="@OnChange" />
+
+@code {
+    public async Task<string> OnChange(string input)
+    {
+        if (input != null)
+        {
+            if (decimal.TryParse(input, out num))
+            {
+                return num / 6.35;
+            } else
+            {
+                return "Invalid input";
+            }
+        }
+
+        return string.Empty;
+    }
+}
