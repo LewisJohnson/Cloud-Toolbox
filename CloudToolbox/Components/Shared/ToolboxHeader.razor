@@ -9,8 +9,14 @@
 
 @code {
     [Parameter]
-    public string? Title { get; set; }
+    public string Title { get; set; }
 
     [Parameter]
     public string Description { get; set; }
+
+    public ToolboxHeader()
+    {
+        Title = string.Empty;
+        Description = string.Empty;
+    }
 }

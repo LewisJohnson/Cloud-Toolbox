@@ -1,0 +1,23 @@
+﻿@namespace CloudToolbox.Components.Toolbox
+@page "/Toolbox/Maths/Times-Tables"
+
+@using System.Text;
+@using CloudToolbox.Components.Toolbox.Shared;
+@using CloudToolbox.Data;
+
+<ToolboxHeader Title="To Lower Case"
+               Description="Converts the input string to lower case" />
+
+<InputOutput onChangeEvent="@OnChange" />
+
+@code {
+    public async Task<string> OnChange(string input)
+    {
+        if (input != null)
+        {
+            return input.ToLower();
+        }
+
+        return string.Empty;
+    }
+}

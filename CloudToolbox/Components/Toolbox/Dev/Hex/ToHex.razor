@@ -1,0 +1,23 @@
+﻿@namespace CloudToolbox.Components.Toolbox
+@page "/Toolbox/Dev/To-Hex"
+
+@using System.Text;
+@using CloudToolbox.Components.Toolbox.Shared;
+@using CloudToolbox.Data;
+
+<ToolboxHeader Title="To Hex"
+               Description="Converts the input string to hexadecimal bytes" />
+
+<InputOutput onChangeEvent="@OnChange" />
+
+@code {
+    public async Task<string> OnChange(string input)
+    {
+        if (input != null)
+        {
+            return Convert.ToHexString(Encoding.UTF8.GetBytes(input));
+        }
+
+        return string.Empty;
+    }
+}

@@ -1,12 +1,12 @@
 ﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/To-Hex"
+@page "/Toolbox/Dev/To-Base64"
 
 @using System.Text;
 @using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<ToolboxHeader Title="To Hex"
-               Description="Converts the input string to hexadecimal bytes" />
+<ToolboxHeader Title="To Base64"
+               Description="Converts the input string into an UTF-8 Base64 string" />
 
 <InputOutput onChangeEvent="@OnChange" />
 
@@ -15,7 +15,7 @@
     {
         if (input != null)
         {
-            return Convert.ToHexString(Encoding.UTF8.GetBytes(input ?? string.Empty));
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(input ?? string.Empty));
         }
 
         return string.Empty;

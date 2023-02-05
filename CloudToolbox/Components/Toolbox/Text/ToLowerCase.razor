@@ -1,12 +1,12 @@
 ﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/To-Base64"
+@page "/Toolbox/To-Lower-Case"
 
 @using System.Text;
 @using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<ToolboxHeader Title="To Base64"
-               Description="Converts the input string into an UTF-8 Base64 string" />
+<ToolboxHeader Title="To Lower Case"
+               Description="Converts the input string to lower case" />
 
 <InputOutput onChangeEvent="@OnChange" />
 
@@ -15,7 +15,7 @@
     {
         if (input != null)
         {
-            return Convert.ToBase64String(Encoding.UTF8.GetBytes(input ?? string.Empty));
+            return input.ToLower();
         }
 
         return string.Empty;

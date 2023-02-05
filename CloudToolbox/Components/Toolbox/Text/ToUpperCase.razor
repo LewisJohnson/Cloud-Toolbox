@@ -1,13 +1,12 @@
 ﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/To-Binary"
+@page "/Toolbox/To-Upper-Case"
 
 @using System.Text;
 @using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<ToolboxHeader Title="To Binary"
-               Description="Converts the input string to hexadecimal bytes" 
-/>
+<ToolboxHeader Title="To Upper Case"
+               Description="Converts the input string to upper case" />
 
 <InputOutput onChangeEvent="@OnChange" />
 
@@ -16,7 +15,7 @@
     {
         if (input != null)
         {
-            return string.Join(" ", Encoding.ASCII.GetBytes(input).Select(byt => Convert.ToString(byt, 2).PadLeft(8, '0')));
+            return input.ToUpper();
         }
 
         return string.Empty;

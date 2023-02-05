@@ -1,0 +1,24 @@
+﻿@namespace CloudToolbox.Components.Toolbox
+@page "/Toolbox/Dev/To-Binary"
+
+@using System.Text;
+@using CloudToolbox.Components.Toolbox.Shared;
+@using CloudToolbox.Data;
+
+<ToolboxHeader Title="To Binary"
+               Description="Converts the input string to hexadecimal bytes" 
+/>
+
+<InputOutput onChangeEvent="@OnChange" />
+
+@code {
+    public async Task<string> OnChange(string input)
+    {
+        if (input != null)
+        {
+            return string.Join(" ", Encoding.ASCII.GetBytes(input).Select(byt => Convert.ToString(byt, 2).PadLeft(8, '0')));
+        }
+
+        return string.Empty;
+    }
+}
