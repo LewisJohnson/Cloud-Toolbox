@@ -4,7 +4,25 @@
 <PageTitle>@Constants.TITLE_PREFIX @Title</PageTitle>
 
 <h1>@Title</h1>
-<h6>@Description</h6>
+<h6>
+    @{
+        int i = 0;
+    }
+    @foreach (var sub in Description.Split('\n'))
+    {
+        if (i > 0)
+        {
+            <small class="text-muted">
+                @sub <br />
+            </small>
+        } else
+        {
+            @sub <br />
+        }
+
+        ++i;
+    }
+</h6>
 <hr />
 
 @code {
