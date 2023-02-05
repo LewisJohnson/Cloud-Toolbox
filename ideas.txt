@@ -13,3 +13,5 @@ percentage calculator
 
 mpg calc
 money calc
+
+salary calculator

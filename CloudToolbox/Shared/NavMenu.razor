@@ -97,14 +97,16 @@
         CreateHeaderItem("Money", "oi-british-pound");
         MenuItems.Add(new NavMenuItem($"GBP to USD", $"toolbox/travel/mpg-Calculator"));
 
-        CreateHeaderItem("Units", "oi-maths-compass");
+        CreateHeaderItem("Units", "oi-calculator");
         CreateViceVersaItem("units", "Kg", "Stone");
         CreateViceVersaItem("units", "Mph", "kph");
         CreateViceVersaItem("units", "Inch", "Cm");
 
         CreateHeaderItem("Maths", "oi-pie-chart");
-        MenuItems.Add(new NavMenuItem($"Percentage Calculator", $"toolbox/maths/percentage-calculator"));
+        //MenuItems.Add(new NavMenuItem($"Percentage Calculator", $"toolbox/maths/percentage-calculator"));
         MenuItems.Add(new NavMenuItem($"Time Tables", $"toolbox/maths/times-tables"));
+        MenuItems.Add(new NavMenuItem($"Time Tables (Grid)", $"toolbox/maths/times-tables-grid"));
+        MenuItems.Add(new NavMenuItem($"Division Tables", $"toolbox/maths/division-tables"));
 
         CreateHeaderItem("Developer", "oi-wrench");
         CreateToFromItem("dev", "Base64");
