@@ -1,0 +1,31 @@
+﻿@namespace CloudToolbox.Components.Toolbox
+@page "/Toolbox/Units/Kph-To-Mph"
+
+@using System.Text;
+@using CloudToolbox.Components.Toolbox.Shared;
+@using CloudToolbox.Data;
+
+<ToolboxHeader Title="km/h To mi/h"
+               Description="Converts mph to kph
+mph = mph, m.p.h., MPH, or mi/h
+kph = km/h or kmph" />
+
+<InputOutput onChangeEvent="@OnChange" />
+
+@code {
+    public async Task<string> OnChange(string input)
+    {
+        if (input != null)
+        {
+            if (decimal.TryParse(input, out num))
+            {
+                return num * 1.609344;
+            } else
+            {
+                return "Invalid input";
+            }
+        }
+
+        return string.Empty;
+    }
+}
