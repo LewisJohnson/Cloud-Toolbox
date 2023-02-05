@@ -1,0 +1,56 @@
+﻿@namespace CloudToolbox.Components.Toolbox
+@page "/Toolbox/Maths/Times-Tables-Grid"
+
+@using System.Text;
+@using CloudToolbox.Components.Toolbox.Shared;
+@using CloudToolbox.Data;
+
+<ToolboxHeader Title="Times/Multiplication Tables (Grid)" />
+
+<form>
+    <div class="mb-3">
+        <label for="tableSize" class="form-label">Table size</label>
+        <input id="tableSize" class="form-control" type="number" min="3" max="24" @bind-value="TableSize" @onchange="OnChange" @bind-value:event="oninput" />
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <tbody>
+            @for (var i = 1; i <= TableSize; i++)
+            {
+                <tr class="col-3 mb-3">
+                    @for (var j = 1; j <= TableSize; j++)
+                    {
+                        if (i == 1 || j == 1)
+                        {
+                            <th class="table-primary fw-bold">@(i * j)</th>
+                        } else
+                        {
+                            <td>@(i * j)</td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    th:hover, td:hover {
+        background-color: #fcd5ce !important;
+    }
+</style>
+
+@code {
+    private int TableSize { get; set; }
+    public TimesTablesGrid()
+    {
+        TableSize = 12;
+    }
+
+    private void OnChange()
+    {
+        TableSize = Math.Clamp(TableSize, 3, 24);
+    }
+}
