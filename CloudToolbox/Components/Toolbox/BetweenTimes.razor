@@ -1,0 +1,72 @@
+﻿@page "/Toolbox/between-times"
+@using System.Text;
+@using CloudToolbox.Toolbox.Shared;
+@using CloudToolbox.Data;
+
+<PageTitle>@Constants.TITLE_PREFIX Days Between Two Times</PageTitle>
+
+<h1>Duration Between Two Times</h1>
+<div class="row">
+    <div class="col-6 mb-3">
+        <label for="startDate" class="form-label">Start Time</label>
+        <input id="startDate" class="form-control" type="time" @bind-value="StartDate" @onchange="OnChange" @bind-value:event="oninput" />
+    </div>
+    <div class="col-6 mb-3">
+        <label for="endDate" class="form-label">End Time</label>
+        <input id="endDate" class="form-control" type="time" @bind-value="EndDate" @onchange="OnChange" @bind-value:event="oninput" />
+    </div>
+
+    <div class="col-12 mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="includeEndDate" @bind-value="IncludeEndDate" @onchange="OnChange" @bind-value:event="oninput">
+            <label class="form-check-label" for="includeEndDate">
+                Include end date
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="mb-3">
+    <label for="output" class="form-label">Ouput</label>
+    <textarea class="form-control" name="output" rows="4" readonly>@Output</textarea>
+</div>
+
+@code {
+    private TimeOnly? StartDate { get; set; }
+    private TimeOnly? EndDate { get; set; }
+    private bool IncludeEndDate { get; set; }
+
+    private string? Output { get; set; }
+
+    public BetweenTimes()
+    {
+        IncludeEndDate = false;
+    }
+
+    private void OnChange()
+    {
+        if (StartDate != null && EndDate != null)
+        {
+            try
+            {
+                TimeSpan ts = (EndDate.Value - StartDate.Value);
+
+                if (IncludeEndDate)
+                {
+                    ts = ts.Add(new TimeSpan(24, 0, 0));
+                }
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine($"{(ts.TotalDays * 100).ToString("#.##")}% of the day");
+                sb.AppendLine($"{ts.TotalHours.ToString("#.##")} hours");
+                sb.AppendLine($"{ts.TotalMinutes} minutes");
+                sb.AppendLine($"{ts.TotalSeconds} seconds");
+
+                Output = sb.ToString();
+            } catch (Exception _)
+            {
+                Output = "Invalid input";
+            }
+        }
+    }
+}
