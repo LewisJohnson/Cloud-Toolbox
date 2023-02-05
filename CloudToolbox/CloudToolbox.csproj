@@ -10,4 +10,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\lewis\Documents\Development\GitHub\CloudToolbox\CloudToolbox\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\lewis\Documents\Development\GitHub\CloudToolbox\CloudToolbox\.editorconfig" />
+  </ItemGroup>
+
 </Project>
