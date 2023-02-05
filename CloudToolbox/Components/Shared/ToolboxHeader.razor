@@ -1,0 +1,16 @@
+﻿@namespace CloudToolbox.Toolbox.Shared
+@using CloudToolbox.Data;
+
+<PageTitle>@Constants.TITLE_PREFIX @Title</PageTitle>
+
+<h1>@Title</h1>
+<h6>@Description</h6>
+<hr />
+
+@code {
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public string Description { get; set; }
+}
