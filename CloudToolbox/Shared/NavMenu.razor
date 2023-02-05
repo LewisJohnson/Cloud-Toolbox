@@ -15,11 +15,11 @@
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+@*        <div class="nav-item px-3">
             <NavLink class="nav-link">
                 <span aria-hidden="true"></span> Developer Toolbox
             </NavLink>
-        </div>
+        </div>*@
 
         <div class="nav-item px-3">
             <NavLink class="nav-link">
@@ -77,6 +77,9 @@
         CreateToFromItem("Base64");
         CreateToFromItem("Hex");
         CreateToFromItem("Binary");
+
+        MenuItems.Add(new NavMenuItem($"Duration Between Days", $"toolbox/between-days"));
+        MenuItems.Add(new NavMenuItem($"Duration Between Times", $"toolbox/between-times"));
 
         FilteredMenuItems = MenuItems;
     }
