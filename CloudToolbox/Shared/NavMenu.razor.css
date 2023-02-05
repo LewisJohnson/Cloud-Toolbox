@@ -12,7 +12,7 @@
 }
 
 .oi {
-    width: 2rem;
+    width: 1.5rem;
     font-size: 1.1rem;
     vertical-align: text-top;
     top: -2px;
@@ -47,6 +47,14 @@
 
 .nav-item ::deep a:hover {
     background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.nav-item > .h6 {
+    color: white;
+    margin-bottom: 0;
+}
+.nav-item > .oi {
     color: white;
 }
 
