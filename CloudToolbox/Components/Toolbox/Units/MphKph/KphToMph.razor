@@ -5,8 +5,8 @@
 @using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<ToolboxHeader Title="km/h To mi/h"
-               Description="Converts mph to kph
+<ToolboxHeader Title="km/h to mi/h"
+               Description="Converts kph to mph
 mph = mph, m.p.h., MPH, or mi/h
 kph = km/h or kmph" />
 
@@ -17,9 +17,9 @@ kph = km/h or kmph" />
     {
         if (input != null)
         {
-            if (decimal.TryParse(input, out num))
+            if (double.TryParse(input, out double num))
             {
-                return num * 1.609344;
+                return (num * 1.609344).ToString("#.##");
             } else
             {
                 return "Invalid input";

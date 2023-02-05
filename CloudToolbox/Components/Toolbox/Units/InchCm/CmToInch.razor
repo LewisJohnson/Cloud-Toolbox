@@ -1,5 +1,5 @@
 ﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Units/inch-to-cm"
+@page "/Toolbox/Units/cm-to-inch"
 
 @using System.Text;
 @using CloudToolbox.Components.Toolbox.Shared;
@@ -15,9 +15,9 @@
     {
         if (input != null)
         {
-            if (decimal.TryParse(input, out num))
+            if (double.TryParse(input, out double num))
             {
-                return num / 2.54;
+                return (num / 2.54).ToString("#.##");
             } else
             {
                 return "Invalid input";

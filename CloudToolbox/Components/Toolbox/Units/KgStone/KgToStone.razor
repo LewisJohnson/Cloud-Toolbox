@@ -15,9 +15,9 @@
     {
         if (input != null)
         {
-            if (decimal.TryParse(input, out num))
+            if (double.TryParse(input, out double num))
             {
-                return num / 6.35;
+                return (num / 6.35).ToString("#.##");
             } else
             {
                 return "Invalid input";
