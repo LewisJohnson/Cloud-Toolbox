@@ -12,8 +12,6 @@
 <div class="row">
     @foreach (var calc in Areas.Travel.Calculators.OrderBy(x => x.DisplayName))
     {
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
-            <a class="btn btn-light w-100" href="@calc.Uri">@calc.DisplayName</a>
-        </div>
+        <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
     }
 </div>
