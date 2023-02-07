@@ -18,4 +18,13 @@
     <None Include="C:\Users\lewis\Documents\Development\GitHub\CloudToolbox\CloudToolbox\.editorconfig" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CloudToolbox.Common\CloudToolbox.Common.csproj" />
+    <ProjectReference Include="..\CloudToolbox.Services\CloudToolbox.Services.csproj" />
+  </ItemGroup>
+
 </Project>
