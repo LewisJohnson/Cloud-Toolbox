@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Dev/To-Hex"
+﻿@attribute [Route(Routes.DEVELOPER_TO_HEX)]
+
+@namespace CloudToolbox.Components.Toolbox.Dev
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="To Hex"
                Description="Converts the input string to hexadecimal bytes" />

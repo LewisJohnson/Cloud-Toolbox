@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/DateTime/Between-Times"
+﻿@attribute [Route(Routes.DATE_TIME_DURATION_BETWEEN_TIMES)]
+
+@namespace CloudToolbox.Components.Toolbox.Dev
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="Duration Between Two Times"
                Description="How many hours, minutes, and seconds are there between two moments in time?" />

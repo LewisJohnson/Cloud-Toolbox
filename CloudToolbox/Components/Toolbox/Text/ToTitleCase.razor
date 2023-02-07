@@ -1,10 +1,12 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Text/To-Title-Case"
+﻿@attribute [Route(Routes.TEXT_TO_TITLE_CASE)]
+
+@namespace CloudToolbox.Components.Toolbox.Text
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
-@using CloudToolbox.Data;
 @using System.Globalization;
+@using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="To Title Case"
                Description="Converts text to title case" />
@@ -16,13 +18,13 @@
     {
         if (input != null)
         {
-            return ToTitleCase(input);
+            return ConvertToTitleCase(input);
         }
 
         return string.Empty;
     }
 
-    public static string ToTitleCase(string str)
+    public static string ConvertToTitleCase(string str)
     {
         return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
     }

@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Dev/From-Base64"
+﻿@attribute [Route(Routes.DEVELOPER_FROM_BASE64)]
+
+@namespace CloudToolbox.Components.Toolbox.Dev
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="From Base64"
                Description="Converts a UTF-8 Base64 string back into its raw value" 

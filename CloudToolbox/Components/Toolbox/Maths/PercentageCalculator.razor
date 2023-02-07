@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Maths/Percentage-Calculator"
+﻿@attribute [Route(Routes.MATHS_PERCENTAGE_CALCULATOR)]
+
+@namespace CloudToolbox.Components.Toolbox.Maths
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="Percentage Calculator"
                Description="Converts the input string to lower case" />

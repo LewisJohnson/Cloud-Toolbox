@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Units/kg-to-stone"
+﻿@attribute [Route(Routes.UNITS_KG_TO_STONE)]
+
+@namespace CloudToolbox.Components.Toolbox.Units
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="kg to stone"
                Description="Converts kg to stone (st)" />

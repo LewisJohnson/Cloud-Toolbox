@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Dev/From-Binary"
+﻿@attribute [Route(Routes.DEVELOPER_FROM_BINARY)]
+
+@namespace CloudToolbox.Components.Toolbox.Dev
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="From Binary"
                Description="Converts a hexadecimal byte string back into its raw value" 

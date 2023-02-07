@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Units/Mph-To-Kph"
+﻿@attribute [Route(Routes.UNITS_MPH_TO_KPH)]
+
+@namespace CloudToolbox.Components.Toolbox.Units
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="mi/h to km/h"
                Description="Converts mph to kph

@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Units/cm-to-inch"
+﻿@attribute [Route(Routes.UNITS_CM_TO_INCH)]
+
+@namespace CloudToolbox.Components.Toolbox.Units
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="Cm to inch"
                Description="Converts centimeters to inches" />

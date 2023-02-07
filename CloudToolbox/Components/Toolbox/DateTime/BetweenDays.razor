@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/DateTime/Between-Days"
+﻿@attribute [Route(Routes.DATE_TIME_DURATION_BETWEEN_DAYS)]
+
+@namespace CloudToolbox.Components.Toolbox.Dev
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="Duration Between Two Dates"
                Description="How many days, hours, minutes, and seconds are there between two dates?" />

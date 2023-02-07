@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Text/To-Lower-Case"
+﻿@attribute [Route(Routes.TEXT_TO_LOWER_CASE)]
+
+@namespace CloudToolbox.Components.Toolbox.Text
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="To Lower Case"
                Description="Converts text to lower case" />

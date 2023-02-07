@@ -1,9 +1,11 @@
-﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Text/To-Upper-Case"
+﻿@attribute [Route(Routes.TEXT_TO_UPPER_CASE)]
+
+@namespace CloudToolbox.Components.Toolbox.Text
 
 @using System.Text;
-@using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
 
 <ToolboxHeader Title="To Upper Case"
                Description="Converts text to upper case" />
