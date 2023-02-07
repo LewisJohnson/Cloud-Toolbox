@@ -1,0 +1,19 @@
+﻿@attribute [Route(Routes.AREA_UNITS)]
+
+@namespace CloudToolbox.Components.Toolbox.Areas
+
+@using System.Text;
+@using CloudToolbox.Data;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Toolbox.Shared;
+
+<h1>Units Calculators</h1>
+
+<div class="row">
+    @foreach (var calc in Areas.Units.Calculators.OrderBy(x => x.DisplayName))
+    {
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <a class="btn btn-light w-100" href="@calc.Uri">@calc.DisplayName</a>
+        </div>
+    }
+</div>
