@@ -1,11 +1,11 @@
 ﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Maths/Division-Tables"
+@page "/Toolbox/Maths/Times-Table"
 
 @using System.Text;
 @using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<ToolboxHeader Title="Division Tables" />
+<ToolboxHeader Title="Times/Multiplication Table" Description="This free colorful and printable addition maths table is a great educational tool for children to upgrade their mathematic skills at school and home!" />
 
 <form class="row">
     <div class="mb-3 col-3">
@@ -22,26 +22,25 @@
 <div class="row">
     @for (var i = 1; i <= TableSize; i++)
     {
-        <div class="col-3 mb-3">
+        <div class="col-12 col-md-6 col-lg-3 mb-3">
             <div class="card" style="background-color: @GetColour(i)">
                 <div class="card-body">
                     <h5 class="card-title text-capitalize">@GetTitle(i)</h5>
                     @for (var j = 1; j <= UpToSize; j++)
                     {
-                        <p></p>
-                        <p>@(i * j) ÷ @i = <b>@((i * j) / i)</b></p>
-
+                        <p>@i x @j = <b>@(i * j)</b></p>
                     }
                 </div>
             </div>
         </div>
     }
 </div>
+
 @code {
     private int TableSize { get; set; }
     private int UpToSize { get; set; }
 
-    public DivionsTables()
+    public TimesTable()
     {
         TableSize = 12;
         UpToSize = 12;
@@ -88,6 +87,6 @@
 
     public string GetTitle(int idx)
     {
-        return Constants.ENGLISH_NUMBERS.GetValueOrDefault(idx).ToString() ?? "";
+        return Constants.ENGLISH_NUMBERS.GetValueOrDefault(idx) ?? "";
     }
 }

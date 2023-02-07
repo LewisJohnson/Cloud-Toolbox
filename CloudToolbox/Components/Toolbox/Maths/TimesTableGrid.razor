@@ -1,11 +1,11 @@
 ﻿@namespace CloudToolbox.Components.Toolbox
-@page "/Toolbox/Maths/Times-Tables-Grid"
+@page "/Toolbox/Maths/Times-Table-Grid"
 
 @using System.Text;
 @using CloudToolbox.Components.Toolbox.Shared;
 @using CloudToolbox.Data;
 
-<ToolboxHeader Title="Times/Multiplication Tables (Grid)" />
+<ToolboxHeader Title="Times/Multiplication Table (Grid)" />
 
 <form>
     <div class="mb-3">
@@ -44,7 +44,7 @@
 
 @code {
     private int TableSize { get; set; }
-    public TimesTablesGrid()
+    public TimesTableGrid()
     {
         TableSize = 12;
     }
