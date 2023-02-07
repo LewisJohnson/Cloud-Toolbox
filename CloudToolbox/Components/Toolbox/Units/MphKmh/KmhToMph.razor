@@ -1,4 +1,4 @@
-﻿@attribute [Route(Routes.UNITS_MPH_TO_KPH)]
+﻿@attribute [Route(Routes.UNITS_KMH_TO_MPH)]
 
 @namespace CloudToolbox.Components.Toolbox.Units
 
@@ -7,8 +7,8 @@
 @using CloudToolbox.Common.Routes;
 @using CloudToolbox.Components.Toolbox.Shared;
 
-<ToolboxHeader Title="mi/h to km/h"
-               Description="Converts mph to kph
+<ToolboxHeader Title="km/h to mi/h"
+               Description="Converts kph to mph
 mph = mph, m.p.h., MPH, or mi/h
 kph = km/h or kmph" />
 
@@ -21,7 +21,7 @@ kph = km/h or kmph" />
         {
             if (double.TryParse(input, out double num))
             {
-                return (num / 1.609344).ToString("#.##");
+                return (num * 1.609344).ToString("#.##");
             } else
             {
                 return "Invalid input";
