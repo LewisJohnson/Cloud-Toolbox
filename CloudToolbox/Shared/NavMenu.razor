@@ -1,4 +1,6 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using CloudToolbox.Data;
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Cloud Toolbox</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -39,6 +41,8 @@
 </div>
 
 @code {
+    
+
     public enum MenuItemType
     {
         Link = 0,
@@ -80,52 +84,12 @@
     {
         MenuItems = new List<NavMenuItem>();
 
-        CreateHeaderItem("Date & Time", "oi-timer");
-        MenuItems.Add(new NavMenuItem($"Duration Between Days", $"toolbox/datetime/between-days"));
-        MenuItems.Add(new NavMenuItem($"Duration Between Times", $"toolbox/datetime/between-times"));
-
-        CreateHeaderItem("Text", "oi-text");
-        MenuItems.Add(new NavMenuItem($"To Lower Case", $"toolbox/text/to-lower-case"));
-        MenuItems.Add(new NavMenuItem($"To Upper Case", $"toolbox/text/to-upper-case"));
-        MenuItems.Add(new NavMenuItem($"To Sentence/Title Case", $"toolbox/text/to-sentence-case"));
-
-        CreateHeaderItem("Travel", "oi-globe");
-        MenuItems.Add(new NavMenuItem($"MPG Calculator", $"toolbox/travel/mpg-Calculator"));
-        MenuItems.Add(new NavMenuItem($"km/L Calculator", $"toolbox/travel/kml-Calculator"));
-        MenuItems.Add(new NavMenuItem($"Required Fuel", $"toolbox/travel/mpg-Calculator"));
-
-        CreateHeaderItem("Money", "oi-british-pound");
-        MenuItems.Add(new NavMenuItem($"GBP to USD", $"toolbox/travel/mpg-Calculator"));
-
-        CreateHeaderItem("Units", "oi-calculator");
-        CreateViceVersaItem("units", "Kg", "Stone");
-        CreateViceVersaItem("units", "Mph", "kph");
-        CreateViceVersaItem("units", "Inch", "Cm");
-
-        CreateHeaderItem("Maths", "oi-pie-chart");
-        //MenuItems.Add(new NavMenuItem($"Percentage Calculator", $"toolbox/maths/percentage-calculator"));
-        MenuItems.Add(new NavMenuItem($"Time Tables", $"toolbox/maths/times-tables"));
-        MenuItems.Add(new NavMenuItem($"Time Tables (Grid)", $"toolbox/maths/times-tables-grid"));
-        MenuItems.Add(new NavMenuItem($"Division Tables", $"toolbox/maths/division-tables"));
-
-        CreateHeaderItem("Developer", "oi-wrench");
-        CreateToFromItem("dev", "Base64");
-        CreateToFromItem("dev", "Hex");
-        CreateToFromItem("dev", "Binary");
+        @foreach (var calc in Calculators.GetCalculators())
+        {
+            MenuItems.Add(new NavMenuItem(calc.DisplayName, calc.Uri));
+        }
 
         FilteredMenuItems = MenuItems;
-    }
-
-    private void CreateViceVersaItem(string area, string unitA, string unitB)
-    {
-        MenuItems.Add(new NavMenuItem($"{unitA} to {unitB}", $"toolbox/{area}/{unitA}-to-{unitB}"));
-        MenuItems.Add(new NavMenuItem($"{unitB} to {unitA}", $"toolbox/{area}/{unitB}-to-{unitA}"));
-    }
-
-    private void CreateToFromItem(string area, string name)
-    {
-        MenuItems.Add(new NavMenuItem($"To {name}", $"toolbox/{area}/to-{name.ToLower()}"));
-        MenuItems.Add(new NavMenuItem($"From {name}", $"toolbox/{area}/from-{name.ToLower()}"));
     }
 
     private void CreateHeaderItem(string name, string icon)

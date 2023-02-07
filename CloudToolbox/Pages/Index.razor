@@ -4,9 +4,97 @@
 <PageTitle>@Constants.APP_NAME</PageTitle>
 
 <h1>Hello!</h1>
+<p>We have @Areas.GetAreas().Sum(x => x.Calculators.Count) calculators and converters.</p>
 
-<p>
-    Cloud Toolbox is dedicated to providing free tools in the cloud, such as calculators and converters for anyone and everyone to use.
-    We are continually updating and developing the site with new useful calculators and tools.
-    If you have any suggestions, please do not hesitate to contact us using our contact form.
-</p>
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <h3>
+                Calculator Types
+            </h3>
+
+            @foreach (var area in Areas.GetAreas())
+            {
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="d-block p-4 text-center">
+                            <i class="@area.CssIcon fs-1"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@area.DisplayName</h5>
+
+                            <a href="@area.Uri" class="btn btn-primary stretched-link">@area.Calculators.Count Calculators</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-6">
+        <h3>Popular Calculators</h3>
+
+        <div class="row">
+            <div class="col-6 mb-3">
+                <div class="card shadow-sm">
+                    <h5 class="card-header">MPG</h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Calculate how much real life MPG you're getting out of your journeys.
+                        </p>
+                        <a href="#" class="btn btn-primary">MPG Calculator</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 mb-3">
+                <div class="card shadow-sm">
+                    <h5 class="card-header">MPG</h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Calculate how much real life MPG you're getting out of your journeys.
+                        </p>
+                        <a href="#" class="btn btn-primary">MPG Calculator</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 mb-3">
+                <div class="card shadow-sm">
+                    <h5 class="card-header">MPG</h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Calculate how much real life MPG you're getting out of your journeys.
+                        </p>
+                        <a href="#" class="btn btn-primary">MPG Calculator</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 mb-3">
+                <div class="card shadow-sm">
+                    <h5 class="card-header">MPG</h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Calculate how much real life MPG you're getting out of your journeys.
+                        </p>
+                        <a href="#" class="btn btn-primary">MPG Calculator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-6">
+        <h3>About</h3>
+        <hr />
+        <p>
+            Cloud Toolbox is dedicated to providing free tools in the cloud, such as calculators and converters for everyone to use.
+            We are continually updating and developing the site with new useful calculators and tools.
+        </p>
+
+        <p>
+            <a href="@Constants.TWITTER_URL"><i class="bi bi-twitter fs-3"></i></a>
+        </p>
+    </div>
+</div>
