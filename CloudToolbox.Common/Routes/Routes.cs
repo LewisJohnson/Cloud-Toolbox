@@ -2,9 +2,17 @@
 {
     public static class Routes
     {
+        // AREAS
+        public const string AREA_DATE_AND_TIME = "/Toolbox/DateAndTime";
+        public const string AREA_MATHS = "/Toolbox/Maths";
+        public const string AREA_TEXT = "/Toolbox/Text";
+        public const string AREA_TRAVEL = "/Toolbox/Travel";
+        public const string AREA_UNITS = "/Toolbox/Units";
+        public const string AREA_DEVELOPER = "/Toolbox/Developer";
+
         // DATE & TIME
-        public const string DATE_TIME_DURATION_BETWEEN_DAYS = "/Toolbox/DateTime/Between-Days";
-        public const string DATE_TIME_DURATION_BETWEEN_TIMES = "/Toolbox/DateTime/Between-Times";
+        public const string DATE_AND_TIME_DURATION_BETWEEN_DAYS = "/Toolbox/DateAndTime/Between-Days";
+        public const string DATE_AND_TIME_DURATION_BETWEEN_TIMES = "/Toolbox/DateAndTime/Between-Times";
 
         // TEXT
         public const string TEXT_TO_LOWER_CASE = "/Toolbox/Text/To-Lower-Case";
@@ -19,8 +27,8 @@
         // UNITS
         public const string UNITS_KG_TO_STONE = "/Toolbox/Units/Kg-to-Stone";
         public const string UNITS_STONE_TO_KG = "/Toolbox/Units/Stone-to-Kg";
-        public const string UNITS_MPH_TO_KPH = "/Toolbox/Units/Mph-to-Kph";
-        public const string UNITS_KPH_TO_MPH = "/Toolbox/Units/Kph-to-Mph";
+        public const string UNITS_MPH_TO_KMH = "/Toolbox/Units/Mph-to-Kmh";
+        public const string UNITS_KMH_TO_MPH = "/Toolbox/Units/Kmh-to-Mph";
         public const string UNITS_INCH_TO_CM = "/Toolbox/Units/Inch-to-Cm";
         public const string UNITS_CM_TO_INCH = "/Toolbox/Units/Cm-to-Inch";
 
@@ -30,13 +38,12 @@
         public const string MATHS_TIMES_TABLE_GRID = "/Toolbox/Maths/Times-Table-grid";
         public const string MATHS_DIVISION_TABLE = "/Toolbox/Maths/Division-Table";
 
-
         // DEVELOPER
-        public const string DEVELOPER_TO_BASE64 = "/Toolbox/Dev/To-Base64";
-        public const string DEVELOPER_FROM_BASE64 = "/Toolbox/Dev/From-Base64";
-        public const string DEVELOPER_TO_HEX = "/Toolbox/Dev/To-Hex";
-        public const string DEVELOPER_FROM_HEX = "/Toolbox/Dev/From-Hex";
-        public const string DEVELOPER_TO_BINARY = "/Toolbox/Dev/To-Binary";
-        public const string DEVELOPER_FROM_BINARY = "/Toolbox/Dev/From-Binary";
+        public const string DEVELOPER_TO_BASE64 = "/Toolbox/Developer/To-Base64";
+        public const string DEVELOPER_FROM_BASE64 = "/Toolbox/Developer/From-Base64";
+        public const string DEVELOPER_TO_HEX = "/Toolbox/Developer/To-Hex";
+        public const string DEVELOPER_FROM_HEX = "/Toolbox/Developer/From-Hex";
+        public const string DEVELOPER_TO_BINARY = "/Toolbox/Developer/To-Binary";
+        public const string DEVELOPER_FROM_BINARY = "/Toolbox/Developer/From-Binary";
     }
 }
