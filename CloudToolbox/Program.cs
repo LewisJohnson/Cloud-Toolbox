@@ -1,8 +1,8 @@
-using CloudToolbox.Data;
+using CloudToolbox.Services;
 
-namespace CloudToolbox
-{
-    public class Program
+namespace CloudToolbox;
+
+public class Program
     {
         public static void Main(string[] args)
         {
@@ -32,4 +32,3 @@ namespace CloudToolbox
             app.Run();
         }
     }
-}
