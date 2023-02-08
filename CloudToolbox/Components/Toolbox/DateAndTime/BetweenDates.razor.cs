@@ -5,7 +5,7 @@ using CloudToolbox.Common.Types;
 
 namespace CloudToolbox.Components.Toolbox.DateAndTime
 {
-	public partial class BetweenDaysBase : ComponentBase
+	public partial class BetweenDatesBase : ComponentBase
 	{
 		public List<CalculatorInput> Inputs => new()
 		{
@@ -23,7 +23,7 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 		};
 
 
-		public BetweenDaysBase()
+		public BetweenDatesBase()
 		{
 
 		}
@@ -45,8 +45,8 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 
 			results.Add(new(ts.TotalDays.ToString("#.##")) { EndInputGroupText = "days" });
 			results.Add(new(ts.TotalHours.ToString("#.##")) { EndInputGroupText = "hours" });
-			results.Add(new(ts.TotalMinutes.ToString("#.##")) { EndInputGroupText = "minutes" });
-			results.Add(new(ts.TotalSeconds.ToString("#.##")) { EndInputGroupText = "seconds" });
+			results.Add(new(ts.TotalMinutes.ToString()) { EndInputGroupText = "minutes" });
+			results.Add(new(ts.TotalSeconds.ToString()) { EndInputGroupText = "seconds" });
 
 			return results;
 		}

@@ -1,0 +1,20 @@
+﻿@attribute [Route(Routes.DATE_AND_TIME_DURATION_BETWEEN_DATES)]
+
+@namespace CloudToolbox.Components.Toolbox.DateAndTime
+@inherits BetweenDaysBase
+
+<SimpleCalculatorContainer HeaderColour="#e5ffeb;" PanelColour="#f2fff5;">
+    <Header>
+        <NewToolboxHeader Title="Duration Between Two Dates">
+            <Description>
+                <p>
+                    Using our simple calculator, you can work out how many days, hours, minutes, and seconds there are between two dates.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>
