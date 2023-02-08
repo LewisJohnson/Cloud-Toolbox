@@ -9,7 +9,8 @@ public static class DateTimeCalculatorCollection
 		return new List<Calculator>()
 		{
 			DurationBetweenDays,
-			DurationBetweenTime
+			DurationBetweenTime,
+			DurationBetweenTimeAndDate
 		};
 	}
 
@@ -17,8 +18,8 @@ public static class DateTimeCalculatorCollection
 	public static Calculator DurationBetweenDays = new()
 	{
 		Area = Areas.DateAndTime,
-		DisplayName = "Duration Between Days",
-		Uri = Routes.DATE_AND_TIME_DURATION_BETWEEN_DAYS
+		DisplayName = "Duration Between Dates",
+		Uri = Routes.DATE_AND_TIME_DURATION_BETWEEN_DATES
 	};
 
 	public static Calculator DurationBetweenTime = new()
@@ -26,5 +27,12 @@ public static class DateTimeCalculatorCollection
 		Area = Areas.DateAndTime,
 		DisplayName = "Duration Between Times",
 		Uri = Routes.DATE_AND_TIME_DURATION_BETWEEN_TIMES
+	};
+
+	public static Calculator DurationBetweenTimeAndDate = new()
+	{
+		Area = Areas.DateAndTime,
+		DisplayName = "Duration Between Time And Date",
+		Uri = Routes.DATE_AND_TIME_DURATION_BETWEEN_TIME_AND_DATE
 	};
 }
