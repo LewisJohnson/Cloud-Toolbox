@@ -25,9 +25,9 @@ public class Area
 
 	public Area()
 	{
-		CssAccentColour = "grey";
-		CssHeaderBackgroundColour = "grey";
-		CssCalulatorHeaderBackgroundColour = "grey";
-		CssCalulatorPanelColour = "grey";
+		CssAccentColour = "#cdd8d5";
+		CssHeaderBackgroundColour = "#cdd8d5";
+		CssCalulatorHeaderBackgroundColour = "#cdd8d5";
+		CssCalulatorPanelColour = "#cdd8d5";
 	}
 }

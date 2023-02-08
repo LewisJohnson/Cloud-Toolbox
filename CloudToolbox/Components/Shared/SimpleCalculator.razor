@@ -24,28 +24,29 @@
                         if (input.UseLargeInput)
                         {
                             <textarea name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
-                        } else
+                        }
+                        else
                         {
                             <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="text" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
                         }
 
-                    } else if (input.Type == typeof(double))
-                    {
-                        <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="text" @bind-value="input.InputDouble" @onchange="OnChange" @bind-value:event="oninput" />
-                    } else if (input.Type == typeof(DateTime))
+                    }
+                    else if (input.Type == typeof(DateTime))
                     {
                         <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="date" @bind-value="input.InputDateTime" @onchange="OnChange" @bind-value:event="oninput" />
-                    } else if (input.Type == typeof(TimeOnly))
+                    }
+                    else if (input.Type == typeof(TimeOnly))
                     {
                         <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="time" @bind-value="input.InputTimeOnly" @onchange="OnChange" @bind-value:event="oninput" />
                     }
 
                     @if (!string.IsNullOrWhiteSpace(input.EndInputGroupText))
                     {
-                        <span class="input-group-text" style="width: @(EndInputGroupWidth)px">@input.EndInputGroupText</span>
+                        <span class="input-group-text justify-content-end" style="width: @(EndInputGroupWidth)px">@input.EndInputGroupText</span>
                     }
                 </div>
-            } else
+            }
+            else
             {
                 if (input.Type == typeof(Checkbox) || input.Type == typeof(bool))
                 {
@@ -75,7 +76,8 @@
 
                     <textarea class="form-control">@res.Value</textarea>
                 </div>
-            } else
+            }
+            else
             {
                 <div class="input-group">
                     @if (!string.IsNullOrWhiteSpace(res.Label))

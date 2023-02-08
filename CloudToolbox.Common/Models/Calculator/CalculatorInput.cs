@@ -2,72 +2,79 @@
 
 namespace CloudToolbox.Common.Models.Calculator
 {
-    public class CalculatorInput
-    {
-        public CalculatorInput(string id, Type type)
-        {
-            Id = id;
-            Type = type;
-            InputBool = false;
-            UseLargeInput = false;
-        }
+	public class CalculatorInput
+	{
+		public CalculatorInput(string id, Type type)
+		{
+			Id = id;
+			Type = type;
+			InputBool = false;
+			UseLargeInput = false;
+		}
 
-        public string Id { get; }
-        public Type Type { get; }
+		public string Id { get; }
+		public Type Type { get; }
 
-        #region Inputs
-        public string? InputString { get; set; }
-        public double? InputDouble { get; set; }
-        public DateTime? InputDateTime { get; set; }
-        public TimeOnly? InputTimeOnly { get; set; }
-        public bool InputBool { get; set; }
-        #endregion
+		#region Inputs
+		public string? InputString { get; set; }
+		public double? InputDouble
+		{
+			get
+			{
+				return double.TryParse(InputString, out double num) ? num : null;
+			}
+		}
 
-        /// <summary>
-        /// If a larger input method is available, use it. e.g. <textarea> instead of <input \type="text">
-        /// </summary>
-        public bool UseLargeInput { get; set; }
-        public string? Label;
-        public string? StartInputGroupText { get; set; }
-        public string? EndInputGroupText { get; set; }
+		public DateTime? InputDateTime { get; set; }
+		public TimeOnly? InputTimeOnly { get; set; }
+		public bool InputBool { get; set; }
+		#endregion
 
-        public bool IsValid => (HasValue);
-        public string InvalidCssClass => "is-invalid";
-        public bool IsStandardInput
-        {
-            get
-            {
-                return Type != typeof(Checkbox) &&
-                Type != typeof(bool);
-            }
-        }
-        private bool HasValue
-        {
-            get
-            {
-                if (Type == typeof(Checkbox) || Type == typeof(bool) || Type == typeof(string))
-                {
-                    return true;
-                }
+		/// <summary>
+		/// If a larger input method is available, use it. e.g. <textarea> instead of <input \type="text">
+		/// </summary>
+		public bool UseLargeInput { get; set; }
+		public string? Label;
+		public string? StartInputGroupText { get; set; }
+		public string? EndInputGroupText { get; set; }
 
-                if (Type == typeof(double))
-                {
-                    return InputDouble.HasValue;
-                }
+		public bool IsValid => (HasValue);
+		public string InvalidCssClass => "is-invalid";
+		public bool IsStandardInput
+		{
+			get
+			{
+				return Type != typeof(Checkbox) &&
+				Type != typeof(bool);
+			}
+		}
+		private bool HasValue
+		{
+			get
+			{
+				if (Type == typeof(Checkbox) || Type == typeof(bool) || Type == typeof(string))
+				{
+					return true;
+				}
 
-                if (Type == typeof(DateTime))
-                {
-                    return InputDateTime.HasValue;
-                }
+				if (Type == typeof(double))
+				{
+					return InputDouble.HasValue;
+				}
 
-                if (Type == typeof(TimeOnly))
-                {
-                    return InputTimeOnly.HasValue;
-                }
+				if (Type == typeof(DateTime))
+				{
+					return InputDateTime.HasValue;
+				}
 
-                return false;
-            }
-        }
+				if (Type == typeof(TimeOnly))
+				{
+					return InputTimeOnly.HasValue;
+				}
 
-    }
+				return false;
+			}
+		}
+
+	}
 }
