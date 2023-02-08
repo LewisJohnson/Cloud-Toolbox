@@ -11,8 +11,9 @@
         public const string AREA_DEVELOPER = "/Toolbox/Developer";
 
         // DATE & TIME
-        public const string DATE_AND_TIME_DURATION_BETWEEN_DAYS = "/Toolbox/DateAndTime/Between-Days";
+        public const string DATE_AND_TIME_DURATION_BETWEEN_DATES = "/Toolbox/DateAndTime/Between-Dates";
         public const string DATE_AND_TIME_DURATION_BETWEEN_TIMES = "/Toolbox/DateAndTime/Between-Times";
+        public const string DATE_AND_TIME_DURATION_BETWEEN_TIME_AND_DATE = "/Toolbox/DateAndTime/Between-Time-and-Date";
 
         // TEXT
         public const string TEXT_TO_LOWER_CASE = "/Toolbox/Text/To-Lower-Case";
