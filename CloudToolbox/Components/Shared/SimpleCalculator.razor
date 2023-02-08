@@ -1,0 +1,145 @@
+﻿@namespace CloudToolbox.Components.Toolbox.Shared
+
+@using CloudToolbox.Data;
+@using CloudToolbox.Common.Types;
+@using CloudToolbox.Common.Enums;
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Common.Models.Calculator;
+@using CloudToolbox.Components.Toolbox.Shared;
+
+<div>
+    @* INPUTS *@
+    <div class="form-flush">
+        @foreach (CalculatorInput input in Inputs)
+        {
+            if (input.Type == typeof(DateTime))
+            {
+                <div class="input-group">
+                    @if (!string.IsNullOrWhiteSpace(input.StartInputGroupText))
+                    {
+                        <span class="input-group-text" style="width: 80px">@input.StartInputGroupText</span>
+                    }
+
+                    <input name="@input.Id" class="form-control @(input.IsValid ? input.InvalidCssClass : "")" type="date" @bind-value="input.InputDateTime" @onchange="OnChange" @bind-value:event="oninput" />
+
+                    @if (!string.IsNullOrWhiteSpace(input.EndInputGroupText))
+                    {
+                        <span class="input-group-text" style="width: 80px">@input.EndInputGroupText</span>
+                    }
+                </div>
+            }
+
+            if (input.Type == typeof(Checkbox))
+            {
+                <div class="form-check mt-2">
+                    <input name="@input.Id" class="form-check-input @(input.IsValid ? input.InvalidCssClass : "")" type="checkbox" @bind-value="input.InputBool" @onchange="OnChange" @bind-value:event="oninput" />
+
+                    <label class="form-check-label">@input.EndInputGroupText</label>
+                </div>
+            }
+        }
+    </div>
+
+    <hr />
+
+    @* RESULTS *@
+    <div class="form-flush">
+        @foreach (CalculatorResult res in Results)
+        {
+            <div class="input-group">
+                @if (!string.IsNullOrWhiteSpace(res.StartInputGroupText))
+                {
+                    <span class="input-group-text" style="width: 80px">@res.StartInputGroupText</span>
+                }
+
+                <input id="upToSize" class="form-control" type="text" @bind="res.Value" />
+
+                @if (!string.IsNullOrWhiteSpace(res.EndInputGroupText))
+                {
+                    <span class="input-group-text" style="width: 80px">@res.EndInputGroupText</span>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .form-flush input.form-control,
+    .form-flush span.input-group-text {
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        border-radius: 0;
+    }
+
+    .form-flush span.input-group-text {
+        color: rgba(0, 0, 0, 0.67);
+    }
+
+    .form-flush div.input-group:last-child input.form-control,
+    .form-flush div.input-group:last-child span.input-group-text {
+        border-bottom: 0;
+    }
+
+    .input-group-text {
+        background-color: white;
+    }
+</style>
+
+@code {
+    public List<CalculatorResult> Results { get; set; }
+
+    [Parameter]
+    public List<CalculatorInput> Inputs { get; set; }
+
+    [Parameter]
+    public List<CalculatorResult> ResultsTemplate { get; set; }
+
+    [Parameter]
+    public Func<List<CalculatorInput>, Task<List<CalculatorResult>>> onChangeEvent { get; set; }
+
+    public SimpleCalculator()
+    {
+        Inputs = new List<CalculatorInput>();
+        Results = new List<CalculatorResult>();
+        ResultsTemplate = new List<CalculatorResult>();
+
+        SetResultTemplate();
+    }
+
+    protected async Task OnChange()
+    {
+        if (Validate())
+        {
+            Results = await onChangeEvent(Inputs);
+        }
+    }
+
+    private bool Validate()
+    {
+        Results.Clear();
+
+        bool isValid = Inputs.All(x => x.IsValid);
+
+        if (!isValid)
+        {
+            SetResultTemplate();
+        }
+
+        return isValid;
+    }
+
+    private void SetResultTemplate()
+    {
+        Results.Clear();
+
+        foreach (var res in ResultsTemplate)
+        {
+            Results.Add(new CalculatorResult(null)
+                {
+                    StartInputGroupText = res.StartInputGroupText,
+                    EndInputGroupText = res.EndInputGroupText
+                });
+        }
+    }
+}
