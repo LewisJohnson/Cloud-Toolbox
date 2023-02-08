@@ -7,10 +7,17 @@ namespace CloudToolbox.Components.Shared
 {
 	public partial class SimpleCalculatorBase : ComponentBase
 	{
+		public bool IsValidating { get; set; }
 		public List<CalculatorResult> Results { get; set; }
 
 		[Parameter]
 		public List<CalculatorInput> Inputs { get; set; }
+
+		[Parameter]
+		public int StartInputGroupWidth { get; set; }
+
+		[Parameter]
+		public int EndInputGroupWidth { get; set; }
 
 		[Parameter]
 		public List<CalculatorResult> ResultsTemplate { get; set; }
@@ -23,6 +30,7 @@ namespace CloudToolbox.Components.Shared
 			Inputs = new List<CalculatorInput>();
 			Results = new List<CalculatorResult>();
 			ResultsTemplate = new List<CalculatorResult>();
+			StartInputGroupWidth = 100;
 		}
 
 		protected override void OnInitialized()
@@ -40,6 +48,7 @@ namespace CloudToolbox.Components.Shared
 
 		private bool Validate()
 		{
+			IsValidating = true;
 			Results.Clear();
 
 			bool isValid = Inputs.All(x => x.IsValid);

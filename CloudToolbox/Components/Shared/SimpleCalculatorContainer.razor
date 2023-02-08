@@ -1,0 +1,26 @@
+﻿@namespace CloudToolbox.Components.Shared
+@inherits SimpleCalculatorContainerBase
+
+<div class="row px-4 pt-5 calc-container" style="max-width: 800px; min-height: 100vh;">
+    <div class="col-12 col-md-7">
+        @Header
+    </div>
+
+    <div class="col-12 col-md-5 shadow-sm pt-3 mb-5 calc-panel">
+        @Calculator
+    </div>
+</div>
+
+<style>
+    .calc-container {
+        padding-top: 5rem;
+    }
+
+    .calc-panel {
+        background-color: @PanelColour;
+    }
+
+    h2 {
+        background-color: @HeaderColour;
+    }
+</style>

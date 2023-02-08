@@ -6,30 +6,40 @@
     <div class="form-flush">
         @foreach (CalculatorInput input in Inputs)
         {
-            if (input.Type == typeof(DateTime))
+            if (input.IsStandardInput)
             {
                 <div class="input-group">
                     @if (!string.IsNullOrWhiteSpace(input.StartInputGroupText))
                     {
-                        <span class="input-group-text" style="width: 80px">@input.StartInputGroupText</span>
+                        <span class="input-group-text" style="width: @(StartInputGroupWidth)px">@input.StartInputGroupText</span>
                     }
 
-                    <input name="@input.Id" class="form-control @(input.IsValid ? input.InvalidCssClass : "")" type="date" @bind-value="input.InputDateTime" @onchange="OnChange" @bind-value:event="oninput" />
+                    @if (input.Type == typeof(string))
+                    {
+                        <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="text" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
+                    } else if (input.Type == typeof(DateTime))
+                    {
+                        <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="date" @bind-value="input.InputDateTime" @onchange="OnChange" @bind-value:event="oninput" />
+                    } else if (input.Type == typeof(TimeOnly))
+                    {
+                        <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="time" @bind-value="input.InputTimeOnly" @onchange="OnChange" @bind-value:event="oninput" />
+                    }
 
                     @if (!string.IsNullOrWhiteSpace(input.EndInputGroupText))
                     {
-                        <span class="input-group-text" style="width: 80px">@input.EndInputGroupText</span>
+                        <span class="input-group-text" style="width: @(EndInputGroupWidth)px">@input.EndInputGroupText</span>
                     }
                 </div>
-            }
-
-            if (input.Type == typeof(Checkbox))
+            } else
             {
-                <div class="form-check mt-2">
-                    <input name="@input.Id" class="form-check-input @(input.IsValid ? input.InvalidCssClass : "")" type="checkbox" @bind-value="input.InputBool" @onchange="OnChange" @bind-value:event="oninput" />
+                if (input.Type == typeof(Checkbox) || input.Type == typeof(bool))
+                {
+                    <div class="form-check mt-2">
+                        <input name="@input.Id" class="form-check-input @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="checkbox" @bind-value="input.InputBool" @onchange="OnChange" @bind-value:event="oninput" />
 
-                    <label class="form-check-label">@input.EndInputGroupText</label>
-                </div>
+                        <label class="form-check-label">@input.EndInputGroupText</label>
+                    </div>
+                }
             }
         }
     </div>
@@ -43,14 +53,14 @@
             <div class="input-group">
                 @if (!string.IsNullOrWhiteSpace(res.StartInputGroupText))
                 {
-                    <span class="input-group-text" style="width: 80px">@res.StartInputGroupText</span>
+                    <span class="input-group-text" style="width: 120px">@res.StartInputGroupText</span>
                 }
 
                 <input id="upToSize" class="form-control" type="text" @bind="res.Value" />
 
                 @if (!string.IsNullOrWhiteSpace(res.EndInputGroupText))
                 {
-                    <span class="input-group-text" style="width: 80px">@res.EndInputGroupText</span>
+                    <span class="input-group-text justify-content-end" style="width: 120px">@res.EndInputGroupText</span>
                 }
             </div>
         }
