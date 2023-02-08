@@ -7,35 +7,37 @@
 @using CloudToolbox.Common.Routes;
 @using CloudToolbox.Components.Shared;
 
-<ToolboxHeader Title="Times/Multiplication Table (Grid)" />
+<div class="p-4">
+    <ToolboxHeader Title="Times Table (Grid)" />
 
-<form>
-    <div class="mb-3">
-        <label for="tableSize" class="form-label">Table size</label>
-        <input id="tableSize" class="form-control" type="number" min="3" max="24" @bind-value="TableSize" @onchange="OnChange" @bind-value:event="oninput" />
-    </div>
-</form>
+    <form>
+        <div class="mb-3">
+            <label for="tableSize" class="form-label">Table size</label>
+            <input id="tableSize" class="form-control" type="number" min="3" max="24" @bind-value="TableSize" @onchange="OnChange" @bind-value:event="oninput" />
+        </div>
+    </form>
 
-<div class="table-responsive">
-    <table class="table table-striped table-hover">
-        <tbody>
-            @for (var i = 1; i <= TableSize; i++)
-            {
-                <tr class="col-3 mb-3">
-                    @for (var j = 1; j <= TableSize; j++)
-                    {
-                        if (i == 1 || j == 1)
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <tbody>
+                @for (var i = 1; i <= TableSize; i++)
+                {
+                    <tr class="col-3 mb-3">
+                        @for (var j = 1; j <= TableSize; j++)
                         {
-                            <th class="table-primary fw-bold">@(i * j)</th>
-                        } else
-                        {
-                            <td>@(i * j)</td>
+                            if (i == 1 || j == 1)
+                            {
+                                <th class="table-primary fw-bold">@(i * j)</th>
+                            } else
+                            {
+                                <td>@(i * j)</td>
+                            }
                         }
-                    }
-                </tr>
-            }
-        </tbody>
-    </table>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <style>

@@ -7,35 +7,37 @@
 @using CloudToolbox.Common.Routes;
 @using CloudToolbox.Components.Shared;
 
-<ToolboxHeader Title="Times/Multiplication Table" Description="This free colorful and printable addition maths table is a great educational tool for children to upgrade their mathematic skills at school and home!" />
+<div class="p-4">
+    <ToolboxHeader Title="Times Table" Description="This colourful and printable maths table is a great tool for people of all ages to upgrade their mathematics skills at and home!" />
 
-<form class="row">
-    <div class="mb-3 col-3">
-        <label for="tableSize" class="form-label">Table size</label>
-        <input id="tableSize" class="form-control" type="number" min="3" max="24" @bind-value="TableSize" @onchange="OnChange" @bind-value:event="oninput" />
-    </div>
+    <form class="row">
+        <div class="mb-3 col-3">
+            <label for="tableSize" class="form-label">Table size</label>
+            <input id="tableSize" class="form-control" type="number" min="3" max="24" @bind-value="TableSize" @onchange="OnChange" @bind-value:event="oninput" />
+        </div>
 
-    <div class="mb-3 col-3">
-        <label for="upToSize" class="form-label">Up to</label>
-        <input id="upToSize" class="form-control" type="number" min="3" max="24" @bind-value="UpToSize" @onchange="OnChange" @bind-value:event="oninput" />
-    </div>
-</form>
+        <div class="mb-3 col-3">
+            <label for="upToSize" class="form-label">Up to</label>
+            <input id="upToSize" class="form-control" type="number" min="3" max="24" @bind-value="UpToSize" @onchange="OnChange" @bind-value:event="oninput" />
+        </div>
+    </form>
 
-<div class="row">
-    @for (var i = 1; i <= TableSize; i++)
-    {
-        <div class="col-12 col-md-6 col-lg-3 mb-3">
-            <div class="card" style="background-color: @GetColour(i)">
-                <div class="card-body">
-                    <h5 class="card-title text-capitalize">@GetTitle(i)</h5>
-                    @for (var j = 1; j <= UpToSize; j++)
-                    {
-                        <p>@i x @j = <b>@(i * j)</b></p>
-                    }
+    <div class="row">
+        @for (var i = 1; i <= TableSize; i++)
+        {
+            <div class="col-12 col-md-6 col-lg-3 mb-3">
+                <div class="card" style="background-color: @GetColour(i)">
+                    <div class="card-body">
+                        <h5 class="card-title text-capitalize">@GetTitle(i)</h5>
+                        @for (var j = 1; j <= UpToSize; j++)
+                        {
+                            <p>@i x @j = <b>@(i * j)</b></p>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
 
 @code {
