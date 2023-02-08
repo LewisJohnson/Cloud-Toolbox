@@ -9,7 +9,15 @@ public class Area
 	public string Name { get; set; }
 	public string DisplayName { get => string.IsNullOrWhiteSpace(displayName) ? Name : displayName; set => displayName = value; }
 	public string CssIcon { get; set; }
+	public string CssAccentColour { get; set; }
+	public string CssHeaderBackgroundColour { get; set; }
 	public string Uri { get; set; }
 	public AreaTypes Type { get; set; }
 	public List<Calculator> Calculators { get; set; }
+
+	public Area()
+	{
+		CssAccentColour = "grey";
+		CssHeaderBackgroundColour = "grey";
+	}
 }

@@ -43,6 +43,8 @@ public static class Areas
 	{
 		Name = "Maths",
 		CssIcon = "bi bi-calculator",
+		CssAccentColour = "#fff2fb;",
+		CssHeaderBackgroundColour = "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);",
 		Type = AreaTypes.Maths,
 		Uri = Routes.AREA_MATHS,
 		Calculators = MathsCalculatorCollection.GetCalculators(),
