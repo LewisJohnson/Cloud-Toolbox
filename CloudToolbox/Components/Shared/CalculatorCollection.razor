@@ -1,0 +1,44 @@
+﻿@namespace CloudToolbox.Components.Shared
+@inherits CalculatorCollectionBase
+
+
+<div class="header text-white text-center p-3 position-sticky" style="z-index: 0; top: 0;">
+    <h1 class="mt-5"><i class="@Area.CssIcon"></i> @Area.DisplayName Calculators</h1>
+
+    <p class="mt-3 pb-5 mb-5 mx-auto w-75">
+        @Description
+    </p>
+</div>
+
+<div class="bg-light position-relative" style="z-index: 1; box-shadow: 9px -15px 25px -14px rgba(0, 0, 0, 0.28);">
+    <div class="col-12 py-5 mb-3 px-5">
+        <input class="form-control rounded-1 mx-auto" style="max-width: 500px" placeholder="Search @Area.DisplayName Calculators..." type="text"
+               @bind-value="FilterText" @bind-value:event="oninput" @onkeyup="FilterCalculators" />
+    </div>
+
+    <div class="row px-4" style="min-height: 100vh">
+        @foreach (var calc in FilteredCalculators)
+        {
+            <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
+        }
+    </div>
+</div>
+
+<style>
+    .header {
+        background: @Area.CssAccentColour;
+        background: @Area.CssHeaderBackgroundColour;
+    }
+
+    .area-button {
+        transition: 0.2s all ease-in-out;
+        height: 70px;
+        line-height: 62px;
+        background-color: white;
+    }
+
+    a.area-button:hover {
+        background-color: @Area.CssAccentColour;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    }
+</style>
