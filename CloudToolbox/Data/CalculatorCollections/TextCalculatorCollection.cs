@@ -32,7 +32,7 @@ public static class TextCalculatorCollection
 	public static Calculator ToTitleCase = new()
 	{
 		Area = Areas.Text,
-		DisplayName = "To title Case",
+		DisplayName = "To Title Case",
 		Uri = Routes.TEXT_TO_TITLE_CASE
 	};
 }

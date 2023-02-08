@@ -50,7 +50,7 @@ public static class UnitsCalculatorCollection
 	public static Calculator KmhToMph = new()
 	{
 		Area = Areas.Units,
-		DisplayName = "km/h to Mph",
+		DisplayName = "km/h to mph",
 		Aliases = new List<string>() {
 			"km/h to m.p.h.",
 			"km/h to mi/h",
