@@ -1,17 +1,15 @@
 ﻿@attribute [Route(Routes.AREA_DATE_AND_TIME)]
 
-@namespace CloudToolbox.Components.Toolbox.Areas
+@namespace CloudToolbox.Components.Areas
 
 @using System.Text;
 @using CloudToolbox.Data;
 @using CloudToolbox.Common.Routes;
 @using CloudToolbox.Components.Shared;
 
-<h1>Date &amp; Time</h1>
-
-<div class="row">
-    @foreach (var calc in Areas.DateAndTime.Calculators.OrderBy(x => x.DisplayName))
-    {
-        <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
-    }
-</div>
+<CalculatorCollection Area="Areas.DateAndTime">
+    <Description>
+        Who, what, when, where, why? <br />
+        We're not sure, but our @Areas.DateAndTime.Calculators.Count date and time calculators and converters sure know.
+    </Description>
+</CalculatorCollection>

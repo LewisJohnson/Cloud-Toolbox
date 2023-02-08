@@ -1,17 +1,15 @@
 ﻿@attribute [Route(Routes.AREA_TRAVEL)]
 
-@namespace CloudToolbox.Components.Toolbox.Areas
+@namespace CloudToolbox.Components.Areas
 
 @using System.Text;
 @using CloudToolbox.Data;
 @using CloudToolbox.Common.Routes;
 @using CloudToolbox.Components.Shared;
 
-<h1>Travel Calculators</h1>
-
-<div class="row">
-    @foreach (var calc in Areas.Travel.Calculators.OrderBy(x => x.DisplayName))
-    {
-        <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
-    }
-</div>
+<CalculatorCollection Area="Areas.Travel">
+    <Description>
+        Is your car costing you a fortune?<br />
+        Well it will keep costing a fortune, however one of our @Areas.Travel.Calculators.Count travel calculators can help you work out how much of a dent it's making to your wallet.
+    </Description>
+</CalculatorCollection>

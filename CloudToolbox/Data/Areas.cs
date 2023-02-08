@@ -34,6 +34,8 @@ public static class Areas
 	{
 		Name = "Developer",
 		CssIcon = "bi bi-code-slash",
+		CssAccentColour = "#84fab0",
+		CssHeaderBackgroundColour = "linear-gradient(to top, #84fab0 0%, #8fd3f4 100%)",
 		Type = AreaTypes.Developer,
 		Uri = Routes.AREA_DEVELOPER,
 		Calculators = DeveloperCalculatorCollection.GetCalculators(),
@@ -43,8 +45,8 @@ public static class Areas
 	{
 		Name = "Maths",
 		CssIcon = "bi bi-calculator",
-		CssAccentColour = "#fff2fb;",
-		CssHeaderBackgroundColour = "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);",
+		CssAccentColour = "#fff2fb",
+		CssHeaderBackgroundColour = "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
 		Type = AreaTypes.Maths,
 		Uri = Routes.AREA_MATHS,
 		Calculators = MathsCalculatorCollection.GetCalculators(),
@@ -63,8 +65,8 @@ public static class Areas
 	{
 		Name = "Travel",
 		CssIcon = "bi bi-globe-europe-africa",
-		Type = AreaTypes.Text,
-		Uri = Routes.AREA_TEXT,
+		Type = AreaTypes.Travel,
+		Uri = Routes.AREA_TRAVEL,
 		Calculators = TravelCalculatorCollection.GetCalculators(),
 	};
 

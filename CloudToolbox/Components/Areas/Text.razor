@@ -1,17 +1,15 @@
 ﻿@attribute [Route(Routes.AREA_TEXT)]
 
-@namespace CloudToolbox.Components.Toolbox.Areas
+@namespace CloudToolbox.Components.Areas
 
 @using System.Text;
 @using CloudToolbox.Data;
 @using CloudToolbox.Common.Routes;
 @using CloudToolbox.Components.Shared;
 
-<h1>Text Calculators &amp; Conversions</h1>
-
-<div class="row">
-    @foreach (var calc in Areas.Text.Calculators.OrderBy(x => x.DisplayName))
-    {
-        <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
-    }
-</div>
+<CalculatorCollection Area="Areas.Text">
+    <Description>
+        HavE YoUR LeTTers In a juMBle?<br />
+        Well one of our @Areas.Text.Calculators.Count free text converters can help you fix that.
+    </Description>
+</CalculatorCollection>

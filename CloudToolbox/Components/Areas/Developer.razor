@@ -1,17 +1,15 @@
 ﻿@attribute [Route(Routes.AREA_DEVELOPER)]
 
-@namespace CloudToolbox.Components.Toolbox.Areas
+@namespace CloudToolbox.Components.Areas
 
 @using System.Text;
 @using CloudToolbox.Data;
 @using CloudToolbox.Common.Routes;
 @using CloudToolbox.Components.Shared;
 
-<h1>Developer Calculators</h1>
-
-<div class="row">
-    @foreach (var calc in Areas.Developer.Calculators.OrderBy(x => x.DisplayName))
-    {
-        <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
-    }
-</div>
+<CalculatorCollection Area="Areas.Developer">
+    <Description>
+        0111010100100000011100100010000001100011011011110110111101101100<br />
+        Not sure what that means? Well we're sure one of our @Areas.Developer.Calculators.Count developer based calculators and converters can let you know.
+    </Description>
+</CalculatorCollection>
