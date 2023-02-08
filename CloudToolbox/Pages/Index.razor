@@ -3,98 +3,102 @@
 
 <PageTitle>@Constants.APP_NAME</PageTitle>
 
-<h1>Hello!</h1>
-<p>We have @Areas.GetAreas().Sum(x => x.Calculators.Count) calculators and converters.</p>
+<div class="px-4 mt-5">
+    <h1>Hello!</h1>
+    <p>We have @Areas.GetAreas().Sum(x => x.Calculators.Count) calculators and converters.</p>
 
-<div class="row">
-    <div class="col-12">
-        <div class="row">
-            <h3>
-                Calculator Types
-            </h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="row mt-4">
+                <h3>
+                    Calculator Types
+                </h3>
 
-            @foreach (var area in Areas.GetAreas())
-            {
+                @foreach (var area in Areas.GetAreas())
+                {
                 <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <div class="card shadow-sm">
+                    <div class="card shadow-sm homepage">
                         <div class="d-block p-4 text-center">
                             <i class="@area.CssIcon fs-1"></i>
                         </div>
                         <div class="card-body text-center">
                             <h5 class="card-title">@area.DisplayName</h5>
 
-                            <a href="@area.Uri" class="btn btn-primary stretched-link">@area.Calculators.Count Calculators</a>
+                            <a href="@area.Uri" class="btn btn-link stretched-link">@area.Calculators.Count Calculators</a>
                         </div>
                     </div>
                 </div>
-            }
-        </div>
-    </div>
-    <div class="col-6">
-        <h3>Popular Calculators</h3>
-
-        <div class="row">
-            <div class="col-6 mb-3">
-                <div class="card shadow-sm">
-                    <h5 class="card-header">MPG</h5>
-                    <div class="card-body">
-                        <p class="card-text">
-                            Calculate how much real life MPG you're getting out of your journeys.
-                        </p>
-                        <a href="#" class="btn btn-primary">MPG Calculator</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 mb-3">
-                <div class="card shadow-sm">
-                    <h5 class="card-header">MPG</h5>
-                    <div class="card-body">
-                        <p class="card-text">
-                            Calculate how much real life MPG you're getting out of your journeys.
-                        </p>
-                        <a href="#" class="btn btn-primary">MPG Calculator</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 mb-3">
-                <div class="card shadow-sm">
-                    <h5 class="card-header">MPG</h5>
-                    <div class="card-body">
-                        <p class="card-text">
-                            Calculate how much real life MPG you're getting out of your journeys.
-                        </p>
-                        <a href="#" class="btn btn-primary">MPG Calculator</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 mb-3">
-                <div class="card shadow-sm">
-                    <h5 class="card-header">MPG</h5>
-                    <div class="card-body">
-                        <p class="card-text">
-                            Calculate how much real life MPG you're getting out of your journeys.
-                        </p>
-                        <a href="#" class="btn btn-primary">MPG Calculator</a>
-                    </div>
-                </div>
+                }
             </div>
         </div>
+        <div class="col-6 mt-4">
+            <h3>Popular Calculators</h3>
 
-    </div>
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <div class="card shadow-sm">
+                        <h5 class="card-header">MPG</h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Calculate how much real life MPG you're getting out of your journeys.
+                            </p>
+                            <a href="#" class="btn btn-link stretched-link">MPG Calculator</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="col-6">
-        <h3>About</h3>
-        <hr />
-        <p>
-            Cloud Toolbox is dedicated to providing free tools in the cloud, such as calculators and converters for everyone to use.
-            We are continually updating and developing the site with new useful calculators and tools.
-        </p>
+                <div class="col-6 mb-3">
+                    <div class="card shadow-sm">
+                        <h5 class="card-header">MPG</h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Calculate how much real life MPG you're getting out of your journeys.
+                            </p>
+                            <a href="#" class="btn btn-link stretched-link">MPG Calculator</a>
+                        </div>
+                    </div>
+                </div>
 
-        <p>
-            <a href="@Constants.TWITTER_URL"><i class="bi bi-twitter fs-3"></i></a>
-        </p>
+                <div class="col-6 mb-3">
+                    <div class="card shadow-sm">
+                        <h5 class="card-header">MPG</h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Calculate how much real life MPG you're getting out of your journeys.
+                            </p>
+                            <a href="#" class="btn btn-link stretched-link">MPG Calculator</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 mb-3">
+                    <div class="card shadow-sm">
+                        <h5 class="card-header">MPG</h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Calculate how much real life MPG you're getting out of your journeys.
+                            </p>
+                            <a href="#" class="btn btn-link stretched-link">MPG Calculator</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-6 mt-4">
+            <h3>About</h3>
+            <hr />
+            <p>
+                Cloud Toolbox is dedicated to providing free tools in the cloud, such as calculators and converters for everyone to use.
+                We are continually updating and developing the site with new useful calculators and tools.
+            </p>
+
+            <i>Cloud Toolbox, more than just calculators.</i>
+
+            <p>
+                <a href="@Constants.TWITTER_URL"><i class="bi bi-twitter fs-3"></i></a>
+            </p>
+        </div>
     </div>
 </div>
