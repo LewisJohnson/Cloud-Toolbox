@@ -17,7 +17,6 @@ public static class DeveloperCalculatorCollection
 		};
 	}
 
-
 	public static Calculator ToBase64 = new()
 	{
 		Area = Areas.Developer,
@@ -36,6 +35,7 @@ public static class DeveloperCalculatorCollection
 	{
 		Area = Areas.Developer,
 		DisplayName = "To Hex",
+		Aliases = new() { "Hexadecimal" },
 		Uri = Routes.DEVELOPER_TO_HEX
 	};
 
@@ -43,6 +43,7 @@ public static class DeveloperCalculatorCollection
 	{
 		Area = Areas.Developer,
 		DisplayName = "From Hex",
+		Aliases = new() { "Hexadecimal" },
 		Uri = Routes.DEVELOPER_FROM_HEX
 	};
 
@@ -53,7 +54,7 @@ public static class DeveloperCalculatorCollection
 		Uri = Routes.DEVELOPER_TO_BINARY
 	};
 
-	public static Calculator FromBinary = new ()
+	public static Calculator FromBinary = new()
 	{
 		Area = Areas.Developer,
 		DisplayName = "From Binary",
