@@ -7,19 +7,120 @@
 @using CloudToolbox.Common.Routes;
 @using CloudToolbox.Components.Toolbox.Shared;
 
-<ToolboxHeader Title="Percentage Calculator"
-               Description="Converts the input string to lower case" />
+<div class="row px-4 pt-5 calc-container" style="max-width: 800px; min-height: 100vh;">
+    <div class="col-12 col-md-7">
+        <NewToolboxHeader Title="Percentage Calculator">
+            <Description>
+                <p>
+                    This percentage calculator is a tool that lets you do a simple calculation: what percent of X is Y?
+                    The tool is pretty straightforward. All you need to do is fill in two fields, and the third one will be calculated for you automatically.
+                    This method will allow you to answer the question of how to find a percentage of two numbers.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </div>
 
-<InputOutput onChangeEvent="@OnChange" />
+    <div class="col-12 col-md-5 shadow-sm pt-3 mb-5 calc-panel">
+        <form>
+            <div class="input-group">
+                <span class="input-group-text rounded-0" style="width: 80px">What is</span>
+                <input id="tableSize" class="form-control rounded-0 @PercentageInputCssClass" type="text" @bind-value="Percentage" @onchange="OnChange" @bind-value:event="oninput" />
+                <span class="input-group-text rounded-0">%</span>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text rounded-0 border-top-0 border-right-0" style="width: 80px">Of</span>
+                <input id="upToSize" class="form-control rounded-0 border-top-0 @TotalNumberInputCssClass" type="text" @bind-value="TotalNumber" @onchange="OnChange" @bind-value:event="oninput" />
+            </div>
+
+            <hr />
+
+            <div class="input-group mb-3">
+                <span class="input-group-text rounded-0" style="width: 80px">Result</span>
+                <input id="upToSize" class="form-control" type="text" @bind="Output" />
+                <span class="input-group-text rounded-0">%</span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .calc-container {
+        padding-top: 5rem;
+    }
+
+    .calc-panel {
+        background-color: #fff2fb;
+    }
+
+    h2 {
+        background-color: #fbe6f4;
+    }
+</style>
 
 @code {
-    public async Task<string> OnChange(string input)
+    private string Percentage { get; set; }
+    private string TotalNumber { get; set; }
+    private string Output { get; set; }
+
+    private string PercentageInputCssClass { get; set; }
+    private string TotalNumberInputCssClass { get; set; }
+
+    public PercentageCalculator()
     {
-        if (input != null)
+        Percentage = string.Empty;
+        TotalNumber = string.Empty;
+        Output = string.Empty;
+
+        PercentageInputCssClass = string.Empty;
+        TotalNumberInputCssClass = string.Empty;
+    }
+
+    private void ResetValidation()
+    {
+        PercentageInputCssClass = string.Empty;
+        TotalNumberInputCssClass = string.Empty;
+    }
+
+    private void OnChange()
+    {
+        Validate();
+
+        if (!double.TryParse(Percentage, out double percentage))
         {
-            return input.ToLower();
+            return;
         }
 
-        return string.Empty;
+        if (!double.TryParse(TotalNumber, out double totalNumber))
+        {
+            return;
+        }
+
+        if (totalNumber <= 0)
+        {
+            return;
+        }
+
+        Output = ((percentage / totalNumber) * 100).ToString();
+    }
+
+    private void Validate()
+    {
+        ResetValidation();
+
+        if (!double.TryParse(Percentage, out double percentage))
+        {
+            PercentageInputCssClass = "is-invalid";
+        }
+
+        if (!double.TryParse(TotalNumber, out double totalNumber))
+        {
+            TotalNumberInputCssClass = "is-invalid";
+        }
+
+        if (totalNumber <= 0)
+        {
+            TotalNumberInputCssClass = "is-invalid";
+        }
     }
 }
