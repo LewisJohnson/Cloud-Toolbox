@@ -6,6 +6,10 @@
     border-radius: 0;
 }
 
+.form-flush textarea.form-control {
+    border-radius: 0;
+}
+
 .form-flush span.input-group-text {
     color: rgba(0, 0, 0, 0.67);
 }

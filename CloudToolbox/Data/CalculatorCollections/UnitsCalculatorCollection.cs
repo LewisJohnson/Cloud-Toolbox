@@ -64,7 +64,7 @@ public static class UnitsCalculatorCollection
 	{
 		Area = Areas.Units,
 		DisplayName = "Inch to Cm",
-		Aliases = new List<string>() { "Inch to Centimeter" },
+		Aliases = new List<string>() { "Inch to centimetre" },
 		Uri = Routes.UNITS_INCH_TO_CM
 	};
 
@@ -72,7 +72,7 @@ public static class UnitsCalculatorCollection
 	{
 		Area = Areas.Units,
 		DisplayName = "Cm to Inch",
-		Aliases = new List<string>() { "Centimeter to Inch" },
+		Aliases = new List<string>() { "centimetre to Inch" },
 		Uri = Routes.UNITS_CM_TO_INCH
 	};
 

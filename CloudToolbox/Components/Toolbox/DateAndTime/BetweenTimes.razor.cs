@@ -21,12 +21,6 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 			new CalculatorResult(null) { EndInputGroupText = "seconds"},
 		};
 
-
-		public BetweenTimesBase()
-		{
-
-		}
-
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)
 		{
 			var results = new List<CalculatorResult>();

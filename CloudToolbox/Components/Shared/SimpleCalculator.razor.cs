@@ -2,6 +2,7 @@
 using CloudToolbox.Common.Models.Calculator;
 using CloudToolbox.Common.Types;
 using Microsoft.AspNetCore.Components;
+using System.ComponentModel;
 
 namespace CloudToolbox.Components.Shared
 {
@@ -63,16 +64,7 @@ namespace CloudToolbox.Components.Shared
 
 		private void SetResultTemplate()
 		{
-			Results.Clear();
-
-			foreach (var res in ResultsTemplate)
-			{
-				Results.Add(new CalculatorResult(null)
-				{
-					StartInputGroupText = res.StartInputGroupText,
-					EndInputGroupText = res.EndInputGroupText
-				});
-			}
+			Results = ResultsTemplate.ToList();
 		}
 	}
 }

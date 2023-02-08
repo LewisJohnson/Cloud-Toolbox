@@ -1,25 +1,21 @@
 ﻿@attribute [Route(Routes.DEVELOPER_TO_BASE64)]
 
 @namespace CloudToolbox.Components.Toolbox.Developer
+@inherits ToBase64Base
 
-@using System.Text;
-@using CloudToolbox.Data;
-@using CloudToolbox.Common.Routes;
-@using CloudToolbox.Components.Shared;
+<SimpleCalculatorContainer HeaderColour="@Areas.Developer.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Developer.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="To Base64">
+            <Description>
+                <p>
+                    To use this converter, simply insert some text into the field and we'll give you Base64.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
 
-<ToolboxHeader Title="To Base64"
-               Description="Converts the input string into an UTF-8 Base64 string" />
-
-<InputOutput onChangeEvent="@OnChange" />
-
-@code {
-    public async Task<string> OnChange(string input)
-    {
-        if (input != null)
-        {
-            return Convert.ToBase64String(Encoding.UTF8.GetBytes(input ?? string.Empty));
-        }
-
-        return string.Empty;
-    }
-}
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

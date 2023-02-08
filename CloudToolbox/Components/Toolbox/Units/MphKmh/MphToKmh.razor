@@ -1,33 +1,26 @@
 ﻿@attribute [Route(Routes.UNITS_MPH_TO_KMH)]
 
 @namespace CloudToolbox.Components.Toolbox.Units
+@inherits MphToKmhBase
 
-@using System.Text;
-@using CloudToolbox.Data;
-@using CloudToolbox.Common.Routes;
-@using CloudToolbox.Components.Shared;
+<SimpleCalculatorContainer HeaderColour="@Areas.Units.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Units.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="mi/h to km/h">
+            <Description>
+                <p>
+                    <em>
+                        mi/h = mph, m.p.h., MPH<br />
+                        km/h = kph or kmph
+                    </em>
 
-<ToolboxHeader Title="mi/h to km/h"
-               Description="Converts mph to kph
-mph = mph, m.p.h., MPH, or mi/h
-kph = km/h or kmph" />
+                    To use this converter, simply enter a speed in miles per hour and we'll convert it to kilometres per hour.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
 
-<InputOutput onChangeEvent="@OnChange" />
-
-@code {
-    public async Task<string> OnChange(string input)
-    {
-        if (input != null)
-        {
-            if (double.TryParse(input, out double num))
-            {
-                return (num / 1.609344).ToString("#.##");
-            } else
-            {
-                return "Invalid input";
-            }
-        }
-
-        return string.Empty;
-    }
-}
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

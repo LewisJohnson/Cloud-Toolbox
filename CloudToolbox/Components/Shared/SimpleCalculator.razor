@@ -8,6 +8,11 @@
         {
             if (input.IsStandardInput)
             {
+                @if (!string.IsNullOrWhiteSpace(input.Label))
+                {
+                    <label class="form-label">@input.Label</label>
+                }
+
                 <div class="input-group">
                     @if (!string.IsNullOrWhiteSpace(input.StartInputGroupText))
                     {
@@ -16,7 +21,17 @@
 
                     @if (input.Type == typeof(string))
                     {
-                        <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="text" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
+                        if (input.UseLargeInput)
+                        {
+                            <textarea name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
+                        } else
+                        {
+                            <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="text" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
+                        }
+
+                    } else if (input.Type == typeof(double))
+                    {
+                        <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="text" @bind-value="input.InputDouble" @onchange="OnChange" @bind-value:event="oninput" />
                     } else if (input.Type == typeof(DateTime))
                     {
                         <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="date" @bind-value="input.InputDateTime" @onchange="OnChange" @bind-value:event="oninput" />
@@ -50,19 +65,37 @@
     <div class="form-flush">
         @foreach (CalculatorResult res in Results)
         {
-            <div class="input-group">
-                @if (!string.IsNullOrWhiteSpace(res.StartInputGroupText))
-                {
-                    <span class="input-group-text" style="width: 120px">@res.StartInputGroupText</span>
-                }
+            @if (res.Type == CalculatorResultType.TextArea)
+            {
+                <div class="my-3">
+                    @if (!string.IsNullOrWhiteSpace(res.Label))
+                    {
+                        <label class="form-label">@res.Label</label>
+                    }
 
-                <input id="upToSize" class="form-control" type="text" @bind="res.Value" />
+                    <textarea class="form-control">@res.Value</textarea>
+                </div>
+            } else
+            {
+                <div class="input-group">
+                    @if (!string.IsNullOrWhiteSpace(res.Label))
+                    {
+                        <label class="form-label">@res.Label</label>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(res.StartInputGroupText))
+                    {
+                        <span class="input-group-text" style="width: 120px">@res.StartInputGroupText</span>
+                    }
 
-                @if (!string.IsNullOrWhiteSpace(res.EndInputGroupText))
-                {
-                    <span class="input-group-text justify-content-end" style="width: 120px">@res.EndInputGroupText</span>
-                }
-            </div>
+                    <input class="form-control" type="text" value="@res.Value" />
+
+                    @if (!string.IsNullOrWhiteSpace(res.EndInputGroupText))
+                    {
+                        <span class="input-group-text justify-content-end" style="width: 120px">@res.EndInputGroupText</span>
+                    }
+                </div>
+            }
+
         }
     </div>
 </div>

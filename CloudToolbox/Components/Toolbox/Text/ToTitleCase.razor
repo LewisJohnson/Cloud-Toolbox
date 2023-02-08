@@ -1,31 +1,21 @@
 ﻿@attribute [Route(Routes.TEXT_TO_TITLE_CASE)]
 
 @namespace CloudToolbox.Components.Toolbox.Text
+@inherits FromBase64Base
 
-@using System.Text;
-@using System.Globalization;
-@using CloudToolbox.Data;
-@using CloudToolbox.Common.Routes;
-@using CloudToolbox.Components.Shared;
+<SimpleCalculatorContainer HeaderColour="@Areas.Text.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Text.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="From Base64">
+            <Description>
+                <p>
+                    To use this converter, simply insert some text and we'll give you it back in Title Case.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
 
-<ToolboxHeader Title="To Title Case"
-               Description="Converts text to title case" />
-
-<InputOutput onChangeEvent="@OnChange" />
-
-@code {
-    public async Task<string> OnChange(string input)
-    {
-        if (input != null)
-        {
-            return ConvertToTitleCase(input);
-        }
-
-        return string.Empty;
-    }
-
-    public static string ConvertToTitleCase(string str)
-    {
-        return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
-    }
-}
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

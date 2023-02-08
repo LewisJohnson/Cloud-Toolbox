@@ -21,21 +21,27 @@
             <input class="form-control rounded-1" placeholder="Search..." type="text" @bind-value="FilterText" @bind-value:event="oninput" @onkeyup="FilterMenuItems" />
         </div>
 
-        @foreach (var item in FilteredMenuItems)
+        @foreach (var item in FilteredCalculators)
         {
-            if (item.Type == MenuItemType.Link)
-            {
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="@item.Href">
-                        @item.Name
-                    </NavLink>
-                </div>
-            } else
-            {
-                <div class="nav-item px-3 mt-3">
-                    <span class="oi @item.HeaderIcon" aria-hidden="true"></span> <span class="h6">@item.Name</span>
-                </div>
-            }
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="@item.Uri" style="@BorderCss(item.Area?.CssAccentColour ?? string.Empty)">
+                    @item.DisplayName
+                </NavLink>
+            </div>
+
+            @* if (item.Type == MenuItemType.Link)
+        {
+        <div class="nav-item px-3">
+        <NavLink class="nav-link" href="@item.Href" style="border-left: 2px solid @item.area;">
+        @item.Name
+        </NavLink>
+        </div>
+        } else
+        {
+        <div class="nav-item px-3 mt-3">
+        <span class="oi @item.HeaderIcon" aria-hidden="true"></span> <span class="h6">@item.Name</span>
+        </div>
+        }*@
         }
     </nav>
 </div>
@@ -70,29 +76,20 @@
         }
     }
 
-    public List<NavMenuItem> FilteredMenuItems { get; set; }
+    public List<Calculator> FilteredCalculators { get; set; }
     public string FilterText { get; set; }
-
-    private List<NavMenuItem> MenuItems { get; }
     private bool collapseNavMenu = true;
     private bool hasSearched = false;
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    public NavMenu()
+    protected override void OnInitialized()
     {
-        MenuItems = new List<NavMenuItem>();
-
-        @foreach (var calc in Calculators.GetCalculators())
-        {
-            MenuItems.Add(new NavMenuItem(calc.DisplayName, calc.Uri));
-        }
-
-        FilteredMenuItems = MenuItems;
+        FilteredCalculators = Calculators.GetCalculators();
     }
 
     private void CreateHeaderItem(string name, string icon)
     {
-        MenuItems.Add(new NavMenuItem(name, MenuItemType.Header, icon));
+        //MenuItems.Add(new NavMenuItem(name, MenuItemType.Header, icon));
     }
 
     private void ToggleNavMenu()
@@ -105,19 +102,19 @@
         if (FilterText != null && FilterText.Length > 0)
         {
             hasSearched = true;
-            FilteredMenuItems = MenuItems.Where(x => x.Name.ToLower().Contains(FilterText.ToLower())).ToList();
+            FilteredCalculators = Calculators.GetCalculators().Where(x => x.DisplayName.ToLower().Contains(FilterText.ToLower())).ToList();
         } else
         {
             if (hasSearched)
             {
-                FilteredMenuItems = MenuItems;
-                InvokeAsync(() =>
-                   {
-
-                       StateHasChanged();
-                   });
+                FilteredCalculators = Calculators.GetCalculators();
+                InvokeAsync(StateHasChanged);
             }
-
         }
+    }
+
+    private string BorderCss(string colour)
+    {
+        return "border-left: 2px solid " + colour;
     }
 }

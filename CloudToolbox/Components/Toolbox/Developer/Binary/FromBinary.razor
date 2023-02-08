@@ -1,49 +1,21 @@
 ﻿@attribute [Route(Routes.DEVELOPER_FROM_BINARY)]
 
 @namespace CloudToolbox.Components.Toolbox.Developer
+@inherits ToHexBase
 
-@using System.Text;
-@using CloudToolbox.Data;
-@using CloudToolbox.Common.Routes;
-@using CloudToolbox.Components.Shared;
+<SimpleCalculatorContainer HeaderColour="@Areas.Developer.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Developer.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="From Binary">
+            <Description>
+                <p>
+                    To use this converter, simply insert binary into the field and we'll give you back text.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
 
-<ToolboxHeader Title="From Binary"
-               Description="Converts a hexadecimal byte string back into its raw value" 
-/>
-
-<InputOutput onChangeEvent="@OnChange" />
-
-@code {
-    public async Task<string> OnChange(string input)
-    {
-        if (input != null)
-        {
-            try
-            {
-                var str = input.Replace(" ", "");
-
-                StringBuilder sb = new StringBuilder();
-                while (str.Length > 0)
-                {
-                    string block = str.Substring(0, 8);
-                    str = str.Substring(8);
-                    int value = 0;
-                    foreach (int x in block)
-                    {
-                        int temp = x - 48;
-                        value = (value << 1) | temp;
-                    }
-                    sb.Append(Convert.ToChar(value));
-                }
-
-                return sb.ToString();
-            } catch (Exception _)
-            {
-                return "Invalid input";
-            }
-        }
-
-        return string.Empty;
-    }
-
-}
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

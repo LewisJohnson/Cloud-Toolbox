@@ -1,25 +1,21 @@
 ﻿@attribute [Route(Routes.DEVELOPER_TO_HEX)]
 
 @namespace CloudToolbox.Components.Toolbox.Developer
+@inherits ToHexBase
 
-@using System.Text;
-@using CloudToolbox.Data;
-@using CloudToolbox.Common.Routes;
-@using CloudToolbox.Components.Shared;
+<SimpleCalculatorContainer HeaderColour="@Areas.Developer.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Developer.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="To Hex">
+            <Description>
+                <p>
+                    To use this converter, simply insert some text into the field and we'll give you hexadecimal bytes.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
 
-<ToolboxHeader Title="To Hex"
-               Description="Converts the input string to hexadecimal bytes" />
-
-<InputOutput onChangeEvent="@OnChange" />
-
-@code {
-    public async Task<string> OnChange(string input)
-    {
-        if (input != null)
-        {
-            return Convert.ToHexString(Encoding.UTF8.GetBytes(input));
-        }
-
-        return string.Empty;
-    }
-}
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

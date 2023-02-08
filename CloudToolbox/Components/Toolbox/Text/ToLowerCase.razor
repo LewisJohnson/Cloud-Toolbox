@@ -1,25 +1,21 @@
 ﻿@attribute [Route(Routes.TEXT_TO_LOWER_CASE)]
 
 @namespace CloudToolbox.Components.Toolbox.Text
+@inherits ToLowerCaseBase
 
-@using System.Text;
-@using CloudToolbox.Data;
-@using CloudToolbox.Common.Routes;
-@using CloudToolbox.Components.Shared;
+<SimpleCalculatorContainer HeaderColour="@Areas.Text.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Text.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="To Lower Case">
+            <Description>
+                <p>
+                    To use this converter, simply insert some text and we'll give you it back in lower case.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
 
-<ToolboxHeader Title="To Lower Case"
-               Description="Converts text to lower case" />
-
-<InputOutput onChangeEvent="@OnChange" />
-
-@code {
-    public async Task<string> OnChange(string input)
-    {
-        if (input != null)
-        {
-            return input.ToLower();
-        }
-
-        return string.Empty;
-    }
-}
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

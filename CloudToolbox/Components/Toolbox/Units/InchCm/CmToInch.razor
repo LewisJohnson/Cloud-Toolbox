@@ -1,31 +1,21 @@
 ﻿@attribute [Route(Routes.UNITS_CM_TO_INCH)]
 
 @namespace CloudToolbox.Components.Toolbox.Units
+@inherits CmToInchBase
 
-@using System.Text;
-@using CloudToolbox.Data;
-@using CloudToolbox.Common.Routes;
-@using CloudToolbox.Components.Shared;
+<SimpleCalculatorContainer HeaderColour="@Areas.Units.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Units.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="Centimetres to Inches">
+            <Description>
+                <p>
+                    To use this converter, simply enter centimetres and we'll give you it in inches.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
 
-<ToolboxHeader Title="Cm to inch"
-               Description="Converts centimeters to inches" />
-
-<InputOutput onChangeEvent="@OnChange" />
-
-@code {
-    public async Task<string> OnChange(string input)
-    {
-        if (input != null)
-        {
-            if (double.TryParse(input, out double num))
-            {
-                return (num / 2.54).ToString("#.##");
-            } else
-            {
-                return "Invalid input";
-            }
-        }
-
-        return string.Empty;
-    }
-}
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

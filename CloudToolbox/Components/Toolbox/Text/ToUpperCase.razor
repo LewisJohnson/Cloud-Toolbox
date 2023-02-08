@@ -1,25 +1,21 @@
 ﻿@attribute [Route(Routes.TEXT_TO_UPPER_CASE)]
 
 @namespace CloudToolbox.Components.Toolbox.Text
+@inherits ToUpperCaseBase
 
-@using System.Text;
-@using CloudToolbox.Data;
-@using CloudToolbox.Common.Routes;
-@using CloudToolbox.Components.Shared;
+<SimpleCalculatorContainer HeaderColour="@Areas.Text.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Text.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="From Base64">
+            <Description>
+                <p>
+                    To use this converter, simply insert some text and we'll give you it back in UPPER CASE.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
 
-<ToolboxHeader Title="To Upper Case"
-               Description="Converts text to upper case" />
-
-<InputOutput onChangeEvent="@OnChange" />
-
-@code {
-    public async Task<string> OnChange(string input)
-    {
-        if (input != null)
-        {
-            return input.ToUpper();
-        }
-
-        return string.Empty;
-    }
-}
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>
