@@ -9,11 +9,11 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 	{
 		public List<CalculatorInput> Inputs => new()
 		{
-			new("StartDate", typeof(DateTime)) { StartInputGroupText = "Start Date" },
-			new("StartTime", typeof(TimeOnly)) { StartInputGroupText = "Start Time" },
+			new("StartDate", typeof(DateTime)) { StartInputGroupText = "Start Date", InputDateTime = DateTime.Now },
+			new("StartTime", typeof(TimeOnly)) { StartInputGroupText = "Start Time", InputTimeOnly = new TimeOnly(6,0,0) },
 
-			new("EndDate", typeof(DateTime)) { StartInputGroupText = "End Date" },
-			new("EndTime", typeof(TimeOnly)) { StartInputGroupText = "End Time" },
+			new("EndDate", typeof(DateTime)) { StartInputGroupText = "End Date", InputDateTime = DateTime.Now.AddDays(7) },
+			new("EndTime", typeof(TimeOnly)) { StartInputGroupText = "End Time", InputTimeOnly = new TimeOnly(18,0,0) },
 
 			new("Include End Date", typeof(Checkbox)) { EndInputGroupText = "Include End Date" },
 		};
@@ -44,8 +44,8 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 
 			var includeEndDate = inputs[4].InputBool;
 
-			startDate.Add(startTime.ToTimeSpan());
-			endDate.Add(endTime.ToTimeSpan());
+			startDate = startDate.Add(startTime.ToTimeSpan());
+			endDate = endDate.Add(endTime.ToTimeSpan());
 
 			TimeSpan ts = endDate - startDate;
 
@@ -54,7 +54,7 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 				ts = ts.Add(new TimeSpan(24, 0, 0));
 			}
 
-			results.Add(new(ts.TotalDays.ToString("#.##")) { EndInputGroupText = "days" });
+			results.Add(new(ts.TotalDays.ToString("#.###")) { EndInputGroupText = "days" });
 			results.Add(new(ts.TotalHours.ToString("#.##")) { EndInputGroupText = "hours" });
 			results.Add(new(ts.TotalMinutes.ToString()) { EndInputGroupText = "minutes" });
 			results.Add(new(ts.TotalSeconds.ToString()) { EndInputGroupText = "seconds" });

@@ -9,8 +9,8 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 	{
 		public List<CalculatorInput> Inputs => new()
 		{
-			new("StartTime", typeof(TimeOnly)) { StartInputGroupText = "Start Time" },
-			new("EndTime", typeof(TimeOnly)) { StartInputGroupText = "End Time" },
+			new("StartTime", typeof(TimeOnly)) { StartInputGroupText = "Start Time", InputTimeOnly = new TimeOnly(6,0,0) },
+			new("EndTime", typeof(TimeOnly)) { StartInputGroupText = "End Time", InputTimeOnly = new TimeOnly(18,0,0) },
 		};
 
 		public List<CalculatorResult> ResultsTemplate => new()

@@ -9,8 +9,8 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 	{
 		public List<CalculatorInput> Inputs => new()
 		{
-			new("StartDate", typeof(DateTime)) { StartInputGroupText = "Start Date" },
-			new("EndDate", typeof(DateTime)) { StartInputGroupText = "End Date" },
+			new("StartDate", typeof(DateTime)) { StartInputGroupText = "Start Date", InputDateTime = DateTime.Now },
+			new("EndDate", typeof(DateTime)) { StartInputGroupText = "End Date", InputDateTime = DateTime.Now.AddDays(7) },
 			new("Include End Date", typeof(Checkbox)) { EndInputGroupText = "Include End Date" },
 		};
 
