@@ -7,10 +7,85 @@
 @using CloudToolbox.Common.Routes;
 @using CloudToolbox.Components.Toolbox.Shared;
 
-
-<div class="row mt-5">
-    @foreach (var calc in Areas.Maths.Calculators.OrderBy(x => x.DisplayName))
-    {
-        <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
-    }
+<div class="header text-white text-center p-3 position-sticky" style="z-index: 0; top: 0;">
+    <h1 class="mt-5"><i class="@Areas.Maths.CssIcon"></i> Maths Calculators</h1>
+    <p class="mt-3 pb-5 mb-5 mx-auto w-75">
+        Maths isn't for everyone, that's why we have @Areas.Maths.Calculators.Count mathmatical calculators and converters waiting for you to use.
+        Wether your looking to work out a percentage, an average or just want to see a times table, we've got you covered.
+        Looking for something more financially oriented? Why not browse your finance calculators.
+    </p>
 </div>
+
+<div class="bg-light position-relative" style="z-index: 1; box-shadow: 9px -15px 25px -14px rgba(0, 0, 0, 0.28);">
+    <div class="col-12 py-5 mb-3 px-5">
+        <input class="form-control rounded-1 mx-auto" style="max-width: 500px" placeholder="Search Maths Calculators..." type="text"
+               @bind-value="FilterText" @bind-value:event="oninput" @onkeyup="FilterCalculators" />
+    </div>
+
+    <div class="row px-4" style="min-height: 100vh">
+        @foreach (var calc in FilteredCalculators)
+        {
+            <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
+        }
+    </div>
+</div>
+
+<style>
+    .header {
+        background: #fbc2eb;
+        background: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    }
+
+    .area-button {
+        transition: 0.2s all ease-in-out;
+        height: 70px;
+        line-height: 62px;
+        background-color: white;
+    }
+
+    a.area-button:hover {
+        background-color: #fff2fb;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    }
+
+</style>
+
+@code {
+    private List<Calculator> Calculators { get; }
+    public List<Calculator> FilteredCalculators { get; set; }
+    public string FilterText { get; set; }
+    private bool hasSearched = false;
+
+    public Maths()
+    {
+        Calculators = Areas.Maths.Calculators;
+        FilteredCalculators = Calculators;
+        FilterText = string.Empty;
+    }
+
+    private void FilterCalculators()
+    {
+        if (!string.IsNullOrEmpty(FilterText))
+        {
+            var filterTextLower = FilterText.ToLower().Trim();
+
+            hasSearched = true;
+            FilteredCalculators = Calculators
+                .Where(x => (x.DisplayName.ToLower().Contains(filterTextLower) || string.Join(" ", x.Aliases).ToLower().Contains(filterTextLower)))
+                .OrderBy(x => x.DisplayName)
+                .ToList();
+        } else
+        {
+            if (hasSearched)
+            {
+                FilteredCalculators = Calculators;
+                InvokeAsync(() =>
+                   {
+
+                       StateHasChanged();
+                   });
+            }
+
+        }
+    }
+}
