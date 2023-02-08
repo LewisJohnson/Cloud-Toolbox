@@ -10,6 +10,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudToolbox.Services", "CloudToolbox.Services\CloudToolbox.Services.csproj", "{D79B0B54-F0D4-4D65-B7C1-CC9EDCA6EC1A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C92614AC-3B66-46F8-B343-FBA4A58E7EF6}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
