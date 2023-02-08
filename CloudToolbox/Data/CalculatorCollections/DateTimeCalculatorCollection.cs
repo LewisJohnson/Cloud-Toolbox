@@ -8,14 +8,14 @@ public static class DateTimeCalculatorCollection
 	{
 		return new List<Calculator>()
 		{
-			DurationBetweenDays,
+			DurationBetweenDates,
 			DurationBetweenTime,
 			DurationBetweenTimeAndDate
 		};
 	}
 
 
-	public static Calculator DurationBetweenDays = new()
+	public static Calculator DurationBetweenDates = new()
 	{
 		Area = Areas.DateAndTime,
 		DisplayName = "Duration Between Dates",
