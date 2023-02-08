@@ -1,0 +1,20 @@
+﻿.form-flush input.form-control,
+.form-flush span.input-group-text {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-radius: 0;
+}
+
+.form-flush span.input-group-text {
+    color: rgba(0, 0, 0, 0.67);
+}
+
+.form-flush div.input-group:last-child input.form-control,
+.form-flush div.input-group:last-child span.input-group-text {
+    border-bottom: 0;
+}
+
+.input-group-text {
+    background-color: white;
+}

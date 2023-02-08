@@ -1,8 +1,4 @@
-﻿using CloudToolbox.Common.Enums;
-using CloudToolbox.Common.Types;
-using System.Reflection.Metadata.Ecma335;
-
-namespace CloudToolbox.Common.Models.Calculator
+﻿namespace CloudToolbox.Common.Models.Calculator
 {
     public class CalculatorInput
     {

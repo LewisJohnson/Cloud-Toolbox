@@ -1,4 +1,6 @@
-﻿@using System.Net.Http
+﻿@using System.Text
+@using System.Net.Http
+@using CloudToolbox.Data
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Forms
@@ -6,8 +8,13 @@
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 @using Microsoft.JSInterop
+
 @using CloudToolbox
 @using CloudToolbox.Shared
-
-
-@using CloudToolbox.Components.Toolbox;
+@using CloudToolbox.Common.Types
+@using CloudToolbox.Common.Enums
+@using CloudToolbox.Common.Routes
+@using CloudToolbox.Common.Models.Calculator
+@using CloudToolbox.Components.Toolbox
+@using CloudToolbox.Components.Toolbox.DateAndTime
+@using CloudToolbox.Components.Shared
