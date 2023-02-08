@@ -5,9 +5,11 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudToolbox", "CloudToolbox\CloudToolbox.csproj", "{A30CD051-9D26-43F4-A365-F39C2A1F0371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudToolbox.Common", "CloudToolbox.Common\CloudToolbox.Common.csproj", "{5BA338CE-6631-4B95-B8A0-59EFAAB25A1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudToolbox.Common", "CloudToolbox.Common\CloudToolbox.Common.csproj", "{5BA338CE-6631-4B95-B8A0-59EFAAB25A1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudToolbox.Services", "CloudToolbox.Services\CloudToolbox.Services.csproj", "{D79B0B54-F0D4-4D65-B7C1-CC9EDCA6EC1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudToolbox.Services", "CloudToolbox.Services\CloudToolbox.Services.csproj", "{D79B0B54-F0D4-4D65-B7C1-CC9EDCA6EC1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C92614AC-3B66-46F8-B343-FBA4A58E7EF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
