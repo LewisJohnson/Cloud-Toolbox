@@ -24,7 +24,7 @@ namespace CloudToolbox.Components.Toolbox.Units
 			if (input != null)
 			{
 				var res = ((double)(input / 6.35)).ToString("#.##");
-				results.Add(new(res) { Label = "st" });
+				results.Add(new(res) { EndInputGroupText = "st" });
 			}
 
 			return results;

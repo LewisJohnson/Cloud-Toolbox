@@ -24,7 +24,7 @@ namespace CloudToolbox.Components.Toolbox.Units
 			if (input != null)
 			{
 				var res = ((double)(input * 1.609344)).ToString("#.##");
-				results.Add(new(res) { Label = "km/h" });
+				results.Add(new(res) { EndInputGroupText = "km/h" });
 			}
 
 			return results;
