@@ -7,7 +7,7 @@ public class DisplayCalculator
 		Aliases = new List<string>();
 	}
 
-	public DisplayCalculator(Area area)
+	public DisplayCalculator(CalculatorArea area)
 	{
 		Area = area;
 		Aliases = new List<string>();
@@ -16,5 +16,5 @@ public class DisplayCalculator
 	public string DisplayName { get; set; }
 	public List<string> Aliases { get; set; }
 	public string Uri { get; set; }
-	public Area Area { get; set; }
+	public CalculatorArea Area { get; set; }
 }

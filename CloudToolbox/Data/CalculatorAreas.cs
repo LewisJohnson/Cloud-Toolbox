@@ -4,12 +4,11 @@ using CloudToolbox.Data.DisplayCalculatorCollections;
 
 namespace CloudToolbox.Data;
 
-public static class Areas
+public static class CalculatorAreas
 {
-
-	public static List<Area> GetAreas()
+	public static List<CalculatorArea> GetAreas()
 	{
-		return new List<Area>()
+		return new List<CalculatorArea>()
 		{
 			DateAndTime,
 			Developer,
@@ -20,7 +19,7 @@ public static class Areas
 		};
 	}
 
-	public static Area DateAndTime = new()
+	public static CalculatorArea DateAndTime = new()
 	{
 		Name = "DateAndTime",
 		DisplayName = "Date & Time",
@@ -30,7 +29,7 @@ public static class Areas
 		Calculators = DateAndTimeCalculatorCollection.GetCalculators(),
 	};
 
-	public static Area Developer = new()
+	public static CalculatorArea Developer = new()
 	{
 		Name = "Developer",
 		CssIcon = "bi bi-code-slash",
@@ -41,7 +40,7 @@ public static class Areas
 		Calculators = DeveloperCalculatorCollection.GetCalculators(),
 	};
 
-	public static Area Maths = new()
+	public static CalculatorArea Maths = new()
 	{
 		Name = "Maths",
 		CssIcon = "bi bi-calculator",
@@ -52,7 +51,7 @@ public static class Areas
 		Calculators = MathsCalculatorCollection.GetCalculators(),
 	};
 
-	public static Area Text = new()
+	public static CalculatorArea Text = new()
 	{
 		Name = "Text",
 		CssIcon = "bi bi-fonts",
@@ -61,7 +60,7 @@ public static class Areas
 		Calculators = TextCalculatorCollection.GetCalculators(),
 	};
 
-	public static Area Travel = new()
+	public static CalculatorArea Travel = new()
 	{
 		Name = "Travel",
 		CssIcon = "bi bi-globe-europe-africa",
@@ -70,7 +69,7 @@ public static class Areas
 		Calculators = TravelCalculatorCollection.GetCalculators(),
 	};
 
-	public static Area Units = new()
+	public static CalculatorArea Units = new()
 	{
 		Name = "Units",
 		CssIcon = "bi bi-graph-up",

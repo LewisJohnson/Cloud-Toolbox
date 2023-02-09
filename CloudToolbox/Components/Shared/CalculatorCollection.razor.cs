@@ -9,7 +9,7 @@ namespace CloudToolbox.Components.Shared
 		public RenderFragment? Description { get; set; }
 
 		[Parameter]
-		public Area Area { get; set; }
+		public CalculatorArea Area { get; set; }
 		public List<DisplayCalculator> FilteredCalculators { get; set; }
 
 		public string FilterText { get; set; }

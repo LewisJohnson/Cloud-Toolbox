@@ -5,7 +5,7 @@ namespace CloudToolbox.Data.DisplayCalculatorCollections;
 
 public static class MathsCalculatorCollection
 {
-	private static Area Area { get; } = Areas.Maths;
+	private static CalculatorArea Area { get; } = CalculatorAreas.Maths;
 
 	public static List<DisplayCalculator> GetCalculators()
 	{

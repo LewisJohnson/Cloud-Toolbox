@@ -85,7 +85,7 @@
 
     protected override void OnInitialized()
     {
-        Calculators = Areas.GetAreas().SelectMany(x => x.Calculators).ToList();
+        Calculators = CalculatorAreas.GetAreas().SelectMany(x => x.Calculators).ToList();
         FilteredCalculators = Calculators;
     }
 

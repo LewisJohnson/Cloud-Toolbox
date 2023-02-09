@@ -5,7 +5,7 @@
 
 <div class="px-4 mt-5">
     <h1>Hello!</h1>
-    <p>We have @Areas.GetAreas().Sum(x => x.Calculators.Count) calculators and converters.</p>
+    <p>We have @CalculatorAreas.GetAreas().Sum(x => x.Calculators.Count) calculators and converters.</p>
 
     <div class="row">
         <div class="col-12">
@@ -14,7 +14,7 @@
                     Calculator Types
                 </h3>
 
-                @foreach (var area in Areas.GetAreas())
+                @foreach (var area in CalculatorAreas.GetAreas())
                 {
                 <div class="col-12 col-md-6 col-lg-3 mb-3">
                     <div class="card shadow-sm homepage @(area.Name)">
@@ -104,7 +104,7 @@
 </div>
 
 <style>
-    @foreach (var area in Areas.GetAreas())
+    @foreach (var area in CalculatorAreas.GetAreas())
     {
         var name = $".card.homepage.{area.Name}:hover {{ background:{area.CssHeaderBackgroundColour}; }}";
 

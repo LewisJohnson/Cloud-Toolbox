@@ -5,7 +5,7 @@ namespace CloudToolbox.Data.DisplayCalculatorCollections;
 
 public static class DateAndTimeCalculatorCollection
 {
-	private static Area Area { get; } = Areas.DateAndTime;
+	private static CalculatorArea Area { get; } = CalculatorAreas.DateAndTime;
 
 	public static List<DisplayCalculator> GetCalculators()
 	{

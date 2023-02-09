@@ -2,7 +2,7 @@ using CloudToolbox.Common.Enums;
 
 namespace CloudToolbox.Data;
 
-public class Area
+public class CalculatorArea
 {
 	private string displayName;
 
@@ -23,7 +23,7 @@ public class Area
 	public string CssCalulatorHeaderBackgroundColour { get; set; }
 	public string CssCalulatorPanelColour { get; set; }
 
-	public Area()
+	public CalculatorArea()
 	{
 		CssAccentColour = "#cdd8d5";
 		CssHeaderBackgroundColour = "#cdd8d5";
