@@ -1,0 +1,21 @@
+﻿@attribute [Route(Routes.TRAVEL_JOURNEY_COST)]
+
+@namespace CloudToolbox.Components.Toolbox.Travel
+@inherits JourneyCostBase
+
+<SimpleCalculatorContainer HeaderColour="@Areas.Travel.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Travel.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="@TravelCalculatorCollection.JourneyCost.DisplayName">
+            <Description>
+                <p>
+                    To use this converter, simply enter a speed in kilometres per hour and we'll convert it to miles per hour.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange" ResultStartInputGroupWidth="24"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>
