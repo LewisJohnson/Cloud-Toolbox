@@ -14,7 +14,7 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 
 		public List<CalculatorResult> ResultsTemplate => new()
 		{
-			new CalculatorResult(null) { Label = "Binary", Type = CalculatorResultType.TextArea },
+			new CalculatorResult(null) { Label = "Base64", Type = CalculatorResultType.TextArea },
 		};
 
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)
@@ -24,7 +24,7 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 			string inputString = inputs[0].InputString ?? string.Empty;
 			string res = string.Join(" ", Encoding.ASCII.GetBytes(inputString).Select(byt => Convert.ToString(byt, 2).PadLeft(8, '0')));
 
-			results.Add(new(res) { Label = "Binary", Type = CalculatorResultType.TextArea });
+			results.Add(new(res) { Label = "Base64", Type = CalculatorResultType.TextArea });
 
 			return results;
 		}

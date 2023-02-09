@@ -3,37 +3,20 @@
 
 <PageTitle>@Constants.TITLE_PREFIX @Title</PageTitle>
 
-<h1>@Title</h1>
-<h6>
-    @{
-        int i = 0;
-    }
-    @foreach (var sub in Description.Split('\n'))
-    {
-        if (i > 0)
-        {
-            <small class="text-muted">
-                @sub <br />
-            </small>
-        } else
-        {
-            @sub <br />
-        }
-
-        ++i;
-    }
-</h6>
+<div class="bg-white shadow-sm">
+    <h2 class="p-2">@Title</h2>
+    <div class="p-3">@Description</div>
+</div>
 
 @code {
     [Parameter]
     public string Title { get; set; }
 
     [Parameter]
-    public string Description { get; set; }
+    public RenderFragment? Description { get; set; }
 
     public ToolboxHeader()
     {
         Title = string.Empty;
-        Description = string.Empty;
     }
 }

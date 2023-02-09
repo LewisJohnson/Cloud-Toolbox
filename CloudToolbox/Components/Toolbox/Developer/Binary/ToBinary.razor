@@ -1,18 +1,18 @@
 ﻿@attribute [Route(Routes.DEVELOPER_TO_BINARY)]
 
 @namespace CloudToolbox.Components.Toolbox.Developer
-@inherits ToHexBase
+@inherits ToBinaryBase
 
 <SimpleCalculatorContainer HeaderColour="@Areas.Developer.CssCalulatorHeaderBackgroundColour"
                            PanelColour="@Areas.Developer.CssCalulatorPanelColour">
     <Header>
-        <NewToolboxHeader Title="To Binary">
+        <ToolboxHeader Title="To Binary">
             <Description>
                 <p>
                     To use this converter, simply insert some text into the field and we'll give you binary.
                 </p>
             </Description>
-        </NewToolboxHeader>
+        </ToolboxHeader>
     </Header>
 
     <Calculator>
