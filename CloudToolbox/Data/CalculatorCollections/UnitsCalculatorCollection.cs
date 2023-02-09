@@ -4,6 +4,8 @@ namespace CloudToolbox.Data.CalculatorCollections;
 
 public static class UnitsCalculatorCollection
 {
+	private static Area Area { get; } = Areas.Units;
+
 	public static List<Calculator> GetCalculators()
 	{
 		return new List<Calculator>()
@@ -18,25 +20,22 @@ public static class UnitsCalculatorCollection
 	}
 
 
-	public static Calculator KgToStone = new()
+	public static Calculator KgToStone = new(Area)
 	{
-		Area = Areas.Units,
 		DisplayName = "Kg to Stone",
 		Aliases = new List<string>() { "Kg to St", "Kilogram to Stone" },
 		Uri = Routes.UNITS_KG_TO_STONE
 	};
 
-	public static Calculator StoneToKg = new()
+	public static Calculator StoneToKg = new(Area)
 	{
-		Area = Areas.Units,
 		DisplayName = "Kg to Stone",
 		Aliases = new List<string>() { "St to Kg", "Stone to Kilogram" },
 		Uri = Routes.UNITS_STONE_TO_KG
 	};
 
-	public static Calculator MphToKmh = new()
+	public static Calculator MphToKmh = new(Area)
 	{
-		Area = Areas.Units,
 		DisplayName = "mph to km/h",
 		Aliases = new List<string>() {
 			"m.p.h. to km/h",
@@ -47,9 +46,8 @@ public static class UnitsCalculatorCollection
 		Uri = Routes.UNITS_MPH_TO_KMH
 	};
 
-	public static Calculator KmhToMph = new()
+	public static Calculator KmhToMph = new(Area)
 	{
-		Area = Areas.Units,
 		DisplayName = "km/h to mph",
 		Aliases = new List<string>() {
 			"km/h to m.p.h.",
@@ -60,17 +58,15 @@ public static class UnitsCalculatorCollection
 		Uri = Routes.UNITS_KMH_TO_MPH
 	};
 
-	public static Calculator InchToCm = new()
+	public static Calculator InchToCm = new(Area)
 	{
-		Area = Areas.Units,
 		DisplayName = "Inch to Cm",
 		Aliases = new List<string>() { "Inch to centimetre" },
 		Uri = Routes.UNITS_INCH_TO_CM
 	};
 
-	public static Calculator CmToInch = new()
+	public static Calculator CmToInch = new(Area)
 	{
-		Area = Areas.Units,
 		DisplayName = "Cm to Inch",
 		Aliases = new List<string>() { "centimetre to Inch" },
 		Uri = Routes.UNITS_CM_TO_INCH

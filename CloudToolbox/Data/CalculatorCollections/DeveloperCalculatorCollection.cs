@@ -4,6 +4,8 @@ namespace CloudToolbox.Data.CalculatorCollections;
 
 public static class DeveloperCalculatorCollection
 {
+	private static Area Area { get; } = Areas.Developer;
+
 	public static List<Calculator> GetCalculators()
 	{
 		return new List<Calculator>()
@@ -17,46 +19,40 @@ public static class DeveloperCalculatorCollection
 		};
 	}
 
-	public static Calculator ToBase64 = new()
+	public static Calculator ToBase64 = new(Area)
 	{
-		Area = Areas.Developer,
 		DisplayName = "To Base64",
 		Uri = Routes.DEVELOPER_TO_BASE64
 	};
 
-	public static Calculator FromBase64 = new()
+	public static Calculator FromBase64 = new(Area)
 	{
-		Area = Areas.Developer,
 		DisplayName = "From Base64",
 		Uri = Routes.DEVELOPER_FROM_BASE64
 	};
 
-	public static Calculator ToHex = new()
+	public static Calculator ToHex = new(Area)
 	{
-		Area = Areas.Developer,
 		DisplayName = "To Hex",
 		Aliases = new() { "Hexadecimal" },
 		Uri = Routes.DEVELOPER_TO_HEX
 	};
 
-	public static Calculator FromHex = new()
+	public static Calculator FromHex = new(Area)
 	{
-		Area = Areas.Developer,
 		DisplayName = "From Hex",
 		Aliases = new() { "Hexadecimal" },
 		Uri = Routes.DEVELOPER_FROM_HEX
 	};
 
-	public static Calculator ToBinary = new()
+	public static Calculator ToBinary = new(Area)
 	{
-		Area = Areas.Developer,
 		DisplayName = "To Binary",
 		Uri = Routes.DEVELOPER_TO_BINARY
 	};
 
-	public static Calculator FromBinary = new()
+	public static Calculator FromBinary = new(Area)
 	{
-		Area = Areas.Developer,
 		DisplayName = "From Binary",
 		Uri = Routes.DEVELOPER_FROM_BINARY
 	};

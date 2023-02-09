@@ -2,8 +2,10 @@
 
 namespace CloudToolbox.Data.CalculatorCollections;
 
-public static class DateTimeCalculatorCollection
+public static class DateAndTimeCalculatorCollection
 {
+	private static Area Area { get; } = Areas.DateAndTime;
+
 	public static List<Calculator> GetCalculators()
 	{
 		return new List<Calculator>()
@@ -14,24 +16,20 @@ public static class DateTimeCalculatorCollection
 		};
 	}
 
-
-	public static Calculator DurationBetweenDates = new()
+	public static Calculator DurationBetweenDates = new(Area)
 	{
-		Area = Areas.DateAndTime,
 		DisplayName = "Duration Between Dates",
 		Uri = Routes.DATE_AND_TIME_DURATION_BETWEEN_DATES
 	};
 
-	public static Calculator DurationBetweenTime = new()
+	public static Calculator DurationBetweenTime = new(Area)
 	{
-		Area = Areas.DateAndTime,
 		DisplayName = "Duration Between Times",
 		Uri = Routes.DATE_AND_TIME_DURATION_BETWEEN_TIMES
 	};
 
-	public static Calculator DurationBetweenTimeAndDate = new()
+	public static Calculator DurationBetweenTimeAndDate = new(Area)
 	{
-		Area = Areas.DateAndTime,
 		DisplayName = "Duration Between Time And Date",
 		Uri = Routes.DATE_AND_TIME_DURATION_BETWEEN_TIME_AND_DATE
 	};

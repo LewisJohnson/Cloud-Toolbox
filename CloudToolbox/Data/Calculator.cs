@@ -7,6 +7,12 @@ public class Calculator
 		Aliases = new List<string>();
 	}
 
+	public Calculator(Area area)
+	{
+		Area = area;
+		Aliases = new List<string>();
+	}
+
 	public string DisplayName { get; set; }
 	public List<string> Aliases { get; set; }
 	public string Uri { get; set; }

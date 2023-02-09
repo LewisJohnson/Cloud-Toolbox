@@ -27,7 +27,7 @@ public static class Areas
 		CssIcon = "bi bi-calendar-date",
 		Type = AreaTypes.DateAndTime,
 		Uri = Routes.AREA_DATE_AND_TIME,
-		Calculators = DateTimeCalculatorCollection.GetCalculators(),
+		Calculators = DateAndTimeCalculatorCollection.GetCalculators(),
 	};
 
 	public static Area Developer = new()

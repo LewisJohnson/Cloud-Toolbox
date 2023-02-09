@@ -4,6 +4,8 @@ namespace CloudToolbox.Data.CalculatorCollections;
 
 public static class TextCalculatorCollection
 {
+	private static Area Area { get; } = Areas.Text;
+
 	public static List<Calculator> GetCalculators()
 	{
 		return new List<Calculator>()
@@ -15,23 +17,20 @@ public static class TextCalculatorCollection
 	}
 
 
-	public static Calculator ToLowerCase = new()
+	public static Calculator ToLowerCase = new(Area)
 	{
-		Area = Areas.Text,
 		DisplayName = "To Lower Case",
 		Uri = Routes.TEXT_TO_LOWER_CASE
 	};
 
-	public static Calculator ToUpperCase = new()
+	public static Calculator ToUpperCase = new(Area)
 	{
-		Area = Areas.Text,
 		DisplayName = "To Upper Case",
 		Uri = Routes.TEXT_TO_UPPER_CASE
 	};
 
-	public static Calculator ToTitleCase = new()
+	public static Calculator ToTitleCase = new(Area)
 	{
-		Area = Areas.Text,
 		DisplayName = "To Title Case",
 		Uri = Routes.TEXT_TO_TITLE_CASE
 	};
