@@ -1,0 +1,21 @@
+﻿@attribute [Route(Routes.UNITS_GALLON_TO_LITRE)]
+
+@namespace CloudToolbox.Components.Toolbox.Units
+@inherits GallonsToLitresBase
+
+<SimpleCalculatorContainer HeaderColour="@Areas.Units.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Units.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="Gallons to Litres">
+            <Description>
+                <p>
+                    To use this converter, simply enter imperial gallons and we'll convert it to litres.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>
