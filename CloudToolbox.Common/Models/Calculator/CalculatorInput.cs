@@ -19,6 +19,10 @@ namespace CloudToolbox.Common.Models.Calculator
 		public string? InputString { get; set; }
 		public double? InputDouble
 		{
+			set
+			{
+				InputString = value.ToString();
+			}
 			get
 			{
 				return double.TryParse(InputString, out double num) ? num : null;
