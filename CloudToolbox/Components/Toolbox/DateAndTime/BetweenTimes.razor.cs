@@ -30,8 +30,8 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 
 			TimeSpan ts = endDate - startDate;
 			
-			results.Add(new((ts.TotalDays * 100).ToString("#.##")) { EndInputGroupText = "% of the day" });
-			results.Add(new(ts.TotalHours.ToString("#.##")) { EndInputGroupText = "hours" });
+			results.Add(new((ts.TotalDays * 100).ToString("0.##")) { EndInputGroupText = "% of the day" });
+			results.Add(new(ts.TotalHours.ToString("0.##")) { EndInputGroupText = "hours" });
 			results.Add(new(ts.TotalMinutes.ToString()) { EndInputGroupText = "minutes" });
 			results.Add(new(ts.TotalSeconds.ToString()) { EndInputGroupText = "seconds" });
 

@@ -1,4 +1,4 @@
-﻿using CloudToolbox.Calculators;
+﻿using CloudToolbox.Calculators.Unit;
 using CloudToolbox.Common.Models.Calculator;
 using Microsoft.AspNetCore.Components;
 
@@ -24,7 +24,7 @@ namespace CloudToolbox.Components.Toolbox.Units
 
 			if (input != null)
 			{
-				string res = UnitCalculators.ImperialGallonToLitre(input.Value).ToString("#.##");
+				string res = UnitCalculators.ImperialGallonToLitre(input.Value).ToString("0.##");
 				results.Add(new(res) { EndInputGroupText = "litres" });
 			}
 
