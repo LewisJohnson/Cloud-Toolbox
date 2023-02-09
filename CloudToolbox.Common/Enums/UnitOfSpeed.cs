@@ -2,10 +2,10 @@
 {
 	public enum UnitOfSpeed
 	{
-		MilePerHour,
-		KilometrePerHour,
-		FootPerSecond,
-		MetrePerSecond,
+		Mile_Per_Hour,
+		Kilometre_Per_Hour,
+		Foot_Per_Second,
+		Metre_Per_Second,
 		Knot,
 	}
 }

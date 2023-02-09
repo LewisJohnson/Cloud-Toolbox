@@ -3,7 +3,7 @@
 	public enum UnitOfLength
 	{
 		Kilometre,
-		Meter,
+		Metre,
 		Centimetre,
 		Millimetre,
 		Mile,
