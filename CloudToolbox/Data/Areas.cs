@@ -1,6 +1,6 @@
 using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Routes;
-using CloudToolbox.Data.CalculatorCollections;
+using CloudToolbox.Data.DisplayCalculatorCollections;
 
 namespace CloudToolbox.Data;
 

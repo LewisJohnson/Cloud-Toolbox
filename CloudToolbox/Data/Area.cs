@@ -15,7 +15,7 @@ public class Area
 
 	public string Uri { get; set; }
 	public AreaTypes Type { get; set; }
-	public List<Calculator> Calculators { get; set; }
+	public List<DisplayCalculator> Calculators { get; set; }
 
 	public string CssIcon { get; set; }
 	public string CssAccentColour { get; set; }

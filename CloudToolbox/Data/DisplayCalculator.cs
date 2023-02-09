@@ -1,13 +1,13 @@
 ﻿namespace CloudToolbox.Data;
 
-public class Calculator
+public class DisplayCalculator
 {
-	public Calculator()
+	public DisplayCalculator()
 	{
 		Aliases = new List<string>();
 	}
 
-	public Calculator(Area area)
+	public DisplayCalculator(Area area)
 	{
 		Area = area;
 		Aliases = new List<string>();
