@@ -1,10 +1,21 @@
 ﻿@attribute [Route(Routes.TRAVEL_MPG_CALCULATOR)]
 
 @namespace CloudToolbox.Components.Toolbox.Travel
+@inherits MpgCalculatorBase
 
-@using System.Text;
-@using CloudToolbox.Data;
-@using CloudToolbox.Common.Routes;
-@using CloudToolbox.Components.Shared;
+<SimpleCalculatorContainer HeaderColour="@Areas.Travel.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@Areas.Travel.CssCalulatorPanelColour">
+    <Header>
+        <NewToolboxHeader Title="@TravelCalculatorCollection.MpgCalculator.DisplayName">
+            <Description>
+                <p>
+                    To use this converter, simply enter a speed in kilometres per hour and we'll convert it to miles per hour.
+                </p>
+            </Description>
+        </NewToolboxHeader>
+    </Header>
 
-MPG Calc
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange" ResultStartInputGroupWidth="50" StartInputGroupWidth="24"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>
