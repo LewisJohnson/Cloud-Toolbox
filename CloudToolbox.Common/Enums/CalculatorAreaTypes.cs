@@ -1,6 +1,6 @@
 namespace CloudToolbox.Common.Enums;
 
-public enum AreaTypes
+public enum CalculatorAreaTypes
 {
     DateAndTime,
     Developer,

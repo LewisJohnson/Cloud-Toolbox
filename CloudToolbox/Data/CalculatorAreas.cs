@@ -24,7 +24,7 @@ public static class CalculatorAreas
 		Name = "DateAndTime",
 		DisplayName = "Date & Time",
 		CssIcon = "bi bi-calendar-date",
-		Type = AreaTypes.DateAndTime,
+		Type = CalculatorAreaTypes.DateAndTime,
 		Uri = Routes.AREA_DATE_AND_TIME,
 		Calculators = DateAndTimeCalculatorCollection.GetCalculators(),
 	};
@@ -35,7 +35,7 @@ public static class CalculatorAreas
 		CssIcon = "bi bi-code-slash",
 		CssAccentColour = "#84fab0",
 		CssHeaderBackgroundColour = "linear-gradient(to top, #84fab0 0%, #8fd3f4 100%)",
-		Type = AreaTypes.Developer,
+		Type = CalculatorAreaTypes.Developer,
 		Uri = Routes.AREA_DEVELOPER,
 		Calculators = DeveloperCalculatorCollection.GetCalculators(),
 	};
@@ -46,7 +46,7 @@ public static class CalculatorAreas
 		CssIcon = "bi bi-calculator",
 		CssAccentColour = "#fff2fb",
 		CssHeaderBackgroundColour = "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
-		Type = AreaTypes.Maths,
+		Type = CalculatorAreaTypes.Maths,
 		Uri = Routes.AREA_MATHS,
 		Calculators = MathsCalculatorCollection.GetCalculators(),
 	};
@@ -55,7 +55,7 @@ public static class CalculatorAreas
 	{
 		Name = "Text",
 		CssIcon = "bi bi-fonts",
-		Type = AreaTypes.Text,
+		Type = CalculatorAreaTypes.Text,
 		Uri = Routes.AREA_TEXT,
 		Calculators = TextCalculatorCollection.GetCalculators(),
 	};
@@ -64,7 +64,7 @@ public static class CalculatorAreas
 	{
 		Name = "Travel",
 		CssIcon = "bi bi-globe-europe-africa",
-		Type = AreaTypes.Travel,
+		Type = CalculatorAreaTypes.Travel,
 		Uri = Routes.AREA_TRAVEL,
 		Calculators = TravelCalculatorCollection.GetCalculators(),
 	};
@@ -73,7 +73,7 @@ public static class CalculatorAreas
 	{
 		Name = "Units",
 		CssIcon = "bi bi-graph-up",
-		Type = AreaTypes.Units,
+		Type = CalculatorAreaTypes.Units,
 		Uri = Routes.AREA_UNITS,
 		Calculators = UnitsCalculatorCollection.GetCalculators(),
 	};
