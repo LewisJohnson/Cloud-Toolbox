@@ -1,4 +1,5 @@
-﻿using CloudToolbox.Common.Models.Calculator;
+﻿using CloudToolbox.Calculators;
+using CloudToolbox.Common.Models.Calculator;
 using Microsoft.AspNetCore.Components;
 
 namespace CloudToolbox.Components.Toolbox.Units
@@ -23,7 +24,7 @@ namespace CloudToolbox.Components.Toolbox.Units
 
 			if (input != null)
 			{
-				var res = ((double)(input / 2.54)).ToString("#.##");
+				string res = UnitCalculators.CentimetresToInch(input.Value).ToString("#.##");
 				results.Add(new(res) { EndInputGroupText = "in" });
 			}
 

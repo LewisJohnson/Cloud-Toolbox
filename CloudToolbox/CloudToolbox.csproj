@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CloudToolbox.Calculators\CloudToolbox.Calculators.csproj" />
     <ProjectReference Include="..\CloudToolbox.Common\CloudToolbox.Common.csproj" />
     <ProjectReference Include="..\CloudToolbox.Services\CloudToolbox.Services.csproj" />
   </ItemGroup>
