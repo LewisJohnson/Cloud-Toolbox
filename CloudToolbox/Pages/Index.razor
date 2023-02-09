@@ -17,7 +17,7 @@
                 @foreach (var area in Areas.GetAreas())
                 {
                 <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <div class="card shadow-sm homepage">
+                    <div class="card shadow-sm homepage @(area.Name)">
                         <div class="d-block p-4 text-center">
                             <i class="@area.CssIcon fs-1"></i>
                         </div>
@@ -102,3 +102,19 @@
         </div>
     </div>
 </div>
+
+<style>
+    @foreach (var area in Areas.GetAreas())
+    {
+        var name = $".card.homepage.{area.Name}:hover {{ background:{area.CssHeaderBackgroundColour}; }}";
+
+        <text>
+            @(name)
+        </text>
+    }
+
+    .card.homepage:hover {
+        background-color: #0a58ca;
+        color: white;
+    }
+</style>

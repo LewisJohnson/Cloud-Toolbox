@@ -66,10 +66,14 @@ a, .btn-link {
 
 
 .card.homepage {
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    background: white;
+    transition: 
+        color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
 }
 .card.homepage:hover {
-    background-color: #0a58ca;
     color: white;
 }
 

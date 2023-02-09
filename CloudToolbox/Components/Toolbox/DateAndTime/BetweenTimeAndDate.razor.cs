@@ -50,8 +50,8 @@ namespace CloudToolbox.Components.Toolbox.DateAndTime
 
 			results.Add(new(ts.TotalDays.ToString("#.###")) { EndInputGroupText = "days" });
 			results.Add(new(ts.TotalHours.ToString("#.##")) { EndInputGroupText = "hours" });
-			results.Add(new(ts.TotalMinutes.ToString()) { EndInputGroupText = "minutes" });
-			results.Add(new(ts.TotalSeconds.ToString()) { EndInputGroupText = "seconds" });
+			results.Add(new(ts.TotalMinutes.ToString("#")) { EndInputGroupText = "minutes" });
+			results.Add(new(ts.TotalSeconds.ToString("#")) { EndInputGroupText = "seconds" });
 
 			return results;
 		}
