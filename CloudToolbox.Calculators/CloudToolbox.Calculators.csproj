@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CloudToolbox.Common\CloudToolbox.Common.csproj" />
+  </ItemGroup>
+
 </Project>
