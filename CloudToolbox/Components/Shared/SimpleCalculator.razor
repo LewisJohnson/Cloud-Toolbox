@@ -8,13 +8,15 @@
         {
             if (input.IsStandardInput)
             {
-                @if (!string.IsNullOrWhiteSpace(input.Label))
+                string formCssClass = "form-control " + (!input.IsValid && IsValidating? input.InvalidCssClass : "");
+
+                @if (!string.IsNullOrEmpty(input.Label))
                 {
                     <label class="form-label">@input.Label</label>
                 }
 
                 <div class="input-group">
-                    @if (!string.IsNullOrWhiteSpace(input.StartInputGroupText))
+                    @if (!string.IsNullOrEmpty(input.StartInputGroupText))
                     {
                         <span class="input-group-text" style="width: @(StartInputGroupWidth)px">@input.StartInputGroupText</span>
                     }
@@ -23,24 +25,24 @@
                     {
                         if (input.UseLargeInput)
                         {
-                            <textarea name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
+                            <textarea name="@input.Id" class="@formCssClass" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
                         }
                         else
                         {
-                            <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="text" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
+                            <input name="@input.Id" class="@formCssClass" type="text" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
                         }
 
                     }
                     else if (input.Type == typeof(DateTime))
                     {
-                        <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="date" @bind-value="input.InputDateTime" @onchange="OnChange" @bind-value:event="oninput" />
+                        <input name="@input.Id" class="@formCssClass" type="date" @bind-value="input.InputDateTime" @onchange="OnChange" @bind-value:event="oninput" />
                     }
                     else if (input.Type == typeof(TimeOnly))
                     {
-                        <input name="@input.Id" class="form-control @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="time" @bind-value="input.InputTimeOnly" @onchange="OnChange" @bind-value:event="oninput" />
+                        <input name="@input.Id" class="@formCssClass" type="time" @bind-value="input.InputTimeOnly" @onchange="OnChange" @bind-value:event="oninput" />
                     }
 
-                    @if (!string.IsNullOrWhiteSpace(input.EndInputGroupText))
+                    @if (!string.IsNullOrEmpty(input.EndInputGroupText))
                     {
                         <span class="input-group-text justify-content-end" style="width: @(EndInputGroupWidth)px">@input.EndInputGroupText</span>
                     }
@@ -69,7 +71,7 @@
             @if (res.Type == CalculatorResultType.TextArea)
             {
                 <div class="my-3">
-                    @if (!string.IsNullOrWhiteSpace(res.Label))
+                    @if (!string.IsNullOrEmpty(res.Label))
                     {
                         <label class="form-label">@res.Label</label>
                     }
@@ -80,20 +82,20 @@
             else
             {
                 <div class="input-group">
-                    @if (!string.IsNullOrWhiteSpace(res.Label))
+                    @if (!string.IsNullOrEmpty(res.Label))
                     {
                         <label class="form-label">@res.Label</label>
                     }
-                    @if (!string.IsNullOrWhiteSpace(res.StartInputGroupText))
+                    @if (!string.IsNullOrEmpty(res.StartInputGroupText))
                     {
-                        <span class="input-group-text" style="width: 120px">@res.StartInputGroupText</span>
+                        <span class="input-group-text" style="width: @(ResultStartInputGroupWidth)px">@res.StartInputGroupText</span>
                     }
 
                     <input class="form-control" type="text" value="@res.Value" />
 
-                    @if (!string.IsNullOrWhiteSpace(res.EndInputGroupText))
+                    @if (!string.IsNullOrEmpty(res.EndInputGroupText))
                     {
-                        <span class="input-group-text justify-content-end" style="width: 120px">@res.EndInputGroupText</span>
+                        <span class="input-group-text justify-content-end" style="width: @(ResultEndInputGroupWidth)px">@res.EndInputGroupText</span>
                     }
                 </div>
             }
