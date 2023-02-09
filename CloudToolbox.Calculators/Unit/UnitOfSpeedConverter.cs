@@ -13,30 +13,30 @@ namespace CloudToolbox.Calculators.Unit
 
 		public double Convert(double val) => Units switch
 		{
-			(UnitOfSpeed.MilePerHour, UnitOfSpeed.KilometrePerHour) => val * 1.609,
-			(UnitOfSpeed.MilePerHour, UnitOfSpeed.FootPerSecond) => val * 1.467,
-			(UnitOfSpeed.MilePerHour, UnitOfSpeed.MetrePerSecond) => val / 3.281,
-			(UnitOfSpeed.MilePerHour, UnitOfSpeed.Knot) => val / 1.688,
+			(UnitOfSpeed.Mile_Per_Hour, UnitOfSpeed.Kilometre_Per_Hour) => val * 1.609,
+			(UnitOfSpeed.Mile_Per_Hour, UnitOfSpeed.Foot_Per_Second) => val * 1.467,
+			(UnitOfSpeed.Mile_Per_Hour, UnitOfSpeed.Metre_Per_Second) => val / 3.281,
+			(UnitOfSpeed.Mile_Per_Hour, UnitOfSpeed.Knot) => val / 1.688,
 
-			(UnitOfSpeed.KilometrePerHour, UnitOfSpeed.MilePerHour) => val / 1.609,
-			(UnitOfSpeed.KilometrePerHour, UnitOfSpeed.FootPerSecond) => val / 1.097,
-			(UnitOfSpeed.KilometrePerHour, UnitOfSpeed.MetrePerSecond) => val / 3.6,
-			(UnitOfSpeed.KilometrePerHour, UnitOfSpeed.Knot) => val / 1.852,
+			(UnitOfSpeed.Kilometre_Per_Hour, UnitOfSpeed.Mile_Per_Hour) => val / 1.609,
+			(UnitOfSpeed.Kilometre_Per_Hour, UnitOfSpeed.Foot_Per_Second) => val / 1.097,
+			(UnitOfSpeed.Kilometre_Per_Hour, UnitOfSpeed.Metre_Per_Second) => val / 3.6,
+			(UnitOfSpeed.Kilometre_Per_Hour, UnitOfSpeed.Knot) => val / 1.852,
 
-			(UnitOfSpeed.FootPerSecond, UnitOfSpeed.MilePerHour) => val / 1.467,
-			(UnitOfSpeed.FootPerSecond, UnitOfSpeed.KilometrePerHour) => val / 1.097,
-			(UnitOfSpeed.FootPerSecond, UnitOfSpeed.MetrePerSecond) => val / 3.281,
-			(UnitOfSpeed.FootPerSecond, UnitOfSpeed.Knot) => val / 1.688,
+			(UnitOfSpeed.Foot_Per_Second, UnitOfSpeed.Mile_Per_Hour) => val / 1.467,
+			(UnitOfSpeed.Foot_Per_Second, UnitOfSpeed.Kilometre_Per_Hour) => val / 1.097,
+			(UnitOfSpeed.Foot_Per_Second, UnitOfSpeed.Metre_Per_Second) => val / 3.281,
+			(UnitOfSpeed.Foot_Per_Second, UnitOfSpeed.Knot) => val / 1.688,
 
-			(UnitOfSpeed.MetrePerSecond, UnitOfSpeed.MilePerHour) => val * 2.237,
-			(UnitOfSpeed.MetrePerSecond, UnitOfSpeed.KilometrePerHour) => val * 3.6,
-			(UnitOfSpeed.MetrePerSecond, UnitOfSpeed.FootPerSecond) => val * 3.281,
-			(UnitOfSpeed.MetrePerSecond, UnitOfSpeed.Knot) => val * 1.944,
+			(UnitOfSpeed.Metre_Per_Second, UnitOfSpeed.Mile_Per_Hour) => val * 2.237,
+			(UnitOfSpeed.Metre_Per_Second, UnitOfSpeed.Kilometre_Per_Hour) => val * 3.6,
+			(UnitOfSpeed.Metre_Per_Second, UnitOfSpeed.Foot_Per_Second) => val * 3.281,
+			(UnitOfSpeed.Metre_Per_Second, UnitOfSpeed.Knot) => val * 1.944,
 
-			(UnitOfSpeed.Knot, UnitOfSpeed.MilePerHour) => val * 1.151,
-			(UnitOfSpeed.Knot, UnitOfSpeed.KilometrePerHour) => val * 1.852,
-			(UnitOfSpeed.Knot, UnitOfSpeed.FootPerSecond) => val * 1.688,
-			(UnitOfSpeed.Knot, UnitOfSpeed.MetrePerSecond) => val / 1.944,
+			(UnitOfSpeed.Knot, UnitOfSpeed.Mile_Per_Hour) => val * 1.151,
+			(UnitOfSpeed.Knot, UnitOfSpeed.Kilometre_Per_Hour) => val * 1.852,
+			(UnitOfSpeed.Knot, UnitOfSpeed.Foot_Per_Second) => val * 1.688,
+			(UnitOfSpeed.Knot, UnitOfSpeed.Metre_Per_Second) => val / 1.944,
 			_ => 1,
 		};
 	}
