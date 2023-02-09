@@ -10,7 +10,7 @@ namespace CloudToolbox.Components.Shared
 
 		[Parameter]
 		public Area Area { get; set; }
-		public List<Calculator> FilteredCalculators { get; set; }
+		public List<DisplayCalculator> FilteredCalculators { get; set; }
 
 		public string FilterText { get; set; }
 		private bool hasSearched = false;
