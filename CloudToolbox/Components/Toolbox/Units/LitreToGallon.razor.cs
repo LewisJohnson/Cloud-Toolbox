@@ -1,10 +1,10 @@
-﻿using CloudToolbox.Calculators;
+﻿using CloudToolbox.Calculators.Unit;
 using CloudToolbox.Common.Models.Calculator;
 using Microsoft.AspNetCore.Components;
 
 namespace CloudToolbox.Components.Toolbox.Units
 {
-	public partial class LitresToGallonsBase : ComponentBase
+	public partial class LitreToGallonBase : ComponentBase
 	{
 		public List<CalculatorInput> Inputs => new()
 		{
@@ -24,7 +24,7 @@ namespace CloudToolbox.Components.Toolbox.Units
 
 			if (input != null)
 			{
-				string res = UnitCalculators.LitreToImperialGallon(input.Value).ToString("#.##");
+				string res = UnitCalculators.LitreToImperialGallon(input.Value).ToString("0.##");
 				results.Add(new(res) { EndInputGroupText = "gal (imp)" });
 			}
 
