@@ -76,6 +76,7 @@
         }
     }
 
+    public List<Calculator> Calculators { get; set; }
     public List<Calculator> FilteredCalculators { get; set; }
     public string FilterText { get; set; }
     private bool collapseNavMenu = true;
@@ -84,7 +85,8 @@
 
     protected override void OnInitialized()
     {
-        FilteredCalculators = Calculators.GetCalculators();
+        Calculators = Areas.GetAreas().SelectMany(x => x.Calculators).ToList();
+        FilteredCalculators = Calculators;
     }
 
     private void CreateHeaderItem(string name, string icon)
@@ -102,12 +104,13 @@
         if (FilterText != null && FilterText.Length > 0)
         {
             hasSearched = true;
-            FilteredCalculators = Calculators.GetCalculators().Where(x => x.DisplayName.ToLower().Contains(FilterText.ToLower())).ToList();
-        } else
+            FilteredCalculators = Calculators.Where(x => x.DisplayName.ToLower().Contains(FilterText.ToLower())).ToList();
+        }
+        else
         {
             if (hasSearched)
             {
-                FilteredCalculators = Calculators.GetCalculators();
+                FilteredCalculators = Calculators;
                 InvokeAsync(StateHasChanged);
             }
         }
