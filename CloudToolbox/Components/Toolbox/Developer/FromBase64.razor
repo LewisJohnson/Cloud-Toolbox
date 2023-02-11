@@ -1,0 +1,20 @@
+﻿@attribute [Route(Routes.DEVELOPER_FROM_BASE64)]
+
+@namespace CloudToolbox.Components.Toolbox.Developer
+@inherits FromBase64Base
+
+<SimpleCalculatorContainer>
+    <Header>
+        <ToolboxHeader Title="From Base64">
+            <Description>
+                <p>
+                    To use this converter, simply insert Base64 into the field and we'll give you back text.
+                </p>
+            </Description>
+        </ToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

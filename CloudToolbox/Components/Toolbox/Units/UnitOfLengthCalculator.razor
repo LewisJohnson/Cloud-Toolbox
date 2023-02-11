@@ -1,0 +1,19 @@
+@page "/Toolbox/Units/{Subarea}/{Units?}"
+
+@namespace CloudToolbox.Components.Toolbox.Units
+@inherits UnitOfLengthCalculatorBase
+
+
+<SimpleCalculatorContainer Collection="@(new UnitsCalculatorCollection())">
+    <Header>
+        <ToolboxHeader Title="@(DisplayUnitFrom + " to " + DisplayUnitTo)">
+            <Description>
+                <GenericUnitsCalculatorDescription FromUnit="@DisplayUnitFrom" ToUnit="@DisplayUnitTo" />
+            </Description>
+        </ToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

@@ -11,10 +11,6 @@ namespace CloudToolbox.Components.Shared
 		public RenderFragment Calculator { get; set; }
 
 		[Parameter]
-		public string PanelColour { get; set; }
-
-		[Parameter]
-		public string HeaderColour { get; set; }
-
+		public Common.Data.CalculatorCollection Collection { get; set; }
 	}
 }

@@ -1,4 +1,4 @@
-﻿using CloudToolbox.Common.Enums;
+﻿using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Calculators.Unit
 {

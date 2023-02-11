@@ -1,4 +1,4 @@
-﻿using CloudToolbox.Common.Enums;
+﻿using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Calculators.Unit
 {
@@ -21,7 +21,7 @@ namespace CloudToolbox.Calculators.Unit
 			(UnitOfLength.Kilometre, UnitOfLength.Foot) => val * 1,
 			(UnitOfLength.Kilometre, UnitOfLength.Inch) => val * 1,
 
-			(UnitOfLength.Metre, UnitOfLength.Kilometre) => val * 1,
+			(UnitOfLength.Metre, UnitOfLength.Kilometre) => val / 1000,
 			(UnitOfLength.Metre, UnitOfLength.Centimetre) => val * 1,
 			(UnitOfLength.Metre, UnitOfLength.Millimetre) => val * 1,
 			(UnitOfLength.Metre, UnitOfLength.Mile) => val * 1,

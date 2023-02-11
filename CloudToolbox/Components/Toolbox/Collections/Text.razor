@@ -1,0 +1,16 @@
+﻿@attribute [Route(Routes.AREA_TEXT)]
+
+@namespace CloudToolbox.Components.Collections
+
+@using System.Text;
+
+@using CloudToolbox.Common.Routes;
+@using CloudToolbox.Components.Shared;
+	using CloudToolbox.Common.Data.DisplayCalculatorCollections;
+
+<CalculatorCollection Collectiona="TextDisplayCalculatorCollection.Instance">
+    <Description>
+        HavE YoUR LeTTers In a juMBle?<br />
+        Well one of our @(new TextDisplayCalculatorCollection().Calculators.Count) free text converters can help you fix that.
+    </Description>
+</CalculatorCollection>

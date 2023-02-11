@@ -1,0 +1,17 @@
+﻿@namespace CloudToolbox.Components.Shared
+
+<p>To use this converter, simply enter a weight in @FromUnit and we'll convert it to @ToUnit.</p>
+
+@code {
+    [Parameter]
+    public string FromUnit { get; set; }
+
+    [Parameter]
+    public string ToUnit { get; set; }
+
+    public GenericUnitsCalculatorDescription()
+    {
+        FromUnit = string.Empty;
+        ToUnit = string.Empty;
+    }
+}

@@ -1,0 +1,20 @@
+﻿@attribute [Route(Routes.DEVELOPER_TO_BINARY)]
+
+@namespace CloudToolbox.Components.Toolbox.Developer
+@inherits ToBinaryBase
+
+<SimpleCalculatorContainer>
+    <Header>
+        <ToolboxHeader Title="To Binary">
+            <Description>
+                <p>
+                    To use this converter, simply insert some text into the field and we'll give you binary.
+                </p>
+            </Description>
+        </ToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

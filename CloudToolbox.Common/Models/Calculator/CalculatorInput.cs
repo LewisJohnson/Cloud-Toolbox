@@ -1,4 +1,5 @@
-﻿using CloudToolbox.Common.Types;
+﻿using CloudToolbox.Common.Data;
+using CloudToolbox.Common.Types;
 
 namespace CloudToolbox.Common.Models.Calculator
 {
@@ -11,6 +12,17 @@ namespace CloudToolbox.Common.Models.Calculator
 			InputBool = false;
 			UseLargeInput = false;
 		}
+
+		public CalculatorInput(DisplayCalculator calc, string id, Type type)
+		{
+			DisplayCalculator = calc;
+			Id = id;
+			Type = type;
+			InputBool = false;
+			UseLargeInput = false;
+		}
+
+		public DisplayCalculator DisplayCalculator { get; set; }
 
 		public string Id { get; }
 		public Type Type { get; }

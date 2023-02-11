@@ -1,0 +1,21 @@
+﻿@attribute [Route(Routes.AREA_UNITS)]
+
+@namespace CloudToolbox.Components.Collections
+
+<CalculatorCollection Collection="collection">
+    <Description>
+        How many centimetres are in an inch?<br />
+        I have no idea, but lucky one of our @collection.Calculators.Count unit calculators and converters can give you the answer quicker than you can read this text.*<br />
+        <br />
+        <small>* Probably.</small>
+    </Description>
+</CalculatorCollection>
+
+@code {
+    UnitsCalculatorCollection collection { get; set; }
+
+    protected override void OnInitialized()
+    {
+        collection = new UnitsCalculatorCollection();
+    }
+}

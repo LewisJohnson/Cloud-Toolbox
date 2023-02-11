@@ -1,4 +1,4 @@
-﻿namespace CloudToolbox.Data;
+﻿namespace CloudToolbox.Common.Data;
 
 public static class Constants
 {
@@ -6,6 +6,8 @@ public static class Constants
 	public static string TITLE_PREFIX = $"{APP_NAME} -";
 
 	public static string TWITTER_URL = $"https://twitter.com/Cloud_Toolbox";
+
+	public static string FRONTEND_NUMBER_FORMAT = "0.##";
 
 	public static Dictionary<int, string> ENGLISH_NUMBERS = new Dictionary<int, string>()
 	{

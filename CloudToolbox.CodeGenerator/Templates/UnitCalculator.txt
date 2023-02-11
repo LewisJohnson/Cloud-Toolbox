@@ -1,0 +1,19 @@
+﻿@attribute [Route(Routes.UNITS_#{FROM_UPPER}_TO_#{TO_UPPER})]
+
+@namespace CloudToolbox.Components.Toolbox.Units
+@inherits #{FROM}To#{TO}Base
+
+<SimpleCalculatorContainer HeaderColour="@CalculatorAreas.Units.CssCalulatorHeaderBackgroundColour"
+                           PanelColour="@CalculatorAreas.Units.CssCalulatorHeaderBackgroundColour">
+    <Header>
+        <ToolboxHeader Title="@UnitsCalculatorCollection.#{FROM}To#{TO}.DisplayName">
+            <Description>
+                <GenericUnitsCalculatorDescription FromUnit="@Enum.GetName(#{UNIT_ENUM}.#{FROM})" ToUnit="@Enum.GetName(#{UNIT_ENUM}.#{TO})" />
+            </Description>
+        </ToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

@@ -1,0 +1,20 @@
+﻿@attribute [Route(Routes.DEVELOPER_FROM_HEX)]
+
+@namespace CloudToolbox.Components.Toolbox.Developer
+@inherits FromHexBase
+
+<SimpleCalculatorContainer>
+    <Header>
+        <ToolboxHeader Title="From Hex">
+            <Description>
+                <p>
+                    To use this converter, simply insert hexadecimal bytes into the field and we'll give you back text.
+                </p>
+            </Description>
+        </ToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

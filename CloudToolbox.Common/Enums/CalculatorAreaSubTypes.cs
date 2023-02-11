@@ -2,7 +2,7 @@ namespace CloudToolbox.Common.Enums;
 
 public enum CalculatorAreaSubTypes
 {
-	Misc,
+	None = 0,
 	Length,
 	Mass,
 	Speed

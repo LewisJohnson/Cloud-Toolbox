@@ -1,17 +1,3 @@
-kg to stone
-stone to kg
-mph to kmh
-kmh to mph
-inch to cm
-
-
-times tables
-upper case
-lower case
-
-percentage calculator
-
-mpg calc
 money calc
 
 salary calculator

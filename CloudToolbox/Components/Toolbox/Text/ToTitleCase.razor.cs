@@ -3,7 +3,7 @@ using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Models.Calculator;
 using Microsoft.AspNetCore.Components;
 
-namespace CloudToolbox.Components.Toolbox.DateAndTime
+namespace CloudToolbox.Components.Toolbox.Text
 {
 	public partial class ToTitleCaseBase : ComponentBase
 	{

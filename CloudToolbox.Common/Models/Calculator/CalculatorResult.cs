@@ -1,4 +1,5 @@
-﻿using CloudToolbox.Common.Enums;
+﻿using CloudToolbox.Common.Data;
+using CloudToolbox.Common.Enums;
 
 namespace CloudToolbox.Common.Models.Calculator
 {
@@ -10,9 +11,17 @@ namespace CloudToolbox.Common.Models.Calculator
         public string? EndInputGroupText { get; set; }
         public CalculatorResultType Type { get; set; }
 
-        public CalculatorResult(string? value)
+		public DisplayCalculator DisplayCalculator { get; set; }
+
+		public CalculatorResult(string? value)
         {
             Value = value;
         }
-    }
+
+		public CalculatorResult(DisplayCalculator calc, string? value)
+		{
+			Value = value;
+			DisplayCalculator = calc;
+		}
+	}
 }

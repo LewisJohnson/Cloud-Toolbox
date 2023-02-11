@@ -1,4 +1,6 @@
-﻿namespace CloudToolbox.Calculators
+﻿using CloudToolbox.Calculators.Unit;
+
+namespace CloudToolbox.Calculators
 {
 	public static class TravelCalculators
 	{
