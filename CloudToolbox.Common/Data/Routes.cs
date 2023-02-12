@@ -1,4 +1,4 @@
-﻿namespace CloudToolbox.Common.Routes
+﻿namespace CloudToolbox.Common.Data
 {
 	public static class Routes
 	{
