@@ -1,5 +1,6 @@
 ﻿using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Enums.Units;
+using CloudToolbox.Common.Helpers;
 
 namespace CloudToolbox.Common.Data.DisplayCalculatorCollections;
 
@@ -13,16 +14,32 @@ public class UnitsCalculatorCollection : CalculatorCollection
 		Type = CalculatorAreaTypes.Units;
 		Uri = Routes.AREA_UNITS;
 
-		Calculators = new()
+		var calcs = new List<DisplayCalculator>();
+
+		var types = Enum.GetValues(typeof(UnitTypes));
+
+		foreach (UnitTypes unitType in types)
 		{
-			new DisplayCalculator(this, "Kilometre", "km", new() { "Kilometer" }, UnitTypes.Length, UnitOfLength.Kilometre),
-			new DisplayCalculator(this, "Metre", "m", new() { "Meter" }, UnitTypes.Length, UnitOfLength.Metre),
-			new DisplayCalculator(this, "Centimetre", "cm", new() { "Centimeter" }, UnitTypes.Length, UnitOfLength.Centimetre),
-			new DisplayCalculator(this, "Millimetre", "mm", new() { "Millimeter" }, UnitTypes.Length, UnitOfLength.Millimetre),
-			new DisplayCalculator(this, "Mile", "mi", new() { }, UnitTypes.Length, UnitOfLength.Mile),
-			new DisplayCalculator(this, "Yard", "yd", new() { }, UnitTypes.Length, UnitOfLength.Yard),
-			new DisplayCalculator(this, "Foot", "ft", new() { "Feet" }, UnitTypes.Length, UnitOfLength.Foot),
-			new DisplayCalculator(this, "Inch", "in", new() { }, UnitTypes.Length, UnitOfLength.Inch),
-		};
+			var units = Enumeration.GetAll<UnitOf>()
+				.Where(x => x.UnitType == unitType);
+
+			bool first = true;
+			foreach (var from in units)
+			{
+				foreach (var to in units)
+				{
+					if (from != to)
+					{
+						var displayName = from.Name + " to " + to.Name;
+						var uri = "/Toolbox/Units/" + from.UriName + "-to-" + to.UriName;
+						var abrv = from.Abbreviation + " to " + to.Abbreviation;
+
+						calcs.Add(new DisplayCalculator(this, displayName, uri, new() { }, abrv, unitType, from, to));
+					}
+				}
+			}
+		}
+
+		Calculators = calcs;
 	}
 }

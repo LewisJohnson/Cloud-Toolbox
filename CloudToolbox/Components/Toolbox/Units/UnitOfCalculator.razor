@@ -1,10 +1,10 @@
-@page "/Toolbox/Units/{Subarea}/{Units?}"
+@page "/Toolbox/Units/{Units?}"
 
 @namespace CloudToolbox.Components.Toolbox.Units
-@inherits UnitOfLengthCalculatorBase
+@inherits UnitOfCalculatorBase
+@inject CalculatorCollectionService CollectionService
 
-
-<SimpleCalculatorContainer Collection="@(new UnitsCalculatorCollection())">
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Units)">
     <Header>
         <ToolboxHeader Title="@(DisplayUnitFrom + " to " + DisplayUnitTo)">
             <Description>

@@ -25,10 +25,4 @@
     <ProjectReference Include="..\CloudToolbox.Common\CloudToolbox.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Templates\UnitCalculator.txt">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </None>
-  </ItemGroup>
-
 </Project>

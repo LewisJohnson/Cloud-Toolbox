@@ -11,7 +11,7 @@
 		Day,
 		Week,
 		Month,
-		CalendarYear,
+		Year,
 		Decade,
 		Century,
 	}

@@ -4,7 +4,7 @@ using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.CodeGenerator
 {
-	public static class UnitCalculatorsGenerator
+	public static class UnitOfXConverterGenerator
 	{
 		public static void GenerateCalculator<TEnum>(string subArea) where TEnum : struct, Enum
 		{

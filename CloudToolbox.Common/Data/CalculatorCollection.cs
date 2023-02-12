@@ -1,11 +1,15 @@
+using System.ComponentModel;
+using System.Linq;
 using CloudToolbox.Common.Data.DisplayCalculatorCollections;
 using CloudToolbox.Common.Enums;
+using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Common.Data;
 
 public abstract class CalculatorCollection
 {
 	private string displayName;
+	private List<DisplayCalculator> calculators;
 
 	public string Name { get; protected set; }
 	public string DisplayName
@@ -17,7 +21,15 @@ public abstract class CalculatorCollection
 	public string Uri { get; protected set; }
 	public CalculatorAreaTypes Type { get; protected set; }
 	public CalculatorAreaSubTypes SubType { get; protected set; }
-	public List<DisplayCalculator> Calculators { get; protected set; }
+	public List<DisplayCalculator> Calculators
+	{
+		get => calculators
+			.OrderBy(x => x.UnitType)
+			.ThenBy(x => x.DisplayName)
+			.ToList();
+
+		protected set => calculators = value;
+	}
 
 	public string CssIcon { get; protected set; }
 	public string CssAccentColour { get; protected set; }
@@ -25,9 +37,9 @@ public abstract class CalculatorCollection
 	public string CssCalulatorHeaderBackgroundColour { get; protected set; }
 	public string CssCalulatorPanelColour { get; protected set; }
 
-
 	public DisplayCalculator? MatchParamToCalculator(string input)
 	{
+
 		input = input.ToLower();
 
 		try
@@ -43,6 +55,18 @@ public abstract class CalculatorCollection
 		}
 
 		return null;
+	}
+
+	public List<DisplayCalculator> Search(string searchTerm)
+	{
+		return Calculators.Where(x => 
+				x.DisplayName.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) ||
+				x.Abbreviation.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) || 
+				x.Aliases.Any(x => x.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase))
+			)
+			.OrderBy(x => x.UnitType)
+			.ThenBy(x => x.DisplayName)
+			.ToList();
 	}
 
 	public CalculatorCollection()

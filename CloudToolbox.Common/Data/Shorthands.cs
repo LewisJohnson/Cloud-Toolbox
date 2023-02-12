@@ -29,7 +29,7 @@ public static class Shorthands
 
 	public static Dictionary<UnitOfSpeed, string> UNIT_OF_SPEED = new Dictionary<UnitOfSpeed, string>()
 	{
-		{ UnitOfSpeed.Mile_Per_Hour, "mph"},
+		{ UnitOfSpeed.Miles_Per_Hour, "mph"},
 		{ UnitOfSpeed.Kilometre_Per_Hour, "km/h"},
 		{ UnitOfSpeed.Foot_Per_Second, "ft/sec"},
 		{ UnitOfSpeed.Metre_Per_Second, "m/sec"},

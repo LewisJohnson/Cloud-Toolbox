@@ -10,21 +10,16 @@ public class DisplayCalculator
 		Aliases ??= new List<string>();
 	}
 
-	public DisplayCalculator(CalculatorCollection collection, string displayName, string uri) : this(collection)
+	public DisplayCalculator(CalculatorCollection collection, string displayName, string uri, List<string> aliases = null, string abbreviation = "", UnitTypes? unitType = null, object? fromType = null, object? toType = null) : 
+		this(collection)
 	{
 		DisplayName = displayName ?? throw new ArgumentNullException(nameof(displayName));
 		Uri = uri ?? throw new ArgumentNullException(nameof(uri));
-	}
-
-	public DisplayCalculator(CalculatorCollection collection, string displayName, string uri, List<string> aliases) : this(collection, displayName, uri)
-	{
-		Aliases = aliases ?? throw new ArgumentNullException(nameof(aliases));
-	}
-
-	public DisplayCalculator(CalculatorCollection collection, string displayName, string abbreviation, List<string> aliases, UnitTypes unitType, object unitValue) : this(collection, displayName, abbreviation, aliases)
-	{
+		Aliases = aliases ?? new List<string>();
+		Abbreviation = abbreviation;
 		UnitType = unitType;
-		UnitValue = unitValue ?? throw new ArgumentNullException(nameof(unitValue));
+		FromType = fromType;
+		ToType = toType;
 	}
 
 	public string DisplayName { get; set; }
@@ -33,6 +28,7 @@ public class DisplayCalculator
 	public CalculatorCollection Collection { get; set; }
 
 	public string Abbreviation { get; }
-	public object UnitValue { get; }
-	public UnitTypes UnitType { get; }
+	public object FromType { get; }
+	public object ToType { get; }
+	public UnitTypes? UnitType { get; }
 }

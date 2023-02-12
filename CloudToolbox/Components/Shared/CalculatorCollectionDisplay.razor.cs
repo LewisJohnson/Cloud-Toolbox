@@ -9,7 +9,7 @@ namespace CloudToolbox.Components.Shared
 		public RenderFragment? Description { get; set; }
 
 		[Parameter]
-		public Common.Data.CalculatorCollection Collection { get; set; }
+		public CalculatorCollection Collection { get; set; }
 		public List<DisplayCalculator> FilteredCalculators { get; set; }
 
 		public string FilterText { get; set; }
@@ -29,13 +29,10 @@ namespace CloudToolbox.Components.Shared
 		{
 			if (!string.IsNullOrEmpty(FilterText))
 			{
-				var filterTextLower = FilterText.ToLower().Trim();
-
 				hasSearched = true;
-				FilteredCalculators = Collection.Calculators
-					.Where(x => (x.DisplayName.ToLower().Contains(filterTextLower) || string.Join(" ", x.Aliases).ToLower().Contains(filterTextLower)))
-					.OrderBy(x => x.DisplayName)
-					.ToList();
+
+				var filterTextTrimmed = FilterText.Trim();
+				FilteredCalculators = Collection.Search(filterTextTrimmed);
 			}
 			else
 			{

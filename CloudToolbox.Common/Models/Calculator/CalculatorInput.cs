@@ -13,17 +13,6 @@ namespace CloudToolbox.Common.Models.Calculator
 			UseLargeInput = false;
 		}
 
-		public CalculatorInput(DisplayCalculator calc, string id, Type type)
-		{
-			DisplayCalculator = calc;
-			Id = id;
-			Type = type;
-			InputBool = false;
-			UseLargeInput = false;
-		}
-
-		public DisplayCalculator DisplayCalculator { get; set; }
-
 		public string Id { get; }
 		public Type Type { get; }
 
@@ -50,6 +39,7 @@ namespace CloudToolbox.Common.Models.Calculator
 		/// If a larger input method is available, use it. e.g. <textarea> instead of <input \type="text">
 		/// </summary>
 		public bool UseLargeInput { get; set; }
+
 		public string? Label;
 		public string? StartInputGroupText { get; set; }
 		public string? EndInputGroupText { get; set; }

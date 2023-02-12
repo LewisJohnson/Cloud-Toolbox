@@ -17,8 +17,18 @@
         </div>
 
         <div class="row px-4">
+            @{
+                UnitTypes? prev = null;
+            }
+
             @foreach (var calc in FilteredCalculators)
             {
+                if (calc.UnitType != prev)
+                {
+                    prev = calc.UnitType;
+
+                    <h1>@calc.UnitType</h1>
+                }
                 <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
             }
         </div>
