@@ -1,12 +1,12 @@
 ﻿@page "/"
 
-
+@inject CalculatorCollectionService CollectionService
 
 <PageTitle>@Constants.APP_NAME</PageTitle>
 
 <div class="px-4 mt-5">
     <h1>Hello!</h1>
-    <p>We have @CalculatorCollectionRepository.GetCollections().Sum(x => x.Calculators.Count) calculators and converters.</p>
+    <p>We have @CollectionService.GetCollections().Sum(x => x.Calculators.Count) calculators and converters.</p>
 
     <div class="row">
         <div class="col-12">
@@ -15,7 +15,7 @@
                     Calculator Types
                 </h3>
 
-                @foreach (var area in CalculatorCollectionRepository.GetCollections())
+                @foreach (var area in CollectionService.GetCollections())
                 {
                 <div class="col-12 col-md-6 col-lg-3 mb-3">
                     <div class="card shadow-sm homepage @(area.Name)">
@@ -105,7 +105,7 @@
 </div>
 
 <style>
-    @foreach (var area in CalculatorCollectionRepository.GetCollections())
+    @foreach (var area in CollectionService.GetCollections())
     {
         var name = $".card.homepage.{area.Name}:hover {{ background:{area.CssHeaderBackgroundColour}; }}";
 

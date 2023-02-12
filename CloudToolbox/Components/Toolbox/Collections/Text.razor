@@ -1,16 +1,20 @@
 ﻿@attribute [Route(Routes.AREA_TEXT)]
 
 @namespace CloudToolbox.Components.Collections
+@inject CalculatorCollectionService CollectionService
 
-@    using System.Text;
-
-@    using CloudToolbox.Common.Routes;
-@    using CloudToolbox.Components.Shared;
-	using CloudToolbox.Common.Data.DisplayCalculatorCollections;
-
-<CalculatorCollection Collectiona="TextDisplayCalculatorCollection.Instance">
+<CalculatorCollectionDisplay Collection="CalcCollection">
     <Description>
         HavE YoUR LeTTers In a juMBle?<br />
-        Well one of our @(new TextCalculatorCollection().Calculators.Count) free text converters can help you fix that.
+        Well one of our @CalcCollection.Calculators.Count free text converters can help you fix that.
     </Description>
-</CalculatorCollection>
+</CalculatorCollectionDisplay>
+
+@code {
+    CalculatorCollection CalcCollection;
+
+    protected override void OnParametersSet()
+    {
+        CalcCollection = CollectionService.GetCollectionOfType(CalculatorAreaTypes.Text);
+    }
+}

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace CloudToolbox.Components.Shared
 {
-	public partial class CalculatorCollectionBase : ComponentBase
+	public partial class CalculatorCollectionDisplayBase : ComponentBase
 	{
 		[Parameter]
 		public RenderFragment? Description { get; set; }
@@ -15,7 +15,7 @@ namespace CloudToolbox.Components.Shared
 		public string FilterText { get; set; }
 		private bool hasSearched = false;
 
-		public CalculatorCollectionBase()
+		public CalculatorCollectionDisplayBase()
 		{
 			FilterText = string.Empty;
 		}

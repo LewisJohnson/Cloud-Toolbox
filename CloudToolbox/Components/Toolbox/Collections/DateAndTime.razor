@@ -1,10 +1,20 @@
 ﻿@attribute [Route(Routes.AREA_DATE_AND_TIME)]
 
 @namespace CloudToolbox.Components.Collections
+@inject CalculatorCollectionService CollectionService
 
-<CalculatorCollection Collectiona="DateAndTimeCalculatorCollection.Instance">
+<CalculatorCollectionDisplay Collection="CalcCollection">
     <Description>
         Who, what, when, where, why? <br />
-        We're not sure, but our DateAndTimeCalculatorCollection.Instance.Calculators.Count date and time calculators and converters sure know.
+        We're not sure, but our @CalcCollection.Calculators.Count date and time calculators and converters sure know.
     </Description>
-</CalculatorCollection>
+</CalculatorCollectionDisplay>
+
+@code {
+    CalculatorCollection CalcCollection;
+
+    protected override void OnParametersSet()
+    {
+        CalcCollection = CollectionService.GetCollectionOfType(CalculatorAreaTypes.DateAndTime);
+    }
+}
