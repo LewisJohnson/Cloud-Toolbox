@@ -25,6 +25,26 @@ public abstract class CalculatorCollection
 	public string CssCalulatorHeaderBackgroundColour { get; protected set; }
 	public string CssCalulatorPanelColour { get; protected set; }
 
+
+	public DisplayCalculator? MatchParamToCalculator(string input)
+	{
+		input = input.ToLower();
+
+		try
+		{
+			return Calculators.FirstOrDefault(x =>
+				x.DisplayName.ToLower() == input ||
+				x.Abbreviation.ToLower() == input ||
+				x.Aliases.Any(x => x.ToLower() == input));
+		}
+		catch (Exception e)
+		{
+
+		}
+
+		return null;
+	}
+
 	public CalculatorCollection()
 	{
 		CssAccentColour = "#cdd8d5";
