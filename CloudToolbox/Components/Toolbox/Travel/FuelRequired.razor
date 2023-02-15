@@ -2,8 +2,9 @@
 
 @namespace CloudToolbox.Components.Toolbox.Travel
 @inherits FuelRequiredBase
+@inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer>
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Travel)">
     <Header>
         <ToolboxHeader Title="Fuel Required">
             <Description>

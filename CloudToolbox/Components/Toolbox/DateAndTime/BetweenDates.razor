@@ -2,8 +2,9 @@
 
 @namespace CloudToolbox.Components.Toolbox.DateAndTime
 @inherits BetweenDatesBase
+@inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer>
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.DateAndTime)">
     <Header>
         <ToolboxHeader Title="Duration Between Two Dates">
             <Description>

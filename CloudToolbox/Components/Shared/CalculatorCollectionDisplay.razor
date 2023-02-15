@@ -27,7 +27,7 @@
                 {
                     prev = calc.UnitType;
 
-                    <h1>@calc.UnitType</h1>
+                    <h1 class="mt-5 mb-3">@(string.Join("", calc.UnitType.ToString().Select(ch => (char.IsUpper(ch) ? " " : "") + ch))</h1>
                 }
                 <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
             }

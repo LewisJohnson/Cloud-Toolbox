@@ -2,8 +2,9 @@
 
 @namespace CloudToolbox.Components.Toolbox.Developer
 @inherits FromBase64Base
+@inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer>
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Developer)">
     <Header>
         <ToolboxHeader Title="From Base64">
             <Description>

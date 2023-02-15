@@ -2,8 +2,9 @@
 
 @namespace CloudToolbox.Components.Toolbox.Developer
 @inherits ToHexBase
+@inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer>
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Developer)">
     <Header>
         <ToolboxHeader Title="To Hex">
             <Description>

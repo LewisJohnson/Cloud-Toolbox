@@ -2,8 +2,9 @@
 
 @namespace CloudToolbox.Components.Toolbox.Text
 @inherits ToLowerCaseBase
+@inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer>
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Text)">
     <Header>
         <ToolboxHeader Title="To Lower Case">
             <Description>
