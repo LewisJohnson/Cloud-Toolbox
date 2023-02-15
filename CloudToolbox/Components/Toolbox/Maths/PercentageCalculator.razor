@@ -1,9 +1,11 @@
 ﻿@attribute [Route(Routes.MATHS_PERCENTAGE_CALCULATOR)]
 
 @namespace CloudToolbox.Components.Toolbox.Maths
+@inherits PercentageCalculatorBase
+@inject CalculatorCollectionService CollectionService
 
-<div class="row px-4 pt-5 calc-container" style="max-width: 800px; min-height: 100vh;">
-    <div class="col-12 col-md-7">
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Maths)">
+    <Header>
         <ToolboxHeader Title="Percentage Calculator">
             <Description>
                 <p>
@@ -13,109 +15,9 @@
                 </p>
             </Description>
         </ToolboxHeader>
-    </div>
+    </Header>
 
-    <div class="col-12 col-md-5 shadow-sm pt-3 mb-5 calc-panel">
-        <form>
-            <div class="input-group">
-                <span class="input-group-text rounded-0" style="width: 80px">What is</span>
-                <input id="tableSize" class="form-control rounded-0 @PercentageInputCssClass" type="text" @bind-value="Percentage" @onchange="OnChange" @bind-value:event="oninput" />
-                <span class="input-group-text rounded-0">%</span>
-            </div>
-
-            <div class="input-group mb-3">
-                <span class="input-group-text rounded-0 border-top-0 border-right-0" style="width: 80px">Of</span>
-                <input id="upToSize" class="form-control rounded-0 border-top-0 @TotalNumberInputCssClass" type="text" @bind-value="TotalNumber" @onchange="OnChange" @bind-value:event="oninput" />
-            </div>
-
-            <hr />
-
-            <div class="input-group mb-3">
-                <span class="input-group-text rounded-0" style="width: 80px">Result</span>
-                <input id="upToSize" class="form-control" type="text" @bind="Output" />
-                <span class="input-group-text rounded-0">%</span>
-            </div>
-        </form>
-    </div>
-</div>
-
-<style>
-    .calc-container {
-        padding-top: 5rem;
-    }
-
-    .calc-panel {
-        background-color: #fff2fb;
-    }
-
-    h2 {
-        background-color: #fbe6f4;
-    }
-</style>
-
-@code {
-    private string Percentage { get; set; }
-    private string TotalNumber { get; set; }
-    private string Output { get; set; }
-
-    private string PercentageInputCssClass { get; set; }
-    private string TotalNumberInputCssClass { get; set; }
-
-    public PercentageCalculator()
-    {
-        Percentage = string.Empty;
-        TotalNumber = string.Empty;
-        Output = string.Empty;
-
-        PercentageInputCssClass = string.Empty;
-        TotalNumberInputCssClass = string.Empty;
-    }
-
-    private void ResetValidation()
-    {
-        PercentageInputCssClass = string.Empty;
-        TotalNumberInputCssClass = string.Empty;
-    }
-
-    private void OnChange()
-    {
-        Validate();
-
-        if (!double.TryParse(Percentage, out double percentage))
-        {
-            return;
-        }
-
-        if (!double.TryParse(TotalNumber, out double totalNumber))
-        {
-            return;
-        }
-
-        if (totalNumber <= 0)
-        {
-            return;
-        }
-
-        Output = ((percentage / totalNumber) * 100).ToString();
-    }
-
-    private void Validate()
-    {
-        ResetValidation();
-
-        if (!double.TryParse(Percentage, out double percentage))
-        {
-            PercentageInputCssClass = "is-invalid";
-        }
-
-        if (!double.TryParse(TotalNumber, out double totalNumber))
-        {
-            TotalNumberInputCssClass = "is-invalid";
-        }
-
-        if (totalNumber <= 0)
-        {
-            TotalNumberInputCssClass = "is-invalid";
-        }
-    }
-}
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

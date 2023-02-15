@@ -4,16 +4,16 @@
 
 <div class="p-4">
     <ToolboxHeader Title="Division Table">
-            <Description></Description>
+        <Description></Description>
     </ToolboxHeader>
 
-    <form class="row">
-        <div class="mb-3 col-3">
+    <form class="row d-print-none mt-5">
+        <div class="mb-3 col-12 col-md-3">
             <label for="tableSize" class="form-label">Table size</label>
             <input id="tableSize" class="form-control" type="number" min="3" max="24" @bind-value="TableSize" @onchange="OnChange" @bind-value:event="oninput" />
         </div>
 
-        <div class="mb-3 col-3">
+        <div class="mb-3 col-12 col-md-3">
             <label for="upToSize" class="form-label">Up to</label>
             <input id="upToSize" class="form-control" type="number" min="3" max="24" @bind-value="UpToSize" @onchange="OnChange" @bind-value:event="oninput" />
         </div>
@@ -22,19 +22,17 @@
     <div class="row">
         @for (var i = 1; i <= TableSize; i++)
         {
-        <div class="col-3 mb-3">
-            <div class="card" style="background-color: @GetColour(i)">
-                <div class="card-body">
-                    <h5 class="card-title text-capitalize">@GetTitle(i)</h5>
-                    @for (var j = 1; j <= UpToSize; j++)
-                    {
-                    <p></p>
-                    <p>@(i * j) ÷ @i = <b>@((i * j) / i)</b></p>
-
-                    }
+            <div class="col-3 mb-3">
+                <div class="card" style="background-color: @GetColour(i)">
+                    <div class="card-body">
+                        <h5 class="card-title text-capitalize">@GetTitle(i)</h5>
+                        @for (var j = 1; j <= UpToSize; j++)
+                        {
+                            <p>@(i * j) ÷ @i = <b>@((i * j) / i)</b></p>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
         }
     </div>
 </div>

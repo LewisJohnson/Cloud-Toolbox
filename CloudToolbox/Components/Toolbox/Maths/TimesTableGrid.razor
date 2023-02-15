@@ -2,13 +2,13 @@
 
 @namespace CloudToolbox.Components.Toolbox.Maths
 
-<div class="p-4">
+<div class="p-4 bg-white">
     <ToolboxHeader Title="Times Table (Grid)">
         <Description>This colourful and printable maths table is a great tool for people of all ages to upgrade their mathematics skills at and home!</Description>
     </ToolboxHeader>
 
-    <form>
-        <div class="mb-3">
+    <form class="row mt-5 d-print-none">
+        <div class="mb-3 col-12 col-md-3">
             <label for="tableSize" class="form-label">Table size</label>
             <input id="tableSize" class="form-control" type="number" min="3" max="24" @bind-value="TableSize" @onchange="OnChange" @bind-value:event="oninput" />
         </div>

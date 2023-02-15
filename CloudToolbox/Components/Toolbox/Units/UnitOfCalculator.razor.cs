@@ -123,7 +123,7 @@ namespace CloudToolbox.Components.Toolbox.Units
 						break;
 				}
 
-				string res = converted.ToString(Constants.FRONTEND_NUMBER_FORMAT);
+				string res = converted < 1 ? converted.ToString("0.######") : converted.ToString(Constants.FRONTEND_NUMBER_FORMAT);
 
 				returnRes.Add(new(res) { EndInputGroupText = ToUnitOf.Abbreviation });
 			}

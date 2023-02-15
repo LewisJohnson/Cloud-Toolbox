@@ -16,6 +16,7 @@ namespace CloudToolbox.Components.Toolbox.Developer
 		{
 			new CalculatorResult(null) { Label = "Text", Type = CalculatorResultType.TextArea },
 		};
+
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)
 		{
 			var results = new List<CalculatorResult>();

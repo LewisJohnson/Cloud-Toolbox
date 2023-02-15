@@ -4,90 +4,59 @@
 
 <PageTitle>@Constants.APP_NAME</PageTitle>
 
-<div class="px-4 mt-5">
+<div class="px-4 pt-5">
     <h1>Hello!</h1>
-    <p>We have @CollectionService.GetCollections().Sum(x => x.Calculators.Count) calculators and converters.</p>
+    <p>We have exactly @CollectionService.GetCollections().Sum(x => x.Calculators.Count) calculators and converters for you to use for free!</p>
 
     <div class="row">
         <div class="col-12">
             <div class="row mt-4">
                 <h3>
-                    Calculator Types
+                    Calculator Collections
                 </h3>
 
                 @foreach (var area in CollectionService.GetCollections())
                 {
-                <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <div class="card shadow-sm homepage @(area.Name)">
-                        <div class="d-block p-4 text-center">
-                            <i class="@area.CssIcon fs-1"></i>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">@area.DisplayName</h5>
+                    <div class="col-12 col-md-6 col-lg-3 mb-3">
+                        <div class="card shadow-sm homepage @(area.Name)">
+                            <div class="d-block p-4 text-center">
+                                <i class="@area.CssIcon fs-1"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">@area.DisplayName</h5>
 
-                            <a href="@area.Uri" class="btn btn-link stretched-link">@area.Calculators.Count Calculators</a>
+                                <a href="@area.Uri" class="btn btn-link stretched-link">@area.Calculators.Count Calculators</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 }
             </div>
         </div>
-        <div class="col-6 mt-4">
+        <div class="col-12 col-md-6 mt-4">
             <h3>Popular Calculators</h3>
-
             <div class="row">
-                <div class="col-6 mb-3">
-                    <div class="card shadow-sm">
-                        <h5 class="card-header">MPG</h5>
-                        <div class="card-body">
-                            <p class="card-text">
-                                Calculate how much real life MPG you're getting out of your journeys.
-                            </p>
-                            <a href="#" class="btn btn-link stretched-link">MPG Calculator</a>
-                        </div>
-                    </div>
-                </div>
+                @foreach (var calc in PopularCalcs)
+                {
+                    <div class="col-12 col-lg-6 mb-3">
+                        <div class="card shadow-sm">
+                            <h5 class="card-header">@calc.Header</h5>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    @calc.Description
+                                </p>
 
-                <div class="col-6 mb-3">
-                    <div class="card shadow-sm">
-                        <h5 class="card-header">MPG</h5>
-                        <div class="card-body">
-                            <p class="card-text">
-                                Calculate how much real life MPG you're getting out of your journeys.
-                            </p>
-                            <a href="#" class="btn btn-link stretched-link">MPG Calculator</a>
+                                @if(!string.IsNullOrEmpty(calc.Link))
+                                {
+                                    <NavLink href="@calc.Link" class="btn btn-link stretched-link">Go to Calculator</NavLink>
+                                }
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-6 mb-3">
-                    <div class="card shadow-sm">
-                        <h5 class="card-header">MPG</h5>
-                        <div class="card-body">
-                            <p class="card-text">
-                                Calculate how much real life MPG you're getting out of your journeys.
-                            </p>
-                            <a href="#" class="btn btn-link stretched-link">MPG Calculator</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 mb-3">
-                    <div class="card shadow-sm">
-                        <h5 class="card-header">MPG</h5>
-                        <div class="card-body">
-                            <p class="card-text">
-                                Calculate how much real life MPG you're getting out of your journeys.
-                            </p>
-                            <a href="#" class="btn btn-link stretched-link">MPG Calculator</a>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
-
         </div>
 
-        <div class="col-6 mt-4">
+        <div class="col-12 col-md-6 mt-4">
             <h3>About</h3>
             <hr />
             <p>
@@ -107,10 +76,26 @@
 <style>
     @foreach (var area in CollectionService.GetCollections())
     {
-        var name = $".card.homepage.{area.Name}:hover {{ background:{area.CssHeaderBackgroundColour}; }}";
+        var cssHover = $".card.homepage.{area.Name}:hover {{ background:{area.CssHeaderBackgroundColour}; }}";
 
         <text>
-            @(name)
+            @(cssHover)
         </text>
     }
 </style>
+
+@code{
+    public List<(string Header, string Description, string? Link)> PopularCalcs;
+
+    public Index()
+    {
+       PopularCalcs = new List<(string Header, string Description, string Link)>(){
+            ("Mykonos?", "Work out how long you have left until you jet away", "/Toolbox/DateAndTime/Between-Dates"),
+            ("2 + 2 = 4", "But what's 2 x 2? We have a times table page to tell you", "/Toolbox/Maths/Times-Table"),
+            ("MPG", "Calculate how much real life MPG you're getting out of your journeys", "/Toolbox/Travel/Mpg-Calculator"),
+            ("Journey Cost", "How much is your daily commute really costing you?", "/Toolbox/Travel/Journey-Cost"),
+        };
+
+
+    }
+}
