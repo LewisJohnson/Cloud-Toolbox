@@ -6,7 +6,7 @@
 		Kilojoule,
 		Gramcalorie,
 		Kilocalorie,
-		WattHour,
+		Watt_Hour,
 		Kilowatt_Hour,
 		Electronvolt,
 		British_Thermal_Unit,

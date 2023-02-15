@@ -2,8 +2,8 @@
 {
 	public enum UnitOfArea
 	{
-		Square_Kilometer,
-		Square_Meter,
+		Square_Kilometre,
+		Square_Metre,
 		Square_Mile,
 		Square_Yard,
 		Square_Foot,
