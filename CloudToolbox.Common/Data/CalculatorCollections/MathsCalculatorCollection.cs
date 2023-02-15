@@ -7,11 +7,14 @@ public class MathsCalculatorCollection : CalculatorCollection
 	public MathsCalculatorCollection()
 	{
 		Name = "Maths";
+		Type = CalculatorAreaTypes.Maths;
+		Uri = Routes.AREA_MATHS;
+
 		CssIcon = "bi bi-calculator";
 		CssAccentColour = "#fff2fb";
 		CssHeaderBackgroundColour = "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)";
-		Type = CalculatorAreaTypes.Maths;
-		Uri = Routes.AREA_MATHS;
+		CssCalulatorHeaderBackgroundColour = "#fff2fb";
+		CssCalulatorPanelColour = "#fff2fb";
 
 		Calculators = new()
 		{

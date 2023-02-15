@@ -7,9 +7,14 @@ public class TextCalculatorCollection : CalculatorCollection
 	public TextCalculatorCollection()
 	{
 		Name = "Text";
-		CssIcon = "bi bi-fonts";
 		Type = CalculatorAreaTypes.Text;
 		Uri = Routes.AREA_TEXT;
+
+		CssIcon = "bi bi-fonts";
+		CssAccentColour = "#ed3c5d";
+		CssHeaderBackgroundColour = "#ed3c5d";
+		CssCalulatorHeaderBackgroundColour = "#ed3c5d";
+		CssCalulatorPanelColour = "#ed3c5d1f";
 
 		Calculators = new()
 		{

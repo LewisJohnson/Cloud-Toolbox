@@ -7,11 +7,14 @@ public class DeveloperCalculatorCollection : CalculatorCollection
 	public DeveloperCalculatorCollection()
 	{
 		Name = "Developer";
+		Type = CalculatorAreaTypes.Developer;
+		Uri = Routes.AREA_DEVELOPER;
+
 		CssIcon = "bi bi-code-slash";
 		CssAccentColour = "#84fab0";
 		CssHeaderBackgroundColour = "linear-gradient(to top, #84fab0 0%, #8fd3f4 100%)";
-		Type = CalculatorAreaTypes.Developer;
-		Uri = Routes.AREA_DEVELOPER;
+		CssCalulatorHeaderBackgroundColour = "#84fab0";
+		CssCalulatorPanelColour = "#84fab0";
 
 		Calculators = new()
 		{

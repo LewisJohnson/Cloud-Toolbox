@@ -8,9 +8,14 @@ public class DateAndTimeCalculatorCollection : CalculatorCollection
 	{
 		Name = "DateAndTime";
 		DisplayName = "Date & Time";
-		CssIcon = "bi bi-calendar-date";
 		Type = CalculatorAreaTypes.DateAndTime;
 		Uri = Routes.AREA_DATE_AND_TIME;
+
+		CssIcon = "bi bi-calendar-date";
+		CssAccentColour = "#ed6e3c";
+		CssHeaderBackgroundColour = "#ed6e3c";
+		CssCalulatorHeaderBackgroundColour = "#ed6e3c";
+		CssCalulatorPanelColour = "#ed6e3c";
 
 		Calculators = new()
 		{

@@ -7,9 +7,14 @@ public class TravelCalculatorCollection : CalculatorCollection
 	public TravelCalculatorCollection()
 	{
 		Name = "Travel";
-		CssIcon = "bi bi-globe-europe-africa";
 		Type = CalculatorAreaTypes.Travel;
 		Uri = Routes.AREA_TRAVEL;
+
+		CssIcon = "bi bi-globe-europe-africa";
+		CssHeaderBackgroundColour = "#39913e";
+		CssAccentColour = "#39913e";
+		CssCalulatorHeaderBackgroundColour = "#39913e";
+		CssCalulatorPanelColour = "#39913e";
 
 		Calculators = new()
 		{

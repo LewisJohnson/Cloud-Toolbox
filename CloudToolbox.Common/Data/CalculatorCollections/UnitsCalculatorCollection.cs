@@ -10,9 +10,14 @@ public class UnitsCalculatorCollection : CalculatorCollection
 	{
 		Name = "Units";
 		DisplayName = "Units";
-		CssIcon = "bi bi-graph-up";
 		Type = CalculatorAreaTypes.Units;
 		Uri = Routes.AREA_UNITS;
+
+		CssIcon = "bi bi-graph-up";
+		CssHeaderBackgroundColour = "#3cb3ed";
+		CssAccentColour = "#3cb3ed";
+		CssCalulatorHeaderBackgroundColour = "#3cb3ed";
+		CssCalulatorPanelColour = "#3cb3ed";
 
 		var calcs = new List<DisplayCalculator>();
 
