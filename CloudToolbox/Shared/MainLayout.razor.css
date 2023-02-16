@@ -1,3 +1,7 @@
+.bg-light {
+    background-color: #fafcff !important;
+}
+
 .page {
     position: relative;
     display: flex;
@@ -6,10 +10,6 @@
 
 main {
     flex: 1;
-}
-
-.sidebar {
-    background-color: #4d4d4d;
 }
 
 .bottom-row {

@@ -11,7 +11,7 @@ public class MathsCalculatorCollection : CalculatorCollection
 		Uri = Routes.AREA_MATHS;
 
 		CssIcon = "bi bi-calculator";
-		CssAccentColour = "#fff2fb";
+		CssAccentColour = "#f89fdd";
 		CssHeaderBackgroundColour = "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)";
 		CssCalulatorHeaderBackgroundColour = "#fff2fb";
 		CssCalulatorPanelColour = "#fff2fb";

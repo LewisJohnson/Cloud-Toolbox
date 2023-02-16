@@ -4,40 +4,45 @@
 
 <PageTitle>@Constants.APP_NAME</PageTitle>
 
-<div class="px-4 pt-5">
-    <h1>Hello!</h1>
+<div class="mx-auto text-center text-white bg-primary p-5" style="background-color:#d0c1ed">
+    <h1>Cloud Toolbox</h1>
     <p>We have exactly @CollectionService.GetCollections().Sum(x => x.Calculators.Count) calculators and converters for you to use for free!</p>
+</div>
+
+<div class="d-block w-100" style="height: 10px; background-color: #1f79fd"></div>
+<div class="d-block w-100" style="height: 10px; background-color: #4180ff"></div>
+<div class="d-block w-100" style="height: 10px; background-color: #5e94ff"></div>
+<div class="d-block w-100" style="height: 10px; background-color: #85aeff"></div>
+
+<div class="px-4 pt-5">
 
     <div class="row">
         <div class="col-12">
             <div class="row mt-4">
-                <h3>
-                    Calculator Collections
-                </h3>
-
-                @foreach (var area in CollectionService.GetCollections())
+                @foreach (var collection in CollectionService.GetCollections())
                 {
                     <div class="col-12 col-md-6 col-lg-3 mb-3">
-                        <div class="card shadow-sm homepage @(area.Name)">
+                        <div class="card shadow-sm homepage @(collection.Name)">
                             <div class="d-block p-4 text-center">
-                                <i class="@area.CssIcon fs-1"></i>
+                                <i class="@collection.CssIcon fs-1"></i>
                             </div>
                             <div class="card-body text-center">
-                                <h5 class="card-title">@area.DisplayName</h5>
+                                <h5 class="card-title">@collection.DisplayName</h5>
 
-                                <a href="@area.Uri" class="btn btn-link stretched-link">@area.Calculators.Count Calculators</a>
+                                <a href="@collection.Uri" class="btn btn-link stretched-link text-decoration-none">@collection.Calculators.Count Calculators</a>
                             </div>
                         </div>
                     </div>
                 }
             </div>
         </div>
-        <div class="col-12 col-md-6 mt-4">
-            <h3>Popular Calculators</h3>
+
+        <div class="col-12 mt-5">
+            <h3>Our most popular calculators</h3>
             <div class="row">
                 @foreach (var calc in PopularCalcs)
                 {
-                    <div class="col-12 col-lg-6 mb-3">
+                    <div class="col-12 col-lg-3 mb-3">
                         <div class="card shadow-sm">
                             <h5 class="card-header">@calc.Header</h5>
                             <div class="card-body">
@@ -56,9 +61,8 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-6 mt-4">
+        <div class="col-12 mt-5">
             <h3>About</h3>
-            <hr />
             <p>
                 Cloud Toolbox is dedicated to providing free tools in the cloud, such as calculators and converters for everyone to use.
                 We are continually updating and developing the site with new useful calculators and tools.
@@ -74,9 +78,9 @@
 </div>
 
 <style>
-    @foreach (var area in CollectionService.GetCollections())
+    @foreach (var collection in CollectionService.GetCollections())
     {
-        var cssHover = $".card.homepage.{area.Name}:hover {{ background:{area.CssHeaderBackgroundColour}; }}";
+        var cssHover = $".card.homepage.{collection.Name}:hover {{ background:{collection.CssHeaderBackgroundColour}; }}";
 
         <text>
             @(cssHover)

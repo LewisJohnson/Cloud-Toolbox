@@ -1,101 +1,82 @@
 ﻿@inject CalculatorCollectionService CollectionService
 
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Cloud Toolbox</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<button>
+    <i class="bi bi-list"></i>
+</button>
+<div class="sidebar-container d-print-none @NavMenuCssClass">
+    <div class="sidebar">
+        <div class="navbar navbar-light top-row ps-3">
+            <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand" href="">Cloud Toolbox</a>
+        </div>
+
+        <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+            <nav class="flex-column">
+                <div class="nav-item px-3 mb-3">
+                    <NavLink class="nav-link text-dark" href="" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> Home
+                    </NavLink>
+                </div>
+
+                <div class="nav-item px-3 mb-3">
+                    <input class="form-control rounded-1" placeholder="Search..." type="text" @bind-value="FilterText" @bind-value:event="oninput" @onkeyup="FilterMenuItems" />
+                </div>
+
+                @foreach (DisplayCalculator calc in FilteredCalculators)
+                {
+                    <div class="nav-item px-3 @(calc.Collection.Name)">
+                        <NavLink class="nav-link" href="@calc.Uri">
+                            @calc.DisplayName
+                        </NavLink>
+                    </div>
+
+                    @* if (item.Type == MenuItemType.Link)
+                {
+                <div class="nav-item px-3">
+                <NavLink class="nav-link" href="@item.Href" style="border-left: 2px solid @item.area;">
+                @item.Name
+                </NavLink>
+                </div>
+                } else
+                {
+                <div class="nav-item px-3 mt-3">
+                <span class="oi @item.HeaderIcon" aria-hidden="true"></span> <span class="h6">@item.Name</span>
+                </div>
+                }*@
+                }
+            </nav>
+
+        </div>
+
     </div>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3 mb-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
+<style>
+    @foreach (var collection in CollectionService.GetCollections())
+    {
+        var cssHover = $".nav-item.{collection.Name} .nav-link {{ border-left: 2px solid {collection.CssAccentColour}; }} .nav-item.{collection.Name}:hover .nav-link {{ background:{collection.CssAccentColour}; }}";
 
-        <div class="nav-item px-3 mb-3">
-            <input class="form-control rounded-1" placeholder="Search..." type="text" @bind-value="FilterText" @bind-value:event="oninput" @onkeyup="FilterMenuItems" />
-        </div>
-
-        @foreach (var item in FilteredCalculators)
-        {
-            <div class="nav-item px-3">
-              @*  <NavLink class="nav-link" href="@item.Uri" style="@BorderCss(item.Area?.CssAccentColour ?? string.Empty)">
-                    @item.DisplayName
-                </NavLink>*@
-
-                <NavLink class="nav-link" href="@item.Uri">
-                    @item.DisplayName
-                </NavLink>
-            </div>
-
-            @* if (item.Type == MenuItemType.Link)
-        {
-        <div class="nav-item px-3">
-        <NavLink class="nav-link" href="@item.Href" style="border-left: 2px solid @item.area;">
-        @item.Name
-        </NavLink>
-        </div>
-        } else
-        {
-        <div class="nav-item px-3 mt-3">
-        <span class="oi @item.HeaderIcon" aria-hidden="true"></span> <span class="h6">@item.Name</span>
-        </div>
-        }*@
-        }
-    </nav>
-</div>
-
+        <text>
+            @(cssHover)
+        </text>
+    }
+</style>
 @code {
-    public enum MenuItemType
-    {
-        Link = 0,
-        Header = 1
-    }
-
-    public struct NavMenuItem
-    {
-        public string Name { get; }
-        public string Href { get; }
-        public string HeaderIcon { get; }
-        public MenuItemType Type { get; }
-
-        public NavMenuItem(string name, string href)
-        {
-            Name = name;
-            Href = href;
-            HeaderIcon = string.Empty;
-        }
-
-        public NavMenuItem(string name, MenuItemType type, string headerIcon)
-        {
-            Name = name;
-            Href = string.Empty;
-            Type = type;
-            HeaderIcon = headerIcon;
-        }
-    }
 
     public List<DisplayCalculator> Calculators { get; set; }
     public List<DisplayCalculator> FilteredCalculators { get; set; }
     public string FilterText { get; set; }
     private bool collapseNavMenu = true;
     private bool hasSearched = false;
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? NavMenuCssClass => collapseNavMenu ? "collapsed" : null;
 
     protected override void OnInitialized()
     {
         Calculators = CollectionService.GetCollections().SelectMany(x => x.Calculators).ToList();
         FilteredCalculators = Calculators;
-    }
-
-    private void CreateHeaderItem(string name, string icon)
-    {
-        //MenuItems.Add(new NavMenuItem(name, MenuItemType.Header, icon));
     }
 
     private void ToggleNavMenu()
@@ -118,10 +99,5 @@
                 InvokeAsync(StateHasChanged);
             }
         }
-    }
-
-    private string BorderCss(string colour)
-    {
-        return "border-left: 2px solid " + colour;
     }
 }
