@@ -1,15 +1,15 @@
 ﻿@inject CalculatorCollectionService CollectionService
 
 <div class="w-100 d-flex p-2" style="position: sticky; top: 0; height: 50px; background-color: #0d6efd; z-index: 30">
-    <button class="btn btn-light" title="Navigation menu" @onclick="ToggleNavMenu" >
-        <i class="bi bi-list"></i>
+    <button class="btn p-0" title="Navigation menu" @onclick="ToggleNavMenu" >
+        <i class="bi bi-list text-white fs-3"></i>
     </button>
-
-    <a href="/" class="text-decoration-none">
-        <h3 class="ms-2 text-white">
-            Cloud Toolbox
-        </h3>
+    
+    <a class="navbar-brand text-white position-relative fs-3 p-0 ps-2" href="/">
+      <img src="/favicon.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      Cloud Toolbox
     </a>
+
 
      <form class="d-flex ms-auto global-search">
         <input class="form-control me-2" type="search" placeholder="🔎︎" aria-label="Search" @bind-value="GlobalSearchText" @bind-value:event="oninput" @onkeyup="GlobalSearch">
@@ -19,23 +19,12 @@
             <div class="results-container rounded-1 shadow border">
                 @foreach (DisplayCalculator calc in GlobalSearchCalculators)
                 {
-                    <NavLink class="nav-link p-2" href="@calc.Uri">
+                    <NavLink class="nav-link p-2" href="@calc.Uri"  @onclick="CloseGlobalSearchMenu">
                         <span><i class="@calc.Collection.CssIcon"></i> @calc.DisplayName</span>
                     </NavLink>
                 }
 
             </div>
-        }
-        else
-        {
-            if (GlobalSearchText != null && GlobalSearchText.Length > 0)
-            {
-                <div class="results-container rounded-1 shadow">
-                    <span class="p-2">
-                        No results
-                    </span>
-                </div>
-            }
         }
     </form>
 </div>
@@ -95,10 +84,16 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
-    
+
+    private void CloseGlobalSearchMenu()
+    {
+        GlobalSearchCalculators = new List<DisplayCalculator>();
+        GlobalSearchText = string.Empty;
+    }
+
     private void GlobalSearch()
     {
-        if (GlobalSearchText != null && GlobalSearchText.Length > 0)
+        if (!string.IsNullOrWhiteSpace(GlobalSearchText))
         {
             hasGlobalSearched = true;
             GlobalSearchCalculators = Calculators

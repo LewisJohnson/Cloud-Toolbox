@@ -7,12 +7,6 @@
     background-color: rgba(13, 110, 253,0.4);
 }
 
-.navbar-brand {
-    font-size: 1.1rem;
-    position: absolute;
-    left: 85px;
-}
-
 .oi {
     width: 1.5rem;
     font-size: 1.1rem;
@@ -104,7 +98,8 @@
     position: fixed;
     top: 48px;
     right: 16px;
-    height: 150px;
+    height: 200px;
+    overflow: hidden;
 }
 
 .global-search .results-container > .nav-link {

@@ -40,7 +40,7 @@ static void CssGenerator()
 	foreach (var col in service.GetCollections())
 	{
 		Console.WriteLine($".card.homepage.{col.Name} {{border: 1px solid var(--collection-accent-colour-{col.Name}); }}");
-		Console.WriteLine($".card.homepage.{col.Name}:hover {{background: 1px solid var(--collection-header-colour-{col.Name}); }}");
+		Console.WriteLine($".card.homepage.{col.Name}:hover {{background: var(--collection-header-colour-{col.Name}); }}");
 		Console.WriteLine("");
 	}
 }

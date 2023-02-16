@@ -1,6 +1,5 @@
 ﻿using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Enums.Units;
-using CloudToolbox.Common.Helpers;
 
 namespace CloudToolbox.Common.Data.DisplayCalculatorCollections;
 
@@ -14,10 +13,10 @@ public class UnitsCalculatorCollection : CalculatorCollection
 		Uri = Routes.AREA_UNITS;
 
 		CssIcon = "bi bi-graph-up";
-		CssHeaderBackgroundColour = "#3cb3ed";
 		CssAccentColour = "#3cb3ed";
-		CssCalulatorHeaderBackgroundColour = "#95d8f9";
-		CssCalulatorPanelColour = "#3cb3ed4f";
+		CssHeaderBackgroundColour = "linear-gradient(to top, #3cb3ed 0%, #0d6efd 100%)";
+		CssCalulatorHeaderBackgroundColour = "#3cb3ed90";
+		CssCalulatorPanelColour = "#3cb3ed40";
 
 		var calcs = new List<DisplayCalculator>();
 

@@ -3,20 +3,19 @@
 
 <Breadcrumb Links="@BreadcrumbLinks" />
 
-<div class="row px-4 pt-5 calc-container" style="max-width: 800px; min-height: 100vh;">
-    <div class="col-12 col-md-7">
-        @Header
-    </div>
+<div style="min-height: 90vh;">
+    <div class="d-flex flex-column flex-lg-row px-4 pt-3 calc-container">
+        <div class="mb-3 mb-lg-0" style="min-width: 400px; max-width: 400px">
+            @Header
+        </div>
 
-    <div class="col-12 col-md-5 shadow-sm pt-3 mb-5 calc-panel">
-        @Calculator
+        <div class="shadow-sm p-2 mb-5 ms-0 ms-lg-3 calc-panel" style="min-width: 400px; max-width: 400px">
+            @Calculator
+        </div>
     </div>
 </div>
 
 <style>
-    .calc-container {
-        padding-top: 5rem;
-    }
 
     .calc-panel {
         background: @Collection.CssCalulatorPanelColour;
