@@ -1,16 +1,14 @@
-﻿@attribute [Route(Routes.TEXT_TO_LOWER_CASE)]
+@page "/Toolbox/Text/{UriParam?}"
 
-@namespace CloudToolbox.Components.Toolbox.Text
-@inherits ToLowerCaseBase
+@namespace CloudToolbox.Components.Toolbox
+@inherits TextCalculatorBase
 @inject CalculatorCollectionService CollectionService
 
 <SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Text)">
     <Header>
-        <ToolboxHeader Title="To Lower Case">
+        <ToolboxHeader Title="@("To " + DisplayCalcType)">
             <Description>
-                <p>
-                    To use this converter, simply insert some text and we'll give you it back in lower case.
-                </p>
+                    <p>To use this converter, simply insert some text into the field and we'll convert it to @DisplayCalcType</p>
             </Description>
         </ToolboxHeader>
     </Header>

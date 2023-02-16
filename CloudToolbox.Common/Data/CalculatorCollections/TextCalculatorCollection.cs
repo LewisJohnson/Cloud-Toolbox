@@ -16,12 +16,17 @@ public class TextCalculatorCollection : CalculatorCollection
 		CssCalulatorHeaderBackgroundColour = "#ed3c5d";
 		CssCalulatorPanelColour = "#ed3c5d1f";
 
-		Calculators = new()
+		var calcs = new List<DisplayCalculator>();
+		var textCalcs = Enumeration.GetAll<TextCalculatorsEnum>();
+
+		foreach (TextCalculatorsEnum calc in textCalcs)
 		{
-			new DisplayCalculator(this, "To Lower Case", Routes.TEXT_TO_LOWER_CASE),
-			new DisplayCalculator(this, "To Upper Case", Routes.TEXT_TO_UPPER_CASE),
-			new DisplayCalculator(this, "To Title Case", Routes.TEXT_TO_TITLE_CASE),
-		};
+			var uri = $"/Toolbox/Text/To-{calc.UriName}";
+
+			calcs.Add(new DisplayCalculator(this, calc.Name, uri, new() { }, calc.Abbreviation) { TextType = calc.CalcType });
+		}
+
+		Calculators = calcs;
 	}
 }
 

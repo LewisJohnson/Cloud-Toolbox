@@ -1,4 +1,4 @@
-﻿namespace CloudToolbox.Common.Enums.Units
+﻿namespace CloudToolbox.Common.Enums
 {
 	public enum DeveloperCalculatorType
 	{

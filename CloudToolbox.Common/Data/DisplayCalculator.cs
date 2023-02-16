@@ -32,4 +32,5 @@ public class DisplayCalculator
 	public object ToType { get; }
 	public UnitTypes? UnitType { get; }
 	public DeveloperCalculatorType? DeveloperType { get; set; }
+	public TextCalculatorType? TextType { get; set; }
 }

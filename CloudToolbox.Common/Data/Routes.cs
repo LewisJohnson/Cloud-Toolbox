@@ -15,11 +15,6 @@
 		public const string DATE_AND_TIME_DURATION_BETWEEN_TIMES = "/Toolbox/DateAndTime/Between-Times";
 		public const string DATE_AND_TIME_DURATION_BETWEEN_TIME_AND_DATE = "/Toolbox/DateAndTime/Between-Time-and-Date";
 
-		// TEXT
-		public const string TEXT_TO_LOWER_CASE = "/Toolbox/Text/To-Lower-Case";
-		public const string TEXT_TO_UPPER_CASE = "/Toolbox/Text/To-Upper-Case";
-		public const string TEXT_TO_TITLE_CASE = "/Toolbox/Text/To-Title-Case";
-
 		// TRAVEL
 		public const string TRAVEL_MPG_CALCULATOR = "/Toolbox/Travel/Mpg-Calculator";
 		public const string TRAVEL_KML_CALCULATOR = "/Toolbox/Travel/Kml-Calculator";
