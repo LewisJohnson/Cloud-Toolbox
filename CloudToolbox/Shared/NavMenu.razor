@@ -32,7 +32,7 @@
 
 <div class="sidebar-container d-print-none @NavMenuCssClass">
     <div class="sidebar">
-        <div class="@NavMenuCssClass nav-scrollable" >
+        <div class="@NavMenuCssClass nav-scrollable">
             <nav class="flex-column">
                 <div class="nav-item px-3 mb-3">
                     <NavLink class="nav-link text-dark" href="" Match="NavLinkMatch.All">
@@ -83,16 +83,22 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+        
+        GlobalSearchCalculators = new List<DisplayCalculator>();
+        GlobalSearchText = string.Empty;
     }
 
     private void CloseGlobalSearchMenu()
     {
         GlobalSearchCalculators = new List<DisplayCalculator>();
         GlobalSearchText = string.Empty;
+        collapseNavMenu = true;
     }
 
     private void GlobalSearch()
     {
+         collapseNavMenu = true;
+
         if (!string.IsNullOrWhiteSpace(GlobalSearchText))
         {
             hasGlobalSearched = true;
@@ -113,6 +119,8 @@
 
     private void FilterMenuItems()
     {
+        GlobalSearchText = string.Empty;
+
         if (FilterText != null && FilterText.Length > 0)
         {
             hasSearched = true;
