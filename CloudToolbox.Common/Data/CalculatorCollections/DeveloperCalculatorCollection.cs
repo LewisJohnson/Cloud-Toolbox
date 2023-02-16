@@ -35,4 +35,16 @@ public class DeveloperCalculatorCollection : CalculatorCollection
 		Calculators = calcs;
 	}
 
+	private List<DisplayCalculator> calculators;
+	public override List<DisplayCalculator> Calculators
+	{
+		get => calculators
+			.OrderBy(x => x.DeveloperType)
+			.ThenBy(x => x.DisplayName)
+			.ToList();
+
+		protected set => calculators = value;
+	}
+
+
 }

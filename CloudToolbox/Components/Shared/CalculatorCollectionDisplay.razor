@@ -16,7 +16,7 @@
                    @bind-value="FilterText" @bind-value:event="oninput" @onkeyup="FilterCalculators" />
         </div>
 
-        @if (Collection.Type == CalculatorAreaTypes.Units)
+        @if(Collection.Type == CalculatorAreaTypes.Units)
         {
             UnitTypes? prevUnitType = null;
             object? prevCalcFromType = null;
@@ -27,8 +27,8 @@
                 @foreach (UnitTypes unitType in types)
                 {
                     var units = Enumeration.GetAll<UnitCalculatorsEnum>()
-                    .Where(x => x.UnitType == unitType)
-                    .OrderBy(x => x.Name);
+                        .Where(x => x.UnitType == unitType)
+                        .OrderBy(x => x.Name);
 
                     string displayName;
                     string uri;

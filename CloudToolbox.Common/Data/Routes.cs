@@ -31,13 +31,5 @@
 		public const string MATHS_TIMES_TABLE = "/Toolbox/Maths/Times-Table";
 		public const string MATHS_TIMES_TABLE_GRID = "/Toolbox/Maths/Times-Table-grid";
 		public const string MATHS_DIVISION_TABLE = "/Toolbox/Maths/Division-Table";
-
-		// DEVELOPER
-		public const string DEVELOPER_TO_BASE64 = "/Toolbox/Developer/To-Base64";
-		public const string DEVELOPER_FROM_BASE64 = "/Toolbox/Developer/From-Base64";
-		public const string DEVELOPER_TO_HEX = "/Toolbox/Developer/To-Hex";
-		public const string DEVELOPER_FROM_HEX = "/Toolbox/Developer/From-Hex";
-		public const string DEVELOPER_TO_BINARY = "/Toolbox/Developer/To-Binary";
-		public const string DEVELOPER_FROM_BINARY = "/Toolbox/Developer/From-Binary";
 	}
 }

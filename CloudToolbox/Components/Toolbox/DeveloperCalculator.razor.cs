@@ -65,13 +65,13 @@ namespace CloudToolbox.Components.Toolbox
 
 				if (Direction == DeveleoperCalculatorDirection.From)
 				{
-					Inputs.Add(new("Text", typeof(string)) { Label = Calc.Name });
-					ResultsTemplate.Add(new(null) { EndInputGroupText = "Text" });
+					Inputs.Add(new("Text", typeof(string)) { Label = Calc.Name, UseLargeInput = true });
+					ResultsTemplate.Add(new(null) { Label = "Text", Type = CalculatorResultType.TextArea });
 				}
 				else
 				{
-					Inputs.Add(new("Text", typeof(string)) { Label = "Text" });
-					ResultsTemplate.Add(new(null) { EndInputGroupText = Calc.Name });
+					Inputs.Add(new("Text", typeof(string)) { Label = "Text", UseLargeInput = true });
+					ResultsTemplate.Add(new(null) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
 				}
 
 				InvokeAsync(StateHasChanged);
@@ -93,11 +93,11 @@ namespace CloudToolbox.Components.Toolbox
 
 				if (Direction == DeveleoperCalculatorDirection.From)
 				{
-					returnRes.Add(new(converted) { EndInputGroupText = "Text" });
+					returnRes.Add(new(converted) { Label = "Text", Type = CalculatorResultType.TextArea });
 				}
 				else
 				{
-					returnRes.Add(new(converted) { EndInputGroupText = Calc.Name });
+					returnRes.Add(new(converted) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
 				}
 			}
 

@@ -16,7 +16,7 @@ public abstract class CalculatorCollection
 
 	public string Uri { get; protected set; }
 	public CalculatorAreaTypes Type { get; protected set; }
-	public List<DisplayCalculator> Calculators
+	public virtual List<DisplayCalculator> Calculators
 	{
 		get => calculators
 			.OrderBy(x => x.UnitType)
@@ -32,27 +32,7 @@ public abstract class CalculatorCollection
 	public string CssCalulatorHeaderBackgroundColour { get; protected set; }
 	public string CssCalulatorPanelColour { get; protected set; }
 
-	public DisplayCalculator? MatchParamToCalculator(string input)
-	{
-
-		input = input.ToLower();
-
-		try
-		{
-			return Calculators.FirstOrDefault(x =>
-				x.DisplayName.ToLower() == input ||
-				x.Abbreviation.ToLower() == input ||
-				x.Aliases.Any(x => x.ToLower() == input));
-		}
-		catch (Exception e)
-		{
-
-		}
-
-		return null;
-	}
-
-	public List<DisplayCalculator> Search(string searchTerm)
+	public virtual List<DisplayCalculator> Search(string searchTerm)
 	{
 		return Calculators.Where(x =>
 				x.DisplayName.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) ||

@@ -8,7 +8,13 @@
     <Header>
         <ToolboxHeader Title="@(DisplayDirection + " " + DisplayCalcType)">
             <Description>
-                <p>@(DisplayDirection + " " + DisplayCalcType)</p>
+                @if(Direction == DeveleoperCalculatorDirection.From)
+                {
+                    <p>To use this converter, simply insert @DisplayCalcType into the field and we'll convert it to text.</p>
+                } else
+                {
+                    <p>To use this converter, simply insert some text into the field and we'll convert it to @DisplayCalcType.</p>
+                }
             </Description>
         </ToolboxHeader>
     </Header>
