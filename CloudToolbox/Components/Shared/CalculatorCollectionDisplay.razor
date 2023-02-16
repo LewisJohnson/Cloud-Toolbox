@@ -26,7 +26,7 @@
             <div class="px-4">
                 @foreach (UnitTypes unitType in types)
                 {
-                    var units = Enumeration.GetAll<UnitOf>()
+                    var units = Enumeration.GetAll<UnitOfEnum>()
                     .Where(x => x.UnitType == unitType)
                     .OrderBy(x => x.Name);
 

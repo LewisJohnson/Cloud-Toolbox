@@ -25,8 +25,8 @@ namespace CloudToolbox.Components.Toolbox.Units
 		public string? DisplayUnitFrom { get; set; }
 		public string? DisplayUnitTo { get; set; }
 
-		public UnitOf? FromUnitOf { get; set; }
-		public UnitOf? ToUnitOf { get; set; }
+		public UnitOfEnum? FromUnitOf { get; set; }
+		public UnitOfEnum? ToUnitOf { get; set; }
 
 		[Inject]
 		NavigationManager NavigationManager { get; set; }
@@ -55,8 +55,8 @@ namespace CloudToolbox.Components.Toolbox.Units
 					NavigationManager.NavigateTo("404", false);
 				}
 
-				FromUnitOf = UnitOf.Match(unitFromParam);
-				ToUnitOf = UnitOf.Match(unitToParam);
+				FromUnitOf = UnitOfEnum.Match(unitFromParam);
+				ToUnitOf = UnitOfEnum.Match(unitToParam);
 
 				if (FromUnitOf == null || ToUnitOf == null)
 				{
