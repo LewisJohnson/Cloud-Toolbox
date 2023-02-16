@@ -16,23 +16,69 @@
                    @bind-value="FilterText" @bind-value:event="oninput" @onkeyup="FilterCalculators" />
         </div>
 
-        <div class="row px-4">
-            @{
-                UnitTypes? prev = null;
-            }
+        @if (Collection.Type == CalculatorAreaTypes.Units)
+        {
+            UnitTypes? prevUnitType = null;
+            object? prevCalcFromType = null;
 
-            @foreach (var calc in FilteredCalculators)
-            {
-                if (calc.UnitType != prev)
+            var types = Enum.GetValues(typeof(UnitTypes));
+
+            <div class="px-4">
+                @foreach (UnitTypes unitType in types)
                 {
-                    prev = calc.UnitType;
+                    var units = Enumeration.GetAll<UnitOf>()
+                    .Where(x => x.UnitType == unitType)
+                    .OrderBy(x => x.Name);
 
-                    <h1 class="mt-5 mb-3">@(string.Join("", calc.UnitType.ToString().Select(ch => (char.IsUpper(ch) ? " " : "") + ch)))</h1>
+                    string displayName;
+                    string uri;
+                    string abrv;
+                    bool isFirst;
+
+                    foreach (var from in units)
+                    {
+                        isFirst = true;
+
+                        if (from.UnitType != prevUnitType)
+                        {
+                            prevUnitType = from.UnitType;
+
+                            <h1 class="mt-5 mb-3">@(string.Join("", from.UnitType.ToString().Select(ch => (char.IsUpper(ch) ? " " : "") + ch)))</h1>
+                        }
+
+                        <div class="btn-group mb-3 w-100">
+                            @foreach (var to in units)
+                            {
+                                if (from != to)
+                                {
+                                    if (isFirst)
+                                    {
+                                        isFirst = false;
+                                        <btn class="btn text-start" style="width: 200px">@from.Name</btn>
+                                    }
+
+                                    displayName = from.Name + " to " + to.Name;
+                                    uri = "/Toolbox/Units/" + from.UriName + "-to-" + to.UriName;
+                                    abrv = from.Abbreviation + " to " + to.Abbreviation;
+
+                                    <a class="btn" style="width: 100px" href="@uri">@to.ToString()</a>
+                                }
+                            }
+                        </div>
+                    }
                 }
+            </div>
+        }
+        else
+        {
+            <div class="row px-4">
 
-                <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
-            }
-        </div>
+                @foreach (DisplayCalculator calc in FilteredCalculators)
+                {
+                    <AreaButton DisplayName="@calc.DisplayName" Link="@calc.Uri"></AreaButton>
+                }
+            </div>
+        }
     </div>
 </div>
 
@@ -41,7 +87,8 @@
         background: @Collection.CssAccentColour;
         background: @Collection.CssHeaderBackgroundColour;
     }
-    .area-btn{
+
+    .area-btn {
         min-height: 70px;
     }
 
@@ -55,5 +102,55 @@
     .area-btn a:hover {
         background-color: @Collection.CssAccentColour;
         box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    }
+
+    .btn-group{
+        box-shadow: 0 .25rem 0.5rem rgba(0,0,0,.15) !important;
+    }
+
+    .btn-group:hover btn {
+        background-color: @Collection.CssAccentColour;
+        color: white;
+    }
+
+    .btn-group:hover a {
+        opacity: 0.2;
+        border-color: grey;
+    }
+
+    .btn-group a:hover {
+        opacity: 1;
+    }
+
+    .btn-group btn {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        background: white;
+        transition: 0.1s all ease-in-out;
+        color: var(--collection-accent-colour-Units);
+        border-color: var(--collection-accent-colour-Units);
+        border-top: 0;
+        border-left: 0;
+        border-bottom: 0;
+    }
+
+    .btn-group btn:hover {
+        cursor: initial;
+    }
+
+    .btn-group a {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        background: white;
+        transition: 0.1s all ease-in-out;
+        border-color: var(--collection-accent-colour-Units);
+        border-top: 0;
+        border-bottom: 0;
+    }
+
+    .btn-group a:hover {
+        background-color: @Collection.CssAccentColour;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+        color: white;
     }
 </style>

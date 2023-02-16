@@ -1,4 +1,3 @@
-using System.Reflection;
 using CloudToolbox.Common.Data;
 using CloudToolbox.Common.Enums;
 
@@ -6,7 +5,7 @@ namespace CloudToolbox.Services;
 
 public class CalculatorCollectionService
 {
-	public List<CalculatorCollection> CalculatorCollectionsCache;
+	private List<CalculatorCollection> calculatorCollectionsCache;
 
 	public CalculatorCollectionService()
 	{
@@ -14,21 +13,18 @@ public class CalculatorCollectionService
 
 	public List<CalculatorCollection> GetCollections()
 	{
-		if (CalculatorCollectionsCache == null)
-		{
-			CalculatorCollectionsCache =
+		calculatorCollectionsCache ??=
 				typeof(CalculatorCollection)
 				.Assembly.GetTypes()
 				.Where(t => t.IsSubclassOf(typeof(CalculatorCollection)) && !t.IsAbstract)
 				.Select(t => (CalculatorCollection)Activator.CreateInstance(t))
 				.ToList();
-		}
 
-		return CalculatorCollectionsCache;
+		return calculatorCollectionsCache;
 	}
 
 	public CalculatorCollection GetCollectionOfType(CalculatorAreaTypes type)
 	{
-		return CalculatorCollectionsCache.FirstOrDefault(col => col.Type == type);
+		return calculatorCollectionsCache.FirstOrDefault(col => col.Type == type);
 	}
 }
