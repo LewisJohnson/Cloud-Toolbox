@@ -16,8 +16,8 @@ public class UnitsCalculatorCollection : CalculatorCollection
 		CssIcon = "bi bi-graph-up";
 		CssHeaderBackgroundColour = "#3cb3ed";
 		CssAccentColour = "#3cb3ed";
-		CssCalulatorHeaderBackgroundColour = "#3cb3ed";
-		CssCalulatorPanelColour = "#3cb3ed";
+		CssCalulatorHeaderBackgroundColour = "#95d8f9";
+		CssCalulatorPanelColour = "#3cb3ed4f";
 
 		var calcs = new List<DisplayCalculator>();
 

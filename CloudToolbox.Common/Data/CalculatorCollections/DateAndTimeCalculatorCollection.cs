@@ -15,7 +15,7 @@ public class DateAndTimeCalculatorCollection : CalculatorCollection
 		CssAccentColour = "#ed6e3c";
 		CssHeaderBackgroundColour = "#ed6e3c";
 		CssCalulatorHeaderBackgroundColour = "#ed6e3c";
-		CssCalulatorPanelColour = "#ed6e3c";
+		CssCalulatorPanelColour = "#ed6e3c38";
 
 		Calculators = new()
 		{

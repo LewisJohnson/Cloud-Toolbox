@@ -13,8 +13,8 @@ public class TravelCalculatorCollection : CalculatorCollection
 		CssIcon = "bi bi-globe-europe-africa";
 		CssHeaderBackgroundColour = "#39913e";
 		CssAccentColour = "#39913e";
-		CssCalulatorHeaderBackgroundColour = "#39913e";
-		CssCalulatorPanelColour = "#39913e";
+		CssCalulatorHeaderBackgroundColour = "#39913e54";
+		CssCalulatorPanelColour = "#39913e36";
 
 		Calculators = new()
 		{

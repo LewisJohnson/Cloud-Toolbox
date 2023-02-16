@@ -14,7 +14,7 @@ public class DeveloperCalculatorCollection : CalculatorCollection
 		CssAccentColour = "#84fab0";
 		CssHeaderBackgroundColour = "linear-gradient(to top, #84fab0 0%, #8fd3f4 100%)";
 		CssCalulatorHeaderBackgroundColour = "#84fab0";
-		CssCalulatorPanelColour = "#84fab0";
+		CssCalulatorPanelColour = "#84fab03d";
 
 		Calculators = new()
 		{
