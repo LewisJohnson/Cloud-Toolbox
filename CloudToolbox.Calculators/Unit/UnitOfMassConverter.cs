@@ -3,7 +3,7 @@ using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Calculators.Unit
 {
-	public class UnitOfMassConverter : IUnitOfConverter
+	public class UnitOfMassConverter : IConverter<double>
 	{
 		private (UnitOfMass, UnitOfMass) Units;
 

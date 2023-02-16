@@ -3,7 +3,7 @@ using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Calculators.Unit
 {
-	public class UnitOfLengthConverter : IUnitOfConverter
+	public class UnitOfLengthConverter : IConverter<double>
 	{
 		private (UnitOfLength, UnitOfLength) Units;
 

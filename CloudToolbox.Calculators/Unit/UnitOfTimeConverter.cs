@@ -3,7 +3,7 @@ using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Calculators.Unit
 {
-	public class UnitOfTimeConverter : IUnitOfConverter
+	public class UnitOfTimeConverter : IConverter<double>
 	{
 		private (UnitOfTime, UnitOfTime) Units;
 

@@ -3,7 +3,7 @@ using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Calculators.Unit
 {
-	public class UnitOfSpeedConverter : IUnitOfConverter
+	public class UnitOfSpeedConverter : IConverter<double>
 	{
 		private (UnitOfSpeed, UnitOfSpeed) Units;
 

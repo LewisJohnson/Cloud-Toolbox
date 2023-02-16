@@ -4,7 +4,7 @@ using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Calculators.Unit
 {
-	public class UnitOfEnergyConverter : IUnitOfConverter
+	public class UnitOfEnergyConverter : IConverter<double>
 	{
 		private (UnitOfEnergy, UnitOfEnergy) Units;
 
