@@ -1,0 +1,39 @@
+﻿@namespace CloudToolbox.Components.Shared
+
+<nav aria-label="breadcrumb" style="background-color: #f2f2f3">
+    <div class="w-100">
+        <ol class="breadcrumb p-2">
+            @foreach (var link in Links.OrderBy(x => x.OrderIndex))
+            {
+                if (link.IsActive)
+                {
+                    <li class="breadcrumb-item active mt-bread-item" aria-current="page">@link.Title</li>
+                }
+                else
+                {
+                    <li class="breadcrumb-item">
+                        <a class="mt-bread-item-link text-decoration-none" href="@link.Address">@link.Title</a>
+                    </li>
+                }
+            }
+        </ol>
+    </div>
+</nav>
+@code {
+    [Parameter]
+    public List<BreadcrumbLink> Links { get; set; }
+
+    public class BreadcrumbLink
+    {
+        public int OrderIndex { get; set; }
+        public string Address { get; set; }
+        public string Title { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public Breadcrumb()
+    {
+
+    }
+    protected override Task OnParametersSetAsync() => base.OnParametersSetAsync();
+}
