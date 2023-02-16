@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CloudToolbox.Common\CloudToolbox.Common.csproj" />
+    <ProjectReference Include="..\CloudToolbox.Services\CloudToolbox.Services.csproj" />
   </ItemGroup>
 
 </Project>

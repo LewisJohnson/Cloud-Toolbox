@@ -77,17 +77,6 @@
     </div>
 </div>
 
-<style>
-    @foreach (var collection in CollectionService.GetCollections())
-    {
-        var cssHover = $".card.homepage.{collection.Name}:hover {{ background:{collection.CssHeaderBackgroundColour}; }}";
-
-        <text>
-            @(cssHover)
-        </text>
-    }
-</style>
-
 @code{
     public List<(string Header, string Description, string? Link)> PopularCalcs;
 

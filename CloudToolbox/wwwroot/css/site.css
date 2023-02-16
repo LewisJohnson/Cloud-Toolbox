@@ -1,6 +1,38 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @import url('bootstrap-icons/font/bootstrap-icons.min.css');
 
+:root {
+    --collection-accent-colour-DateAndTime: #ed6e3c;
+    --collection-calc-header-colour-DateAndTime: #ed6e3c;
+    --collection-panel-colour-DateAndTime: #ed6e3c;
+    --collection-header-colour-DateAndTime: #ed6e3c;
+
+    --collection-accent-colour-Developer: #84fab0;
+    --collection-calc-header-colour-Developer: #84fab0;
+    --collection-panel-colour-Developer: #84fab0;
+    --collection-header-colour-Developer: linear-gradient(to top, #84fab0 0%, #8fd3f4 100%);
+
+    --collection-accent-colour-Maths: #f89fdd;
+    --collection-calc-header-colour-Maths: #fff2fb;
+    --collection-panel-colour-Maths: #fff2fb;
+    --collection-header-colour-Maths: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+
+    --collection-accent-colour-Text: #ed3c5d;
+    --collection-calc-header-colour-Text: #ed3c5d;
+    --collection-panel-colour-Text: #ed3c5d1f;
+    --collection-header-colour-Text: #ed3c5d;
+
+    --collection-accent-colour-Travel: #39913e;
+    --collection-calc-header-colour-Travel: #39913e;
+    --collection-panel-colour-Travel: #39913e;
+    --collection-header-colour-Travel: #39913e;
+
+    --collection-accent-colour-Units: #3cb3ed;
+    --collection-calc-header-colour-Units: #3cb3ed;
+    --collection-panel-colour-Units: #3cb3ed;
+    --collection-header-colour-Units: #3cb3ed;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -79,4 +111,56 @@ a, .btn-link {
 
 .card.homepage:hover a.btn{
     color: white;
+}
+
+.card.homepage.DateAndTime {
+    border: 1px solid var(--collection-accent-colour-DateAndTime);
+}
+
+.card.homepage.DateAndTime:hover {
+    background: var(--collection-header-colour-DateAndTime);
+}
+
+.card.homepage.Developer {
+    border: 1px solid var(--collection-accent-colour-Developer);
+}
+
+.card.homepage.Developer:hover {
+    background: var(--collection-header-colour-Developer);
+}
+
+.card.homepage.Maths {
+    border: 1px solid var(--collection-accent-colour-Maths);
+}
+
+.card.homepage.Maths:hover {
+    background: var(--collection-header-colour-Maths);
+}
+
+.card.homepage.Text {
+    border: 1px solid var(--collection-accent-colour-Text);
+}
+
+.card.homepage.Text:hover {
+    background: var(--collection-header-colour-Text);
+}
+
+.card.homepage.Travel {
+    border: 1px solid var(--collection-accent-colour-Travel);
+}
+
+.card.homepage.Travel:hover {
+    background: var(--collection-header-colour-Travel);
+}
+
+.card.homepage.Units {
+    border: 1px solid var(--collection-accent-colour-Units);
+}
+
+.card.homepage.Units:hover {
+    background: var(--collection-header-colour-Units);
+}
+
+.bg-light {
+    background-color: #fafcff !important;
 }
