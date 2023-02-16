@@ -1,18 +1,15 @@
 ﻿@inherits LayoutComponentBase
 
-<PageTitle>CloudToolbox</PageTitle>
+<PageTitle>Cloud Toolbox</PageTitle>
 
-<div class="page">
+<NavMenu />
 
-    <NavMenu />
+<main>
+    <article class="content bg-light">
+        @Body
 
-    <main>
-        <article class="content bg-light">
-            @Body
-
-            <div class="bottom-row px-4">
-                <a href="privacy">Privacy</a>
-            </div>
-        </article>
-    </main>
-</div>
+        <div class="bottom-row px-4">
+            <a href="privacy">Privacy</a>
+        </div>
+    </article>
+</main>

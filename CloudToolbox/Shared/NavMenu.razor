@@ -1,19 +1,49 @@
 ﻿@inject CalculatorCollectionService CollectionService
 
-<button>
-    <i class="bi bi-list"></i>
-</button>
+<div class="w-100 d-flex p-2" style="position: sticky; top: 0; height: 50px; background-color: #0d6efd; z-index: 30">
+    <button class="btn btn-light" title="Navigation menu" @onclick="ToggleNavMenu" >
+        <i class="bi bi-list"></i>
+    </button>
+
+    <a href="/" class="text-decoration-none">
+        <h3 class="ms-2 text-white">
+            Cloud Toolbox
+        </h3>
+    </a>
+
+     <form class="d-flex ms-auto global-search">
+        <input class="form-control me-2" type="search" placeholder="🔎︎" aria-label="Search" @bind-value="GlobalSearchText" @bind-value:event="oninput" @onkeyup="GlobalSearch">
+
+        @if(GlobalSearchCalculators.Count > 0)
+        {
+            <div class="results-container rounded-1 shadow border">
+                @foreach (DisplayCalculator calc in GlobalSearchCalculators)
+                {
+                    <NavLink class="nav-link p-2" href="@calc.Uri">
+                        <span><i class="@calc.Collection.CssIcon"></i> @calc.DisplayName</span>
+                    </NavLink>
+                }
+
+            </div>
+        }
+        else
+        {
+            if (GlobalSearchText != null && GlobalSearchText.Length > 0)
+            {
+                <div class="results-container rounded-1 shadow">
+                    <span class="p-2">
+                        No results
+                    </span>
+                </div>
+            }
+        }
+    </form>
+</div>
+
+
 <div class="sidebar-container d-print-none @NavMenuCssClass">
     <div class="sidebar">
-        <div class="navbar navbar-light top-row ps-3">
-            <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <a class="navbar-brand" href="">Cloud Toolbox</a>
-        </div>
-
-        <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+        <div class="@NavMenuCssClass nav-scrollable" >
             <nav class="flex-column">
                 <div class="nav-item px-3 mb-3">
                     <NavLink class="nav-link text-dark" href="" Match="NavLinkMatch.All">
@@ -27,25 +57,11 @@
 
                 @foreach (DisplayCalculator calc in FilteredCalculators)
                 {
-                    <div class="nav-item px-3 @(calc.Collection.Name)">
+                    <div class="nav-item px-3 @(calc.Collection.Name)" @onclick="ToggleNavMenu">
                         <NavLink class="nav-link" href="@calc.Uri">
                             @calc.DisplayName
                         </NavLink>
                     </div>
-
-                    @* if (item.Type == MenuItemType.Link)
-                {
-                <div class="nav-item px-3">
-                <NavLink class="nav-link" href="@item.Href" style="border-left: 2px solid @item.area;">
-                @item.Name
-                </NavLink>
-                </div>
-                } else
-                {
-                <div class="nav-item px-3 mt-3">
-                <span class="oi @item.HeaderIcon" aria-hidden="true"></span> <span class="h6">@item.Name</span>
-                </div>
-                }*@
                 }
             </nav>
 
@@ -54,34 +70,50 @@
     </div>
 </div>
 
-<style>
-    @foreach (var collection in CollectionService.GetCollections())
-    {
-        var cssHover = $".nav-item.{collection.Name} .nav-link {{ border-left: 2px solid {collection.CssAccentColour}; }} .nav-item.{collection.Name}:hover .nav-link {{ background:{collection.CssAccentColour}; }}";
-
-        <text>
-            @(cssHover)
-        </text>
-    }
-</style>
 @code {
 
     public List<DisplayCalculator> Calculators { get; set; }
     public List<DisplayCalculator> FilteredCalculators { get; set; }
+    public List<DisplayCalculator> GlobalSearchCalculators { get; set; }
+
+    public string GlobalSearchText { get; set; }
     public string FilterText { get; set; }
+
     private bool collapseNavMenu = true;
     private bool hasSearched = false;
+    private bool hasGlobalSearched = false;
     private string? NavMenuCssClass => collapseNavMenu ? "collapsed" : null;
 
     protected override void OnInitialized()
     {
         Calculators = CollectionService.GetCollections().SelectMany(x => x.Calculators).ToList();
         FilteredCalculators = Calculators;
+        GlobalSearchCalculators = new List<DisplayCalculator>();
     }
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+    
+    private void GlobalSearch()
+    {
+        if (GlobalSearchText != null && GlobalSearchText.Length > 0)
+        {
+            hasGlobalSearched = true;
+            GlobalSearchCalculators = Calculators
+            .Where(x => x.DisplayName.ToLower().Contains(GlobalSearchText.ToLower()))
+            .Take(5)
+            .ToList();
+        }
+        else
+        {
+            if (hasGlobalSearched)
+            {
+                GlobalSearchCalculators = new List<DisplayCalculator>();
+                InvokeAsync(StateHasChanged);
+            }
+        }
     }
 
     private void FilterMenuItems()
@@ -101,3 +133,14 @@
         }
     }
 }
+
+<style>
+    @foreach (var collection in CollectionService.GetCollections())
+    {
+        var cssHover = $".nav-item.{collection.Name} .nav-link {{ border-left: 2px solid {collection.CssAccentColour}; }} .nav-item.{collection.Name}:hover .nav-link {{ background:{collection.CssAccentColour}; }}";
+
+        <text>
+            @(cssHover)
+        </text>
+    }
+</style>
