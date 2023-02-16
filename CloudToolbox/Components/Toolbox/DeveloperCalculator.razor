@@ -1,0 +1,19 @@
+@page "/Toolbox/Developer/{UriParam?}"
+
+@namespace CloudToolbox.Components.Toolbox
+@inherits DeveloperCalculatorBase
+@inject CalculatorCollectionService CollectionService
+
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Developer)">
+    <Header>
+        <ToolboxHeader Title="@(DisplayDirection + " " + DisplayCalcType)">
+            <Description>
+                <p>@(DisplayDirection + " " + DisplayCalcType)</p>
+            </Description>
+        </ToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

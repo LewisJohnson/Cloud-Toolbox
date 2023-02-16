@@ -25,7 +25,7 @@ public class UnitsCalculatorCollection : CalculatorCollection
 
 		foreach (UnitTypes unitType in types)
 		{
-			var units = Enumeration.GetAll<UnitOfEnum>()
+			var units = Enumeration.GetAll<UnitCalculatorsEnum>()
 				.Where(x => x.UnitType == unitType);
 
 			bool first = true;

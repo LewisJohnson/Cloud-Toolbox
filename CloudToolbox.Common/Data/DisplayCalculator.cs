@@ -1,4 +1,5 @@
-﻿using CloudToolbox.Common.Enums.Units;
+﻿using CloudToolbox.Common.Enums;
+using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Common.Data;
 
@@ -26,9 +27,9 @@ public class DisplayCalculator
 	public List<string> Aliases { get; set; }
 	public string Uri { get; set; }
 	public CalculatorCollection Collection { get; set; }
-
 	public string Abbreviation { get; }
 	public object FromType { get; }
 	public object ToType { get; }
 	public UnitTypes? UnitType { get; }
+	public DeveloperCalculatorType? DeveloperType { get; set; }
 }

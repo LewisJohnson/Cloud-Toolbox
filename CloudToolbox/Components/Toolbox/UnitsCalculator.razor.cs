@@ -1,22 +1,21 @@
-using Microsoft.AspNetCore.Components;
 using CloudToolbox.Calculators.Unit;
-using CloudToolbox.Common.Models.Calculator;
-using CloudToolbox.Common.Enums.Units;
 using CloudToolbox.Common.Data;
-using CloudToolbox.Common.Data.DisplayCalculatorCollections;
+using CloudToolbox.Common.Enums.Units;
+using CloudToolbox.Common.Models.Calculator;
+using Microsoft.AspNetCore.Components;
 
-namespace CloudToolbox.Components.Toolbox.Units
+namespace CloudToolbox.Components.Toolbox
 {
-	public partial class UnitOfCalculatorBase : ComponentBase
+	public partial class UnitsCalculatorBase : ComponentBase
 	{
 
 		[Parameter]
-		public string? Units { get; set; }
+		public string? UriParam { get; set; }
 
 		public List<CalculatorInput> Inputs { get; set; }
 		public List<CalculatorResult> ResultsTemplate { get; set; }
 
-		public UnitOfCalculatorBase()
+		public UnitsCalculatorBase()
 		{
 			Inputs = new List<CalculatorInput>();
 			ResultsTemplate = new List<CalculatorResult>();
@@ -25,8 +24,8 @@ namespace CloudToolbox.Components.Toolbox.Units
 		public string? DisplayUnitFrom { get; set; }
 		public string? DisplayUnitTo { get; set; }
 
-		public UnitOfEnum? FromUnitOf { get; set; }
-		public UnitOfEnum? ToUnitOf { get; set; }
+		public UnitCalculatorsEnum? FromUnitOf { get; set; }
+		public UnitCalculatorsEnum? ToUnitOf { get; set; }
 
 		[Inject]
 		NavigationManager NavigationManager { get; set; }
@@ -40,13 +39,13 @@ namespace CloudToolbox.Components.Toolbox.Units
 			Inputs = new List<CalculatorInput>();
 			ResultsTemplate = new List<CalculatorResult>();
 
-			if (string.IsNullOrWhiteSpace(Units))
+			if (string.IsNullOrWhiteSpace(UriParam))
 			{
 				NavigationManager.NavigateTo("404", false);
 			}
 			try
 			{
-				var parts = Units.Split("-to-");
+				var parts = UriParam.Split("-to-");
 				var unitFromParam = parts[0] ?? null;
 				var unitToParam = parts[1] ?? null;
 
@@ -55,8 +54,8 @@ namespace CloudToolbox.Components.Toolbox.Units
 					NavigationManager.NavigateTo("404", false);
 				}
 
-				FromUnitOf = UnitOfEnum.Match(unitFromParam);
-				ToUnitOf = UnitOfEnum.Match(unitToParam);
+				FromUnitOf = UnitCalculatorsEnum.MatchFromUri(unitFromParam);
+				ToUnitOf = UnitCalculatorsEnum.MatchFromUri(unitToParam);
 
 				if (FromUnitOf == null || ToUnitOf == null)
 				{
@@ -80,7 +79,6 @@ namespace CloudToolbox.Components.Toolbox.Units
 			}
 			catch (Exception _) { }
 		}
-
 
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)
 		{
@@ -118,6 +116,7 @@ namespace CloudToolbox.Components.Toolbox.Units
 					case UnitTypes.Speed:
 						converted = new UnitOfSpeedConverter(((UnitOfSpeed)FromUnitOf.Unit, (UnitOfSpeed)ToUnitOf.Unit)).Convert(input.Value);
 						break;
+
 					case UnitTypes.Time:
 						converted = new UnitOfTimeConverter(((UnitOfTime)FromUnitOf.Unit, (UnitOfTime)ToUnitOf.Unit)).Convert(input.Value);
 						break;

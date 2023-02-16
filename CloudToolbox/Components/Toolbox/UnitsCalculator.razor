@@ -1,7 +1,7 @@
-@page "/Toolbox/Units/{Units?}"
+@page "/Toolbox/Units/{UriParam?}"
 
-@namespace CloudToolbox.Components.Toolbox.Units
-@inherits UnitOfCalculatorBase
+@namespace CloudToolbox.Components.Toolbox
+@inherits UnitsCalculatorBase
 @inject CalculatorCollectionService CollectionService
 
 <SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Units)">

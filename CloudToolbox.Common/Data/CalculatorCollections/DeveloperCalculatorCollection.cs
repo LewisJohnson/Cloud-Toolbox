@@ -1,4 +1,5 @@
 ﻿using CloudToolbox.Common.Enums;
+using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Common.Data.DisplayCalculatorCollections;
 
@@ -16,12 +17,22 @@ public class DeveloperCalculatorCollection : CalculatorCollection
 		CssCalulatorHeaderBackgroundColour = "#84fab0";
 		CssCalulatorPanelColour = "#84fab03d";
 
-		Calculators = new()
+		var calcs = new List<DisplayCalculator>();
+		var devCalcs = Enumeration.GetAll<DeveloperCalculatorsEnum>();
+
+		foreach (DeveloperCalculatorsEnum calc in devCalcs)
 		{
-			new DisplayCalculator(this, "Base64", Routes.DEVELOPER_TO_BASE64),
-			new DisplayCalculator(this, "Hexadecimal", Routes.DEVELOPER_TO_HEX, new() {"Hex"}),
-			new DisplayCalculator(this, "Binary", Routes.DEVELOPER_TO_BINARY),
-		};
+			for (int i = 0; i < 2; i++)
+			{
+				string dir = i == 0 ? "To" : "From";
+				var displayName = $"{dir} {calc.Name}";
+				var uri = $"/Toolbox/Developer/{dir}-{calc.UriName}";
+
+				calcs.Add(new DisplayCalculator(this, displayName, uri, new() { }, calc.Abbreviation) { DeveloperType = calc.DevCalcType });
+			}
+		}
+
+		Calculators = calcs;
 	}
 
 }

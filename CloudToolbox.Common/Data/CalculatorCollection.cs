@@ -1,8 +1,4 @@
-using System.ComponentModel;
-using System.Linq;
-using CloudToolbox.Common.Data.DisplayCalculatorCollections;
 using CloudToolbox.Common.Enums;
-using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Common.Data;
 
@@ -20,7 +16,6 @@ public abstract class CalculatorCollection
 
 	public string Uri { get; protected set; }
 	public CalculatorAreaTypes Type { get; protected set; }
-	public CalculatorAreaSubTypes SubType { get; protected set; }
 	public List<DisplayCalculator> Calculators
 	{
 		get => calculators
@@ -59,9 +54,9 @@ public abstract class CalculatorCollection
 
 	public List<DisplayCalculator> Search(string searchTerm)
 	{
-		return Calculators.Where(x => 
+		return Calculators.Where(x =>
 				x.DisplayName.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) ||
-				x.Abbreviation.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) || 
+				x.Abbreviation.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) ||
 				x.Aliases.Any(x => x.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase))
 			)
 			.OrderBy(x => x.UnitType)
