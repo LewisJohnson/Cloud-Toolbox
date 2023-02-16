@@ -1,9 +1,10 @@
 ﻿using System.Drawing;
+using CloudToolbox.Calculators.Interfaces;
 using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Calculators.Unit
 {
-	public class UnitOfEnergyConverter
+	public class UnitOfEnergyConverter : IUnitOfConverter
 	{
 		private (UnitOfEnergy, UnitOfEnergy) Units;
 

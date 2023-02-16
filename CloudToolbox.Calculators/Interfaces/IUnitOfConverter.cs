@@ -1,4 +1,4 @@
-﻿namespace CloudToolbox.Calculators.Unit
+﻿namespace CloudToolbox.Calculators.Interfaces
 {
 	public interface IUnitOfConverter
 	{

@@ -1,8 +1,9 @@
-﻿using CloudToolbox.Common.Enums.Units;
+﻿using CloudToolbox.Calculators.Interfaces;
+using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Calculators.Unit
 {
-	public class UnitOfMassConverter
+	public class UnitOfMassConverter : IUnitOfConverter
 	{
 		private (UnitOfMass, UnitOfMass) Units;
 
