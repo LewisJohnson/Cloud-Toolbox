@@ -12,10 +12,10 @@ public class DateAndTimeCalculatorCollection : CalculatorCollection
 		Uri = Routes.AREA_DATE_AND_TIME;
 
 		CssIcon = "bi bi-calendar-date";
-		CssAccentColour = "#ed6e3c";
-		CssHeaderBackgroundColour = "#ed6e3c";
-		CssCalulatorHeaderBackgroundColour = "#ed6e3c";
-		CssCalulatorPanelColour = "#ed6e3c38";
+		CssAccentColour = "#ffbea4";
+		CssHeaderBackgroundColour = "linear-gradient(to top, #ffbea4 0%, #0d6efd 100%)";
+		CssCalulatorHeaderBackgroundColour = "#ed6e3c90";
+		CssCalulatorPanelColour = "#ed6e3c40";
 
 		Calculators = new()
 		{

@@ -12,7 +12,7 @@ public class MathsCalculatorCollection : CalculatorCollection
 
 		CssIcon = "bi bi-calculator";
 		CssAccentColour = "#f89fdd";
-		CssHeaderBackgroundColour = "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)";
+		CssHeaderBackgroundColour = "linear-gradient(to top, #fbc2eb 0%, #0d6efd 100%)";
 		CssCalulatorHeaderBackgroundColour = "#fff2fb";
 		CssCalulatorPanelColour = "#fff2fb";
 

@@ -11,10 +11,10 @@ public class TravelCalculatorCollection : CalculatorCollection
 		Uri = Routes.AREA_TRAVEL;
 
 		CssIcon = "bi bi-globe-europe-africa";
-		CssHeaderBackgroundColour = "#39913e";
-		CssAccentColour = "#39913e";
-		CssCalulatorHeaderBackgroundColour = "#39913e54";
-		CssCalulatorPanelColour = "#39913e36";
+		CssHeaderBackgroundColour = "linear-gradient(to top, #65e36c 0%, #0d6efd 100%)";
+		CssAccentColour = "#65e36c";
+		CssCalulatorHeaderBackgroundColour = "#65e36c90";
+		CssCalulatorPanelColour = "#65e36c40";
 
 		Calculators = new()
 		{

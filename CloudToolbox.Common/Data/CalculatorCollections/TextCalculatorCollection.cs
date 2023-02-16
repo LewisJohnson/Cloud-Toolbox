@@ -11,10 +11,10 @@ public class TextCalculatorCollection : CalculatorCollection
 		Uri = Routes.AREA_TEXT;
 
 		CssIcon = "bi bi-fonts";
-		CssAccentColour = "#ed3c5d";
-		CssHeaderBackgroundColour = "#ed3c5d";
-		CssCalulatorHeaderBackgroundColour = "#ed3c5d";
-		CssCalulatorPanelColour = "#ed3c5d1f";
+		CssAccentColour = "#fd7f97";
+		CssHeaderBackgroundColour = "#fd7f97";
+		CssCalulatorHeaderBackgroundColour = "#fd7f9790";
+		CssCalulatorPanelColour = "#fd7f9740";
 
 		var calcs = new List<DisplayCalculator>();
 		var textCalcs = Enumeration.GetAll<TextCalculatorsEnum>();

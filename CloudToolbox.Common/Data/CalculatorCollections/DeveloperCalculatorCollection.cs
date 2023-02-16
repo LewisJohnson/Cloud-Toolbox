@@ -13,9 +13,9 @@ public class DeveloperCalculatorCollection : CalculatorCollection
 
 		CssIcon = "bi bi-code-slash";
 		CssAccentColour = "#84fab0";
-		CssHeaderBackgroundColour = "linear-gradient(to top, #84fab0 0%, #8fd3f4 100%)";
-		CssCalulatorHeaderBackgroundColour = "#84fab0";
-		CssCalulatorPanelColour = "#84fab03d";
+		CssHeaderBackgroundColour = "linear-gradient(to top, #84fab0 0%, #0d6efd 100%)";
+		CssCalulatorHeaderBackgroundColour = "#84fab090";
+		CssCalulatorPanelColour = "#84fab040";
 
 		var calcs = new List<DisplayCalculator>();
 		var devCalcs = Enumeration.GetAll<DeveloperCalculatorsEnum>();
