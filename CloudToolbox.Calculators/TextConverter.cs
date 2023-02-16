@@ -29,7 +29,7 @@ namespace CloudToolbox.Calculators
 
 			foreach (var letter in val)
 			{
-				if (r.Next(0, 1) == 0)
+				if (r.Next(0, 2) == 0)
 				{
 					res += letter.ToString().ToLower();
 				}
