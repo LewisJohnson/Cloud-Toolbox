@@ -24,6 +24,9 @@ namespace CloudToolbox.Components.Toolbox
 		public string? DisplayUnitFrom { get; set; }
 		public string? DisplayUnitTo { get; set; }
 
+		public string? DisplayUnitFromDesc { get; set; }
+		public string? DisplayUnitToDesc { get; set; }
+
 		public UnitCalculatorsEnum? FromUnitOf { get; set; }
 		public UnitCalculatorsEnum? ToUnitOf { get; set; }
 
@@ -34,8 +37,9 @@ namespace CloudToolbox.Components.Toolbox
 		{
 			FromUnitOf = null;
 			ToUnitOf = null;
-			DisplayUnitFrom = null;
-			DisplayUnitTo = null;
+			DisplayUnitFrom = string.Empty;
+			DisplayUnitTo = string.Empty;
+
 			Inputs = new List<CalculatorInput>();
 			ResultsTemplate = new List<CalculatorResult>();
 
@@ -69,6 +73,8 @@ namespace CloudToolbox.Components.Toolbox
 
 				DisplayUnitFrom = FromUnitOf.Name;
 				DisplayUnitTo = ToUnitOf.Name;
+				DisplayUnitFromDesc = FromUnitOf.Name + (FromUnitOf.Abbreviation != FromUnitOf.Name ? $" ({FromUnitOf.Abbreviation})" : "");
+				DisplayUnitToDesc = ToUnitOf.Name + (ToUnitOf.Abbreviation != ToUnitOf.Name ? $" ({ToUnitOf.Abbreviation})" : "");
 
 				Inputs.Add(new("Number", typeof(string)) { EndInputGroupText = FromUnitOf.Abbreviation });
 
