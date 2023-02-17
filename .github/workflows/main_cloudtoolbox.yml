@@ -5,7 +5,7 @@ name: Build and deploy to Azure - Cloud Toolbox
 
 env:
   AZURE_WEBAPP_NAME: 'CloudToolbox' # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: './CloudToolbox' # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '7.x' # set this to the .NET Core version to use
   
 on:
@@ -38,7 +38,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish ~/home/runner/work/CloudToolbox/CloudToolbox/CloudToolbox.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish ~/home/runner/work/CloudToolbox/CloudToolbox.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
