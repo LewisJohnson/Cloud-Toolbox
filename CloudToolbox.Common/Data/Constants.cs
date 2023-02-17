@@ -3,7 +3,7 @@
 public static class Constants
 {
 	public static string APP_NAME = "Cloud Toolbox";
-	public static string TITLE_PREFIX = $"{APP_NAME} -";
+	public static string TITLE_POSTFIX = $"- {APP_NAME}";
 
 	public static string TWITTER_URL = $"https://twitter.com/Cloud_Toolbox";
 
