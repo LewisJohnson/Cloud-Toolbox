@@ -15,7 +15,7 @@ namespace CloudToolbox.Data
 	{
 		private static string baseUrl = "https://cloudtoolbox.co.uk";
 		private static string toolboxUrl = "https://cloudtoolbox.co.uk/Toolbox";
-		private static string dt = DateTime.Now.ToString("yy-MM-dd");
+		private static string dt = DateTime.Now.ToString("yyyy-MM-dd");
 		public static async Task Generate(HttpContext context)
 		{
 			await context.Response.WriteAsync("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
