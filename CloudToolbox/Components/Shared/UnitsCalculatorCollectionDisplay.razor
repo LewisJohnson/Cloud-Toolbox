@@ -1,0 +1,124 @@
+﻿@namespace CloudToolbox.Components.Shared
+@inherits UnitsCalculatorCollectionDisplayBase
+
+<PageTitle>@Collection.DisplayName Calculators @Constants.TITLE_POSTFIX</PageTitle>
+
+<div class="d-block" style="min-height: 100vh">
+    <div class="header text-white text-center p-3 position-sticky" style="z-index: 0; top: 0;">
+        <h1 class="mt-5"><i class="@Collection.CssIcon"></i> @Collection.DisplayName Calculators</h1>
+
+        <p class="mt-3 pb-5 mb-5 mx-auto w-75 text-break">
+            @Description
+        </p>
+    </div>
+
+    <div class="bg-light position-relative" style="z-index: 1; box-shadow: 9px -15px 25px -14px rgba(0, 0, 0, 0.28);">
+        <div class="col-12 py-5 mb-3 px-5">
+            <input class="form-control rounded-1 mx-auto" style="max-width: 500px" placeholder="Search @Collection.DisplayName Calculators..." type="text"
+                   @bind-value="FilterText" @bind-value:event="oninput" @onkeyup="FilterCalculators" />
+        </div>
+
+        @{
+            UnitTypes? prevUnitType = null;
+            var types = Enum.GetValues(typeof(UnitTypes));
+        }
+
+        <div class="px-4">
+            @foreach (UnitTypes unitType in types)
+            {
+                bool isFirst;
+
+                 var units = Enumeration.GetAll<UnitCalculatorsEnum>()
+                        .Where(x => x.UnitType == unitType)
+                        .OrderBy(x => x.Name);
+
+                foreach (var from in FilteredUnits.Where(x => x.UnitType == unitType))
+                {
+                    isFirst = true;
+                    if (from.UnitType != prevUnitType)
+                    {
+                        prevUnitType = from.UnitType;
+                        <h1 class="mt-5 mb-3">@(string.Join("", from.UnitType.ToString().Select(ch => (char.IsUpper(ch) ? " " : "") + ch)))</h1>
+                    }
+
+                    <div class="btn-group mb-3 w-100">
+                        @foreach (var to in units)
+                        {
+                            if (from != to)
+                            {
+                                string uri = "/Toolbox/Units/" + from.UriName + "-to-" + to.UriName;
+                                string abrv = from.Abbreviation + " to " + to.Abbreviation;
+
+                                if (isFirst)
+                                {
+                                    isFirst = false;
+                                    <btn class="btn text-start" style="width: 200px">@from.Name</btn>
+                                }
+
+                                <a class="btn" style="width: 100px" href="@uri">@to.ToString()</a>
+                            }
+                        }
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .header {
+        background: @Collection.CssAccentColour;
+        background: @Collection.CssHeaderBackgroundColour;
+    }
+
+    .btn-group {
+        box-shadow: 0 .25rem 0.5rem rgba(0,0,0,.15) !important;
+    }
+
+    .btn-group:hover btn {
+        background-color: @Collection.CssAccentColour;
+        color: white;
+    }
+
+    .btn-group:hover a {
+        opacity: 0.2;
+        border-color: grey;
+    }
+
+    .btn-group a:hover {
+        opacity: 1;
+    }
+
+    .btn-group btn {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        background: white;
+        transition: 0.1s all ease-in-out;
+        color: var(--collection-accent-colour-Units);
+        border-color: var(--collection-accent-colour-Units);
+        border-top: 0;
+        border-left: 0;
+        border-bottom: 0;
+    }
+
+    .btn-group btn:hover {
+        cursor: initial;
+    }
+
+    .btn-group a {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        background: white;
+        transition: 0.1s all ease-in-out;
+        border-color: var(--collection-accent-colour-Units);
+        border-top: 0;
+        border-bottom: 0;
+    }
+
+    .btn-group a:hover {
+        background-color: @Collection.CssAccentColour;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+        color: white;
+    }
+</style>

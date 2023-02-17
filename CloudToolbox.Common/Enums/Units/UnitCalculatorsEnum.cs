@@ -38,8 +38,8 @@ namespace CloudToolbox.Common.Enums.Units
 		// Energy
 		public static UnitCalculatorsEnum Joule = new(22, nameof(Joule), "J", new() { }, UnitOfEnergy.Joule, UnitTypes.Energy);
 		public static UnitCalculatorsEnum Kilojoule = new(23, nameof(Kilojoule), "KJ", new() { }, UnitOfEnergy.Kilojoule, UnitTypes.Energy);
-		public static UnitCalculatorsEnum Gramcalorie = new(24, nameof(Gramcalorie), "GramCal", new() { }, UnitOfEnergy.Gramcalorie, UnitTypes.Energy);
-		public static UnitCalculatorsEnum Kilocalorie = new(25, nameof(Kilocalorie), "KiloCal", new() { }, UnitOfEnergy.Kilocalorie, UnitTypes.Energy);
+		public static UnitCalculatorsEnum Gramcalorie = new(24, "Calorie", "Cal", new() { "Gramcalorie" }, UnitOfEnergy.Gramcalorie, UnitTypes.Energy);
+		public static UnitCalculatorsEnum Kilocalorie = new(25, "Kcal", "Kcal", new() { "Kilocalorie" }, UnitOfEnergy.Kilocalorie, UnitTypes.Energy);
 		public static UnitCalculatorsEnum WattHour = new(26, "Watt Hour", "Wh", new() { }, UnitOfEnergy.Watt_Hour, UnitTypes.Energy);
 		public static UnitCalculatorsEnum Kilowatt_Hour = new(27, "Kilowatt Hour", "kWh", new() { }, UnitOfEnergy.Kilowatt_Hour, UnitTypes.Energy);
 		public static UnitCalculatorsEnum Electronvolt = new(28, nameof(Electronvolt), "eV", new() { }, UnitOfEnergy.Electronvolt, UnitTypes.Energy);
@@ -96,6 +96,23 @@ namespace CloudToolbox.Common.Enums.Units
 					x.UriName.ToLower() == term
 				);
 
+		}
+
+		public static List<UnitCalculatorsEnum> Search(string searchTerm)
+		{
+			return
+				typeof(UnitCalculatorsEnum)
+				.GetFields(BindingFlags.Static | BindingFlags.Public)
+				.Where(x => x.FieldType == typeof(UnitCalculatorsEnum))
+				.Select(x => (UnitCalculatorsEnum)x.GetValue(null))
+				.Where(x =>
+					x.Name.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) ||
+					x.Abbreviation.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) ||
+					x.Aliases.Any(x => x.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase))
+				)
+				.OrderBy(x => x.UnitType)
+				.ThenBy(x => x.Name)
+				.ToList();
 		}
 	}
 }
