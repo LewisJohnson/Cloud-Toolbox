@@ -2,6 +2,8 @@
 {
 	public static class Routes
 	{
+		public const string PRIVACY = "/Privacy";
+
 		// AREAS
 		public const string AREA_DATE_AND_TIME = "/Toolbox/DateAndTime";
 		public const string AREA_MATHS = "/Toolbox/Maths";
