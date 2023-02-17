@@ -28,6 +28,7 @@ namespace CloudToolbox.Components.Shared
 			BreadcrumbLinks = new List<BreadcrumbLink>();
 			currentUrl = NavigationManager.Uri;
 			var myUrl = currentUrl.Replace(NavigationManager.BaseUri, "");
+
 			BreadcrumbLinks.Add(new BreadcrumbLink
 			{
 				Address = NavigationManager.BaseUri,
@@ -51,7 +52,7 @@ namespace CloudToolbox.Components.Shared
 
 				BreadcrumbLinks.Add(new BreadcrumbLink
 				{
-					Address = $"{lastLink.Address}/{link}",
+					Address = $"{lastLink.Address}{link}/",
 					IsActive = link == path.Last(),
 					OrderIndex = count,
 					Title = BreadcrumbTitle(link)
