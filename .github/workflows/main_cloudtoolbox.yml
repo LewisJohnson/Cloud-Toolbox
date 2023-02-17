@@ -1,5 +1,10 @@
 name: Build and deploy [Cloud Toolbox]
 
+env:
+  AZURE_WEBAPP_NAME: 'CloudToolbox'   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '7'                 # set this to the .NET Core version to use
+  
 on:
   push:
     branches:
@@ -16,19 +21,27 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7'
-
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      
+      - name: Set up dependency caching for faster builds
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+            
       - name: Build with dotnet
-        run: dotnet build --configuration Release -o ${{env.DOTNET_ROOT}}/cloudtoolbox
+        run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/cloudtoolbox
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/cloudtoolbox
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: windows-latest
@@ -47,7 +60,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'CloudToolbox'
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B95E2C975AA6489DA274D3999AF13740 }}
-          package: .
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
