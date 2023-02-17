@@ -103,7 +103,12 @@
         {
             hasGlobalSearched = true;
             GlobalSearchCalculators = Calculators
-            .Where(x => x.DisplayName.ToLower().Contains(GlobalSearchText.ToLower()))
+            .Where(x =>
+				x.DisplayName.Contains(GlobalSearchText, StringComparison.InvariantCultureIgnoreCase) ||
+				x.Abbreviation.Contains(GlobalSearchText, StringComparison.InvariantCultureIgnoreCase) ||
+				x.Aliases.Any(x => x.Contains(GlobalSearchText, StringComparison.InvariantCultureIgnoreCase))
+			)
+			.OrderBy(x => x.DisplayName)
             .Take(5)
             .ToList();
         }
