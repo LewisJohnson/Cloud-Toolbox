@@ -28,7 +28,7 @@ public class DeveloperCalculatorCollection : CalculatorCollection
 				var displayName = $"{dir} {calc.Name}";
 				var uri = $"/Toolbox/Developer/{dir}-{calc.UriName}";
 
-				calcs.Add(new DisplayCalculator(this, displayName, uri, new() { }, calc.Abbreviation) { DeveloperType = calc.CalcType });
+				calcs.Add(new DisplayCalculator(this, displayName, uri, calc.Aliases, calc.Abbreviation) { DeveloperType = calc.CalcType });
 			}
 		}
 

@@ -23,7 +23,7 @@ public class TextCalculatorCollection : CalculatorCollection
 		{
 			var uri = $"/Toolbox/Text/To-{calc.UriName}";
 
-			calcs.Add(new DisplayCalculator(this, calc.Name, uri, new() { }, calc.Abbreviation) { TextType = calc.CalcType });
+			calcs.Add(new DisplayCalculator(this, calc.Name, uri, calc.Aliases, calc.Abbreviation) { TextType = calc.CalcType });
 		}
 
 		Calculators = calcs;

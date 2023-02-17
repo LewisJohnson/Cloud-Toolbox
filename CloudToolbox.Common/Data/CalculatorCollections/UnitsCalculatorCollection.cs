@@ -1,4 +1,5 @@
-﻿using CloudToolbox.Common.Enums;
+﻿using System.Linq;
+using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Enums.Units;
 
 namespace CloudToolbox.Common.Data.DisplayCalculatorCollections;
@@ -27,18 +28,18 @@ public class UnitsCalculatorCollection : CalculatorCollection
 			var units = Enumeration.GetAll<UnitCalculatorsEnum>()
 				.Where(x => x.UnitType == unitType);
 
-			bool first = true;
 			foreach (var from in units)
 			{
 				foreach (var to in units)
 				{
 					if (from != to)
 					{
-						var displayName = from.Name + " to " + to.Name;
-						var uri = "/Toolbox/Units/" + from.UriName + "-to-" + to.UriName;
-						var abrv = from.Abbreviation + " to " + to.Abbreviation;
+						string displayName = from.Name + " to " + to.Name;
+						string uri = "/Toolbox/Units/" + from.UriName + "-to-" + to.UriName;
+						string abrv = from.Abbreviation + " to " + to.Abbreviation;
+						List<string> aliases = from.Aliases.Concat(to.Aliases).ToList();
 
-						calcs.Add(new DisplayCalculator(this, displayName, uri, new() { }, abrv, unitType, from, to));
+						calcs.Add(new DisplayCalculator(this, displayName, uri, aliases, abrv, unitType, from, to));
 					}
 				}
 			}
