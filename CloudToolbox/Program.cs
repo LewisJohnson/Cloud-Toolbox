@@ -1,3 +1,4 @@
+using CloudToolbox.Data;
 using CloudToolbox.Services;
 
 namespace CloudToolbox;
@@ -22,13 +23,14 @@ public class Program
 			app.UseExceptionHandler("/Error");
 		}
 
-
 		app.UseStaticFiles();
 
 		app.UseRouting();
 
 		app.MapBlazorHub();
 		app.MapFallbackToPage("/_Host");
+
+		app.MapGet("/sitemap.xml", Sitemap.Generate);
 
 		app.Run();
 	}
