@@ -2,6 +2,8 @@
 {
 	public static class Routes
 	{
+		public const string SITEMAP_BASE_URL = "";
+		public const string AREA_TOOLBOX = "/Toolbox";
 		public const string PRIVACY = "/Privacy";
 
 		// AREAS
