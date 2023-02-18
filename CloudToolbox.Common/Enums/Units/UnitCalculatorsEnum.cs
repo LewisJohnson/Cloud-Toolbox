@@ -92,7 +92,7 @@ namespace CloudToolbox.Common.Enums.Units
 				.GetFields(BindingFlags.Static | BindingFlags.Public)
 				.Where(x => x.FieldType == typeof(UnitCalculatorsEnum))
 				.Select(x => (UnitCalculatorsEnum)x.GetValue(null))
-				.First(x =>
+				.FirstOrDefault(x =>
 					x.UriName.ToLower() == term
 				);
 

@@ -2,6 +2,7 @@ using CloudToolbox.Calculators;
 using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Enums.Units;
 using CloudToolbox.Common.Models.Calculator;
+using CloudToolbox.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace CloudToolbox.Components.Toolbox
@@ -27,8 +28,10 @@ namespace CloudToolbox.Components.Toolbox
 		public DeveleoperCalculatorDirection Direction { get; set; }
 
 		[Inject]
-		NavigationManager NavigationManager { get; set; }
+		public NavigationManager NavigationManager { get; set; }
 
+		[Inject]
+		public NotFoundService NotFoundService { get; set; }
 
 		protected override void OnParametersSet()
 		{
@@ -49,15 +52,17 @@ namespace CloudToolbox.Components.Toolbox
 
 				if (directionParam == null || calcTypeParam == null)
 				{
-					NavigationManager.NavigateTo("404", false);
+					NotFoundService.NotifyNotFound();
+					return;
 				}
 
 				Direction = directionParam.ToLower() == "from" ? DeveleoperCalculatorDirection.From : DeveleoperCalculatorDirection.To;
 				Calc = DeveloperCalculatorsEnum.MatchFromUri(calcTypeParam);
 
-				if (Direction == null || Calc == null)
+				if (Calc == null)
 				{
-					NavigationManager.NavigateTo("404", false);
+					NotFoundService.NotifyNotFound();
+					return;
 				}
 
 				DisplayDirection = Direction.ToString();

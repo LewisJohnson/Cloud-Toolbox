@@ -2,6 +2,7 @@ using CloudToolbox.Calculators;
 using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Enums.Units;
 using CloudToolbox.Common.Models.Calculator;
+using CloudToolbox.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace CloudToolbox.Components.Toolbox
@@ -26,8 +27,10 @@ namespace CloudToolbox.Components.Toolbox
 		public TextCalculatorsEnum? Calc { get; set; }
 
 		[Inject]
-		NavigationManager NavigationManager { get; set; }
+		public NavigationManager NavigationManager { get; set; }
 
+		[Inject]
+		public NotFoundService NotFoundService { get; set; }
 
 		protected override void OnParametersSet()
 		{
@@ -38,7 +41,8 @@ namespace CloudToolbox.Components.Toolbox
 
 			if (string.IsNullOrWhiteSpace(UriParam))
 			{
-				NavigationManager.NavigateTo("404", false);
+				NotFoundService.NotifyNotFound();
+				return;
 			}
 
 			try
@@ -49,14 +53,16 @@ namespace CloudToolbox.Components.Toolbox
 
 				if (directionParam == null || calcTypeParam == null)
 				{
-					NavigationManager.NavigateTo("404", false);
+					NotFoundService.NotifyNotFound();
+					return;
 				}
 
 				Calc = TextCalculatorsEnum.MatchFromUri(calcTypeParam);
 
 				if (Calc == null)
 				{
-					NavigationManager.NavigateTo("404", false);
+					NotFoundService.NotifyNotFound();
+					return;
 				}
 
 				DisplayCalcType = Calc.Name;
@@ -82,7 +88,6 @@ namespace CloudToolbox.Components.Toolbox
 				string converted = new TextConverter(Calc.CalcType).Convert(input);
 
 				returnRes.Add(new(converted) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
-
 			}
 
 			return returnRes;

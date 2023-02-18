@@ -25,7 +25,7 @@ namespace CloudToolbox.Common.Enums
 				.GetFields(BindingFlags.Static | BindingFlags.Public)
 				.Where(x => x.FieldType == typeof(TextCalculatorsEnum))
 				.Select(x => (TextCalculatorsEnum)x.GetValue(null))
-				.First(x =>
+				.FirstOrDefault(x =>
 					x.UriName.ToLower() == term
 				);
 
