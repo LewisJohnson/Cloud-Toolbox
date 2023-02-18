@@ -13,6 +13,7 @@ public class Program
 		builder.Services.AddRazorPages();
 		builder.Services.AddServerSideBlazor();
 		builder.Services.AddSingleton<CalculatorCollectionService>();
+		builder.Services.AddScoped<NotFoundService>();
 
 		var app = builder.Build();
 

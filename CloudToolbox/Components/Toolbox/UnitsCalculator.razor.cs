@@ -2,6 +2,7 @@ using CloudToolbox.Calculators.Unit;
 using CloudToolbox.Common.Data;
 using CloudToolbox.Common.Enums.Units;
 using CloudToolbox.Common.Models.Calculator;
+using CloudToolbox.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace CloudToolbox.Components.Toolbox
@@ -31,7 +32,10 @@ namespace CloudToolbox.Components.Toolbox
 		public UnitCalculatorsEnum? ToUnitOf { get; set; }
 
 		[Inject]
-		NavigationManager NavigationManager { get; set; }
+		public NavigationManager NavigationManager { get; set; }
+
+		[Inject]
+		public NotFoundService NotFoundService { get; set; }
 
 		protected override void OnParametersSet()
 		{
@@ -55,7 +59,8 @@ namespace CloudToolbox.Components.Toolbox
 
 				if (unitFromParam == null || unitToParam == null)
 				{
-					NavigationManager.NavigateTo("404", false);
+					NotFoundService.NotifyNotFound();
+					return;
 				}
 
 				FromUnitOf = UnitCalculatorsEnum.MatchFromUri(unitFromParam);
@@ -63,12 +68,14 @@ namespace CloudToolbox.Components.Toolbox
 
 				if (FromUnitOf == null || ToUnitOf == null)
 				{
-					NavigationManager.NavigateTo("404", false);
+					NotFoundService.NotifyNotFound();
+					return;
 				}
 
 				if (FromUnitOf.UnitType != ToUnitOf.UnitType)
 				{
-					NavigationManager.NavigateTo("500", false);
+					NotFoundService.NotifyNotFound();
+					return;
 				}
 
 				DisplayUnitFrom = FromUnitOf.Name;
