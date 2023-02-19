@@ -12,6 +12,8 @@ public class Program
 		// Add services to the container.
 		builder.Services.AddRazorPages();
 		builder.Services.AddServerSideBlazor();
+		builder.Services.AddHttpContextAccessor();
+
 		builder.Services.AddSingleton<CalculatorCollectionService>();
 		builder.Services.AddScoped<NotFoundService>();
 

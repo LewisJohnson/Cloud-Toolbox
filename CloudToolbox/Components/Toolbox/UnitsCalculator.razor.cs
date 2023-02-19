@@ -10,11 +10,19 @@ namespace CloudToolbox.Components.Toolbox
 	public partial class UnitsCalculatorBase : ComponentBase
 	{
 
-		[Parameter]
-		public string? UriParam { get; set; }
+		[Parameter] public string UriParam { get; set; }
 
-		public List<CalculatorInput> Inputs { get; set; }
-		public List<CalculatorResult> ResultsTemplate { get; set; }
+		[Inject] public IHttpContextAccessor HttpContextAccessor { get; set; }
+		[Inject] public NotFoundService NotFoundService { get; set; }
+
+		protected List<CalculatorInput> Inputs { get; set; }
+		protected List<CalculatorResult> ResultsTemplate { get; set; }
+		protected string? DisplayUnitFrom { get; set; }
+		protected string? DisplayUnitFromDesc { get; set; }
+		protected string? DisplayUnitTo { get; set; }
+		protected string? DisplayUnitToDesc { get; set; }
+		protected UnitCalculatorsEnum? FromUnitOf { get; set; }
+		protected UnitCalculatorsEnum? ToUnitOf { get; set; }
 
 		public UnitsCalculatorBase()
 		{
@@ -22,22 +30,7 @@ namespace CloudToolbox.Components.Toolbox
 			ResultsTemplate = new List<CalculatorResult>();
 		}
 
-		public string? DisplayUnitFrom { get; set; }
-		public string? DisplayUnitTo { get; set; }
-
-		public string? DisplayUnitFromDesc { get; set; }
-		public string? DisplayUnitToDesc { get; set; }
-
-		public UnitCalculatorsEnum? FromUnitOf { get; set; }
-		public UnitCalculatorsEnum? ToUnitOf { get; set; }
-
-		[Inject]
-		public NavigationManager NavigationManager { get; set; }
-
-		[Inject]
-		public NotFoundService NotFoundService { get; set; }
-
-		protected override void OnParametersSet()
+		protected override async Task OnParametersSetAsync()
 		{
 			FromUnitOf = null;
 			ToUnitOf = null;
@@ -47,17 +40,11 @@ namespace CloudToolbox.Components.Toolbox
 			Inputs = new List<CalculatorInput>();
 			ResultsTemplate = new List<CalculatorResult>();
 
-			if (string.IsNullOrWhiteSpace(UriParam))
-			{
-				NavigationManager.NavigateTo("404", false);
-				return;
-			}
-
 			string[] uriParts = UriParam.Split("-to-");
 
 			if (uriParts.Length != 2)
 			{
-				NavigationManager.NavigateTo("404", false);
+				NotFoundService.NotifyNotFound();
 				return;
 			}
 
@@ -67,13 +54,8 @@ namespace CloudToolbox.Components.Toolbox
 			FromUnitOf = UnitCalculatorsEnum.MatchFromUri(unitFromParam);
 			ToUnitOf = UnitCalculatorsEnum.MatchFromUri(unitToParam);
 
-			if (FromUnitOf == null || ToUnitOf == null)
-			{
-				NotFoundService.NotifyNotFound();
-				return;
-			}
-
-			if (FromUnitOf.UnitType != ToUnitOf.UnitType)
+			if (FromUnitOf == null || ToUnitOf == null ||
+				FromUnitOf.UnitType != ToUnitOf.UnitType)
 			{
 				NotFoundService.NotifyNotFound();
 				return;
@@ -87,8 +69,6 @@ namespace CloudToolbox.Components.Toolbox
 			Inputs.Add(new("Number", typeof(string)) { EndInputGroupText = FromUnitOf.Abbreviation });
 
 			ResultsTemplate.Add(new(null) { EndInputGroupText = ToUnitOf.Abbreviation });
-
-			InvokeAsync(StateHasChanged);
 		}
 
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)

@@ -15,10 +15,9 @@ namespace CloudToolbox.Components.Toolbox
 
 		}
 
-		protected override void OnParametersSet() => NotFoundService.OnNotFound += SetNotFound;
 		protected override void OnInitialized() => NotFoundService.OnNotFound += SetNotFound;
 
-		void SetNotFound()
+		private void SetNotFound()
 		{
 			NotFound = true;
 			StateHasChanged();

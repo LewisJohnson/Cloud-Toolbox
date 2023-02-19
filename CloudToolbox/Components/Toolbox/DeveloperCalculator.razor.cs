@@ -8,12 +8,16 @@ namespace CloudToolbox.Components.Toolbox
 {
 	public partial class DeveloperCalculatorBase : ComponentBase
 	{
+		[Parameter] public string UriParam { get; set; }
+		[Inject] public NotFoundService NotFoundService { get; set; }
+		[Inject] public NavigationManager NavigationManager { get; set; }
 
-		[Parameter]
-		public string? UriParam { get; set; }
-
-		public List<CalculatorInput> Inputs { get; set; }
-		public List<CalculatorResult> ResultsTemplate { get; set; }
+		protected List<CalculatorInput> Inputs { get; set; }
+		protected List<CalculatorResult> ResultsTemplate { get; set; }
+		protected string? DisplayCalcType { get; set; }
+		protected string? DisplayDirection { get; set; }
+		protected DeveloperCalculatorsEnum? Calc { get; set; }
+		protected DeveleoperCalculatorDirection Direction { get; set; }
 
 		public DeveloperCalculatorBase()
 		{
@@ -21,18 +25,7 @@ namespace CloudToolbox.Components.Toolbox
 			ResultsTemplate = new List<CalculatorResult>();
 		}
 
-		public string? DisplayCalcType { get; set; }
-		public string? DisplayDirection { get; set; }
-		public DeveloperCalculatorsEnum? Calc { get; set; }
-		public DeveleoperCalculatorDirection Direction { get; set; }
-
-		[Inject]
-		public NavigationManager NavigationManager { get; set; }
-
-		[Inject]
-		public NotFoundService NotFoundService { get; set; }
-
-		protected override void OnParametersSet()
+		protected override async Task OnParametersSetAsync()
 		{
 			Calc = null;
 			DisplayCalcType = null;
@@ -41,7 +34,7 @@ namespace CloudToolbox.Components.Toolbox
 
 			if (string.IsNullOrWhiteSpace(UriParam))
 			{
-				NavigationManager.NavigateTo("404", false);
+				NotFoundService.NotifyNotFound();
 				return;
 			}
 
@@ -49,7 +42,7 @@ namespace CloudToolbox.Components.Toolbox
 
 			if (uriParts.Length != 2)
 			{
-				NavigationManager.NavigateTo("404", false);
+				NotFoundService.NotifyNotFound();
 				return;
 			}
 
@@ -84,9 +77,6 @@ namespace CloudToolbox.Components.Toolbox
 				Inputs.Add(new("Text", typeof(string)) { Label = "Text", UseLargeInput = true });
 				ResultsTemplate.Add(new(null) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
 			}
-
-			InvokeAsync(StateHasChanged);
-
 		}
 
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)
@@ -112,7 +102,5 @@ namespace CloudToolbox.Components.Toolbox
 
 			return returnRes;
 		}
-
-
 	}
 }

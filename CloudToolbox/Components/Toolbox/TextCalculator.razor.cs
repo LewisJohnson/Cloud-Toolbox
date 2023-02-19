@@ -1,6 +1,5 @@
 using CloudToolbox.Calculators;
 using CloudToolbox.Common.Enums;
-using CloudToolbox.Common.Enums.Units;
 using CloudToolbox.Common.Models.Calculator;
 using CloudToolbox.Services;
 using Microsoft.AspNetCore.Components;
@@ -10,11 +9,16 @@ namespace CloudToolbox.Components.Toolbox
 	public partial class TextCalculatorBase : ComponentBase
 	{
 
-		[Parameter]
-		public string? UriParam { get; set; }
+		[Parameter] public string UriParam { get; set; }
+
+		[Inject] public NotFoundService NotFoundService { get; set; }
+		[Inject] public NavigationManager NavigationManager { get; set; }
 
 		public List<CalculatorInput> Inputs { get; set; }
 		public List<CalculatorResult> ResultsTemplate { get; set; }
+		public string? DisplayCalcType { get; set; }
+		public string? DisplayDirection { get; set; }
+		public TextCalculatorsEnum? Calc { get; set; }
 
 		public TextCalculatorBase()
 		{
@@ -22,35 +26,18 @@ namespace CloudToolbox.Components.Toolbox
 			ResultsTemplate = new List<CalculatorResult>();
 		}
 
-		public string? DisplayCalcType { get; set; }
-		public string? DisplayDirection { get; set; }
-		public TextCalculatorsEnum? Calc { get; set; }
-
-		[Inject]
-		public NavigationManager NavigationManager { get; set; }
-
-		[Inject]
-		public NotFoundService NotFoundService { get; set; }
-
-		protected override void OnParametersSet()
+		protected override async Task OnParametersSetAsync()
 		{
 			Calc = null;
 			DisplayCalcType = null;
 			Inputs = new List<CalculatorInput>();
 			ResultsTemplate = new List<CalculatorResult>();
 
-			if (string.IsNullOrWhiteSpace(UriParam))
-			{
-				NotFoundService.NotifyNotFound();
-				return;
-			}
-
-
 			string[] uriParts = UriParam.Split("-");
 
 			if (uriParts.Length != 2)
 			{
-				NavigationManager.NavigateTo("404", false);
+				NotFoundService.NotifyNotFound();
 				return;
 			}
 
@@ -75,8 +62,6 @@ namespace CloudToolbox.Components.Toolbox
 
 			Inputs.Add(new("Text", typeof(string)) { Label = "Text", UseLargeInput = true });
 			ResultsTemplate.Add(new(null) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
-
-			InvokeAsync(StateHasChanged);
 		}
 
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)

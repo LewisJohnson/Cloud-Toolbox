@@ -2,22 +2,16 @@
 
 <PageTitle>Cloud Toolbox</PageTitle>
 
-<NavMenu />
-
 <main>
+    @if (!NotFound)
+    {
+        <NavMenu />
+    }
     <article class="content bg-light">
         <div style="min-height: 90vh">
             @if (NotFound)
             {
-                <div class="h-100 d-flex align-items-center justify-content-center mt-5 p-2">
-                    <div>
-                        <i class="bi bi-exclamation-triangle" style="font-size: 72px;"></i>
-                    </div>
-                    <div class="ps-3">
-                        <h1 role="alert">Page not found</h1>
-                        <p>We're sorry, we couldn't find the page you requested.</p>
-                    </div>
-                </div>
+                <_404NotFound></_404NotFound>
             }
             else
             {
@@ -30,3 +24,4 @@
         </div>
     </article>
 </main>
+

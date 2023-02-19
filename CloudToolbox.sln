@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudToolbox.Calculators", "CloudToolbox.Calculators\CloudToolbox.Calculators.csproj", "{D952E141-0373-4E00-923F-738B1189BCF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudToolbox.Calculators", "CloudToolbox.Calculators\CloudToolbox.Calculators.csproj", "{D952E141-0373-4E00-923F-738B1189BCF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudToolbox.CodeGenerator", "CloudToolbox.CodeGenerator\CloudToolbox.CodeGenerator.csproj", "{1208725D-4732-4A98-AE93-54DBC30934F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudToolbox.CodeGenerator", "CloudToolbox.CodeGenerator\CloudToolbox.CodeGenerator.csproj", "{1208725D-4732-4A98-AE93-54DBC30934F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
