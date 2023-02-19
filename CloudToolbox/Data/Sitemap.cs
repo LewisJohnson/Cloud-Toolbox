@@ -25,7 +25,7 @@ namespace CloudToolbox.Data
 				await resSw.WriteLineAsync($"<!-- Next update: {DateTime.Now.AddHours(sitemapCacheTimeoutInHours):g} -->");
 
 				await resSw.WriteLineAsync("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
-				
+
 				foreach (var fieldInfo in typeof(Routes).GetFields())
 				{
 					string? value = (string?)fieldInfo.GetValue(null);
@@ -80,8 +80,11 @@ namespace CloudToolbox.Data
 			var units = Enumeration.GetAll<UnitCalculatorsEnum>();
 			foreach (var (from, to) in units.SelectMany(from => units.Where(to => from != to).Select(to => (from, to))))
 			{
-				var uri = $"{toolboxUrl}/Units/{from.UriName}-to-{to.UriName}";
-				await WriteUrlXml(resSw, uri);
+				if (to.UnitType == from.UnitType)
+				{
+					var uri = $"{toolboxUrl}/Units/{from.UriName}-to-{to.UriName}";
+					await WriteUrlXml(resSw, uri);
+				}
 			}
 		}
 
