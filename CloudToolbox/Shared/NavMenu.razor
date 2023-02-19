@@ -1,4 +1,4 @@
-﻿@inject CalculatorCollectionService CollectionService
+﻿@inherits NavMenuBase
 
 <div class="w-100 d-flex p-2" style="position: sticky; top: 0; height: 50px; background-color: #0d6efd; z-index: 30">
     <button class="btn p-0" title="Navigation menu" @onclick="ToggleNavMenu" >
@@ -58,89 +58,6 @@
 
     </div>
 </div>
-
-@code {
-
-    public List<DisplayCalculator> Calculators { get; set; }
-    public List<DisplayCalculator> FilteredCalculators { get; set; }
-    public List<DisplayCalculator> GlobalSearchCalculators { get; set; }
-
-    public string GlobalSearchText { get; set; }
-    public string FilterText { get; set; }
-
-    private bool collapseNavMenu = true;
-    private bool hasSearched = false;
-    private bool hasGlobalSearched = false;
-    private string? NavMenuCssClass => collapseNavMenu ? "collapsed" : null;
-
-    protected override void OnInitialized()
-    {
-        Calculators = CollectionService.GetCollections().SelectMany(x => x.Calculators).ToList();
-        FilteredCalculators = Calculators;
-        GlobalSearchCalculators = new List<DisplayCalculator>();
-    }
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-        
-        GlobalSearchCalculators = new List<DisplayCalculator>();
-        GlobalSearchText = string.Empty;
-    }
-
-    private void CloseGlobalSearchMenu()
-    {
-        GlobalSearchCalculators = new List<DisplayCalculator>();
-        GlobalSearchText = string.Empty;
-        collapseNavMenu = true;
-    }
-
-    private void GlobalSearch()
-    {
-         collapseNavMenu = true;
-
-        if (!string.IsNullOrWhiteSpace(GlobalSearchText))
-        {
-            hasGlobalSearched = true;
-            GlobalSearchCalculators = Calculators
-            .Where(x =>
-				x.DisplayName.Contains(GlobalSearchText, StringComparison.InvariantCultureIgnoreCase) ||
-				x.Abbreviation.Contains(GlobalSearchText, StringComparison.InvariantCultureIgnoreCase) ||
-				x.Aliases.Any(x => x.Contains(GlobalSearchText, StringComparison.InvariantCultureIgnoreCase))
-			)
-			.OrderBy(x => x.DisplayName)
-            .Take(5)
-            .ToList();
-        }
-        else
-        {
-            if (hasGlobalSearched)
-            {
-                GlobalSearchCalculators = new List<DisplayCalculator>();
-                InvokeAsync(StateHasChanged);
-            }
-        }
-    }
-
-    private void FilterMenuItems()
-    {
-        GlobalSearchText = string.Empty;
-
-        if (FilterText != null && FilterText.Length > 0)
-        {
-            hasSearched = true;
-            FilteredCalculators = Calculators.Where(x => x.DisplayName.ToLower().Contains(FilterText.ToLower())).ToList();
-        }
-        else
-        {
-            if (hasSearched)
-            {
-                FilteredCalculators = Calculators;
-                InvokeAsync(StateHasChanged);
-            }
-        }
-    }
-}
 
 <style>
     @foreach (var collection in CollectionService.GetCollections())

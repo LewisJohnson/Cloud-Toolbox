@@ -2,6 +2,7 @@ using CloudToolbox.Calculators;
 using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Enums.Units;
 using CloudToolbox.Common.Models.Calculator;
+using CloudToolbox.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace CloudToolbox.Components.Toolbox
@@ -26,8 +27,10 @@ namespace CloudToolbox.Components.Toolbox
 		public TextCalculatorsEnum? Calc { get; set; }
 
 		[Inject]
-		NavigationManager NavigationManager { get; set; }
+		public NavigationManager NavigationManager { get; set; }
 
+		[Inject]
+		public NotFoundService NotFoundService { get; set; }
 
 		protected override void OnParametersSet()
 		{
@@ -38,41 +41,46 @@ namespace CloudToolbox.Components.Toolbox
 
 			if (string.IsNullOrWhiteSpace(UriParam))
 			{
-				NavigationManager.NavigateTo("404", false);
+				NotFoundService.NotifyNotFound();
+				return;
 			}
 
-			try
+
+			string[] uriParts = UriParam.Split("-");
+
+			if (uriParts.Length != 2)
 			{
-				var parts = UriParam.Split("-");
-				var directionParam = parts[0] ?? null;
-				var calcTypeParam = parts[1] ?? null;
-
-				if (directionParam == null || calcTypeParam == null)
-				{
-					NavigationManager.NavigateTo("404", false);
-				}
-
-				Calc = TextCalculatorsEnum.MatchFromUri(calcTypeParam);
-
-				if (Calc == null)
-				{
-					NavigationManager.NavigateTo("404", false);
-				}
-
-				DisplayCalcType = Calc.Name;
-
-				Inputs.Add(new("Text", typeof(string)) { Label = "Text", UseLargeInput = true });
-				ResultsTemplate.Add(new(null) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
-
-				InvokeAsync(StateHasChanged);
-
+				NavigationManager.NavigateTo("404", false);
+				return;
 			}
-			catch (Exception _) { }
+
+			string directionParam = uriParts[0];
+			string calcTypeParam = uriParts[1];
+
+			if (directionParam == null || calcTypeParam == null)
+			{
+				NotFoundService.NotifyNotFound();
+				return;
+			}
+
+			Calc = TextCalculatorsEnum.MatchFromUri(calcTypeParam);
+
+			if (Calc == null)
+			{
+				NotFoundService.NotifyNotFound();
+				return;
+			}
+
+			DisplayCalcType = Calc.Name;
+
+			Inputs.Add(new("Text", typeof(string)) { Label = "Text", UseLargeInput = true });
+			ResultsTemplate.Add(new(null) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
+
+			InvokeAsync(StateHasChanged);
 		}
 
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)
 		{
-
 			var returnRes = new List<CalculatorResult>();
 
 			string? input = inputs[0].InputString;
@@ -82,7 +90,6 @@ namespace CloudToolbox.Components.Toolbox
 				string converted = new TextConverter(Calc.CalcType).Convert(input);
 
 				returnRes.Add(new(converted) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
-
 			}
 
 			return returnRes;

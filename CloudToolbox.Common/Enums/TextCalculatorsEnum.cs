@@ -10,7 +10,7 @@ namespace CloudToolbox.Common.Enums
 		public static TextCalculatorsEnum TitleCase = new(1, "Title case", TextCalculatorType.Title_Case);
 		public static TextCalculatorsEnum UpperCase = new(2, "Upper case", TextCalculatorType.Upper_Case);
 		public static TextCalculatorsEnum LowerCase = new(3, "Lower case", TextCalculatorType.Lower_Case);
-		public static TextCalculatorsEnum RandomCase = new(4,"Random case", TextCalculatorType.Random_Case);
+		public static TextCalculatorsEnum RandomCase = new(4, "Random case", TextCalculatorType.Random_Case);
 
 		public TextCalculatorsEnum(int id, string name, TextCalculatorType type) : base(id, name, type)
 		{
@@ -24,10 +24,8 @@ namespace CloudToolbox.Common.Enums
 				typeof(TextCalculatorsEnum)
 				.GetFields(BindingFlags.Static | BindingFlags.Public)
 				.Where(x => x.FieldType == typeof(TextCalculatorsEnum))
-				.Select(x => (TextCalculatorsEnum)x.GetValue(null))
-				.First(x =>
-					x.UriName.ToLower() == term
-				);
+				.Select(x => x.GetValue(null) as TextCalculatorsEnum)
+				.FirstOrDefault(x => x?.UriName.ToLower() == term);
 
 		}
 	}

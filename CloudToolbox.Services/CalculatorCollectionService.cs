@@ -13,18 +13,20 @@ public class CalculatorCollectionService
 
 	public List<CalculatorCollection> GetCollections()
 	{
+#pragma warning disable CS8619 // Nullability of reference types in value doesn't match target type.
 		calculatorCollectionsCache ??=
 				typeof(CalculatorCollection)
 				.Assembly.GetTypes()
 				.Where(t => t.IsSubclassOf(typeof(CalculatorCollection)) && !t.IsAbstract)
-				.Select(t => (CalculatorCollection)Activator.CreateInstance(t))
+				.Select(t => Activator.CreateInstance(t) as CalculatorCollection)
 				.ToList();
+#pragma warning restore CS8619 // Nullability of reference types in value doesn't match target type.
 
 		return calculatorCollectionsCache;
 	}
 
 	public CalculatorCollection GetCollectionOfType(CalculatorAreaTypes type)
 	{
-		return calculatorCollectionsCache.FirstOrDefault(col => col.Type == type);
+		return calculatorCollectionsCache.First(col => col.Type == type);
 	}
 }

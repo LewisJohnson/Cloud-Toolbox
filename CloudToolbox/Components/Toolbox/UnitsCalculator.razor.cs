@@ -2,6 +2,7 @@ using CloudToolbox.Calculators.Unit;
 using CloudToolbox.Common.Data;
 using CloudToolbox.Common.Enums.Units;
 using CloudToolbox.Common.Models.Calculator;
+using CloudToolbox.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace CloudToolbox.Components.Toolbox
@@ -31,7 +32,10 @@ namespace CloudToolbox.Components.Toolbox
 		public UnitCalculatorsEnum? ToUnitOf { get; set; }
 
 		[Inject]
-		NavigationManager NavigationManager { get; set; }
+		public NavigationManager NavigationManager { get; set; }
+
+		[Inject]
+		public NotFoundService NotFoundService { get; set; }
 
 		protected override void OnParametersSet()
 		{
@@ -46,44 +50,45 @@ namespace CloudToolbox.Components.Toolbox
 			if (string.IsNullOrWhiteSpace(UriParam))
 			{
 				NavigationManager.NavigateTo("404", false);
+				return;
 			}
-			try
+
+			string[] uriParts = UriParam.Split("-to-");
+
+			if (uriParts.Length != 2)
 			{
-				var parts = UriParam.Split("-to-");
-				var unitFromParam = parts[0] ?? null;
-				var unitToParam = parts[1] ?? null;
-
-				if (unitFromParam == null || unitToParam == null)
-				{
-					NavigationManager.NavigateTo("404", false);
-				}
-
-				FromUnitOf = UnitCalculatorsEnum.MatchFromUri(unitFromParam);
-				ToUnitOf = UnitCalculatorsEnum.MatchFromUri(unitToParam);
-
-				if (FromUnitOf == null || ToUnitOf == null)
-				{
-					NavigationManager.NavigateTo("404", false);
-				}
-
-				if (FromUnitOf.UnitType != ToUnitOf.UnitType)
-				{
-					NavigationManager.NavigateTo("500", false);
-				}
-
-				DisplayUnitFrom = FromUnitOf.Name;
-				DisplayUnitTo = ToUnitOf.Name;
-				DisplayUnitFromDesc = FromUnitOf.Name + (FromUnitOf.Abbreviation != FromUnitOf.Name ? $" ({FromUnitOf.Abbreviation})" : "");
-				DisplayUnitToDesc = ToUnitOf.Name + (ToUnitOf.Abbreviation != ToUnitOf.Name ? $" ({ToUnitOf.Abbreviation})" : "");
-
-				Inputs.Add(new("Number", typeof(string)) { EndInputGroupText = FromUnitOf.Abbreviation });
-
-				ResultsTemplate.Add(new(null) { EndInputGroupText = ToUnitOf.Abbreviation });
-
-				InvokeAsync(StateHasChanged);
-
+				NavigationManager.NavigateTo("404", false);
+				return;
 			}
-			catch (Exception _) { }
+
+			string unitFromParam = uriParts[0];
+			string unitToParam = uriParts[1];
+
+			FromUnitOf = UnitCalculatorsEnum.MatchFromUri(unitFromParam);
+			ToUnitOf = UnitCalculatorsEnum.MatchFromUri(unitToParam);
+
+			if (FromUnitOf == null || ToUnitOf == null)
+			{
+				NotFoundService.NotifyNotFound();
+				return;
+			}
+
+			if (FromUnitOf.UnitType != ToUnitOf.UnitType)
+			{
+				NotFoundService.NotifyNotFound();
+				return;
+			}
+
+			DisplayUnitFrom = FromUnitOf.Name;
+			DisplayUnitTo = ToUnitOf.Name;
+			DisplayUnitFromDesc = FromUnitOf.Name + (FromUnitOf.Abbreviation != FromUnitOf.Name ? $" ({FromUnitOf.Abbreviation})" : "");
+			DisplayUnitToDesc = ToUnitOf.Name + (ToUnitOf.Abbreviation != ToUnitOf.Name ? $" ({ToUnitOf.Abbreviation})" : "");
+
+			Inputs.Add(new("Number", typeof(string)) { EndInputGroupText = FromUnitOf.Abbreviation });
+
+			ResultsTemplate.Add(new(null) { EndInputGroupText = ToUnitOf.Abbreviation });
+
+			InvokeAsync(StateHasChanged);
 		}
 
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)
@@ -93,7 +98,9 @@ namespace CloudToolbox.Components.Toolbox
 
 			double? input = inputs[0].InputDouble;
 
-			if (input != null && FromUnitOf != null && ToUnitOf != null)
+			if (input != null &&
+				FromUnitOf != null && ToUnitOf != null &&
+				FromUnitOf.Unit != null && ToUnitOf.Unit != null)
 			{
 				double converted = 0;
 

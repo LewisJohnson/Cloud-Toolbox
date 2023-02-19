@@ -46,11 +46,11 @@
     }
 
     [Parameter]
-    public Func<string, Task<string>> onChangeEvent { get; set; }
+    public Func<string, Task<string>>? onChangeEvent { get; set; }
 
     protected async Task OnChange()
     {
-        if (Input != null)
+        if (Input != null && onChangeEvent != null)
         {
             Output = await onChangeEvent(Input);
             InputLength = Input.Length;

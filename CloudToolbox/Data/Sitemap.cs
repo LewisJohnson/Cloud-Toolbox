@@ -1,72 +1,66 @@
 ﻿using CloudToolbox.Common.Data;
 using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Enums.Units;
-using CloudToolbox.Services;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 
 namespace CloudToolbox.Data
 {
-	public class Sitemap
+	public static class Sitemap
 	{
-		private static string baseUrl = "https://cloudtoolbox.co.uk";
-		private static string toolboxUrl = "https://cloudtoolbox.co.uk/Toolbox";
-		private static string dt = DateTime.Now.ToString("yyyy-MM-dd");
+		private static string sitemapCache = string.Empty;
+		private static int sitemapCacheTimeoutInHours = 24 * 7;
+		private static DateTime sitemapLastUpdated = DateTime.MinValue;
+
+		private static readonly string baseUrl = "https://cloudtoolbox.co.uk";
+		private static readonly string toolboxUrl = $"{baseUrl}/Toolbox";
+
 		public static async Task Generate(HttpContext context)
 		{
-			await context.Response.WriteAsync("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-			await context.Response.WriteAsync("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
+			StringWriter resSw = new();
 
-			WriteUrlXml(context, baseUrl);
-			WriteUrlXml(context, toolboxUrl);
-
-			var fields = typeof(Routes).GetFields();
-
-			foreach (var finfo in fields)
+			if (sitemapLastUpdated.AddHours(sitemapCacheTimeoutInHours) <= DateTime.Now || sitemapCache == null)
 			{
-				string value = (string)finfo.GetValue(null);
-				WriteUrlXml(context, $"{baseUrl}{value}");
+
+				await resSw.WriteLineAsync("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+				await resSw.WriteLineAsync($"<!-- Cache date:  {DateTime.Now:g} -->");
+				await resSw.WriteLineAsync($"<!-- Next update: {DateTime.Now.AddHours(sitemapCacheTimeoutInHours):g} -->");
+
+				await resSw.WriteLineAsync("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
+				
+				foreach (var fieldInfo in typeof(Routes).GetFields())
+				{
+					string? value = (string?)fieldInfo.GetValue(null);
+
+					if (value != null)
+					{
+						await WriteUrlXml(resSw, $"{baseUrl}{value}");
+					}
+				}
+
+				await WriteTextCalcs(resSw);
+				await WriteDevCalcs(resSw);
+				await WriteUnitCalcs(resSw);
+				await resSw.WriteLineAsync("</urlset>");
+				// Finish writing
+
+				sitemapLastUpdated = DateTime.Now;
+				sitemapCache = resSw.ToString();
 			}
 
-			// In routes
-			//WriteCollections(context);
-
-			WriteTextCalcs(context);
-			WriteDevCalcs(context);
-			WriteUnitCalcs(context);
-
-			await context.Response.WriteAsync("</urlset>");
+			await context.Response.WriteAsync(sitemapCache);
 		}
 
-
-		private static async void WriteCollections(HttpContext context)
-		{
-			var collections = (new CalculatorCollectionService()).GetCollections();
-
-			foreach (var col in collections)
-			{
-				var uri = $"{toolboxUrl}/{col.Name}";
-
-				WriteUrlXml(context, uri);
-			}
-		}
-
-		private static async void WriteTextCalcs(HttpContext context)
+		private static async Task WriteTextCalcs(StringWriter resSw)
 		{
 			var textCalcs = Enumeration.GetAll<TextCalculatorsEnum>();
 
 			foreach (TextCalculatorsEnum calc in textCalcs)
 			{
 				var uri = $"{toolboxUrl}/Text/To-{calc.UriName}";
-				WriteUrlXml(context, uri);
+				await WriteUrlXml(resSw, uri);
 			}
 		}
 
-		private static async void WriteDevCalcs(HttpContext context)
+		private static async Task WriteDevCalcs(StringWriter resSw)
 		{
 			var devCalcs = Enumeration.GetAll<DeveloperCalculatorsEnum>();
 
@@ -76,29 +70,26 @@ namespace CloudToolbox.Data
 				{
 					string dir = i == 0 ? "To" : "From";
 					var uri = $"{toolboxUrl}/Developer/{dir}-{calc.UriName}";
-					WriteUrlXml(context, uri);
+					await WriteUrlXml(resSw, uri);
 				}
 			}
 		}
 
-
-		private static async void WriteUnitCalcs(HttpContext context)
+		private static async Task WriteUnitCalcs(StringWriter resSw)
 		{
 			var units = Enumeration.GetAll<UnitCalculatorsEnum>();
 			foreach (var (from, to) in units.SelectMany(from => units.Where(to => from != to).Select(to => (from, to))))
 			{
 				var uri = $"{toolboxUrl}/Units/{from.UriName}-to-{to.UriName}";
-				WriteUrlXml(context, uri);
+				await WriteUrlXml(resSw, uri);
 			}
 		}
 
-		private static async void WriteUrlXml(HttpContext context, string url)
+		private static async Task WriteUrlXml(StringWriter resSw, string url)
 		{
-			await context.Response.WriteAsync("<url>");
-			await context.Response.WriteAsync($"<loc>{url}</loc>");
-			await context.Response.WriteAsync($"<lastmod>{dt}</lastmod>");
-			await context.Response.WriteAsync($"<changefreq>monthly</changefreq>");
-			await context.Response.WriteAsync("</url>");
+			await resSw.WriteLineAsync("<url>");
+			await resSw.WriteLineAsync($"<loc>{url}</loc>");
+			await resSw.WriteLineAsync("</url>");
 		}
 	}
 }

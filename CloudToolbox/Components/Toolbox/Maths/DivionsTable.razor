@@ -88,6 +88,6 @@
 
     public string GetTitle(int idx)
     {
-        return Constants.ENGLISH_NUMBERS.GetValueOrDefault(idx).ToString() ?? "";
+        return (Constants.ENGLISH_NUMBERS.GetValueOrDefault(idx) ?? "").ToString();
     }
 }
