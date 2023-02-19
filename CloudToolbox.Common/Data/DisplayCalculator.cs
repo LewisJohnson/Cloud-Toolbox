@@ -25,8 +25,8 @@ public class DisplayCalculator
 		Aliases = aliases ?? new List<string>();
 		Abbreviation = abbreviation;
 		UnitType = unitType;
-		FromType = fromType ?? throw new ArgumentNullException(nameof(fromType));
-		ToType = toType ?? throw new ArgumentNullException(nameof(toType));
+		FromType = fromType;
+		ToType = toType;
 	}
 
 	public string DisplayName { get; set; }
@@ -34,8 +34,8 @@ public class DisplayCalculator
 	public string Uri { get; set; }
 	public CalculatorCollection Collection { get; set; }
 	public string Abbreviation { get; }
-	public object FromType { get; }
-	public object ToType { get; }
+	public object? FromType { get; }
+	public object? ToType { get; }
 	public UnitTypes? UnitType { get; }
 	public DeveloperCalculatorType? DeveloperType { get; set; }
 	public TextCalculatorType? TextType { get; set; }
