@@ -14,8 +14,6 @@ namespace CloudToolbox.Components.Toolbox
 
 		protected List<CalculatorInput> Inputs { get; set; }
 		protected List<CalculatorResult> ResultsTemplate { get; set; }
-		protected string? DisplayCalcType { get; set; }
-		protected string? DisplayDirection { get; set; }
 		protected DeveloperCalculatorsEnum? Calc { get; set; }
 		protected DeveleoperCalculatorDirection Direction { get; set; }
 
@@ -28,7 +26,6 @@ namespace CloudToolbox.Components.Toolbox
 		protected override async Task OnParametersSetAsync()
 		{
 			Calc = null;
-			DisplayCalcType = null;
 			Inputs = new List<CalculatorInput>();
 			ResultsTemplate = new List<CalculatorResult>();
 
@@ -63,9 +60,6 @@ namespace CloudToolbox.Components.Toolbox
 				NotFoundService.NotifyNotFound();
 				return;
 			}
-
-			DisplayDirection = Direction.ToString();
-			DisplayCalcType = Calc.Name;
 
 			if (Direction == DeveleoperCalculatorDirection.From)
 			{

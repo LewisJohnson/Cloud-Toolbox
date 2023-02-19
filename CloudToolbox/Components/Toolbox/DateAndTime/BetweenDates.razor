@@ -3,7 +3,9 @@
 @inherits BetweenDatesBase
 @inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.DateAndTime)">
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.DateAndTime)"
+    MetaPageTitle="Calculate the Duration Between Two Dates"
+    MetaDescription="Calculate the days, hours & minutes between two dates">
     <Header>
         <ToolboxHeader Title="Duration Between Two Dates">
             <Description>

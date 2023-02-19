@@ -17,12 +17,10 @@ namespace CloudToolbox.Components.Toolbox
 
 		protected List<CalculatorInput> Inputs { get; set; }
 		protected List<CalculatorResult> ResultsTemplate { get; set; }
-		protected string? DisplayUnitFrom { get; set; }
 		protected string? DisplayUnitFromDesc { get; set; }
-		protected string? DisplayUnitTo { get; set; }
 		protected string? DisplayUnitToDesc { get; set; }
-		protected UnitCalculatorsEnum? FromUnitOf { get; set; }
-		protected UnitCalculatorsEnum? ToUnitOf { get; set; }
+		protected UnitCalculatorsEnum? FromCalc { get; set; }
+		protected UnitCalculatorsEnum? ToCalc { get; set; }
 
 		public UnitsCalculatorBase()
 		{
@@ -32,10 +30,8 @@ namespace CloudToolbox.Components.Toolbox
 
 		protected override async Task OnParametersSetAsync()
 		{
-			FromUnitOf = null;
-			ToUnitOf = null;
-			DisplayUnitFrom = string.Empty;
-			DisplayUnitTo = string.Empty;
+			FromCalc = null;
+			ToCalc = null;
 
 			Inputs = new List<CalculatorInput>();
 			ResultsTemplate = new List<CalculatorResult>();
@@ -51,24 +47,22 @@ namespace CloudToolbox.Components.Toolbox
 			string unitFromParam = uriParts[0];
 			string unitToParam = uriParts[1];
 
-			FromUnitOf = UnitCalculatorsEnum.MatchFromUri(unitFromParam);
-			ToUnitOf = UnitCalculatorsEnum.MatchFromUri(unitToParam);
+			FromCalc = UnitCalculatorsEnum.MatchFromUri(unitFromParam);
+			ToCalc = UnitCalculatorsEnum.MatchFromUri(unitToParam);
 
-			if (FromUnitOf == null || ToUnitOf == null ||
-				FromUnitOf.UnitType != ToUnitOf.UnitType)
+			if (FromCalc == null || ToCalc == null ||
+				FromCalc.UnitType != ToCalc.UnitType)
 			{
 				NotFoundService.NotifyNotFound();
 				return;
 			}
 
-			DisplayUnitFrom = FromUnitOf.Name;
-			DisplayUnitTo = ToUnitOf.Name;
-			DisplayUnitFromDesc = FromUnitOf.Name + (FromUnitOf.Abbreviation != FromUnitOf.Name ? $" ({FromUnitOf.Abbreviation})" : "");
-			DisplayUnitToDesc = ToUnitOf.Name + (ToUnitOf.Abbreviation != ToUnitOf.Name ? $" ({ToUnitOf.Abbreviation})" : "");
+			DisplayUnitFromDesc = FromCalc.Name + (FromCalc.Abbreviation != FromCalc.Name ? $" ({FromCalc.Abbreviation})" : "");
+			DisplayUnitToDesc = ToCalc.Name + (ToCalc.Abbreviation != ToCalc.Name ? $" ({ToCalc.Abbreviation})" : "");
 
-			Inputs.Add(new("Number", typeof(string)) { EndInputGroupText = FromUnitOf.Abbreviation });
+			Inputs.Add(new("Number", typeof(string)) { EndInputGroupText = FromCalc.Abbreviation });
 
-			ResultsTemplate.Add(new(null) { EndInputGroupText = ToUnitOf.Abbreviation });
+			ResultsTemplate.Add(new(null) { EndInputGroupText = ToCalc.Abbreviation });
 		}
 
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)
@@ -79,45 +73,45 @@ namespace CloudToolbox.Components.Toolbox
 			double? input = inputs[0].InputDouble;
 
 			if (input != null &&
-				FromUnitOf != null && ToUnitOf != null &&
-				FromUnitOf.Unit != null && ToUnitOf.Unit != null)
+				FromCalc != null && ToCalc != null &&
+				FromCalc.Unit != null && ToCalc.Unit != null)
 			{
 				double converted = 0;
 
-				switch (FromUnitOf.UnitType)
+				switch (FromCalc.UnitType)
 				{
 					case UnitTypes.Area:
-						converted = new UnitOfAreaConverter(((UnitOfArea)FromUnitOf.Unit, (UnitOfArea)ToUnitOf.Unit)).Convert(input.Value);
+						converted = new UnitOfAreaConverter(((UnitOfArea)FromCalc.Unit, (UnitOfArea)ToCalc.Unit)).Convert(input.Value);
 						break;
 
 					case UnitTypes.DataTransfer:
-						converted = new UnitOfDataTranserConverter(((UnitOfDataTranser)FromUnitOf.Unit, (UnitOfDataTranser)ToUnitOf.Unit)).Convert(input.Value);
+						converted = new UnitOfDataTranserConverter(((UnitOfDataTranser)FromCalc.Unit, (UnitOfDataTranser)ToCalc.Unit)).Convert(input.Value);
 						break;
 
 					case UnitTypes.Energy:
-						converted = new UnitOfEnergyConverter(((UnitOfEnergy)FromUnitOf.Unit, (UnitOfEnergy)ToUnitOf.Unit)).Convert(input.Value);
+						converted = new UnitOfEnergyConverter(((UnitOfEnergy)FromCalc.Unit, (UnitOfEnergy)ToCalc.Unit)).Convert(input.Value);
 						break;
 
 					case UnitTypes.Length:
-						converted = new UnitOfLengthConverter(((UnitOfLength)FromUnitOf.Unit, (UnitOfLength)ToUnitOf.Unit)).Convert(input.Value);
+						converted = new UnitOfLengthConverter(((UnitOfLength)FromCalc.Unit, (UnitOfLength)ToCalc.Unit)).Convert(input.Value);
 						break;
 
 					case UnitTypes.Mass:
-						converted = new UnitOfMassConverter(((UnitOfMass)FromUnitOf.Unit, (UnitOfMass)ToUnitOf.Unit)).Convert(input.Value);
+						converted = new UnitOfMassConverter(((UnitOfMass)FromCalc.Unit, (UnitOfMass)ToCalc.Unit)).Convert(input.Value);
 						break;
 
 					case UnitTypes.Speed:
-						converted = new UnitOfSpeedConverter(((UnitOfSpeed)FromUnitOf.Unit, (UnitOfSpeed)ToUnitOf.Unit)).Convert(input.Value);
+						converted = new UnitOfSpeedConverter(((UnitOfSpeed)FromCalc.Unit, (UnitOfSpeed)ToCalc.Unit)).Convert(input.Value);
 						break;
 
 					case UnitTypes.Time:
-						converted = new UnitOfTimeConverter(((UnitOfTime)FromUnitOf.Unit, (UnitOfTime)ToUnitOf.Unit)).Convert(input.Value);
+						converted = new UnitOfTimeConverter(((UnitOfTime)FromCalc.Unit, (UnitOfTime)ToCalc.Unit)).Convert(input.Value);
 						break;
 				}
 
 				string res = converted < 1 ? converted.ToString("0.######") : converted.ToString(Constants.FRONTEND_NUMBER_FORMAT);
 
-				returnRes.Add(new(res) { EndInputGroupText = ToUnitOf.Abbreviation });
+				returnRes.Add(new(res) { EndInputGroupText = ToCalc.Abbreviation });
 			}
 
 			return returnRes;

@@ -3,12 +3,15 @@
 @inherits JourneyCostBase
 @inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Travel)">
+<SimpleCalculatorContainer 
+    Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Travel)"
+    MetaPageTitle="Calculate Journey Cost"
+    MetaDescription="Calculate how much a automotive journey will cost">
     <Header>
         <ToolboxHeader Title="Journey Cost">
             <Description>
                 <p>
-                    To use this converter, simply enter a speed in kilometres per hour and we'll convert it to miles per hour.
+                    Calculate how much a automotive journey will cost.
                 </p>
             </Description>
         </ToolboxHeader>

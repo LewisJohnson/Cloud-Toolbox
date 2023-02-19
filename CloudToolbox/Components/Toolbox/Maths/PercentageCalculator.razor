@@ -3,14 +3,15 @@
 @inherits PercentageCalculatorBase
 @inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Maths)">
+<SimpleCalculatorContainer 
+    Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Maths)" 
+    MetaPageTitle="Percentage Calculator"
+    MetaDescription="Calculate what percent of X is Y for free in the cloud">
     <Header>
         <ToolboxHeader Title="Percentage Calculator">
             <Description>
                 <p>
-                    This percentage calculator is a tool that lets you do a simple calculation: what percent of X is Y?
-                    The tool is pretty straightforward. All you need to do is fill in two fields, and the third one will be calculated for you automatically.
-                    This method will allow you to answer the question of how to find a percentage of two numbers.
+                    What percent of X is Y? Fill in fields, and we'll calculate it for you.
                 </p>
             </Description>
         </ToolboxHeader>

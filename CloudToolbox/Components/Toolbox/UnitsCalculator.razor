@@ -4,9 +4,12 @@
 @inherits UnitsCalculatorBase
 @inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Units)">
+<SimpleCalculatorContainer 
+    Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Units)"
+    MetaPageTitle="@FromCalc.GetMetaPageTitle(ToCalc)"
+    MetaDescription="@FromCalc.GetMetaDescription(ToCalc)">
     <Header>
-        <ToolboxHeader Title="@(DisplayUnitFrom + " to " + DisplayUnitTo)">
+        <ToolboxHeader Title="@FromCalc.GetCalculatorHeaderTitle(ToCalc)">
             <Description>
                 <GenericUnitsCalculatorDescription FromUnit="@DisplayUnitFromDesc" ToUnit="@DisplayUnitToDesc" />
             </Description>
