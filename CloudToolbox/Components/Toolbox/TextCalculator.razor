@@ -1,14 +1,16 @@
 @page "/Toolbox/Text/{UriParam}"
 
-@namespace CloudToolbox.Components.Toolbox
 @inherits TextCalculatorBase
 @inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Text)">
+<SimpleCalculatorContainer 
+    MetaPageTitle="@Calc.GetMetaPageTitle()"
+    MetaDescription="@Calc.GetMetaDescription()"
+    Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Text)">
     <Header>
-        <ToolboxHeader Title="@("To " + DisplayCalcType)">
+        <ToolboxHeader Title="@Calc.GetCalculatorHeaderTitle()">
             <Description>
-                    <p>To use this converter, simply insert some text into the field and we'll convert it to @DisplayCalcType</p>
+                <p>To use this converter, simply insert some text into the field and we'll convert it to @Calc.Name</p>
             </Description>
         </ToolboxHeader>
     </Header>

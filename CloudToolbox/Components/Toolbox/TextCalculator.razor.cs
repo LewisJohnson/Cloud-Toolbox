@@ -16,7 +16,6 @@ namespace CloudToolbox.Components.Toolbox
 
 		public List<CalculatorInput> Inputs { get; set; }
 		public List<CalculatorResult> ResultsTemplate { get; set; }
-		public string? DisplayCalcType { get; set; }
 		public string? DisplayDirection { get; set; }
 		public TextCalculatorsEnum? Calc { get; set; }
 
@@ -29,7 +28,6 @@ namespace CloudToolbox.Components.Toolbox
 		protected override async Task OnParametersSetAsync()
 		{
 			Calc = null;
-			DisplayCalcType = null;
 			Inputs = new List<CalculatorInput>();
 			ResultsTemplate = new List<CalculatorResult>();
 
@@ -57,8 +55,6 @@ namespace CloudToolbox.Components.Toolbox
 				NotFoundService.NotifyNotFound();
 				return;
 			}
-
-			DisplayCalcType = Calc.Name;
 
 			Inputs.Add(new("Text", typeof(string)) { Label = "Text", UseLargeInput = true });
 			ResultsTemplate.Add(new(null) { Label = Calc.Name, Type = CalculatorResultType.TextArea });

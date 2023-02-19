@@ -3,12 +3,15 @@
 @inherits FuelRequiredBase
 @inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Travel)">
+<SimpleCalculatorContainer 
+    Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Travel)"
+    MetaPageTitle="Calculate Fuel Required"
+    MetaDescription="Calculate the fuel required to make an automotive journey">
     <Header>
         <ToolboxHeader Title="Fuel Required">
             <Description>
                 <p>
-                    To use this converter, simply enter a speed in kilometres per hour and we'll convert it to miles per hour.
+                    Calculate the fuel required to make an automotive journey.
                 </p>
             </Description>
         </ToolboxHeader>

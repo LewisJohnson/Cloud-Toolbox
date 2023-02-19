@@ -1,8 +1,19 @@
 ﻿@attribute [Route(Routes.MATHS_TIMES_TABLE_GRID)]
 
+@{
+    string pageTitle = "Times Table (Grid)";
+    string desc = "This colourful and printable maths times table is a great tool for people of all ages to upgrade their maths skills at home!";
+}
+
+<HeadContent>
+    <meta name="description" content="@desc">
+</HeadContent>
+
+<PageTitle>@pageTitle @Constants.TITLE_POSTFIX</PageTitle>
+
 <div class="p-4 bg-white">
-    <ToolboxHeader Title="Times Table (Grid)">
-        <Description>This colourful and printable maths table is a great tool for people of all ages to upgrade their mathematics skills at and home!</Description>
+    <ToolboxHeader Title="@pageTitle">
+        <Description>@desc</Description>
     </ToolboxHeader>
 
     <form class="row mt-5 d-print-none">

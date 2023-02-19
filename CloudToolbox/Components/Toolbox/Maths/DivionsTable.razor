@@ -1,8 +1,19 @@
 ﻿@attribute [Route(Routes.MATHS_DIVISION_TABLE)]
 
-<div class="p-4">
-    <ToolboxHeader Title="Division Table">
-        <Description></Description>
+@{
+    string pageTitle = "Division Table";
+    string desc = "This colourful and printable maths division table is a great tool for people of all ages to upgrade their maths skills at home!";
+}
+
+<HeadContent>
+    <meta name="description" content="@desc">
+</HeadContent>
+
+<PageTitle>@pageTitle @Constants.TITLE_POSTFIX</PageTitle>
+
+<div class="p-4 bg-white">
+    <ToolboxHeader Title="@pageTitle">
+        <Description>@desc</Description>
     </ToolboxHeader>
 
     <form class="row d-print-none mt-5">
@@ -20,7 +31,7 @@
     <div class="row">
         @for (var i = 1; i <= TableSize; i++)
         {
-            <div class="col-3 mb-3">
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
                 <div class="card" style="background-color: @GetColour(i)">
                     <div class="card-body">
                         <h5 class="card-title text-capitalize">@GetTitle(i)</h5>

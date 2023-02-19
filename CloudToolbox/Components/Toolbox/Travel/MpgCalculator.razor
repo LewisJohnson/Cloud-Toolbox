@@ -3,12 +3,15 @@
 @inherits MpgCalculatorBase
 @inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Travel)">
+<SimpleCalculatorContainer 
+    Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Travel)" 
+    MetaPageTitle="Calculate MPG"
+    MetaDescription="Calculate out how much MPG you are really getting out of your vehicle">
     <Header>
         <ToolboxHeader Title="Mpg Calculator">
             <Description>
                 <p>
-                    To use this converter, simply enter a speed in kilometres per hour and we'll convert it to miles per hour.
+                    Work out how much MPG you are really getting out of your vehicle
                 </p>
             </Description>
         </ToolboxHeader>
