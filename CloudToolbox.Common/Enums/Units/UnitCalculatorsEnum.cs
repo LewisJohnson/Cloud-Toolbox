@@ -91,11 +91,10 @@ namespace CloudToolbox.Common.Enums.Units
 				typeof(UnitCalculatorsEnum)
 				.GetFields(BindingFlags.Static | BindingFlags.Public)
 				.Where(x => x.FieldType == typeof(UnitCalculatorsEnum))
-				.Select(x => (UnitCalculatorsEnum)x.GetValue(null))
+				.Select(x => x.GetValue(null) as UnitCalculatorsEnum)
 				.FirstOrDefault(x =>
 					x.UriName.ToLower() == term
 				);
-
 		}
 
 		public static List<UnitCalculatorsEnum> Search(string searchTerm)
@@ -104,7 +103,7 @@ namespace CloudToolbox.Common.Enums.Units
 				typeof(UnitCalculatorsEnum)
 				.GetFields(BindingFlags.Static | BindingFlags.Public)
 				.Where(x => x.FieldType == typeof(UnitCalculatorsEnum))
-				.Select(x => (UnitCalculatorsEnum)x.GetValue(null))
+				.Select(x => x.GetValue(null) as UnitCalculatorsEnum)
 				.Where(x =>
 					x.Name.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) ||
 					x.Abbreviation.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase) ||

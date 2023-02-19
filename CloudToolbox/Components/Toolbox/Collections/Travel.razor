@@ -3,15 +3,18 @@
 @namespace CloudToolbox.Components.Collections
 @inject CalculatorCollectionService CollectionService
 
-<CalculatorCollectionDisplay Collection="CalcCollection">
-    <Description>
-        Is your car costing you a fortune?<br />
-        Well it will keep costing a fortune, however one of our @CalcCollection.Calculators.Count travel calculators can help you work out how much of a dent it's making to your wallet.
-    </Description>
-</CalculatorCollectionDisplay>
+@if (CalcCollection != null)
+{
+    <CalculatorCollectionDisplay Collection="CalcCollection">
+        <Description>
+            Is your car costing you a fortune?<br />
+            Well it will keep costing a fortune, however one of our @CalcCollection.Calculators.Count travel calculators can help you work out how much of a dent it's making to your wallet.
+        </Description>
+    </CalculatorCollectionDisplay>
+}
 
 @code {
-    CalculatorCollection CalcCollection;
+    CalculatorCollection? CalcCollection;
 
     protected override void OnParametersSet()
     {

@@ -3,15 +3,18 @@
 @namespace CloudToolbox.Components.Collections
 @inject CalculatorCollectionService CollectionService
 
-<CalculatorCollectionDisplay Collection="CalcCollection">
-    <Description>
-        HavE YoUR LeTTers In a juMBle?<br />
-        Well one of our @CalcCollection.Calculators.Count free text converters can help you fix that.
-    </Description>
-</CalculatorCollectionDisplay>
+@if (CalcCollection != null)
+{
+    <CalculatorCollectionDisplay Collection="CalcCollection">
+        <Description>
+            HavE YoUR LeTTers In a juMBle?<br />
+            Well one of our @CalcCollection.Calculators.Count free text converters can help you fix that.
+        </Description>
+    </CalculatorCollectionDisplay>
+}
 
 @code {
-    CalculatorCollection CalcCollection;
+    CalculatorCollection? CalcCollection;
 
     protected override void OnParametersSet()
     {

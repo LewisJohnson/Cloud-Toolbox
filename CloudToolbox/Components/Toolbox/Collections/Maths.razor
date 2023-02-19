@@ -3,15 +3,18 @@
 @namespace CloudToolbox.Components.Collections
 @inject CalculatorCollectionService CollectionService
 
-<CalculatorCollectionDisplay Collection="CalcCollection">
-    <Description>
-        Maths isn't for everyone, that's why we have @CalcCollection.Calculators.Count mathematical calculators and converters waiting for you to use.
-        Whether you're looking to work out a percentage, an average or just want to see a times table, we've got you covered.
-    </Description>
-</CalculatorCollectionDisplay>
+@if (CalcCollection != null)
+{
+    <CalculatorCollectionDisplay Collection="CalcCollection">
+        <Description>
+            Maths isn't for everyone, that's why we have @CalcCollection.Calculators.Count mathematical calculators and converters waiting for you to use.
+            Whether you're looking to work out a percentage, an average or just want to see a times table, we've got you covered.
+        </Description>
+    </CalculatorCollectionDisplay>
+}
 
 @code {
-    CalculatorCollection CalcCollection;
+    CalculatorCollection? CalcCollection;
 
     protected override void OnParametersSet()
     {
