@@ -1,6 +1,5 @@
 using CloudToolbox.Calculators;
 using CloudToolbox.Common.Enums;
-using CloudToolbox.Common.Enums.Units;
 using CloudToolbox.Common.Models.Calculator;
 using CloudToolbox.Services;
 using Microsoft.AspNetCore.Components;
@@ -43,46 +42,51 @@ namespace CloudToolbox.Components.Toolbox
 			if (string.IsNullOrWhiteSpace(UriParam))
 			{
 				NavigationManager.NavigateTo("404", false);
+				return;
 			}
-			try
+
+			string[] uriParts = UriParam.Split("-");
+
+			if (uriParts.Length != 2)
 			{
-				var parts = UriParam.Split("-");
-				var directionParam = parts[0] ?? null;
-				var calcTypeParam = parts[1] ?? null;
-
-				if (directionParam == null || calcTypeParam == null)
-				{
-					NotFoundService.NotifyNotFound();
-					return;
-				}
-
-				Direction = directionParam.ToLower() == "from" ? DeveleoperCalculatorDirection.From : DeveleoperCalculatorDirection.To;
-				Calc = DeveloperCalculatorsEnum.MatchFromUri(calcTypeParam);
-
-				if (Calc == null)
-				{
-					NotFoundService.NotifyNotFound();
-					return;
-				}
-
-				DisplayDirection = Direction.ToString();
-				DisplayCalcType = Calc.Name;
-
-				if (Direction == DeveleoperCalculatorDirection.From)
-				{
-					Inputs.Add(new("Text", typeof(string)) { Label = Calc.Name, UseLargeInput = true });
-					ResultsTemplate.Add(new(null) { Label = "Text", Type = CalculatorResultType.TextArea });
-				}
-				else
-				{
-					Inputs.Add(new("Text", typeof(string)) { Label = "Text", UseLargeInput = true });
-					ResultsTemplate.Add(new(null) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
-				}
-
-				InvokeAsync(StateHasChanged);
-
+				NavigationManager.NavigateTo("404", false);
+				return;
 			}
-			catch (Exception _) { }
+
+			string directionParam = uriParts[0];
+			string calcTypeParam = uriParts[1];
+
+			if (directionParam == null || calcTypeParam == null)
+			{
+				NotFoundService.NotifyNotFound();
+				return;
+			}
+
+			Direction = directionParam.ToLower() == "from" ? DeveleoperCalculatorDirection.From : DeveleoperCalculatorDirection.To;
+			Calc = DeveloperCalculatorsEnum.MatchFromUri(calcTypeParam);
+
+			if (Calc == null)
+			{
+				NotFoundService.NotifyNotFound();
+				return;
+			}
+
+			DisplayDirection = Direction.ToString();
+			DisplayCalcType = Calc.Name;
+
+			if (Direction == DeveleoperCalculatorDirection.From)
+			{
+				Inputs.Add(new("Text", typeof(string)) { Label = Calc.Name, UseLargeInput = true });
+				ResultsTemplate.Add(new(null) { Label = "Text", Type = CalculatorResultType.TextArea });
+			}
+			else
+			{
+				Inputs.Add(new("Text", typeof(string)) { Label = "Text", UseLargeInput = true });
+				ResultsTemplate.Add(new(null) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
+			}
+
+			InvokeAsync(StateHasChanged);
+
 		}
 
 		protected async Task<List<CalculatorResult>> OnChange(List<CalculatorInput> inputs)

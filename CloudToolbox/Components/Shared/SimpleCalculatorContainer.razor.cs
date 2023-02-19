@@ -62,13 +62,8 @@ namespace CloudToolbox.Components.Shared
 			base.OnParametersSet();
 		}
 
-		public static string BreadcrumbTitle(string? val)
+		public static string BreadcrumbTitle(string val)
 		{
-			if (val == null)
-			{
-				return val;
-			}
-
 			val = string.Join("", val.Select(ch => (char.IsUpper(ch) ? " " : "") + ch));
 			val = val.Replace('-', ' ');
 			val = val.Replace('_', ' ');

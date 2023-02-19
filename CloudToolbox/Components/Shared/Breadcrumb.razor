@@ -21,19 +21,16 @@
 </nav>
 @code {
     [Parameter]
-    public List<BreadcrumbLink> Links { get; set; }
+    public List<BreadcrumbLink> Links { get; set; } = new();
 
     public class BreadcrumbLink
     {
+
         public int OrderIndex { get; set; }
-        public string Address { get; set; }
-        public string Title { get; set; }
+        public string Address { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
         public bool IsActive { get; set; }
     }
 
-    public Breadcrumb()
-    {
-
-    }
     protected override Task OnParametersSetAsync() => base.OnParametersSetAsync();
 }

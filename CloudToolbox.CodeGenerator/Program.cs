@@ -4,6 +4,7 @@ using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Enums.Units;
 using CloudToolbox.Services;
 
+#pragma warning disable CS8321 // Local function is declared but never used
 static void UnitConverterGenerator<TEnum>() where TEnum : struct, Enum
 {
 	Console.WriteLine(" ");
@@ -20,7 +21,6 @@ static void UnitConverterGenerator<TEnum>() where TEnum : struct, Enum
 		}
 	}
 }
-
 
 static void CssGenerator()
 {
