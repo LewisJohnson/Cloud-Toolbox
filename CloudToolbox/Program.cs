@@ -1,5 +1,6 @@
 using CloudToolbox.Data;
 using CloudToolbox.Services;
+using Microsoft.AspNetCore.ResponseCompression;
 
 namespace CloudToolbox;
 
@@ -13,11 +14,19 @@ public class Program
 		builder.Services.AddRazorPages();
 		builder.Services.AddServerSideBlazor();
 		builder.Services.AddHttpContextAccessor();
+		builder.Services.AddResponseCompression(options =>
+		{
+			options.EnableForHttps = true;
+			options.Providers.Add<BrotliCompressionProvider>();
+			options.Providers.Add<GzipCompressionProvider>();
+		});
 
 		builder.Services.AddSingleton<CalculatorCollectionService>();
 		builder.Services.AddScoped<NotFoundService>();
 
 		var app = builder.Build();
+
+		app.UseResponseCompression();
 
 		// Configure the HTTP request pipeline.
 		if (!app.Environment.IsDevelopment())
