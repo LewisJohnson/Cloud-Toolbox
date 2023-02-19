@@ -5,6 +5,7 @@
 		public const string SITEMAP_BASE_URL = "";
 		public const string AREA_TOOLBOX = "/Toolbox";
 		public const string PRIVACY = "/Privacy";
+		public const string NOT_FOUND = "/NotFound";
 
 		// AREAS
 		public const string AREA_DATE_AND_TIME = "/Toolbox/DateAndTime";

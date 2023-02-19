@@ -9,6 +9,10 @@ namespace CloudToolbox.Components.Toolbox
 		[Inject]
 		public CalculatorCollectionService CollectionService { get; set; }
 
+		[Inject]
+		public NavigationManager NavigationManager { get; set; }
+
+
 		protected List<DisplayCalculator> Calculators { get; set; } = new();
 		protected List<DisplayCalculator> FilteredCalculators { get; set; } = new();
 		protected List<DisplayCalculator> GlobalSearchCalculators { get; set; } = new();
