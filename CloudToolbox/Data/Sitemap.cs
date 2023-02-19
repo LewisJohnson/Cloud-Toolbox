@@ -78,13 +78,14 @@ namespace CloudToolbox.Data
 		private static async Task WriteUnitCalcs(StringWriter resSw)
 		{
 			var units = Enumeration.GetAll<UnitCalculatorsEnum>();
-			foreach (var (from, to) in units.SelectMany(from => units.Where(to => from != to).Select(to => (from, to))))
+			foreach (var (from, to) in units
+				.SelectMany(from => units.Where(to => from != to)
+				.Where(to => from.UnitType == to.UnitType)
+				.Select(to => (from, to)))
+			)
 			{
-				if (to.UnitType == from.UnitType)
-				{
-					var uri = $"{toolboxUrl}/Units/{from.UriName}-to-{to.UriName}";
-					await WriteUrlXml(resSw, uri);
-				}
+				var uri = $"{toolboxUrl}/Units/{from.UriName}-to-{to.UriName}";
+				await WriteUrlXml(resSw, uri);
 			}
 		}
 
