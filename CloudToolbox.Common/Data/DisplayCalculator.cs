@@ -16,6 +16,7 @@ public class DisplayCalculator
 		DisplayName = displayName ?? throw new ArgumentNullException(nameof(displayName));
 		Uri = uri ?? throw new ArgumentNullException(nameof(uri));
 		Aliases = new List<string>();
+		Abbreviation = string.Empty;
 	}
 
 	public DisplayCalculator(CalculatorCollection collection, string displayName, string uri, List<string> aliases, string abbreviation = "", UnitTypes? unitType = null, object? fromType = null, object? toType = null) : this(collection)
