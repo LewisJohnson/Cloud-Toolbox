@@ -39,8 +39,8 @@ namespace CloudToolbox.Components.Shared
 			ResultsTemplate = new List<CalculatorResult>();
 			StartInputGroupWidth = 100;
 			EndInputGroupWidth = 100;
-			ResultStartInputGroupWidth = 120;
-			ResultEndInputGroupWidth = 120;
+			ResultStartInputGroupWidth = 100;
+			ResultEndInputGroupWidth = 100;
 		}
 
 		protected override void OnInitialized()

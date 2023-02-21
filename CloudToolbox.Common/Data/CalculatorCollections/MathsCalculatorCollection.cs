@@ -22,6 +22,7 @@ public class MathsCalculatorCollection : CalculatorCollection
 			new DisplayCalculator(this, "Times Table", Routes.MATHS_TIMES_TABLE, new() {"Multiplication Table"}),
 			new DisplayCalculator(this, "Times Table (Grid)", Routes.MATHS_TIMES_TABLE_GRID, new() {"Multiplication Table (Grid)"}),
 			new DisplayCalculator(this, "Division Table", Routes.MATHS_DIVISION_TABLE),
+			new DisplayCalculator(this, "Random Number Generator", Routes.MATHS_RANDOM_NUMBER_GENERATOR),
 		};
 	}
 }
