@@ -1,0 +1,22 @@
+﻿@attribute [Route(Routes.MATHS_RANDOM_NUMBER_GENERATOR)]
+
+@inherits RandomNumberGeneratorBase
+@inject CalculatorCollectionService CollectionService
+
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Maths)"
+                           MetaPageTitle="Random Number Generator"
+                           MetaDescription="Generate a random number within 2 numbers of your choice">
+    <Header>
+        <ToolboxHeader Title="Random Number Generator">
+            <Description>
+                <p>
+                    Generate a random number within 2 numbers of your choice
+                </p>
+            </Description>
+        </ToolboxHeader>
+    </Header>
+
+    <Calculator>
+        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+    </Calculator>
+</SimpleCalculatorContainer>

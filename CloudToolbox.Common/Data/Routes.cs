@@ -30,5 +30,6 @@
 		public const string MATHS_TIMES_TABLE = "/Toolbox/Maths/Times-Table";
 		public const string MATHS_TIMES_TABLE_GRID = "/Toolbox/Maths/Times-Table-grid";
 		public const string MATHS_DIVISION_TABLE = "/Toolbox/Maths/Division-Table";
+		public const string MATHS_RANDOM_NUMBER_GENERATOR = "/Toolbox/Maths/Random-Number-Generator";
 	}
 }
