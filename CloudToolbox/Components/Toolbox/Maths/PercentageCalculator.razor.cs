@@ -42,6 +42,10 @@ namespace CloudToolbox.Components.Toolbox.Maths
 				}
 
 			}
+			else
+			{
+				results.Add(new("Please enter 2 numbers"));
+			}
 
 			return results;
 		}

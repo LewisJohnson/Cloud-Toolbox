@@ -32,6 +32,12 @@ namespace CloudToolbox.Components.Shared
 		[Parameter]
 		public Func<List<CalculatorInput>, Task<List<CalculatorResult>>> OnChangeEvent { get; set; }
 
+		[Parameter]
+		public bool ShowCalculateButton { get; set; }
+
+		[Parameter]
+		public string CalculateButtonText { get; set; } = "Generate";
+
 		public SimpleCalculatorBase()
 		{
 			Inputs = new List<CalculatorInput>();

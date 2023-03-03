@@ -12,24 +12,24 @@
 
                 @if (!string.IsNullOrEmpty(input.Label))
                 {
-                    <label class="form-label">@input.Label</label>
+                    <label class="form-label" for="@input.Id">@input.Label</label>
                 }
 
                 <div class="input-group">
                     @if (!string.IsNullOrEmpty(input.StartInputGroupText))
                     {
-                        <span class="input-group-text" style="width: @(StartInputGroupWidth)px">@input.StartInputGroupText</span>
+                        <span class="input-group-text" for="@input.Id" style="width: @(StartInputGroupWidth)px">@input.StartInputGroupText</span>
                     }
 
                     @if (input.Type == typeof(string))
                     {
                         if (input.UseLargeInput)
                         {
-                            <textarea name="@input.Id" class="@formCssClass" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
+                            <textarea name="@input.Id" id="@input.Id" class="@formCssClass" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
                         }
                         else
                         {
-                            <input name="@input.Id" class="@formCssClass" type="text" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
+                            <input name="@input.Id" id="@input.Id"  class="@formCssClass" type="text" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
                         }
 
                     }
@@ -102,4 +102,11 @@
 
         }
     </div>
+
+    @if (ShowCalculateButton)
+    {
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-collection mt-3" @onclick="OnChange">Generate</button>
+        </div>
+    }
 </div>
