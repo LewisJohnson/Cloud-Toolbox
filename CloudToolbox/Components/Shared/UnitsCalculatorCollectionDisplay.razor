@@ -2,7 +2,7 @@
 
 <PageTitle>@Collection.DisplayName Calculators @Constants.TITLE_POSTFIX</PageTitle>
 
-<div class="d-block" style="min-height: 100vh">
+<div class="d-block">
     <div class="header text-white text-center p-3 position-sticky" style="z-index: 0; top: 0;">
         <h1 class="mt-5"><i class="@Collection.CssIcon"></i> @Collection.DisplayName Calculators</h1>
 
@@ -51,7 +51,7 @@
                                 if (isFirst)
                                 {
                                     isFirst = false;
-                                    <btn class="btn text-start" style="width: 200px">@from.Name</btn>
+                                    <btn class="btn text-start position-sticky" style="width: 200px; left: 0; z-index: 1;">@from.Name</btn>
                                 }
 
                                 <a class="btn" style="width: 100px" href="@uri">@to.ToString()</a>
