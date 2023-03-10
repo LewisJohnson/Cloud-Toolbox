@@ -1,0 +1,86 @@
+﻿<div class="bg-white shadow-sm mt-3">
+    <h2 style="background: #3cb3ed40;" class="h4 p-2">Insights<br /><small style="font-size: 0.8rem;">Powered by Wikipedia</small></h2>
+    <div class="px-3">
+
+        @if (UnitCalculators.Any(x => x.UnitOf == UnitOf.DataTransfer))
+        {
+            <UnitOfDataTransferInsight />
+        }
+        else
+        {
+            @foreach (UnitCalculatorsEnum unit in UnitCalculators)
+            {
+                @if (string.IsNullOrWhiteSpace(unit.InsightText))
+                {
+                    continue;
+                }
+
+                <div class="mt-3">
+                    <div class="d-flex flex-row align-text-bottom unit-system-row">
+                        <h5 class="me-auto">@unit.Name</h5>
+                    </div>
+
+                    <p class="mb-0">
+                        @unit.InsightText
+                    </p>
+
+
+                    <div class="d-flex flex-row flex-wrap align-items-start mt-3">
+                        @if (unit.UnitSystem.HasFlag(UnitSystem.SI))
+                        {
+                            <small class="badge bg-success mb-1 me-1 fw-normal border">SI</small>
+                        }
+                        else
+                        {
+                            <small class="badge bg-dark text-light mb-1 me-1 fw-normal border">non-SI</small>
+                        }
+
+                        @if (unit.UnitSystem.HasFlag(UnitSystem.Metric))
+                        {
+                            <small class="badge bg-light text-dark mb-1 me-1 fw-normal border">metric</small>
+                        }
+
+                        @if (unit.UnitSystem.HasFlag(UnitSystem.Imperial))
+                        {
+                            <small class="badge bg-light text-dark mb-1 me-1 fw-normal border">british imperial</small>
+                        }
+
+                        @if (unit.UnitSystem.HasFlag(UnitSystem.Customary))
+                        {
+                            <small class="badge bg-light text-dark mb-1 me-1 fw-normal border">US customary</small>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(unit.AmericanEnglishSpelling))
+                        {
+                            <span class="badge bg-light text-dark mb-1 me-1 fw-normal border">United States: @unit.AmericanEnglishSpelling</span>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(unit.PluralSpelling))
+                        {
+                            <span class="badge bg-light text-dark fw-normal border">Plural: @unit.PluralSpelling</span>
+                        }
+                    </div>
+
+                    <a class="btn btn-sm btn-link ps-0" target="_blank" href="@("https://en.wikipedia.org/w/index.php?search=" + unit.Name)">Learn more on Wikipedia</a>
+                </div>
+            }
+        }
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public List<UnitCalculatorsEnum> UnitCalculators { get; set; }
+
+    public UnitsInsight()
+    {
+        UnitCalculators = new List<UnitCalculatorsEnum>();
+    }
+}
+
+<style>
+    .unit-system-row small {
+        font-size: 0.8rem;
+    }
+</style>

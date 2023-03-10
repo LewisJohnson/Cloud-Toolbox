@@ -21,12 +21,12 @@ public class UnitsCalculatorCollection : CalculatorCollection
 
 		var calcs = new List<DisplayCalculator>();
 
-		var types = Enum.GetValues(typeof(UnitTypes));
+		var types = Enum.GetValues(typeof(UnitOf));
 
-		foreach (UnitTypes unitType in types)
+		foreach (UnitOf unitType in types)
 		{
 			var units = Enumeration.GetAll<UnitCalculatorsEnum>()
-				.Where(x => x.UnitType == unitType);
+				.Where(x => x.UnitOf == unitType);
 
 			foreach (var from in units)
 			{

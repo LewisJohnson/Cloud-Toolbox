@@ -7,7 +7,8 @@
 <SimpleCalculatorContainer 
     Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Units)"
     MetaPageTitle="@FromCalc.GetMetaPageTitle(ToCalc)"
-    MetaDescription="@FromCalc.GetMetaDescription(ToCalc)">
+    MetaDescription="@FromCalc.GetMetaDescription(ToCalc)"
+    UnitCalculators="new List<UnitCalculatorsEnum?>() { FromCalc, ToCalc }">
     <Header>
         <ToolboxHeader Title="@FromCalc.GetCalculatorHeaderTitle(ToCalc)">
             <Description>

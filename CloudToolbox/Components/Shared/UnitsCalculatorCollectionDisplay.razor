@@ -18,26 +18,26 @@
         </div>
 
         @{
-            UnitTypes? prevUnitType = null;
-            var types = Enum.GetValues(typeof(UnitTypes));
+            UnitOf? prevUnitType = null;
+            var types = Enum.GetValues(typeof(UnitOf));
         }
 
         <div class="px-4">
-            @foreach (UnitTypes unitType in types)
+            @foreach (UnitOf unitType in types)
             {
                 bool isFirst;
 
                  var units = Enumeration.GetAll<UnitCalculatorsEnum>()
-                        .Where(x => x.UnitType == unitType)
+                        .Where(x => x.UnitOf == unitType)
                         .OrderBy(x => x.Name);
 
-                foreach (var from in FilteredUnits.Where(x => x.UnitType == unitType))
+                foreach (var from in FilteredUnits.Where(x => x.UnitOf == unitType))
                 {
                     isFirst = true;
-                    if (from.UnitType != prevUnitType)
+                    if (from.UnitOf != prevUnitType)
                     {
-                        prevUnitType = from.UnitType;
-                        <h2 class="mt-5 mb-3">@(string.Join("", from.UnitType.ToString().Select(ch => (char.IsUpper(ch) ? " " : "") + ch)))</h2>
+                        prevUnitType = from.UnitOf;
+                        <h2 class="mt-5 mb-3">@(string.Join("", from.UnitOf.ToString().Select(ch => (char.IsUpper(ch) ? " " : "") + ch)))</h2>
                     }
 
                     <div class="btn-group mb-3 w-100">

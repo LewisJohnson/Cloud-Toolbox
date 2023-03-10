@@ -1,6 +1,6 @@
 ﻿namespace CloudToolbox.Common.Enums.Units
 {
-	public enum UnitTypes
+	public enum UnitOf
 	{
 		Area,
 		DataTransfer,

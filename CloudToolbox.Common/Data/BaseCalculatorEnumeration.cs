@@ -9,6 +9,18 @@
 		public object? Unit { get; private set; }
 		public string UriName => Name.Replace(' ', '_');
 		public T CalcType { get; private set; }
+		public string InsightText { get; private set; }
+		public string? InsightLinkOverride { get; private set; }
+
+		public BaseCalculatorEnumeration(int id, string name, string abbreviation, List<string> aliases, object? unit, T type, string insightText, string? insightLinkOverride) : base(id, name)
+		{
+			Abbreviation = abbreviation ?? throw new ArgumentNullException(nameof(abbreviation));
+			Aliases = aliases ?? new List<string> { };
+			Unit = unit;
+			CalcType = type;
+			InsightText = insightText;
+			InsightLinkOverride = insightLinkOverride;
+		}
 
 		public BaseCalculatorEnumeration(int id, string name, string abbreviation, List<string> aliases, object? unit, T type) : base(id, name)
 		{
@@ -24,7 +36,5 @@
 			Aliases = new List<string> { };
 			CalcType = type;
 		}
-
-
 	}
 }

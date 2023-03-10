@@ -7,8 +7,8 @@
 
 <Breadcrumb Links="@BreadcrumbLinks" />
 
-<div style="min-height: 90vh;">
-    <div class="d-flex flex-column flex-lg-row px-4 pt-3 calc-container">
+<div>
+    <div class="d-flex flex-column flex-lg-row flex-wrap px-4 pt-3 calc-container">
         <div class="mb-3 mb-lg-0 w-100" style="max-width: 400px">
             @Header
         </div>
@@ -16,6 +16,13 @@
         <div class="shadow-sm p-2 mb-5 ms-0 ms-lg-3 calc-panel w-100" style="max-width: 400px">
             @Calculator
         </div>
+
+        @if (UnitCalculators != null && UnitCalculators.Count > 0)
+        {
+            <div class="d-flex" style="max-width: 400px">
+                <UnitsInsight UnitCalculators="@UnitCalculators" />
+            </div>
+        }
     </div>
 </div>
 

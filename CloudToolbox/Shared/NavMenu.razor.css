@@ -91,6 +91,9 @@
     overflow-y: auto;
 }
 
+.global-search input {
+    transition: width 0.1s ease-out;
+}
 
 .global-search .results-container {
     width: 300px;
@@ -116,4 +119,21 @@
 
 .flex-column {
     margin-top: 3rem;
+}
+
+@media (max-width: 641px) {
+
+    .global-search input {
+        position: absolute;
+        right: 10px;
+        width: 42px;
+    }
+
+    .global-search input:focus {
+        width: 250px;
+    }
+
+    .global-search .results-container {
+        width: 90%;
+    }
 }
