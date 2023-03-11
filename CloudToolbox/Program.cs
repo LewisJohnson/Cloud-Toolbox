@@ -22,6 +22,8 @@ public class Program
 		});
 
 		builder.Services.AddSingleton<CalculatorCollectionService>();
+		builder.Services.AddSingleton<InsightsService>();
+		
 		builder.Services.AddScoped<NotFoundService>();
 
 		var app = builder.Build();

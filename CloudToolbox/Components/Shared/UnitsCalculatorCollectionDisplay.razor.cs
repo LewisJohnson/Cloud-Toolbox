@@ -49,7 +49,7 @@ namespace CloudToolbox.Components.Shared
 		public List<UnitCalculatorsEnum> DefaultUnitCalculators()
 		{
 			return Enumeration.GetAll<UnitCalculatorsEnum>()
-				.OrderBy(x => x.UnitType)
+				.OrderBy(x => x.UnitOf)
 				.ThenBy(x => x.Name)
 				.ToList();
 		}

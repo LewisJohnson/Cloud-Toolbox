@@ -1,6 +1,6 @@
 ﻿using CloudToolbox.Common.Data;
+using CloudToolbox.Common.Enums.Units;
 using Microsoft.AspNetCore.Components;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using static CloudToolbox.Components.Shared.Breadcrumb;
 
 namespace CloudToolbox.Components.Shared
@@ -12,6 +12,7 @@ namespace CloudToolbox.Components.Shared
 		[Parameter] public CalculatorCollection Collection { get; set; }
 		[Parameter] public string MetaPageTitle { get; set; }
 		[Parameter] public string MetaDescription { get; set; }
+		[Parameter] public List<UnitCalculatorsEnum?>? UnitCalculators { get; set; }
 
 		[Inject] public NavigationManager NavigationManager { get; set; }
 

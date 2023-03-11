@@ -1,0 +1,94 @@
+﻿<div class="bg-white shadow-sm mb-3 pb-3 w-100">
+    <div class="d-block position-relative">
+        <h2 class="h4 p-2">Insights<br /><small style="font-size: 0.8rem;">Powered by Wikipedia</small></h2>
+        @*<img src="images/thirdparty/wikipedia.png" style="width: 30px; right: 10px; top: 5px;" class="position-absolute" alt="The 'W' Wikipedia logo." />*@
+    </div>
+
+    <div class="px-3">
+
+        @if (UnitCalculators.Any(x => x.UnitOf == UnitOf.DataTransfer))
+        {
+            <UnitOfDataTransferInsight />
+        }
+        else
+        {
+            @foreach (UnitCalculatorsEnum unit in UnitCalculators)
+            {
+                <div class="my-3">
+                    <div class="d-flex flex-row align-text-bottom unit-system-row">
+                        <h5 class="me-auto">@unit.Name</h5>
+
+                        @if (unit.UnitSystem.HasFlag(UnitSystem.SI))
+                        {
+                            <small class="ms-2 fw-bold">SI</small>
+                        }
+                        else
+                        {
+                            <small class="ms-2 fw-bold">non-SI</small>
+                        }
+
+                        @if (unit.UnitSystem.HasFlag(UnitSystem.Metric))
+                        {
+                            <small class="ms-2">metric</small>
+                        }
+                        @if (unit.UnitSystem.HasFlag(UnitSystem.Imperial))
+                        {
+                            <small class="ms-2">british imperial</small>
+                        }
+                        @if (unit.UnitSystem.HasFlag(UnitSystem.Customary))
+                        {
+                            <small class="ms-2">US customary</small>
+                        }
+                    </div>
+
+                    @{
+                        insights.TryGetValue(unit.Name, out Insight? unitInsight);
+                    }
+
+                    @if (hasInsightsLoaded)
+                    {
+                        if (unitInsight == null)
+                        {
+                            <small class="py-3"><i>Could not retrieve insight.</i></small>
+                        }
+                        else
+                        {
+                            <div class="d-flex flex-column align-items-start">
+                                @if (unitInsight.Spellings != null)
+                                {
+                                    if (!string.IsNullOrWhiteSpace(unitInsight.Spellings.AmericanEnglish))
+                                    {
+                                        <span class="badge bg-light text-dark mb-1 fw-normal border">United States: @unitInsight.Spellings.AmericanEnglish</span>
+                                    }
+
+                                    if (!string.IsNullOrWhiteSpace(unitInsight.Spellings.Plural))
+                                    {
+                                        <span class="badge bg-light text-dark fw-normal border">Plural: @unitInsight.Spellings.Plural</span>
+                                    }
+                                }
+                            </div>
+
+                            <p class="mb-0 mt-3">
+                                @unitInsight.Description
+                            </p>
+
+                            <a class="btn btn-sm btn-link ps-0" target="_blank" href="@unitInsight.ExternalUrl">Learn more on Wikipedia</a>
+                        }
+                    }
+                    else
+                    {
+                        <div class="bg-light mt-3 w-100" style="height: 200px">
+                        </div>
+                    }
+                </div>
+            }
+        }
+
+    </div>
+</div>
+
+<style>
+    .unit-system-row small {
+        font-size: 0.8rem;
+    }
+</style>
