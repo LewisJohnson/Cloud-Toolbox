@@ -51,7 +51,7 @@ namespace CloudToolbox.Components.Toolbox
 			ToCalc = UnitCalculatorsEnum.MatchFromUri(unitToParam);
 
 			if (FromCalc == null || ToCalc == null ||
-				FromCalc.UnitType != ToCalc.UnitType)
+				FromCalc.UnitOf != ToCalc.UnitOf)
 			{
 				NotFoundService.NotifyNotFound();
 				return;
@@ -78,33 +78,33 @@ namespace CloudToolbox.Components.Toolbox
 			{
 				double converted = 0;
 
-				switch (FromCalc.UnitType)
+				switch (FromCalc.UnitOf)
 				{
-					case UnitTypes.Area:
+					case UnitOf.Area:
 						converted = new UnitOfAreaConverter(((UnitOfArea)FromCalc.Unit, (UnitOfArea)ToCalc.Unit)).Convert(input.Value);
 						break;
 
-					case UnitTypes.DataTransfer:
+					case UnitOf.DataTransfer:
 						converted = new UnitOfDataTranserConverter(((UnitOfDataTranser)FromCalc.Unit, (UnitOfDataTranser)ToCalc.Unit)).Convert(input.Value);
 						break;
 
-					case UnitTypes.Energy:
+					case UnitOf.Energy:
 						converted = new UnitOfEnergyConverter(((UnitOfEnergy)FromCalc.Unit, (UnitOfEnergy)ToCalc.Unit)).Convert(input.Value);
 						break;
 
-					case UnitTypes.Length:
+					case UnitOf.Length:
 						converted = new UnitOfLengthConverter(((UnitOfLength)FromCalc.Unit, (UnitOfLength)ToCalc.Unit)).Convert(input.Value);
 						break;
 
-					case UnitTypes.Mass:
+					case UnitOf.Mass:
 						converted = new UnitOfMassConverter(((UnitOfMass)FromCalc.Unit, (UnitOfMass)ToCalc.Unit)).Convert(input.Value);
 						break;
 
-					case UnitTypes.Speed:
+					case UnitOf.Speed:
 						converted = new UnitOfSpeedConverter(((UnitOfSpeed)FromCalc.Unit, (UnitOfSpeed)ToCalc.Unit)).Convert(input.Value);
 						break;
 
-					case UnitTypes.Time:
+					case UnitOf.Time:
 						converted = new UnitOfTimeConverter(((UnitOfTime)FromCalc.Unit, (UnitOfTime)ToCalc.Unit)).Convert(input.Value);
 						break;
 				}

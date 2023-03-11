@@ -19,7 +19,7 @@ public class DisplayCalculator
 		Abbreviation = string.Empty;
 	}
 
-	public DisplayCalculator(CalculatorCollection collection, string displayName, string uri, List<string> aliases, string abbreviation = "", UnitTypes? unitType = null, object? fromType = null, object? toType = null) : this(collection)
+	public DisplayCalculator(CalculatorCollection collection, string displayName, string uri, List<string> aliases, string abbreviation = "", UnitOf? unitType = null, object? fromType = null, object? toType = null) : this(collection)
 	{
 		DisplayName = displayName ?? throw new ArgumentNullException(nameof(displayName));
 		Uri = uri ?? throw new ArgumentNullException(nameof(uri));
@@ -37,7 +37,7 @@ public class DisplayCalculator
 	public string Abbreviation { get; }
 	public object? FromType { get; }
 	public object? ToType { get; }
-	public UnitTypes? UnitType { get; }
+	public UnitOf? UnitType { get; }
 	public DeveloperCalculatorType? DeveloperType { get; set; }
 	public TextCalculatorType? TextType { get; set; }
 }

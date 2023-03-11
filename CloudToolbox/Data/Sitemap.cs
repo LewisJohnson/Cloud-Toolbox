@@ -80,7 +80,7 @@ namespace CloudToolbox.Data
 			var units = Enumeration.GetAll<UnitCalculatorsEnum>();
 			foreach (var (from, to) in units
 				.SelectMany(from => units.Where(to => from != to)
-				.Where(to => from.UnitType == to.UnitType)
+				.Where(to => from.UnitOf == to.UnitOf)
 				.Select(to => (from, to)))
 			)
 			{

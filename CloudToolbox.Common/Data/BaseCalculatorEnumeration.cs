@@ -3,7 +3,6 @@
 	public abstract class BaseCalculatorEnumeration<T> : Enumeration
 	{
 		public string Abbreviation { get; private set; }
-
 		public string AbbreviationInBrackets => string.IsNullOrWhiteSpace(Abbreviation) ? string.Empty : $"({Abbreviation})";
 		public List<string> Aliases { get; private set; }
 		public object? Unit { get; private set; }
@@ -24,7 +23,5 @@
 			Aliases = new List<string> { };
 			CalcType = type;
 		}
-
-
 	}
 }
