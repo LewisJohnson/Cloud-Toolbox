@@ -1,0 +1,169 @@
+{
+	"product": "CloudToolbox Insights Data",
+	"poweredBy": "Wikipedia, The Free Encyclopedia",
+	"version": 0.1,
+	"lastRevision": "2023-03-25",
+	"insights": [
+		{
+			"name": "Square Kilometer",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Square_kilometre",
+			"description": "Square kilometre or square kilometer, is a multiple of the square metre, the SI unit of area or surface area.",
+			"spellings": {
+				"usa": "Square kilometer",
+				"plural": "square kilometres"
+			}
+		},
+		{
+			"name": "Square Metre",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Square_metre",
+			"description": "The square metre or square meter is a unit of area. It is the area of a square with sides one metre in length.",
+			"spellings": {
+				"usa": "square kilometer",
+				"plural": "square kilometres"
+			}
+		},
+		{
+			"name": "Square Mile",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Square_mile",
+			"description": "The square mile is a unit of area. One square mile is an area equal to the area of a square with sides of length one mile.",
+			"spellings": {
+				"plural": "square miles"
+			}
+		},
+		{
+			"name": "Square Yard",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Square_yard",
+			"description": "The square yard is a unit of area. It is in widespread use in most of the English-speaking world, particularly the United States, United Kingdom, Canada and other regions. It is defined as the area of a square with sides of one yard (three feet, thirty-six inches, 0.9144 metres) in length.",
+			"spellings": {
+				"plural": "square yards"
+			}
+		},
+		{
+			"name": "Square Foot",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Square_foot",
+			"description": "The square foot is a unit of area, used mainly in the United States and partially in Canada, the United Kingdom and other regions. It is defined as the area of a square with sides of 1 foot.",
+			"spellings": {
+				"plural": "square feet"
+			}
+		},
+		{
+			"name": "Square Inch",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Square_inches",
+			"description": "A square inch is a unit of area, equal to the area of a square with sides of one inch.",
+			"spellings": {
+				"plural": "square inches"
+			}
+		},
+		{
+			"name": "Hectare",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Hectare",
+			"description": "The hectare is a metric unit of area equal to a square with 100-metre sides (1 hm²), or 10,000 m², and is primarily used in the measurement of land. There are 100 hectares in one square kilometre. An acre is about 0.405 hectares and one hectare contains about 2.47 acres.",
+			"spellings": {
+				"plural": "hectares"
+			}
+		},
+		{
+			"name": "Acre",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Acre",
+			"description": "The acre is a unit of land area. It is traditionally defined as the area of one chain by one furlong (66 by 660 feet), which is exactly equal to 10 square chains, 1⁄640 of a square mile, 4,840 square yards, or 43,560 square feet, and approximately 4,047 m2, or about 40% of a hectare. Based upon the international yard and pound agreement of 1959, an acre may be declared as exactly 4,046.8564224 square metres.",
+			"spellings": {
+				"plural": "acres"
+			}
+		},
+		{
+			"name": "Joule",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Joule",
+			"description": "The joule is the unit of energy. It is equal to the amount of work done when a force of 1 newton displaces a mass through a distance of 1 metre in the direction of the force applied. It is also the energy dissipated as heat when an electric current of one ampere passes through a resistance of one ohm for one second. It is named after the English physicist James Prescott Joule.",
+			"spellings": {
+				"plural": "joules"
+			}
+		},
+		{
+			"name": "Kilojoule",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Joule#Kilojoule",
+			"description": "Nutritional food labels in most countries express energy in kilojoules. One square metre of the Earth receives about 1.4 kilojoules of solar radiation every second in full daylight. A human in a sprint has approximately 3 kJ of kinetic energy, while a cheetah in a 122 km/h (76 mph) sprint has approximately 20 kJ. One watt-hour of electricity is 3.6 kilojoules.",
+			"spellings": {
+				"plural": "kilojoules"
+			}
+		},
+		{
+			"name": "Calorie",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Calorie",
+			"description": "The calorie is a unit of energy that originated from the obsolete caloric theory of heat. For historical reasons, two main definitions of \"calorie\" are in wide use. The large calorie, food calorie, dietary calorie, or kilogram calorie was originally defined as the amount of heat needed to raise the temperature of one kilogram of water by one degree Celsius (or one kelvin). The small calorie or gram calorie was defined as the amount of heat needed to cause the same increase in one gram of water. Thus, 1 large calorie is equal to 1000 small calories.",
+			"spellings": {
+				"plural": "calories"
+			}
+		},
+		{
+			"name": "Kcal",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Kilocalorie",
+			"description": "On nutrition facts labels in the European Union, energy is expressed in both kilojoules and kilocalories. In the United States and Canada, labels use \"Calories\", referring to the large unit. In the US, most nutritionists prefer the unit kilocalorie to the unit kilojoules, whereas most physiologists prefer to use kilojoules. In the majority of other countries, nutritionists prefer the kilojoule to the kilocalorie.",
+			"spellings": {
+				"plural": "kilocalories"
+			}
+		},
+		{
+			"name": "Watt-hour",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Watt-hour",
+			"description": "A watt-hour is a unit of energy: one watt of power for one hour.",
+			"spellings": {
+				"plural": "watt-hours"
+			}
+		},
+		{
+			"name": "Kilowatt-hour",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/kilowatt-hour",
+			"description": "A kilowatt-hour is a unit of energy: one kilowatt of power for one hour. Kilowatt-hours are a common billing unit for electrical energy delivered to consumers by electric utilities.",
+			"spellings": {
+				"plural": "kilowatt-hours"
+			}
+		},
+		{
+			"name": "Electronvolt",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Electronvolt",
+			"description": "An electronvolt is the measure of an amount of kinetic energy gained by a single electron accelerating from rest through an electric potential difference of one volt in vacuum. When used as a unit of energy, the numerical value of 1 eV in joules is equivalent to the numerical value of the charge of an electron in coulombs.",
+			"spellings": {
+				"plural": "electronvolts"
+			}
+		},
+		{
+			"name": "British Thermal Unit",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/British_thermal_unit",
+			"description": "The British thermal unit is a measure of heat, which is measured in units of energy. It is defined as the amount of heat required to raise the temperature of one pound of water by one degree Fahrenheit.",
+			"spellings": {
+				"plural": "british thermal units"
+			}
+		},
+		{
+			"name": "US Therm",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Therm",
+			"description": "The therm is a unit of heat energy equal to 100,000 British thermal units, and approximately 105 megajoules and 29 kilowatt-hours. One therm is the energy content of approximately 100 cubic feet of natural gas at standard temperature and pressure. However, the BTU is not standardised worldwide, with slightly different values in the EU, UK, and USA, meaning that the energy content of the therm also varies by territory.",
+			"spellings": {
+				"plural": "therms"
+			}
+		},
+		{
+			"name": "Foot-pound",
+			"lastRevision": "2023-03-11",
+			"url": "https://en.wikipedia.org/wiki/Foot-pound_(energy)",
+			"description": "The foot-pound force is a unit of work or energy in the engineering and gravitational systems in United States customary and imperial units of measure. It is the energy transferred upon applying a force of one pound-force (lbf) through a linear displacement of one foot."
+		}
+	]
+}
