@@ -58,7 +58,7 @@ namespace CloudToolbox.Common.Extensions
 			}
 
 
-			return $"Convert {fromCalc.Name} {fromCalc.AbbreviationInBrackets} to {toCalc.Name}";
+			return $"Convert {fromCalc.Name} {fromCalc.AbbreviationInBrackets} to {toCalc.Name} {toCalc.AbbreviationInBrackets}";
 		}
 
 		public static string GetMetaDescription(this UnitCalculatorsEnum? fromCalc, UnitCalculatorsEnum? toCalc)
