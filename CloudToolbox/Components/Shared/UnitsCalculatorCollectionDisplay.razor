@@ -27,9 +27,9 @@
             {
                 bool isFirst;
 
-                 var units = Enumeration.GetAll<UnitCalculatorsEnum>()
-                        .Where(x => x.UnitOf == unitType)
-                        .OrderBy(x => x.Name);
+                var units = Enumeration.GetAll<UnitCalculatorsEnum>()
+                .Where(x => x.UnitOf == unitType)
+                .OrderBy(x => x.Name);
 
                 foreach (var from in FilteredUnits.Where(x => x.UnitOf == unitType))
                 {
@@ -54,7 +54,14 @@
                                     <btn class="btn text-start position-sticky" style="width: 200px; left: 0; z-index: 1;">@from.Name</btn>
                                 }
 
-                                <a class="btn" style="width: 100px" href="@uri">@to.ToString()</a>
+                                if (unitType == UnitOf.DataTransfer)
+                                {
+                                    <a class="btn" style="width: 100px" href="@uri">@to.ToString().Replace("Per Second", "")</a>
+                                }
+                                else
+                                {
+                                    <a class="btn" style="width: 100px" href="@uri">@to.ToString()</a>
+                                }
                             }
                         }
                     </div>

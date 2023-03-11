@@ -15,7 +15,6 @@ namespace CloudToolbox.Services
 
 		public async Task<Insight?> SearchAsync(string searchTerm)
 		{
-			Task.Delay(2000).Wait();
 			searchTerm = searchTerm.Trim().ToLower();
 
 			if (insightsCache == null)

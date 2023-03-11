@@ -1,169 +1,412 @@
 {
-	"product": "CloudToolbox Insights Data",
-	"poweredBy": "Wikipedia, The Free Encyclopedia",
-	"version": 0.1,
-	"lastRevision": "2023-03-25",
-	"insights": [
-		{
-			"name": "Square Kilometer",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Square_kilometre",
-			"description": "Square kilometre or square kilometer, is a multiple of the square metre, the SI unit of area or surface area.",
-			"spellings": {
-				"usa": "Square kilometer",
-				"plural": "square kilometres"
-			}
-		},
-		{
-			"name": "Square Metre",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Square_metre",
-			"description": "The square metre or square meter is a unit of area. It is the area of a square with sides one metre in length.",
-			"spellings": {
-				"usa": "square kilometer",
-				"plural": "square kilometres"
-			}
-		},
-		{
-			"name": "Square Mile",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Square_mile",
-			"description": "The square mile is a unit of area. One square mile is an area equal to the area of a square with sides of length one mile.",
-			"spellings": {
-				"plural": "square miles"
-			}
-		},
-		{
-			"name": "Square Yard",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Square_yard",
-			"description": "The square yard is a unit of area. It is in widespread use in most of the English-speaking world, particularly the United States, United Kingdom, Canada and other regions. It is defined as the area of a square with sides of one yard (three feet, thirty-six inches, 0.9144 metres) in length.",
-			"spellings": {
-				"plural": "square yards"
-			}
-		},
-		{
-			"name": "Square Foot",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Square_foot",
-			"description": "The square foot is a unit of area, used mainly in the United States and partially in Canada, the United Kingdom and other regions. It is defined as the area of a square with sides of 1 foot.",
-			"spellings": {
-				"plural": "square feet"
-			}
-		},
-		{
-			"name": "Square Inch",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Square_inches",
-			"description": "A square inch is a unit of area, equal to the area of a square with sides of one inch.",
-			"spellings": {
-				"plural": "square inches"
-			}
-		},
-		{
-			"name": "Hectare",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Hectare",
-			"description": "The hectare is a metric unit of area equal to a square with 100-metre sides (1 hm²), or 10,000 m², and is primarily used in the measurement of land. There are 100 hectares in one square kilometre. An acre is about 0.405 hectares and one hectare contains about 2.47 acres.",
-			"spellings": {
-				"plural": "hectares"
-			}
-		},
-		{
-			"name": "Acre",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Acre",
-			"description": "The acre is a unit of land area. It is traditionally defined as the area of one chain by one furlong (66 by 660 feet), which is exactly equal to 10 square chains, 1⁄640 of a square mile, 4,840 square yards, or 43,560 square feet, and approximately 4,047 m2, or about 40% of a hectare. Based upon the international yard and pound agreement of 1959, an acre may be declared as exactly 4,046.8564224 square metres.",
-			"spellings": {
-				"plural": "acres"
-			}
-		},
-		{
-			"name": "Joule",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Joule",
-			"description": "The joule is the unit of energy. It is equal to the amount of work done when a force of 1 newton displaces a mass through a distance of 1 metre in the direction of the force applied. It is also the energy dissipated as heat when an electric current of one ampere passes through a resistance of one ohm for one second. It is named after the English physicist James Prescott Joule.",
-			"spellings": {
-				"plural": "joules"
-			}
-		},
-		{
-			"name": "Kilojoule",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Joule#Kilojoule",
-			"description": "Nutritional food labels in most countries express energy in kilojoules. One square metre of the Earth receives about 1.4 kilojoules of solar radiation every second in full daylight. A human in a sprint has approximately 3 kJ of kinetic energy, while a cheetah in a 122 km/h (76 mph) sprint has approximately 20 kJ. One watt-hour of electricity is 3.6 kilojoules.",
-			"spellings": {
-				"plural": "kilojoules"
-			}
-		},
-		{
-			"name": "Calorie",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Calorie",
-			"description": "The calorie is a unit of energy that originated from the obsolete caloric theory of heat. For historical reasons, two main definitions of \"calorie\" are in wide use. The large calorie, food calorie, dietary calorie, or kilogram calorie was originally defined as the amount of heat needed to raise the temperature of one kilogram of water by one degree Celsius (or one kelvin). The small calorie or gram calorie was defined as the amount of heat needed to cause the same increase in one gram of water. Thus, 1 large calorie is equal to 1000 small calories.",
-			"spellings": {
-				"plural": "calories"
-			}
-		},
-		{
-			"name": "Kcal",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Kilocalorie",
-			"description": "On nutrition facts labels in the European Union, energy is expressed in both kilojoules and kilocalories. In the United States and Canada, labels use \"Calories\", referring to the large unit. In the US, most nutritionists prefer the unit kilocalorie to the unit kilojoules, whereas most physiologists prefer to use kilojoules. In the majority of other countries, nutritionists prefer the kilojoule to the kilocalorie.",
-			"spellings": {
-				"plural": "kilocalories"
-			}
-		},
-		{
-			"name": "Watt-hour",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Watt-hour",
-			"description": "A watt-hour is a unit of energy: one watt of power for one hour.",
-			"spellings": {
-				"plural": "watt-hours"
-			}
-		},
-		{
-			"name": "Kilowatt-hour",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/kilowatt-hour",
-			"description": "A kilowatt-hour is a unit of energy: one kilowatt of power for one hour. Kilowatt-hours are a common billing unit for electrical energy delivered to consumers by electric utilities.",
-			"spellings": {
-				"plural": "kilowatt-hours"
-			}
-		},
-		{
-			"name": "Electronvolt",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Electronvolt",
-			"description": "An electronvolt is the measure of an amount of kinetic energy gained by a single electron accelerating from rest through an electric potential difference of one volt in vacuum. When used as a unit of energy, the numerical value of 1 eV in joules is equivalent to the numerical value of the charge of an electron in coulombs.",
-			"spellings": {
-				"plural": "electronvolts"
-			}
-		},
-		{
-			"name": "British Thermal Unit",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/British_thermal_unit",
-			"description": "The British thermal unit is a measure of heat, which is measured in units of energy. It is defined as the amount of heat required to raise the temperature of one pound of water by one degree Fahrenheit.",
-			"spellings": {
-				"plural": "british thermal units"
-			}
-		},
-		{
-			"name": "US Therm",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Therm",
-			"description": "The therm is a unit of heat energy equal to 100,000 British thermal units, and approximately 105 megajoules and 29 kilowatt-hours. One therm is the energy content of approximately 100 cubic feet of natural gas at standard temperature and pressure. However, the BTU is not standardised worldwide, with slightly different values in the EU, UK, and USA, meaning that the energy content of the therm also varies by territory.",
-			"spellings": {
-				"plural": "therms"
-			}
-		},
-		{
-			"name": "Foot-pound",
-			"lastRevision": "2023-03-11",
-			"url": "https://en.wikipedia.org/wiki/Foot-pound_(energy)",
-			"description": "The foot-pound force is a unit of work or energy in the engineering and gravitational systems in United States customary and imperial units of measure. It is the energy transferred upon applying a force of one pound-force (lbf) through a linear displacement of one foot."
-		}
-	]
+  "product": "CloudToolbox Insights Data",
+  "poweredBy": "Wikipedia, The Free Encyclopedia",
+  "version": 0.1,
+  "lastRevision": "2023-03-25",
+  "insights": [
+    {
+      "name": "Square Kilometre",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Square_kilometre",
+      "description": "Square kilometre or square kilometer, is a multiple of the square metre, the SI unit of area or surface area.",
+      "spellings": {
+        "usa": "Square kilometer",
+        "plural": "square kilometres"
+      }
+    },
+    {
+      "name": "Square Metre",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Square_metre",
+      "description": "The square metre or square meter is a unit of area. It is the area of a square with sides one metre in length.",
+      "spellings": {
+        "usa": "square meter",
+        "plural": "square meters"
+      }
+    },
+    {
+      "name": "Square Mile",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Square_mile",
+      "description": "The square mile is a unit of area. One square mile is an area equal to the area of a square with sides of length one mile.",
+      "spellings": {
+        "plural": "square miles"
+      }
+    },
+    {
+      "name": "Square Yard",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Square_yard",
+      "description": "The square yard is a unit of area. It is in widespread use in most of the English-speaking world, particularly the United States, United Kingdom, Canada and other regions. It is defined as the area of a square with sides of one yard (three feet, thirty-six inches, 0.9144 metres) in length.",
+      "spellings": {
+        "plural": "square yards"
+      }
+    },
+    {
+      "name": "Square Foot",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Square_foot",
+      "description": "The square foot is a unit of area, used mainly in the United States and partially in Canada, the United Kingdom and other regions. It is defined as the area of a square with sides of 1 foot.",
+      "spellings": {
+        "plural": "square feet"
+      }
+    },
+    {
+      "name": "Square Inch",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Square_inches",
+      "description": "A square inch is a unit of area, equal to the area of a square with sides of one inch.",
+      "spellings": {
+        "plural": "square inches"
+      }
+    },
+    {
+      "name": "Hectare",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Hectare",
+      "description": "The hectare is a metric unit of area equal to a square with 100-metre sides (1 hm²), or 10,000 m², and is primarily used in the measurement of land. There are 100 hectares in one square kilometre. An acre is about 0.405 hectares and one hectare contains about 2.47 acres.",
+      "spellings": {
+        "plural": "hectares"
+      }
+    },
+    {
+      "name": "Acre",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Acre",
+      "description": "The acre is a unit of land area. It is traditionally defined as the area of one chain by one furlong (66 by 660 feet), which is exactly equal to 10 square chains, 1⁄640 of a square mile, 4,840 square yards, or 43,560 square feet, and approximately 4,047 m2, or about 40% of a hectare. Based upon the international yard and pound agreement of 1959, an acre may be declared as exactly 4,046.8564224 square metres.",
+      "spellings": {
+        "plural": "acres"
+      }
+    },
+    {
+      "name": "Joule",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Joule",
+      "description": "The joule is the unit of energy. It is equal to the amount of work done when a force of 1 newton displaces a mass through a distance of 1 metre in the direction of the force applied. It is also the energy dissipated as heat when an electric current of one ampere passes through a resistance of one ohm for one second. It is named after the English physicist James Prescott Joule.",
+      "spellings": {
+        "plural": "joules"
+      }
+    },
+    {
+      "name": "Kilojoule",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Joule#Kilojoule",
+      "description": "Nutritional food labels in most countries express energy in kilojoules. One square metre of the Earth receives about 1.4 kilojoules of solar radiation every second in full daylight. A human in a sprint has approximately 3 kJ of kinetic energy, while a cheetah in a 122 km/h (76 mph) sprint has approximately 20 kJ. One watt-hour of electricity is 3.6 kilojoules.",
+      "spellings": {
+        "plural": "kilojoules"
+      }
+    },
+    {
+      "name": "Calorie",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Calorie",
+      "description": "The calorie is a unit of energy that originated from the obsolete caloric theory of heat. For historical reasons, two main definitions of \"calorie\" are in wide use. The large calorie, food calorie, dietary calorie, or kilogram calorie was originally defined as the amount of heat needed to raise the temperature of one kilogram of water by one degree Celsius (or one kelvin). The small calorie or gram calorie was defined as the amount of heat needed to cause the same increase in one gram of water. Thus, 1 large calorie is equal to 1000 small calories.",
+      "spellings": {
+        "plural": "calories"
+      }
+    },
+    {
+      "name": "Kcal",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Kilocalorie",
+      "description": "On nutrition facts labels in the European Union, energy is expressed in both kilojoules and kilocalories. In the United States and Canada, labels use \"Calories\", referring to the large unit. In the US, most nutritionists prefer the unit kilocalorie to the unit kilojoules, whereas most physiologists prefer to use kilojoules. In the majority of other countries, nutritionists prefer the kilojoule to the kilocalorie.",
+      "spellings": {
+        "plural": "kilocalories"
+      }
+    },
+    {
+      "name": "Watt-hour",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Watt-hour",
+      "description": "A watt-hour is a unit of energy: one watt of power for one hour.",
+      "spellings": {
+        "plural": "watt-hours"
+      }
+    },
+    {
+      "name": "Kilowatt-hour",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/kilowatt-hour",
+      "description": "A kilowatt-hour is a unit of energy: one kilowatt of power for one hour. Kilowatt-hours are a common billing unit for electrical energy delivered to consumers by electric utilities.",
+      "spellings": {
+        "plural": "kilowatt-hours"
+      }
+    },
+    {
+      "name": "Electronvolt",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Electronvolt",
+      "description": "An electronvolt is the measure of an amount of kinetic energy gained by a single electron accelerating from rest through an electric potential difference of one volt in vacuum. When used as a unit of energy, the numerical value of 1 eV in joules is equivalent to the numerical value of the charge of an electron in coulombs.",
+      "spellings": {
+        "plural": "electronvolts"
+      }
+    },
+    {
+      "name": "British Thermal Unit",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/British_thermal_unit",
+      "description": "The British thermal unit is a measure of heat, which is measured in units of energy. It is defined as the amount of heat required to raise the temperature of one pound of water by one degree Fahrenheit.",
+      "spellings": {
+        "plural": "british thermal units"
+      }
+    },
+    {
+      "name": "US Therm",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Therm",
+      "description": "The therm is a unit of heat energy equal to 100,000 British thermal units, and approximately 105 megajoules and 29 kilowatt-hours. One therm is the energy content of approximately 100 cubic feet of natural gas at standard temperature and pressure. However, the BTU is not standardised worldwide, with slightly different values in the EU, UK, and USA, meaning that the energy content of the therm also varies by territory.",
+      "spellings": {
+        "plural": "therms"
+      }
+    },
+    {
+      "name": "Foot-pound",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Foot-pound_(energy)",
+      "description": "The foot-pound force is a unit of work or energy in the engineering and gravitational systems in United States customary and imperial units of measure. It is the energy transferred upon applying a force of one pound-force (lbf) through a linear displacement of one foot."
+    },
+
+
+    {
+      "name": "Kilometre",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Kilometre",
+      "description": "The kilometre is a unit of length equal to one thousand metres (kilo- being the SI prefix for 1000). It is now the measurement unit used for expressing distances between geographical places on land in most of the world; notable exceptions are the United States and the United Kingdom where the statute mile is the main unit used.",
+      "spellings": {
+        "usa": "kilometer",
+        "plural": "kilometres"
+      }
+    },
+    {
+      "name": "Metre",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Metre",
+      "description": "The metre is the base unit of length in the International System of Units (SI). The metre was originally defined in 1793 as one ten-millionth of the distance from the equator to the North Pole along a great circle, so the Earth's circumference is approximately 40000 km. In 1799, the metre was redefined in terms of a prototype metre bar (the actual bar used was changed in 1889). In 1960, the metre was redefined in terms of a certain number of wavelengths of a certain emission line of krypton-86.",
+      "spellings": {
+        "usa": "meter",
+        "plural": "metres"
+      }
+    },
+    {
+      "name": "Centimetre",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Centimetre",
+      "description": "A centimetre is a unit of length, equal to one hundredth of a metre, centi being the SI prefix for a factor of 1/100. Equivalently, there are 100 centimetres in 1 metre. The centimetre was the base unit of length in the now deprecated centimetre–gram–second (CGS) system of units. Though for many physical quantities, SI prefixes for factors of 103—like milli- and kilo-—are often preferred by technicians, the centimetre remains a practical unit of length for many everyday measurements.",
+      "spellings": {
+        "usa": "centimeter",
+        "plural": "centimetres"
+      }
+    },
+    {
+      "name": "Millimetre",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Millimetre",
+      "description": "The millimetre is a unit of length, equal to one thousandth of a metre, which is the SI base unit of length. Therefore, there are one thousand millimetres in a metre. There are ten millimetres in a centimetre.",
+      "spellings": {
+        "usa": "millimeter",
+        "plural": "millimeters"
+      }
+    },
+    {
+      "name": "Mile",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Mile",
+      "description": "The mile, sometimes the international mile or statute mile to distinguish it from other miles, is a British imperial unit and United States customary unit of distance; both are based on the older English unit of length equal to 5,280 English feet, or 1,760 yards. The statute mile was standardised between the British Commonwealth and the United States by an international agreement in 1959, when it was formally redefined with respect to SI units as exactly 1,609.344 metres.",
+      "spellings": {
+        "plural": "miles"
+      }
+    },
+    {
+      "name": "Yard",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Yard",
+      "description": "The yard is an English unit of length in both the British imperial and US customary systems of measurement equalling 3 feet or 36 inches. Since 1959 it has been by international agreement standardized as exactly 0.9144 meter. A distance of 1,760 yards is equal to 1 mile. ",
+      "spellings": {
+        "plural": "yards"
+      }
+    },
+    {
+      "name": "Foot",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Foot_(unit)",
+      "description": "The foot is a unit of length. The prime symbol, ′, is a customarily used alternative symbol. In both customary and imperial units, one foot comprises 12 inches and one yard comprises three feet.",
+      "spellings": {
+        "plural": "feet"
+      }
+    },
+    {
+      "name": "Inch",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Inch",
+      "description": "The inch is a unit of length. It is equal to 1/36 yard or 1/12 of a foot. Derived from the Roman uncia (\"twelfth\"), the word inch is also sometimes used to translate similar units in other measurement systems, usually understood as deriving from the width of the human thumb.",
+      "spellings": {
+        "plural": "inches"
+      }
+    },
+
+    {
+      "name": "Kilogram",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Kilogram",
+      "description": "The kilogram is the unit of mass. It is a widely used measure in science, engineering and commerce worldwide, and is often simply called a kilo colloquially. It means 'one thousand grams'.",
+      "spellings": {
+        "plural": "Kilograms"
+      }
+    },
+    {
+      "name": "Stone",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Stone_(unit)",
+      "description": "The stone or stone weight is an English and imperial unit of mass equal to 14 pounds (6.35 kg). The stone continues in customary use in the United Kingdom for body weight.",
+      "spellings": {
+        "plural": "stones"
+      }
+    },
+    {
+      "name": "Pound",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Pound_(mass)",
+      "description": "The pound is a unit of mass. Various definitions have been used; the most common today is the international avoirdupois pound, which is legally defined as exactly 0.45359237 kilograms, and which is divided into 16 avoirdupois ounces.",
+      "spellings": {
+        "plural": "pounds"
+      }
+    },
+    {
+      "name": "Tonne",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Tonne",
+      "description": "The tonne is a unit of mass equal to 1000 kilograms. It is a non-SI unit accepted for use with SI. It is also referred to as a metric ton to distinguish it from the non-metric units of the short ton and the long ton. It is equivalent to approximately 2204.6 pounds, 1.102 short tons, and 0.984 long tons. The official SI unit is the megagram, a less common way to express the same mass.",
+      "spellings": {
+        "plural": "tonnes"
+      }
+    },
+    {
+      "name": "Gram",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Gram",
+      "description": "The gram is a unit of mass equal to one one thousandth of a kilogram. Originally defined as of 1795 as \"the absolute weight of a volume of pure water equal to the cube of the hundredth part of a metre [1 cm3], and at the temperature of melting ice\",[2] the defining temperature (~0 °C) was later changed to 4 °C, the temperature of maximum density of water. However, by the late 19th century, there was an effort to make the base unit the kilogram and the gram a derived unit. In 1960, the new International System of Units defined a gram as one one-thousandth of a kilogram. The kilogram, as of 2019, is defined by the International Bureau of Weights and Measures from the fixed numerical value of the Planck constant.",
+      "spellings": {
+        "plural": "grams"
+      }
+    },
+    {
+      "name": "Ounce",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Ounce",
+      "description": "The ounce is any of several different units of mass, weight or volume and is derived almost unchanged from the uncia, an Ancient Roman unit of measurement.",
+      "spellings": {
+        "plural": "ounces"
+      }
+    },
+
+
+    {
+      "name": "Nanosecond",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Nanosecond",
+      "description": "A nanosecond is a unit of time equal to one billionth of a second. Time units of this granularity are commonly found in telecommunications, pulsed lasers, and related aspects of electronics.",
+      "spellings": {
+        "plural": "nanoseconds"
+      }
+    },
+    {
+      "name": "Microsecond",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Microsecond",
+      "description": "A microsecond is a unit of time equal to one millionth of a second.",
+      "spellings": {
+        "plural": "microseconds"
+      }
+    },
+    {
+      "name": "Millisecond",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Millisecond",
+      "description": "A millisecond is a unit of time equal to one thousandth of a second and to 1000 microseconds. A unit of 10 milliseconds may be called a centisecond, and one of 100 milliseconds a decisecond, but these names are rarely used.",
+      "spellings": {
+        "plural": "milliseconds"
+      }
+    },
+    {
+      "name": "Second",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Second",
+      "description": "The second is the unit of time, historically defined as 1⁄86400 of a day – this factor derived from the division of the day first into 24 hours, then to 60 minutes and finally to 60 seconds each (24 × 60 × 60 = 86400). The current and formal definition in the International System of Units (SI) is more precise.",
+      "spellings": {
+        "plural": "seconds"
+      }
+    },
+    {
+      "name": "Minute",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Minute",
+      "description": "The minute is a unit of time usually equal to 1/60 of an hour, or 60 seconds. In the UTC time standard, a minute on rare occasions has 61 seconds, a consequence of leap seconds. Although not an SI unit, the minute is accepted for use with SI units. ",
+      "spellings": {
+        "plural": "minutes"
+      }
+    },
+    {
+      "name": "Hour",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Hour",
+      "description": "An hour is a unit of time historically reckoned as 1⁄24 of a day and defined contemporarily as exactly 3,600 seconds. There are 60 minutes in an hour, and 24 hours in a day.",
+      "spellings": {
+        "plural": "hours"
+      }
+    },
+    {
+      "name": "Day",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Day",
+      "description": "A day is the time period of a full rotation of the Earth with respect to the Sun. On average, this is 24 hours, 1440 minutes, or 86,400 seconds.",
+      "spellings": {
+        "plural": "days"
+      }
+    },
+    {
+      "name": "Week",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Week",
+      "description": "A week is a unit of time equal to seven days. It is the standard time period used for short cycles of days in most parts of the world. The days are often used to indicate common work days and rest days. Weeks are often mapped against yearly calendars, but are typically not the basis for them, as weeks are not based on astronomy.",
+      "spellings": {
+        "plural": "weeks"
+      }
+    },
+    {
+      "name": "Month",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Month",
+      "description": "A month is a unit of time, used with calendars, that is approximately as long as a natural orbital period of the Moon; the words month and Moon are cognates. The traditional concept arose with the cycle of Moon phases; such lunar months (\"lunations\") are synodic months and last approximately 29.53 days.",
+      "spellings": {
+        "plural": "months"
+      }
+    },
+    {
+      "name": "Year",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Year",
+      "description": "A calendar year is an approximation of the number of days of the Earth's orbital period, as counted in a given calendar. The Gregorian calendar, or modern calendar, presents its calendar year to be either a common year of 365 days or a leap year of 366 days, as do the Julian calendars. For the Gregorian calendar, the average length of the calendar year (the mean year) across the complete leap cycle of 400 years is 365.2425 days (97 out of 400 years are leap years).",
+      "spellings": {
+        "plural": "years"
+      }
+    },
+    {
+      "name": "Decade",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Decade",
+      "description": "A decade (from Ancient Greek) is a period of ten years. Decades may describe any ten-year period, such as those of a person's life, or refer to specific groupings of calendar years.",
+      "spellings": {
+        "plural": "decades"
+      }
+    },
+    {
+      "name": "Century",
+      "lastRevision": "2023-03-11",
+      "url": "https://en.wikipedia.org/wiki/Century",
+      "description": "A century is a period of 100 years. Centuries are numbered ordinally in English and many other languages. The word century comes from the Latin centum, meaning one hundred. A centennial or centenary is a hundredth anniversary, or a celebration of this, typically the remembrance of an event which took place a hundred years earlier.",
+      "spellings": {
+        "plural": "centuries"
+      }
+    }
+  ]
 }

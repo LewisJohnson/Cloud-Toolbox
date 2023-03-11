@@ -8,18 +8,18 @@
 <Breadcrumb Links="@BreadcrumbLinks" />
 
 <div>
-    <div class="d-flex flex-column flex-lg-row flex-wrap px-4 pt-3 calc-container">
-        <div class="mb-3 mb-lg-0 w-100" style="max-width: 400px">
+    <div class="d-flex flex-column flex-lg-row align-items-stretch flex-wrap px-4 pt-3 calc-container" style="max-width:900px">
+        <div class="mb-3 w-100" style="max-width: 400px">
             @Header
         </div>
 
-        <div class="shadow-sm p-2 mb-5 ms-0 ms-lg-3 calc-panel w-100" style="max-width: 400px">
+        <div class="mb-3 ms-lg-3 w-100" style="max-width: 400px">
             @Calculator
         </div>
 
         @if (UnitCalculators != null && UnitCalculators.Count > 0)
         {
-            <div class="d-flex" style="max-width: 400px">
+            <div class="d-flex w-100" style="max-width: 400px">
                 <UnitsInsight UnitCalculators="@UnitCalculators" />
             </div>
         }
@@ -27,13 +27,12 @@
 </div>
 
 <style>
-
-    .calc-panel {
-        background: @Collection.CssCalulatorPanelColour;
+    h1 {
+        background: @Collection.CssCalulatorHeaderBackgroundColour;
     }
 
-    h1, h2 {
-        background: @Collection.CssCalulatorHeaderBackgroundColour;
+    h2 {
+        background: @Collection.CssCalulatorPanelColour;
     }
 
     .btn-collection {

@@ -1,8 +1,16 @@
-﻿.form-flush input.form-control,
+﻿.form-flush .input-group input.form-control {
+    background: #00000003;
+    border-radius: 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-radius: 0;
+}
+
 .form-flush span.input-group-text {
     border-left: 0;
-    border-right: 0;
     border-top: 0;
+    border-right: 0;
     border-radius: 0;
 }
 

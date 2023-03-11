@@ -17,23 +17,23 @@ namespace CloudToolbox.Common.Enums.Units
 		public static UnitCalculatorsEnum Acre = new(8, "Acre", "acre", new() { "ac" }, UnitOfArea.Acre, UnitOf.Area, UnitSystem.Imperial | UnitSystem.Customary);
 
 		// Data Transfer
-		public static UnitCalculatorsEnum BitPerSecond = new(9, "Bit Per Second", "bit/s", new() { }, UnitOfDataTranser.Bit_Per_Second, UnitOf.DataTransfer);
+		public static UnitCalculatorsEnum BitPerSecond = new(9, "Bit Per Second", "bit/s", new() { }, UnitOfDataTranser.Bit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
 
-		public static UnitCalculatorsEnum KilobitPerSecond = new(10, "Kilobit Per Second", "kb/s", new() { "kbit/s", "kbps" }, UnitOfDataTranser.Kilobit_Per_Second, UnitOf.DataTransfer);
-		public static UnitCalculatorsEnum KilobytePerSecond = new(11, "Kilobyte Per Second", "KB/s", new() { "kBps" }, UnitOfDataTranser.Kilobyte_Per_Second, UnitOf.DataTransfer);
-		public static UnitCalculatorsEnum KibibitPerSecond = new(12, "Kibibit Per Second", "Kibit/s", new() { }, UnitOfDataTranser.Kibibit_Per_Second, UnitOf.DataTransfer);
+		public static UnitCalculatorsEnum KilobitPerSecond = new(10, "Kilobit Per Second", "kb/s", new() { "kbit/s", "kbps" }, UnitOfDataTranser.Kilobit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum KilobytePerSecond = new(11, "Kilobyte Per Second", "KB/s", new() { "kBps" }, UnitOfDataTranser.Kilobyte_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum KibibitPerSecond = new(12, "Kibibit Per Second", "Kibit/s", new() { }, UnitOfDataTranser.Kibibit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
 
-		public static UnitCalculatorsEnum MegabitPerSecond = new(13, "Megabit Per Second", "Mbit/s", new() { "Mbit/s", "Mbps" }, UnitOfDataTranser.Megabit_Per_Second, UnitOf.DataTransfer);
-		public static UnitCalculatorsEnum MegabytePerSecond = new(14, "Megabyte Per Second", "MB/s", new() { "MBps" }, UnitOfDataTranser.Megabyte_Per_Second, UnitOf.DataTransfer);
-		public static UnitCalculatorsEnum MebibitPerSecond = new(15, "Mebibit Per Second", "Mibit/s", new() { }, UnitOfDataTranser.Mebibit_Per_Second, UnitOf.DataTransfer);
+		public static UnitCalculatorsEnum MegabitPerSecond = new(13, "Megabit Per Second", "Mbit/s", new() { "Mbit/s", "Mbps" }, UnitOfDataTranser.Megabit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum MegabytePerSecond = new(14, "Megabyte Per Second", "MB/s", new() { "MBps" }, UnitOfDataTranser.Megabyte_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum MebibitPerSecond = new(15, "Mebibit Per Second", "Mibit/s", new() { }, UnitOfDataTranser.Mebibit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
 
-		public static UnitCalculatorsEnum GigabitPerSecond = new(16, "Gigabit Per Second", "Gbit/s", new() { "Gbit/s", "Gbps" }, UnitOfDataTranser.Gigabit_Per_Second, UnitOf.DataTransfer);
-		public static UnitCalculatorsEnum GigabytePerSecond = new(17, "Gigabyte Per Second", "GB/s", new() { "GBps" }, UnitOfDataTranser.Gigabyte_Per_Second, UnitOf.DataTransfer);
-		public static UnitCalculatorsEnum GibibitPerSecond = new(18, "Gibibit Per Second", "Gibit/s", new() { }, UnitOfDataTranser.Gibibit_Per_Second, UnitOf.DataTransfer);
+		public static UnitCalculatorsEnum GigabitPerSecond = new(16, "Gigabit Per Second", "Gbit/s", new() { "Gbit/s", "Gbps" }, UnitOfDataTranser.Gigabit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum GigabytePerSecond = new(17, "Gigabyte Per Second", "GB/s", new() { "GBps" }, UnitOfDataTranser.Gigabyte_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum GibibitPerSecond = new(18, "Gibibit Per Second", "Gibit/s", new() { }, UnitOfDataTranser.Gibibit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
 
-		public static UnitCalculatorsEnum TerabitPerSecond = new(19, "Terabit Per Second", "Tbit/s", new() { "Tbit/s", "Tbps" }, UnitOfDataTranser.Terabit_Per_Second, UnitOf.DataTransfer);
-		public static UnitCalculatorsEnum TerabytePerSecond = new(20, "Terabyte Per Second", "TB/s", new() { "TBps" }, UnitOfDataTranser.Terabyte_Per_Second, UnitOf.DataTransfer);
-		public static UnitCalculatorsEnum TebibitPerSecond = new(21, "Tebibit Per Second", "Tibit/s", new() { }, UnitOfDataTranser.Tebibit_Per_Second, UnitOf.DataTransfer);
+		public static UnitCalculatorsEnum TerabitPerSecond = new(19, "Terabit Per Second", "Tbit/s", new() { "Tbit/s", "Tbps" }, UnitOfDataTranser.Terabit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum TerabytePerSecond = new(20, "Terabyte Per Second", "TB/s", new() { "TBps" }, UnitOfDataTranser.Terabyte_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum TebibitPerSecond = new(21, "Tebibit Per Second", "Tibit/s", new() { }, UnitOfDataTranser.Tebibit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
 
 		// Energy
 		public static UnitCalculatorsEnum Joule = new(22, "Joule", "J", new() { }, UnitOfEnergy.Joule, UnitOf.Energy, UnitSystem.SI);
@@ -48,40 +48,36 @@ namespace CloudToolbox.Common.Enums.Units
 		public static UnitCalculatorsEnum FootPound = new(31, "Foot-pound", "ft⋅lb", new() { }, UnitOfEnergy.Foot_Pound, UnitOf.Energy, UnitSystem.Imperial | UnitSystem.Customary);
 
 		// Length
-		public static UnitCalculatorsEnum Kilometre = new(32, nameof(Kilometre), "km", new() { "Kilometer" }, UnitOfLength.Kilometre, UnitOf.Length);
-		public static UnitCalculatorsEnum Metre = new(33, nameof(Metre), "m", new() { "Meter" }, UnitOfLength.Metre, UnitOf.Length);
-		public static UnitCalculatorsEnum Centimetre = new(34, nameof(Centimetre), "cm", new() { "Centimeter" }, UnitOfLength.Centimetre, UnitOf.Length);
-		public static UnitCalculatorsEnum Millimetre = new(35, nameof(Millimetre), "mm", new() { "Millimeter" }, UnitOfLength.Millimetre, UnitOf.Length);
-		public static UnitCalculatorsEnum Mile = new(36, nameof(Mile), "mi", new() { }, UnitOfLength.Mile, UnitOf.Length);
-		public static UnitCalculatorsEnum Yard = new(37, nameof(Yard), "yd", new() { }, UnitOfLength.Yard, UnitOf.Length);
-		public static UnitCalculatorsEnum Foot = new(38, nameof(Foot), "ft", new() { "Feet" }, UnitOfLength.Foot, UnitOf.Length);
-		public static UnitCalculatorsEnum Inch = new(39, nameof(Inch), "in", new() { }, UnitOfLength.Inch, UnitOf.Length);
+		public static UnitCalculatorsEnum Kilometre = new(32, nameof(Kilometre), "km", new() { "Kilometer" }, UnitOfLength.Kilometre, UnitOf.Length, UnitSystem.SI);
+		public static UnitCalculatorsEnum Metre = new(33, nameof(Metre), "m", new() { "Meter" }, UnitOfLength.Metre, UnitOf.Length, UnitSystem.SI);
+		public static UnitCalculatorsEnum Centimetre = new(34, nameof(Centimetre), "cm", new() { "Centimeter" }, UnitOfLength.Centimetre, UnitOf.Length, UnitSystem.SI);
+		public static UnitCalculatorsEnum Millimetre = new(35, nameof(Millimetre), "mm", new() { "Millimeter" }, UnitOfLength.Millimetre, UnitOf.Length, UnitSystem.SI);
+		public static UnitCalculatorsEnum Mile = new(36, nameof(Mile), "mi", new() { }, UnitOfLength.Mile, UnitOf.Length, UnitSystem.Imperial | UnitSystem.Customary);
+		public static UnitCalculatorsEnum Yard = new(37, nameof(Yard), "yd", new() { }, UnitOfLength.Yard, UnitOf.Length, UnitSystem.Imperial | UnitSystem.Customary);
+		public static UnitCalculatorsEnum Foot = new(38, nameof(Foot), "ft", new() { "Feet" }, UnitOfLength.Foot, UnitOf.Length, UnitSystem.Imperial | UnitSystem.Customary);
+		public static UnitCalculatorsEnum Inch = new(39, nameof(Inch), "in", new() { }, UnitOfLength.Inch, UnitOf.Length, UnitSystem.Imperial | UnitSystem.Customary);
 
 		// Mass
-		public static UnitCalculatorsEnum Kilogram = new(40, nameof(Kilogram), "kg", new() { }, UnitOfMass.Kilogram, UnitOf.Mass);
-		public static UnitCalculatorsEnum Stone = new(41, nameof(Stone), "st", new() { }, UnitOfMass.Stone, UnitOf.Mass);
-		public static UnitCalculatorsEnum Pound = new(42, nameof(Pound), "lbs", new() { }, UnitOfMass.Pound, UnitOf.Mass);
-		public static UnitCalculatorsEnum Tonne = new(43, nameof(Tonne), "t", new() { }, UnitOfMass.Tonne, UnitOf.Mass);
-		public static UnitCalculatorsEnum Gram = new(44, nameof(Gram), "g", new() { }, UnitOfMass.Gram, UnitOf.Mass);
-		public static UnitCalculatorsEnum Ounce = new(45, nameof(Ounce), "oz", new() { }, UnitOfMass.Ounce, UnitOf.Mass);
+		public static UnitCalculatorsEnum Kilogram = new(40, nameof(Kilogram), "kg", new() { "kilogramme" }, UnitOfMass.Kilogram, UnitOf.Mass, UnitSystem.SI);
+		public static UnitCalculatorsEnum Stone = new(41, nameof(Stone), "st", new() { }, UnitOfMass.Stone, UnitOf.Mass, UnitSystem.Imperial);
+		public static UnitCalculatorsEnum Pound = new(42, nameof(Pound), "lb", new() { "pound-mass" }, UnitOfMass.Pound, UnitOf.Mass, UnitSystem.Imperial | UnitSystem.Customary);
+		public static UnitCalculatorsEnum Tonne = new(43, nameof(Tonne), "t", new() { "ton", "metric ton" }, UnitOfMass.Tonne, UnitOf.Mass, UnitSystem.Metric);
+		public static UnitCalculatorsEnum Gram = new(44, nameof(Gram), "g", new() { "gramme" }, UnitOfMass.Gram, UnitOf.Mass, UnitSystem.SI);
+		public static UnitCalculatorsEnum Ounce = new(45, nameof(Ounce), "oz", new() { }, UnitOfMass.Ounce, UnitOf.Mass, UnitSystem.Imperial | UnitSystem.Customary);
 
 		// Time
-		public static UnitCalculatorsEnum Nanosecond = new(46, nameof(Nanosecond), "ns", new() { }, UnitOfTime.Nanosecond, UnitOf.Time);
-		public static UnitCalculatorsEnum Microsecond = new(47, nameof(Microsecond), "μs", new() { }, UnitOfTime.Microsecond, UnitOf.Time);
-		public static UnitCalculatorsEnum Millisecond = new(48, nameof(Millisecond), "ms", new() { }, UnitOfTime.Millisecond, UnitOf.Time);
-		public static UnitCalculatorsEnum Second = new(49, nameof(Second), "s", new() { }, UnitOfTime.Second, UnitOf.Time);
-		public static UnitCalculatorsEnum Minute = new(50, nameof(Minute), "m", new() { }, UnitOfTime.Minute, UnitOf.Time);
-		public static UnitCalculatorsEnum Hour = new(51, nameof(Hour), "h", new() { }, UnitOfTime.Hour, UnitOf.Time);
-		public static UnitCalculatorsEnum Day = new(52, nameof(Day), "d", new() { }, UnitOfTime.Day, UnitOf.Time);
-		public static UnitCalculatorsEnum Week = new(53, nameof(Week), "w", new() { }, UnitOfTime.Week, UnitOf.Time);
-		public static UnitCalculatorsEnum Month = new(54, nameof(Month), "m", new() { }, UnitOfTime.Month, UnitOf.Time);
-		public static UnitCalculatorsEnum Year = new(55, nameof(Year), "year", new() { }, UnitOfTime.Year, UnitOf.Time);
-		public static UnitCalculatorsEnum Decade = new(56, nameof(Decade), nameof(Decade), new() { }, UnitOfTime.Decade, UnitOf.Time);
-		public static UnitCalculatorsEnum Century = new(57, nameof(Century), nameof(Century), new() { }, UnitOfTime.Century, UnitOf.Time);
-
-		public UnitCalculatorsEnum(int id, string name, string abbreviation, List<string> aliases, object unit, UnitOf unitOf) : base(id, name, abbreviation, aliases, unit, unitOf)
-		{
-		}
+		public static UnitCalculatorsEnum Nanosecond = new(46, nameof(Nanosecond), "ns", new() { }, UnitOfTime.Nanosecond, UnitOf.Time, UnitSystem.SI);
+		public static UnitCalculatorsEnum Microsecond = new(47, nameof(Microsecond), "μs", new() { }, UnitOfTime.Microsecond, UnitOf.Time, UnitSystem.SI);
+		public static UnitCalculatorsEnum Millisecond = new(48, nameof(Millisecond), "ms", new() { }, UnitOfTime.Millisecond, UnitOf.Time, UnitSystem.SI);
+		public static UnitCalculatorsEnum Second = new(49, nameof(Second), "s", new() { }, UnitOfTime.Second, UnitOf.Time, UnitSystem.SI);
+		public static UnitCalculatorsEnum Minute = new(50, nameof(Minute), "min", new() { }, UnitOfTime.Minute, UnitOf.Time, UnitSystem.None);
+		public static UnitCalculatorsEnum Hour = new(51, nameof(Hour), "h", new() { "hr" }, UnitOfTime.Hour, UnitOf.Time, UnitSystem.None);
+		public static UnitCalculatorsEnum Day = new(52, nameof(Day), "d", new() { }, UnitOfTime.Day, UnitOf.Time, UnitSystem.None);
+		public static UnitCalculatorsEnum Week = new(53, nameof(Week), "w", new() { }, UnitOfTime.Week, UnitOf.Time, UnitSystem.None);
+		public static UnitCalculatorsEnum Month = new(54, nameof(Month), "m", new() { }, UnitOfTime.Month, UnitOf.Time, UnitSystem.None);
+		public static UnitCalculatorsEnum Year = new(55, nameof(Year), "year", new() { }, UnitOfTime.Year, UnitOf.Time, UnitSystem.None);
+		public static UnitCalculatorsEnum Decade = new(56, nameof(Decade), nameof(Decade), new() { }, UnitOfTime.Decade, UnitOf.Time, UnitSystem.None);
+		public static UnitCalculatorsEnum Century = new(57, nameof(Century), nameof(Century), new() { }, UnitOfTime.Century, UnitOf.Time, UnitSystem.None);
 
 		public UnitCalculatorsEnum(int id, string name, string abbreviation, List<string> aliases, object unit, UnitOf unitOf, UnitSystem unitSystem) : base(id, name, abbreviation, aliases, unit, unitOf, unitSystem)
 		{
