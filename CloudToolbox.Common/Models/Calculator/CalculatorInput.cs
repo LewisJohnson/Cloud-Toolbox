@@ -65,7 +65,12 @@ namespace CloudToolbox.Common.Models.Calculator
 		{
 			get
 			{
-				if (Type == typeof(Checkbox) || Type == typeof(bool) || Type == typeof(string))
+				if (Type == typeof(string))
+				{
+					return !string.IsNullOrWhiteSpace(InputString);
+				}
+
+				if (Type == typeof(Checkbox) || Type == typeof(bool))
 				{
 					return true;
 				}

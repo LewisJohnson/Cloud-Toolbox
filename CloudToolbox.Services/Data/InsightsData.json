@@ -407,6 +407,50 @@
       "spellings": {
         "plural": "centuries"
       }
+    },
+
+    {
+      "name": "Lower Case",
+      "lastRevision": "2023-03-12",
+      "url": "https://en.wikipedia.org/wiki/Lower_case",
+      "description": "Letter case is the distinction between the letters that are in larger uppercase or capitals (or more formally majuscule) and smaller lowercase (or more formally minuscule) in the written representation of certain languages. The writing systems that distinguish between the upper and lowercase have two parallel sets of letters, with each letter in one set usually having an equivalent in the other set. The two case variants are alternative representations of the same letter: they have the same name and pronunciation and are treated identically when sorting in alphabetical order."
+    },
+    {
+      "name": "Upper Case",
+      "lastRevision": "2023-03-12",
+      "url": "https://en.wikipedia.org/wiki/Letter_case#Capitalisation",
+      "description": "Capitalisation is the writing of a word with its first letter in uppercase and the remaining letters in lowercase. Capitalisation rules vary by language and are often quite complex, but in most modern languages that have capitalisation, the first word of every sentence is capitalised, as are all proper nouns."
+    },
+    {
+      "name": "Title Case",
+      "lastRevision": "2023-03-12",
+      "url": "https://en.wikipedia.org/wiki/Title_case",
+      "description": "Title case or headline case is a style of capitalization used for rendering the titles of published works or works of art in English. When using title case, all words are capitalized, except for minor words (typically articles, short prepositions, and some conjunctions) that are not the first or last word of the title. There are different rules for which words are major, hence capitalized."
+    },
+    {
+      "name": "Random Case",
+      "lastRevision": "2023-03-12",
+      "url": "https://en.wikipedia.org/wiki/Randomness",
+      "description": "In common usage, randomness is the apparent or actual lack of pattern or predictability in events. A random sequence of events, symbols or steps often has no order and does not follow an intelligible pattern or combination. The fields of mathematics, probability, and statistics use formal definitions of randomness. In statistics, a random variable is an assignment of a numerical value to each possible outcome of an event space."
+    },
+
+    {
+      "name": "Fuel Required",
+      "lastRevision": "2023-03-12",
+      "url": "https://en.wikipedia.org/wiki/Fuel_economy_in_automobiles",
+      "description": "The fuel economy of an automobile relates distance travelled by a vehicle and the amount of fuel consumed. Consumption can be expressed in terms of volume of fuel to travel a distance, or the distance travelled per unit volume of fuel consumed. Since fuel consumption of vehicles is a significant factor in air pollution, and since importation of motor fuel can be a large part of a nation's foreign trade, many countries impose requirements for fuel economy."
+    },
+    {
+      "name": "Journey Cost",
+      "lastRevision": "2023-03-12",
+      "url": "https://en.wikipedia.org/wiki/Fuel_economy_in_automobiles",
+      "description": "The fuel economy of an automobile relates distance travelled by a vehicle and the amount of fuel consumed. Consumption can be expressed in terms of volume of fuel to travel a distance, or the distance travelled per unit volume of fuel consumed. Since fuel consumption of vehicles is a significant factor in air pollution, and since importation of motor fuel can be a large part of a nation's foreign trade, many countries impose requirements for fuel economy."
+    }
+    {
+      "name": "Mpg Calculator",
+      "lastRevision": "2023-03-12",
+      "url": "https://en.wikipedia.org/wiki/Fuel_economy_in_automobiles",
+      "description": "The fuel economy of an automobile relates distance travelled by a vehicle and the amount of fuel consumed. Consumption can be expressed in terms of volume of fuel to travel a distance, or the distance travelled per unit volume of fuel consumed. Since fuel consumption of vehicles is a significant factor in air pollution, and since importation of motor fuel can be a large part of a nation's foreign trade, many countries impose requirements for fuel economy."
     }
   ]
 }
