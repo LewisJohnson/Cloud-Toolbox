@@ -9,16 +9,12 @@ namespace CloudToolbox.Components.Toolbox
 {
 	public partial class UnitsCalculatorBase : ComponentBase
 	{
-
 		[Parameter] public string UriParam { get; set; }
-
 		[Inject] public IHttpContextAccessor HttpContextAccessor { get; set; }
 		[Inject] public NotFoundService NotFoundService { get; set; }
 
 		protected List<CalculatorInput> Inputs { get; set; }
 		protected List<CalculatorResult> ResultsTemplate { get; set; }
-		protected string? DisplayUnitFromDesc { get; set; }
-		protected string? DisplayUnitToDesc { get; set; }
 		protected UnitCalculatorsEnum? FromCalc { get; set; }
 		protected UnitCalculatorsEnum? ToCalc { get; set; }
 
@@ -57,10 +53,7 @@ namespace CloudToolbox.Components.Toolbox
 				return;
 			}
 
-			DisplayUnitFromDesc = FromCalc.Name + (FromCalc.Abbreviation != FromCalc.Name ? $" ({FromCalc.Abbreviation})" : "");
-			DisplayUnitToDesc = ToCalc.Name + (ToCalc.Abbreviation != ToCalc.Name ? $" ({ToCalc.Abbreviation})" : "");
-
-			Inputs.Add(new("Number", typeof(string)) { EndInputGroupText = FromCalc.Abbreviation });
+			Inputs.Add(new("Number", typeof(double)) { InputDouble = 1, EndInputGroupText = FromCalc.Abbreviation });
 
 			ResultsTemplate.Add(new(null) { EndInputGroupText = ToCalc.Abbreviation });
 		}
@@ -84,7 +77,7 @@ namespace CloudToolbox.Components.Toolbox
 						converted = new UnitOfAreaConverter(((UnitOfArea)FromCalc.Unit, (UnitOfArea)ToCalc.Unit)).Convert(input.Value);
 						break;
 
-					case UnitOf.DataTransfer:
+					case UnitOf.Data_Transfer:
 						converted = new UnitOfDataTranserConverter(((UnitOfDataTranser)FromCalc.Unit, (UnitOfDataTranser)ToCalc.Unit)).Convert(input.Value);
 						break;
 

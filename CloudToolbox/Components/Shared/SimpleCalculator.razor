@@ -24,7 +24,19 @@
                             <span class="input-group-text" for="@input.Id" style="width: @(StartInputGroupWidth)px">@input.StartInputGroupText</span>
                         }
 
-                        @if (input.Type == typeof(string))
+                        @if (input.Type == typeof(DateTime))
+                        {
+                            <input name="@input.Id" class="@formCssClass" type="date" @bind-value="input.InputDateTime" @onchange="OnChange" @bind-value:event="oninput" />
+                        }
+                        else if (input.Type == typeof(TimeOnly))
+                        {
+                            <input name="@input.Id" class="@formCssClass" type="time" @bind-value="input.InputTimeOnly" @onchange="OnChange" @bind-value:event="oninput" />
+                        }
+                        else if (input.Type == typeof(decimal))
+                        {
+                            <input name="@input.Id" id="@input.Id" class="@formCssClass" type="text" inputmode="decimal" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
+                        }
+                        else
                         {
                             if (input.UseLargeInput)
                             {
@@ -34,15 +46,6 @@
                             {
                                 <input name="@input.Id" id="@input.Id" class="@formCssClass" type="text" @bind-value="input.InputString" @onchange="OnChange" @bind-value:event="oninput" />
                             }
-
-                        }
-                        else if (input.Type == typeof(DateTime))
-                        {
-                            <input name="@input.Id" class="@formCssClass" type="date" @bind-value="input.InputDateTime" @onchange="OnChange" @bind-value:event="oninput" />
-                        }
-                        else if (input.Type == typeof(TimeOnly))
-                        {
-                            <input name="@input.Id" class="@formCssClass" type="time" @bind-value="input.InputTimeOnly" @onchange="OnChange" @bind-value:event="oninput" />
                         }
 
                         @if (!string.IsNullOrEmpty(input.EndInputGroupText))
@@ -57,7 +60,6 @@
                     {
                         <div class="form-check mt-2">
                             <input name="@input.Id" class="form-check-input @(!input.IsValid && IsValidating ? input.InvalidCssClass : "")" type="checkbox" @bind-value="input.InputBool" @onchange="OnChange" @bind-value:event="oninput" />
-
                             <label class="form-check-label">@input.EndInputGroupText</label>
                         </div>
                     }

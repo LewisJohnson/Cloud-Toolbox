@@ -1,17 +1,69 @@
-﻿
+﻿@if (FromCalc != null && ToCalc != null)
+{
+    <p>To use this converter, simply enter @fromCalcDisplayText and we'll convert it to @toCalcDisplayText.</p>
 
-<p>To use this converter, simply enter a weight in @FromUnit and we'll convert it to @ToUnit.</p>
+    <hr />
+
+    <div class="row">
+        <div class="col-4">
+            <h5 class="border-bottom">Unit Type</h5>
+
+            <div class="d-block text-center">
+                <p class="m-0 p-0">@UnitHelper.GetUnitOfDisplayName(FromCalc.UnitOf)</p>
+                <i style="font-size: 3rem" class="bi @UnitHelper.GetUnitOfCssIcon(FromCalc.UnitOf)"></i>
+            </div>
+        </div>
+
+        <div class="col-4 border-start">
+            <h5 class="border-bottom">Aliases</h5>
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">@FromCalc.Abbreviation</li>
+                @foreach (var alis in FromCalc.Aliases)
+                {
+                    <li class="list-group-item">@alis</li>
+                }
+
+            </ul>
+        </div>
+
+        <div class="col-4 border-start">
+            <h5 class="border-bottom">Aliases</h5>
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">@ToCalc.Abbreviation</li>
+                @foreach (var alis in ToCalc.Aliases)
+                {
+                    <li class="list-group-item">@alis</li>
+                }
+
+            </ul>
+        </div>
+
+    </div>
+}
 
 @code {
     [Parameter]
-    public string FromUnit { get; set; }
+    public UnitCalculatorsEnum? FromCalc { get; set; }
 
     [Parameter]
-    public string ToUnit { get; set; }
+    public UnitCalculatorsEnum? ToCalc { get; set; }
+
+    private string fromCalcDisplayText { get; set; }
+    private string toCalcDisplayText { get; set; }
+    private string cssIcon { get; set; }
 
     public GenericUnitsCalculatorDescription()
     {
-        FromUnit = string.Empty;
-        ToUnit = string.Empty;
+    }
+
+    protected override void OnParametersSet()
+    {
+        if (FromCalc != null && ToCalc != null)
+        {
+            fromCalcDisplayText = FromCalc.Name + (FromCalc.Abbreviation != FromCalc.Name ? $" ({FromCalc.Abbreviation})" : "");
+            toCalcDisplayText = ToCalc.Name + (ToCalc.Abbreviation != ToCalc.Name ? $" ({ToCalc.Abbreviation})" : "");
+        }
     }
 }

@@ -22,7 +22,7 @@
             var types = Enum.GetValues(typeof(UnitOf));
         }
 
-        <div class="px-4">
+        <div class="px-2 px-lg-4 container-fluid">
             @foreach (UnitOf unitType in types)
             {
                 bool isFirst;
@@ -37,7 +37,8 @@
                     if (from.UnitOf != prevUnitType)
                     {
                         prevUnitType = from.UnitOf;
-                        <h2 class="mt-5 mb-3">@(string.Join("", from.UnitOf.ToString().Select(ch => (char.IsUpper(ch) ? " " : "") + ch)))</h2>
+                        <h2 class="mt-5 mb-3">@UnitHelper.GetUnitOfDisplayName(from.UnitOf) <i class="bi @UnitHelper.GetUnitOfCssIcon(from.UnitOf)"></i></h2>
+                        
                     }
 
                     <div class="btn-group mb-3 w-100">
@@ -51,16 +52,16 @@
                                 if (isFirst)
                                 {
                                     isFirst = false;
-                                    <btn class="btn text-start position-sticky" style="width: 200px; left: 0; z-index: 1;">@from.Name</btn>
+                                    <btn class="btn text-start position-sticky">@from.Name</btn>
                                 }
 
-                                if (unitType == UnitOf.DataTransfer)
+                                if (unitType == UnitOf.Data_Transfer)
                                 {
-                                    <a class="btn" style="width: 100px" href="@uri">@to.ToString().Replace("Per Second", "")</a>
+                                    <a class="btn" href="@uri">@to.ToString().Replace("Per Second", "")</a>
                                 }
                                 else
                                 {
-                                    <a class="btn" style="width: 100px" href="@uri">@to.ToString()</a>
+                                    <a class="btn" href="@uri">@to.ToString()</a>
                                 }
                             }
                         }
@@ -80,6 +81,18 @@
 
     .btn-group {
         box-shadow: 0 .25rem 0.5rem rgba(0,0,0,.15) !important;
+    }
+
+    .btn-group a {
+        width: 100px;
+        min-width: 100px;
+    }
+
+    .btn-group btn {
+        width: 200px;
+        min-width: 200px;
+        left: 0;
+        z-index: 1;
     }
 
     .btn-group:hover btn {
