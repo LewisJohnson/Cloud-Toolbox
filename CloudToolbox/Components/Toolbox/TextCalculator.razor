@@ -3,10 +3,10 @@
 @inherits TextCalculatorBase
 @inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer 
-    MetaPageTitle="@Calc.GetMetaPageTitle()"
-    MetaDescription="@Calc.GetMetaDescription()"
-    Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Text)">
+<SimpleCalculatorContainer MetaPageTitle="@Calc.GetMetaPageTitle()"
+                           MetaDescription="@Calc.GetMetaDescription()"
+                           Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Text)"
+                           CalculatorEnum="Calc">
     <Header>
         <ToolboxHeader Title="@Calc.GetCalculatorHeaderTitle()">
             <Description>
@@ -16,6 +16,11 @@
     </Header>
 
     <Calculator>
-        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+        <SimpleCalculator Inputs="Inputs"
+                          ResultsTemplate="ResultsTemplate"
+                          OnChangeEvent="@OnChange"
+                          ShowCalculateButton="true"
+                          CalculateButtonText="Generate"
+                          CalculatorHeaderText="Converter"></SimpleCalculator>
     </Calculator>
 </SimpleCalculatorContainer>

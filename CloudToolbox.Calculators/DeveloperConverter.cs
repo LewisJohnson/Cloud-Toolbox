@@ -16,7 +16,6 @@ namespace CloudToolbox.Calculators
 
 		public string Convert(string val) => calculator switch
 		{
-
 			(DeveleoperCalculatorDirection.From, DeveloperCalculatorType.Hexadecimal) => FromHex(val),
 			(DeveleoperCalculatorDirection.To, DeveloperCalculatorType.Hexadecimal) => System.Convert.ToHexString(Encoding.UTF8.GetBytes(val)),
 

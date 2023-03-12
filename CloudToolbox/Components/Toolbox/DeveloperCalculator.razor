@@ -4,20 +4,20 @@
 @inherits DeveloperCalculatorBase
 @inject CalculatorCollectionService CollectionService
 
-<SimpleCalculatorContainer 
-    Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Developer)"
-    MetaPageTitle="@Calc.GetMetaPageTitle(Direction)"
-    MetaDescription="@Calc.GetMetaDescription(Direction)">
+<SimpleCalculatorContainer Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Developer)"
+                           MetaPageTitle="@Calc.GetMetaPageTitle(Direction)"
+                           MetaDescription="@Calc.GetMetaDescription(Direction)"
+                           CalculatorEnum="Calc">
     <Header>
         <ToolboxHeader Title="@Calc.GetCalculatorHeaderTitle(Direction)">
             <Description>
                 @if (Direction == DeveleoperCalculatorDirection.From)
                 {
-                        <p>To use this converter, simply insert @Calc.Name into the field and we'll convert it to text.</p>
+                    <p>To use this converter, simply insert @Calc.Name into the field and we'll convert it to text.</p>
                 }
                 else
                 {
-                        <p>To use this converter, simply insert some text into the field and we'll convert it to @Calc.Name.</p>
+                    <p>To use this converter, simply insert some text into the field and we'll convert it to @Calc.Name.</p>
                 }
             </Description>
         </ToolboxHeader>

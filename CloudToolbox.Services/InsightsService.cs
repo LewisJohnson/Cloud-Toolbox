@@ -34,6 +34,13 @@ namespace CloudToolbox.Services
 				return value;
 			}
 
+			KeyValuePair<string, Insight> se = insightsCache.FirstOrDefault(x => x.Key.Contains(searchTerm));
+
+			if (se.Value != null)
+			{
+				return se.Value;
+			}
+
 			return null;
 		}
 

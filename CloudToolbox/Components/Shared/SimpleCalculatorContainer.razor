@@ -1,4 +1,5 @@
 ﻿@inherits SimpleCalculatorContainerBase
+
 <HeadContent>
     <meta name="description" content="@MetaDescription">
 </HeadContent>
@@ -7,23 +8,27 @@
 
 <Breadcrumb Links="@BreadcrumbLinks" />
 
-<div>
-    <div class="d-flex flex-column flex-lg-row align-items-stretch flex-wrap px-4 pt-3 calc-container" style="max-width:900px">
-        <div class="mb-3 w-100" style="max-width: 400px">
-            @Header
-        </div>
-
-        <div class="mb-3 ms-lg-3 w-100" style="max-width: 400px">
-            @Calculator
-        </div>
-
-        @if (UnitCalculators != null && UnitCalculators.Count > 0)
-        {
-            <div class="d-flex w-100" style="max-width: 400px">
-                <UnitsInsight UnitCalculators="@UnitCalculators" />
-            </div>
-        }
+<div class="d-flex flex-column flex-lg-row align-items-stretch flex-wrap px-4 pt-3 calc-container" style="max-width:900px">
+    <div class="mb-3 w-100" style="max-width: 400px">
+        @Header
     </div>
+
+    <div class="mb-3 ms-lg-3 w-100" style="max-width: 400px">
+        @Calculator
+    </div>
+
+    @if (UnitCalculators != null && UnitCalculators.Count > 0)
+    {
+        <div class="d-flex w-100" style="max-width: 400px">
+            <UnitsInsightPanel UnitCalculators="@UnitCalculators" />
+        </div>
+    }
+    else
+    {
+        <div class="d-flex w-100" style="max-width: 400px">
+            <InsightPanel CalculatorEnum="@CalculatorEnum" />
+        </div>
+    }
 </div>
 
 <style>

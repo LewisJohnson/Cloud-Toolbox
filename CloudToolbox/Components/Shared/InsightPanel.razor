@@ -1,0 +1,36 @@
+﻿@if (!hideInsight)
+{
+    <div class="bg-white shadow-sm mb-3 pb-3 w-100">
+        <div class="d-block position-relative">
+            <h2 class="h4 p-2">Insights<br /><small style="font-size: 0.8rem;">Powered by Wikipedia</small></h2>
+        </div>
+
+        <div class="px-3">
+
+            <div class="my-3">
+                <h5 class="me-auto">@CalculatorEnum.Name</h5>
+
+                @if (hasInsightsLoaded)
+                {
+                    if (insight == null)
+                    {
+                        <small class="py-3"><i>Could not retrieve insight.</i></small>
+                    }
+                    else
+                    {
+                        <p class="mb-0 mt-3">
+                            @insight.Description
+                        </p>
+
+                        <a class="btn btn-sm btn-link ps-0" target="_blank" href="@insight.ExternalUrl">Learn more on Wikipedia</a>
+                    }
+                }
+                else
+                {
+                    <div class="bg-light mt-3 w-100" style="height: 200px">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

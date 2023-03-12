@@ -56,7 +56,7 @@ namespace CloudToolbox.Components.Toolbox
 				return;
 			}
 
-			Inputs.Add(new("Text", typeof(string)) { Label = "Text", UseLargeInput = true });
+			Inputs.Add(new("Text", typeof(string)) { InputString = "The Quick Brown Fox Jumps over the Lazy Dog", Label = "Text", UseLargeInput = true });
 			ResultsTemplate.Add(new(null) { Label = Calc.Name, Type = CalculatorResultType.TextArea });
 		}
 
