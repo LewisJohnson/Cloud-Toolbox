@@ -38,6 +38,9 @@ namespace CloudToolbox.Components.Shared
 		[Parameter]
 		public string CalculateButtonText { get; set; } = "Generate";
 
+		[Parameter]
+		public string CalculatorHeaderText { get; set; } = "Calculator";
+
 		public SimpleCalculatorBase()
 		{
 			Inputs = new List<CalculatorInput>();
@@ -56,7 +59,13 @@ namespace CloudToolbox.Components.Shared
 
 		protected async override Task OnInitializedAsync()
 		{
-			await OnChange();
+			if (Inputs.Count > 0)
+			{
+				if (Inputs.First().IsValid)
+				{
+					await OnChange();
+				}
+			}
 		}
 
 		protected async Task OnChange()

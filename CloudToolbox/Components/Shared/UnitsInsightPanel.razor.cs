@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace CloudToolbox.Components.Shared
 {
-	public partial class UnitsInsight : ComponentBase
+	public partial class UnitsInsightPanel : ComponentBase
 	{
 		private readonly Dictionary<string, Insight?> insights;
 		private bool hasInsightsLoaded;
@@ -17,7 +17,7 @@ namespace CloudToolbox.Components.Shared
 		[Parameter]
 		public List<UnitCalculatorsEnum> UnitCalculators { get; set; }
 
-		public UnitsInsight()
+		public UnitsInsightPanel()
 		{
 			UnitCalculators = new List<UnitCalculatorsEnum>();
 			insights = new Dictionary<string, Insight?>();

@@ -1,4 +1,5 @@
 ﻿using CloudToolbox.Common.Data;
+using CloudToolbox.Common.Enums;
 using CloudToolbox.Common.Enums.Units;
 using Microsoft.AspNetCore.Components;
 using static CloudToolbox.Components.Shared.Breadcrumb;
@@ -13,6 +14,7 @@ namespace CloudToolbox.Components.Shared
 		[Parameter] public string MetaPageTitle { get; set; }
 		[Parameter] public string MetaDescription { get; set; }
 		[Parameter] public List<UnitCalculatorsEnum?>? UnitCalculators { get; set; }
+		[Parameter] public Enumeration CalculatorEnum { get; set; }
 
 		[Inject] public NavigationManager NavigationManager { get; set; }
 

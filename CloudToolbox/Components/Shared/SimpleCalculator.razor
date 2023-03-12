@@ -2,7 +2,7 @@
 
 <div class="bg-white shadow-sm">
 
-    <h2 class="h4 p-2">Calculator</h2>
+    <h2 class="h4 p-2">@CalculatorHeaderText</h2>
 
     <div class="p-2">
         @* INPUTS *@
@@ -111,8 +111,8 @@
 
     @if (ShowCalculateButton)
     {
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-collection mt-3" @onclick="OnChange">Generate</button>
+        <div class="p-2 d-flex justify-content-end">
+            <button class="btn btn-collection" @onclick="OnChange">Generate</button>
         </div>
     }
 </div>
