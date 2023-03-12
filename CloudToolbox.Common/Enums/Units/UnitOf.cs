@@ -3,7 +3,7 @@
 	public enum UnitOf
 	{
 		Area,
-		DataTransfer,
+		Data_Transfer,
 		Energy,
 		Length,
 		Mass,
