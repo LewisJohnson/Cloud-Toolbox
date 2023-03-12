@@ -37,7 +37,7 @@ namespace CloudToolbox.Components.Toolbox.Maths
 				else
 				{
 
-					double calc = ((percentage.Value / totalNumber.Value) * 100);
+					double calc = (percentage.Value * totalNumber.Value) / 100;
 					results.Add(new(calc.ToString(Constants.FRONTEND_NUMBER_FORMAT)) { EndInputGroupText = "%" });
 				}
 
