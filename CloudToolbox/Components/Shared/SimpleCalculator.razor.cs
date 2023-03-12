@@ -54,6 +54,11 @@ namespace CloudToolbox.Components.Shared
 			SetResultTemplate();
 		}
 
+		protected async override Task OnInitializedAsync()
+		{
+			await OnChange();
+		}
+
 		protected async Task OnChange()
 		{
 			if (Validate())
