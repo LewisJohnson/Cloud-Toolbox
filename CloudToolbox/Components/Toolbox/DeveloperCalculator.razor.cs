@@ -82,7 +82,16 @@ namespace CloudToolbox.Components.Toolbox
 
 			if (input != null && Calc != null)
 			{
-				string converted = new DeveloperConverter((Direction, Calc.CalcType)).Convert(input);
+				string converted;
+
+				try
+				{
+					converted = new DeveloperConverter((Direction, Calc.CalcType)).Convert(input);
+				}
+				catch (Exception _)
+				{
+					converted = "Invalid input";
+				}
 
 				if (Direction == DeveleoperCalculatorDirection.From)
 				{
