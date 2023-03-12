@@ -1,4 +1,5 @@
-﻿using CloudToolbox.Common.Data;
+﻿using System.Text.RegularExpressions;
+using CloudToolbox.Common.Data;
 using CloudToolbox.Common.Types;
 
 namespace CloudToolbox.Common.Models.Calculator
@@ -26,6 +27,12 @@ namespace CloudToolbox.Common.Models.Calculator
 			}
 			get
 			{
+				if (string.IsNullOrEmpty(InputString))
+				{
+					return null;
+				}
+
+				InputString = Regex.Replace(InputString, "[^0-9\\.]", "");
 				return double.TryParse(InputString, out double num) ? num : null;
 			}
 		}

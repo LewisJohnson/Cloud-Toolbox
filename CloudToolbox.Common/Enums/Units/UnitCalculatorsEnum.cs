@@ -17,23 +17,23 @@ namespace CloudToolbox.Common.Enums.Units
 		public static UnitCalculatorsEnum Acre = new(8, "Acre", "acre", new() { "ac" }, UnitOfArea.Acre, UnitOf.Area, UnitSystem.Imperial | UnitSystem.Customary);
 
 		// Data Transfer
-		public static UnitCalculatorsEnum BitPerSecond = new(9, "Bit Per Second", "bit/s", new() { }, UnitOfDataTranser.Bit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum BitPerSecond = new(9, "Bit Per Second", "bit/s", new() { }, UnitOfDataTranser.Bit_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
 
-		public static UnitCalculatorsEnum KilobitPerSecond = new(10, "Kilobit Per Second", "kb/s", new() { "kbit/s", "kbps" }, UnitOfDataTranser.Kilobit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
-		public static UnitCalculatorsEnum KilobytePerSecond = new(11, "Kilobyte Per Second", "KB/s", new() { "kBps" }, UnitOfDataTranser.Kilobyte_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
-		public static UnitCalculatorsEnum KibibitPerSecond = new(12, "Kibibit Per Second", "Kibit/s", new() { }, UnitOfDataTranser.Kibibit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum KilobitPerSecond = new(10, "Kilobit Per Second", "kb/s", new() { "kbit/s", "kbps" }, UnitOfDataTranser.Kilobit_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
+		public static UnitCalculatorsEnum KilobytePerSecond = new(11, "Kilobyte Per Second", "KB/s", new() { "kBps" }, UnitOfDataTranser.Kilobyte_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
+		public static UnitCalculatorsEnum KibibitPerSecond = new(12, "Kibibit Per Second", "Kibit/s", new() { }, UnitOfDataTranser.Kibibit_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
 
-		public static UnitCalculatorsEnum MegabitPerSecond = new(13, "Megabit Per Second", "Mbit/s", new() { "Mbit/s", "Mbps" }, UnitOfDataTranser.Megabit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
-		public static UnitCalculatorsEnum MegabytePerSecond = new(14, "Megabyte Per Second", "MB/s", new() { "MBps" }, UnitOfDataTranser.Megabyte_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
-		public static UnitCalculatorsEnum MebibitPerSecond = new(15, "Mebibit Per Second", "Mibit/s", new() { }, UnitOfDataTranser.Mebibit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum MegabitPerSecond = new(13, "Megabit Per Second", "Mbit/s", new() { "Mbps" }, UnitOfDataTranser.Megabit_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
+		public static UnitCalculatorsEnum MegabytePerSecond = new(14, "Megabyte Per Second", "MB/s", new() { "MBps" }, UnitOfDataTranser.Megabyte_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
+		public static UnitCalculatorsEnum MebibitPerSecond = new(15, "Mebibit Per Second", "Mibit/s", new() { }, UnitOfDataTranser.Mebibit_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
 
-		public static UnitCalculatorsEnum GigabitPerSecond = new(16, "Gigabit Per Second", "Gbit/s", new() { "Gbit/s", "Gbps" }, UnitOfDataTranser.Gigabit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
-		public static UnitCalculatorsEnum GigabytePerSecond = new(17, "Gigabyte Per Second", "GB/s", new() { "GBps" }, UnitOfDataTranser.Gigabyte_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
-		public static UnitCalculatorsEnum GibibitPerSecond = new(18, "Gibibit Per Second", "Gibit/s", new() { }, UnitOfDataTranser.Gibibit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum GigabitPerSecond = new(16, "Gigabit Per Second", "Gbit/s", new() { "Gbps" }, UnitOfDataTranser.Gigabit_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
+		public static UnitCalculatorsEnum GigabytePerSecond = new(17, "Gigabyte Per Second", "GB/s", new() { "GBps" }, UnitOfDataTranser.Gigabyte_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
+		public static UnitCalculatorsEnum GibibitPerSecond = new(18, "Gibibit Per Second", "Gibit/s", new() { }, UnitOfDataTranser.Gibibit_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
 
-		public static UnitCalculatorsEnum TerabitPerSecond = new(19, "Terabit Per Second", "Tbit/s", new() { "Tbit/s", "Tbps" }, UnitOfDataTranser.Terabit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
-		public static UnitCalculatorsEnum TerabytePerSecond = new(20, "Terabyte Per Second", "TB/s", new() { "TBps" }, UnitOfDataTranser.Terabyte_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
-		public static UnitCalculatorsEnum TebibitPerSecond = new(21, "Tebibit Per Second", "Tibit/s", new() { }, UnitOfDataTranser.Tebibit_Per_Second, UnitOf.DataTransfer, UnitSystem.None);
+		public static UnitCalculatorsEnum TerabitPerSecond = new(19, "Terabit Per Second", "Tbit/s", new() { "Tbps" }, UnitOfDataTranser.Terabit_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
+		public static UnitCalculatorsEnum TerabytePerSecond = new(20, "Terabyte Per Second", "TB/s", new() { "TBps" }, UnitOfDataTranser.Terabyte_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
+		public static UnitCalculatorsEnum TebibitPerSecond = new(21, "Tebibit Per Second", "Tibit/s", new() { }, UnitOfDataTranser.Tebibit_Per_Second, UnitOf.Data_Transfer, UnitSystem.None);
 
 		// Energy
 		public static UnitCalculatorsEnum Joule = new(22, "Joule", "J", new() { }, UnitOfEnergy.Joule, UnitOf.Energy, UnitSystem.SI);
