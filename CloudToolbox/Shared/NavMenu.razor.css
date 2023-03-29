@@ -126,7 +126,7 @@
     .global-search input {
         position: absolute;
         right: 10px;
-        width: 42px;
+        width: 50px;
     }
 
     .global-search input:focus {

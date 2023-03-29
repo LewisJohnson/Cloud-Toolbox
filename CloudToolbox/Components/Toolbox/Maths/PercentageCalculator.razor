@@ -6,18 +6,23 @@
 <SimpleCalculatorContainer 
     Collection="@CollectionService.GetCollectionOfType(CalculatorAreaTypes.Maths)" 
     MetaPageTitle="Percentage Calculator"
-    MetaDescription="Calculate what percent of X is Y for free in the cloud">
+    MetaDescription="Try our Percentage Calculator online for free in the cloud">
     <Header>
         <ToolboxHeader Title="Percentage Calculator">
             <Description>
                 <p>
                     What percent of X is Y? Fill in fields, and we'll calculate it for you.
+                    With our calculator you can calculate percentages for a variety of purposes,
+                    be it tips or discounts.
                 </p>
             </Description>
         </ToolboxHeader>
     </Header>
 
     <Calculator>
-        <SimpleCalculator Inputs="Inputs" ResultsTemplate="ResultsTemplate" OnChangeEvent="@OnChange"></SimpleCalculator>
+        <SimpleCalculator Inputs="PercentInputs" ResultsTemplate="PercentResultsTemplate" CalculatorHeaderText="Percentage" OnChangeEvent="@OnChangePercent"></SimpleCalculator>
+        <SimpleCalculator Inputs="PercentOfInputs" ResultsTemplate="PercentOfResultsTemplate"  CalculatorHeaderText="Percentage of" OnChangeEvent="@OnChangePercentOf"></SimpleCalculator>
+
     </Calculator>
+
 </SimpleCalculatorContainer>
